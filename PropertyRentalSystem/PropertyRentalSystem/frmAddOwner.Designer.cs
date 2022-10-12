@@ -41,11 +41,15 @@ namespace PropertyRentalSystem
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddOwner = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtOwnerIban = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtOwnerIban);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtHomeEircode);
             this.groupBox1.Controls.Add(this.txtEmailAddress);
             this.groupBox1.Controls.Add(this.txtPhoneNumber);
@@ -58,7 +62,7 @@ namespace PropertyRentalSystem
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(16, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(387, 234);
+            this.groupBox1.Size = new System.Drawing.Size(387, 290);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Owner Details";
@@ -150,13 +154,30 @@ namespace PropertyRentalSystem
             // 
             // btnAddOwner
             // 
-            this.btnAddOwner.Location = new System.Drawing.Point(122, 260);
+            this.btnAddOwner.Location = new System.Drawing.Point(122, 301);
             this.btnAddOwner.Name = "btnAddOwner";
             this.btnAddOwner.Size = new System.Drawing.Size(156, 36);
             this.btnAddOwner.TabIndex = 1;
             this.btnAddOwner.Text = "Add Owner";
             this.btnAddOwner.UseVisualStyleBackColor = true;
             this.btnAddOwner.Click += new System.EventHandler(this.btnAddOwner_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(31, 235);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 17);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "IBAN: ";
+            // 
+            // txtOwnerIban
+            // 
+            this.txtOwnerIban.Location = new System.Drawing.Point(84, 235);
+            this.txtOwnerIban.MaxLength = 34;
+            this.txtOwnerIban.Name = "txtOwnerIban";
+            this.txtOwnerIban.Size = new System.Drawing.Size(272, 22);
+            this.txtOwnerIban.TabIndex = 12;
             // 
             // frmAddOwner
             // 
@@ -187,5 +208,7 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.TextBox txtHomeEircode;
         private System.Windows.Forms.TextBox txtEmailAddress;
         private System.Windows.Forms.Button btnAddOwner;
+        private System.Windows.Forms.TextBox txtOwnerIban;
+        private System.Windows.Forms.Label label6;
     }
 }

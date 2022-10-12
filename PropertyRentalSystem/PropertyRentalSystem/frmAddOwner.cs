@@ -86,8 +86,23 @@ namespace PropertyRentalSystem
                 return;
             }
 
+            // IBAN Validation:
+            if (txtOwnerIban.Text.Equals(""))
+            {
+                MessageBox.Show("IBAN Must be Entered", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtOwnerIban.Focus();
+                return;
+            }
+            if (!validIban(txtOwnerIban.Text))
+            {
+
+            }
+
 
             // Set Owner status to 'A' for Active,
+            // Assign Owner an Owner ID.
+
+
             // Save to Data Store once validated.
             // NOT DOING THIS!
 
@@ -100,9 +115,42 @@ namespace PropertyRentalSystem
             txtEmailAddress.Clear();
             txtHomeEircode.Clear();
             txtPhoneNumber.Clear();
+            txtOwnerIban.Clear();
             //Reset focus to first name.
             txtFirstName.Focus();
 
+        }
+
+        private bool validIban(string iban)
+        {
+            Boolean result = true;
+            char[] ibanChars = iban.ToCharArray();
+
+            //Iban's can vary between 22 and 34 characthers.
+            // in Ireland the standard IBAN is 22 characthers in length.
+            // there is other patterns involved but in the interest of simplicity
+            // I am only adding simple validation. testing length and components.
+
+            if (iban.Length < 22 && iban.Length > 34)
+            {
+                result = false;
+            }
+
+
+            // Iban must be composed of only numbers or letters:
+
+            for (int i = 0; i < ibanChars.Length; i++)
+            {
+                if ((ibanChars[i] >= 'a' && ibanChars[i] <= 'z') || (ibanChars[i] >= 'A' && ibanChars[i] <= 'Z') ||
+                    (ibanChars[i] >= '0' && ibanChars[i] <= '9'))
+                {
+
+                }
+                else
+                    result = false;
+            }
+
+            return result;
         }
 
         private bool validPhoneNumber(string phone)

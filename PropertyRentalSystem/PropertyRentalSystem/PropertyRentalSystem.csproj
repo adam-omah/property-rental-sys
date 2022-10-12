@@ -52,6 +52,12 @@
     <Compile Include="frmAddOwner.Designer.cs">
       <DependentUpon>frmAddOwner.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddProperty.Designer.cs">
+      <DependentUpon>frmAddProperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddPropertyType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAddOwner.resx">
       <DependentUpon>frmAddOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddProperty.resx">
+      <DependentUpon>frmAddProperty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddPropertyType.resx">
       <DependentUpon>frmAddPropertyType.cs</DependentUpon>
