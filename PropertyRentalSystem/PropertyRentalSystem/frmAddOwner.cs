@@ -95,7 +95,9 @@ namespace PropertyRentalSystem
             }
             if (!validIban(txtOwnerIban.Text))
             {
-
+                MessageBox.Show("Valid IBAN Must be entered!", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtOwnerIban.Focus();
+                return;
             }
 
 
@@ -208,7 +210,7 @@ namespace PropertyRentalSystem
                 
 
             // checks if following two are numbers:
-            if ((eircodeChars[1] >= '0' && eircodeChars[1] <= '9') || (eircodeChars[2] >= '0' && eircodeChars[2] <= '9'))
+            if ((eircodeChars[1] >= '0' && eircodeChars[1] <= '9') && (eircodeChars[2] >= '0' && eircodeChars[2] <= '9'))
             {
 
             }

@@ -14,7 +14,6 @@ C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRent
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\bin\Debug\PropertyRentalSystem.exe
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\bin\Debug\PropertyRentalSystem.pdb
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.csproj.AssemblyReference.cache
-C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmAddEstateAgent.resources
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmAddOwner.resources
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmAddPropertyType.resources
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmPFRHome.resources
@@ -23,3 +22,4 @@ C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRent
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.csproj.CoreCompileInputs.cache
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.exe
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.pdb
+C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmAddProperty.resources
