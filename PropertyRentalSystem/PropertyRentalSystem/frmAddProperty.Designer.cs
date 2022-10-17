@@ -30,6 +30,7 @@ namespace PropertyRentalSystem
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rtxPropertyDescription = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -41,8 +42,31 @@ namespace PropertyRentalSystem
             this.label2 = new System.Windows.Forms.Label();
             this.cboActiveOwnerList = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.rtxPropertyDescription = new System.Windows.Forms.RichTextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.chkGardenSpace = new System.Windows.Forms.CheckBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
+            this.numTotalBathrooms = new System.Windows.Forms.NumericUpDown();
+            this.numEnsuiteBedrooms = new System.Windows.Forms.NumericUpDown();
+            this.numTotalBedrooms = new System.Windows.Forms.NumericUpDown();
+            this.numTotalRooms = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cboHeatingSource = new System.Windows.Forms.ComboBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTotalBathrooms)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numEnsuiteBedrooms)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTotalBedrooms)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTotalRooms)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -65,6 +89,14 @@ namespace PropertyRentalSystem
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Property Details";
+            // 
+            // rtxPropertyDescription
+            // 
+            this.rtxPropertyDescription.Location = new System.Drawing.Point(8, 239);
+            this.rtxPropertyDescription.Name = "rtxPropertyDescription";
+            this.rtxPropertyDescription.Size = new System.Drawing.Size(480, 122);
+            this.rtxPropertyDescription.TabIndex = 11;
+            this.rtxPropertyDescription.Text = "";
             // 
             // label6
             // 
@@ -164,25 +196,203 @@ namespace PropertyRentalSystem
             this.label1.TabIndex = 0;
             this.label1.Text = "Property Owner: ";
             // 
-            // rtxPropertyDescription
+            // groupBox2
             // 
-            this.rtxPropertyDescription.Location = new System.Drawing.Point(8, 239);
-            this.rtxPropertyDescription.Name = "rtxPropertyDescription";
-            this.rtxPropertyDescription.Size = new System.Drawing.Size(480, 122);
-            this.rtxPropertyDescription.TabIndex = 11;
-            this.rtxPropertyDescription.Text = "";
+            this.groupBox2.Controls.Add(this.checkBox3);
+            this.groupBox2.Controls.Add(this.checkBox2);
+            this.groupBox2.Controls.Add(this.checkBox1);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.chkGardenSpace);
+            this.groupBox2.Controls.Add(this.numericUpDown1);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.numTotalBathrooms);
+            this.groupBox2.Controls.Add(this.numEnsuiteBedrooms);
+            this.groupBox2.Controls.Add(this.numTotalBedrooms);
+            this.groupBox2.Controls.Add(this.numTotalRooms);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Location = new System.Drawing.Point(19, 384);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(494, 153);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Property Extras";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(240, 60);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(114, 17);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "Heating Source: ";
+            // 
+            // chkGardenSpace
+            // 
+            this.chkGardenSpace.AutoSize = true;
+            this.chkGardenSpace.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkGardenSpace.Location = new System.Drawing.Point(228, 90);
+            this.chkGardenSpace.Name = "chkGardenSpace";
+            this.chkGardenSpace.Size = new System.Drawing.Size(126, 21);
+            this.chkGardenSpace.TabIndex = 11;
+            this.chkGardenSpace.Text = "Garden Space:";
+            this.chkGardenSpace.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(361, 29);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(57, 22);
+            this.numericUpDown1.TabIndex = 10;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(240, 29);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(115, 17);
+            this.label12.TabIndex = 9;
+            this.label12.Text = "Parking Spaces: ";
+            // 
+            // numTotalBathrooms
+            // 
+            this.numTotalBathrooms.Location = new System.Drawing.Point(137, 120);
+            this.numTotalBathrooms.Name = "numTotalBathrooms";
+            this.numTotalBathrooms.Size = new System.Drawing.Size(57, 22);
+            this.numTotalBathrooms.TabIndex = 7;
+            // 
+            // numEnsuiteBedrooms
+            // 
+            this.numEnsuiteBedrooms.Location = new System.Drawing.Point(137, 89);
+            this.numEnsuiteBedrooms.Name = "numEnsuiteBedrooms";
+            this.numEnsuiteBedrooms.Size = new System.Drawing.Size(57, 22);
+            this.numEnsuiteBedrooms.TabIndex = 6;
+            // 
+            // numTotalBedrooms
+            // 
+            this.numTotalBedrooms.Location = new System.Drawing.Point(137, 58);
+            this.numTotalBedrooms.Name = "numTotalBedrooms";
+            this.numTotalBedrooms.Size = new System.Drawing.Size(57, 22);
+            this.numTotalBedrooms.TabIndex = 5;
+            // 
+            // numTotalRooms
+            // 
+            this.numTotalRooms.Location = new System.Drawing.Point(137, 27);
+            this.numTotalRooms.Name = "numTotalRooms";
+            this.numTotalRooms.Size = new System.Drawing.Size(57, 22);
+            this.numTotalRooms.TabIndex = 4;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(11, 120);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(120, 17);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Total Bathrooms: ";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(11, 89);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(131, 17);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Ensuite Bedrooms: ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(11, 58);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(111, 17);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Total Bedooms: ";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(11, 29);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(96, 17);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Total Rooms: ";
+            // 
+            // cboHeatingSource
+            // 
+            this.cboHeatingSource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboHeatingSource.FormattingEnabled = true;
+            this.cboHeatingSource.Location = new System.Drawing.Point(371, 444);
+            this.cboHeatingSource.Name = "cboHeatingSource";
+            this.cboHeatingSource.Size = new System.Drawing.Size(136, 24);
+            this.cboHeatingSource.Sorted = true;
+            this.cboHeatingSource.TabIndex = 12;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox1.Location = new System.Drawing.Point(363, 90);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(114, 21);
+            this.checkBox1.TabIndex = 13;
+            this.checkBox1.Text = "Wifi Included:";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox2.Location = new System.Drawing.Point(232, 126);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(114, 21);
+            this.checkBox2.TabIndex = 14;
+            this.checkBox2.Text = "Pets Allowed:";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox3.Location = new System.Drawing.Point(352, 126);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(139, 21);
+            this.checkBox3.TabIndex = 15;
+            this.checkBox3.Text = "Owner Occupied:";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(142, 543);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(232, 28);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Add Property";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // frmAddProperty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 562);
+            this.ClientSize = new System.Drawing.Size(524, 583);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cboHeatingSource);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmAddProperty";
             this.Text = "Perfect Fit Rentals - [Add Property]";
             this.Load += new System.EventHandler(this.frmAddProperty_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTotalBathrooms)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numEnsuiteBedrooms)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTotalBedrooms)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTotalRooms)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -202,5 +412,23 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.RichTextBox rtxPropertyDescription;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown numTotalBathrooms;
+        private System.Windows.Forms.NumericUpDown numEnsuiteBedrooms;
+        private System.Windows.Forms.NumericUpDown numTotalBedrooms;
+        private System.Windows.Forms.NumericUpDown numTotalRooms;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.CheckBox chkGardenSpace;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.ComboBox cboHeatingSource;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

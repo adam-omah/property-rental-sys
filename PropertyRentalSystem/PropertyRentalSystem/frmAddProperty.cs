@@ -33,7 +33,5 @@ namespace PropertyRentalSystem
             cboPropertyType.Items.Add("AP - Apartment");
             cboPropertyType.Items.Add("TH - Town House");
         }
-
-
     }
 }
