@@ -32,17 +32,20 @@ namespace PropertyRentalSystem
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rtxPropertyDescription = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtMonthlyRent = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtEircode = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPropertyName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cboPropertyType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cboActiveOwnerList = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkOwnerOccupied = new System.Windows.Forms.CheckBox();
+            this.chkPetsAllowed = new System.Windows.Forms.CheckBox();
+            this.chkHasWifi = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
             this.chkGardenSpace = new System.Windows.Forms.CheckBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -56,10 +59,7 @@ namespace PropertyRentalSystem
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cboHeatingSource = new System.Windows.Forms.ComboBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddProperty = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -73,11 +73,11 @@ namespace PropertyRentalSystem
             // 
             this.groupBox1.Controls.Add(this.rtxPropertyDescription);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtMonthlyRent);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtEircode);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtPropertyName);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cboPropertyType);
             this.groupBox1.Controls.Add(this.label2);
@@ -107,13 +107,13 @@ namespace PropertyRentalSystem
             this.label6.TabIndex = 10;
             this.label6.Text = "Property Description: ";
             // 
-            // textBox3
+            // txtMonthlyRent
             // 
-            this.textBox3.Location = new System.Drawing.Point(158, 186);
-            this.textBox3.MaxLength = 16;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(150, 22);
-            this.textBox3.TabIndex = 9;
+            this.txtMonthlyRent.Location = new System.Drawing.Point(158, 186);
+            this.txtMonthlyRent.MaxLength = 16;
+            this.txtMonthlyRent.Name = "txtMonthlyRent";
+            this.txtMonthlyRent.Size = new System.Drawing.Size(150, 22);
+            this.txtMonthlyRent.TabIndex = 9;
             // 
             // label5
             // 
@@ -124,13 +124,13 @@ namespace PropertyRentalSystem
             this.label5.TabIndex = 8;
             this.label5.Text = "Monthly Rental Price: ";
             // 
-            // textBox2
+            // txtEircode
             // 
-            this.textBox2.Location = new System.Drawing.Point(120, 151);
-            this.textBox2.MaxLength = 7;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(188, 22);
-            this.textBox2.TabIndex = 7;
+            this.txtEircode.Location = new System.Drawing.Point(120, 151);
+            this.txtEircode.MaxLength = 7;
+            this.txtEircode.Name = "txtEircode";
+            this.txtEircode.Size = new System.Drawing.Size(188, 22);
+            this.txtEircode.TabIndex = 7;
             // 
             // label4
             // 
@@ -141,13 +141,13 @@ namespace PropertyRentalSystem
             this.label4.TabIndex = 6;
             this.label4.Text = "Eircode: ";
             // 
-            // textBox1
+            // txtPropertyName
             // 
-            this.textBox1.Location = new System.Drawing.Point(184, 113);
-            this.textBox1.MaxLength = 100;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(290, 22);
-            this.textBox1.TabIndex = 5;
+            this.txtPropertyName.Location = new System.Drawing.Point(184, 113);
+            this.txtPropertyName.MaxLength = 100;
+            this.txtPropertyName.Name = "txtPropertyName";
+            this.txtPropertyName.Size = new System.Drawing.Size(290, 22);
+            this.txtPropertyName.TabIndex = 5;
             // 
             // label3
             // 
@@ -198,9 +198,9 @@ namespace PropertyRentalSystem
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.checkBox3);
-            this.groupBox2.Controls.Add(this.checkBox2);
-            this.groupBox2.Controls.Add(this.checkBox1);
+            this.groupBox2.Controls.Add(this.chkOwnerOccupied);
+            this.groupBox2.Controls.Add(this.chkPetsAllowed);
+            this.groupBox2.Controls.Add(this.chkHasWifi);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.chkGardenSpace);
             this.groupBox2.Controls.Add(this.numericUpDown1);
@@ -219,6 +219,39 @@ namespace PropertyRentalSystem
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Property Extras";
+            // 
+            // chkOwnerOccupied
+            // 
+            this.chkOwnerOccupied.AutoSize = true;
+            this.chkOwnerOccupied.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkOwnerOccupied.Location = new System.Drawing.Point(352, 126);
+            this.chkOwnerOccupied.Name = "chkOwnerOccupied";
+            this.chkOwnerOccupied.Size = new System.Drawing.Size(139, 21);
+            this.chkOwnerOccupied.TabIndex = 15;
+            this.chkOwnerOccupied.Text = "Owner Occupied:";
+            this.chkOwnerOccupied.UseVisualStyleBackColor = true;
+            // 
+            // chkPetsAllowed
+            // 
+            this.chkPetsAllowed.AutoSize = true;
+            this.chkPetsAllowed.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkPetsAllowed.Location = new System.Drawing.Point(232, 126);
+            this.chkPetsAllowed.Name = "chkPetsAllowed";
+            this.chkPetsAllowed.Size = new System.Drawing.Size(114, 21);
+            this.chkPetsAllowed.TabIndex = 14;
+            this.chkPetsAllowed.Text = "Pets Allowed:";
+            this.chkPetsAllowed.UseVisualStyleBackColor = true;
+            // 
+            // chkHasWifi
+            // 
+            this.chkHasWifi.AutoSize = true;
+            this.chkHasWifi.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkHasWifi.Location = new System.Drawing.Point(363, 90);
+            this.chkHasWifi.Name = "chkHasWifi";
+            this.chkHasWifi.Size = new System.Drawing.Size(114, 21);
+            this.chkHasWifi.TabIndex = 13;
+            this.chkHasWifi.Text = "Wifi Included:";
+            this.chkHasWifi.UseVisualStyleBackColor = true;
             // 
             // label11
             // 
@@ -330,54 +363,22 @@ namespace PropertyRentalSystem
             this.cboHeatingSource.Sorted = true;
             this.cboHeatingSource.TabIndex = 12;
             // 
-            // checkBox1
+            // btnAddProperty
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox1.Location = new System.Drawing.Point(363, 90);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(114, 21);
-            this.checkBox1.TabIndex = 13;
-            this.checkBox1.Text = "Wifi Included:";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox2.Location = new System.Drawing.Point(232, 126);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(114, 21);
-            this.checkBox2.TabIndex = 14;
-            this.checkBox2.Text = "Pets Allowed:";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox3.Location = new System.Drawing.Point(352, 126);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(139, 21);
-            this.checkBox3.TabIndex = 15;
-            this.checkBox3.Text = "Owner Occupied:";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(142, 543);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(232, 28);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Add Property";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAddProperty.Location = new System.Drawing.Point(142, 543);
+            this.btnAddProperty.Name = "btnAddProperty";
+            this.btnAddProperty.Size = new System.Drawing.Size(232, 28);
+            this.btnAddProperty.TabIndex = 13;
+            this.btnAddProperty.Text = "Add Property";
+            this.btnAddProperty.UseVisualStyleBackColor = true;
+            this.btnAddProperty.Click += new System.EventHandler(this.btnAddProperty_Click);
             // 
             // frmAddProperty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 583);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAddProperty);
             this.Controls.Add(this.cboHeatingSource);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -405,12 +406,12 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.ComboBox cboPropertyType;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPropertyName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtMonthlyRent;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtEircode;
         private System.Windows.Forms.RichTextBox rtxPropertyDescription;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label9;
@@ -426,9 +427,9 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.CheckBox chkGardenSpace;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.ComboBox cboHeatingSource;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox chkOwnerOccupied;
+        private System.Windows.Forms.CheckBox chkPetsAllowed;
+        private System.Windows.Forms.CheckBox chkHasWifi;
+        private System.Windows.Forms.Button btnAddProperty;
     }
 }

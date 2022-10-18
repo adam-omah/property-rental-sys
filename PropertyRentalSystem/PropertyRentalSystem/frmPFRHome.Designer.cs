@@ -85,6 +85,7 @@ namespace PropertyRentalSystem
             this.mnuPFRAddProperty.Name = "mnuPFRAddProperty";
             this.mnuPFRAddProperty.Size = new System.Drawing.Size(236, 26);
             this.mnuPFRAddProperty.Text = "Add Property";
+            this.mnuPFRAddProperty.Click += new System.EventHandler(this.mnuPFRAddProperty_Click);
             // 
             // mnuPFRUpdateProperty
             // 
@@ -117,14 +118,14 @@ namespace PropertyRentalSystem
             // mnuAddOwner
             // 
             this.mnuAddOwner.Name = "mnuAddOwner";
-            this.mnuAddOwner.Size = new System.Drawing.Size(224, 26);
+            this.mnuAddOwner.Size = new System.Drawing.Size(188, 26);
             this.mnuAddOwner.Text = "Add Owner";
             this.mnuAddOwner.Click += new System.EventHandler(this.mnuAddOwner_Click);
             // 
             // mnuUpdateOwner
             // 
             this.mnuUpdateOwner.Name = "mnuUpdateOwner";
-            this.mnuUpdateOwner.Size = new System.Drawing.Size(224, 26);
+            this.mnuUpdateOwner.Size = new System.Drawing.Size(188, 26);
             this.mnuUpdateOwner.Text = "Update Owner";
             // 
             // rentalsToolStripMenuItem

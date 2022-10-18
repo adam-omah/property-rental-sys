@@ -72,6 +72,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="validationFunctions.cs" />
     <EmbeddedResource Include="frmAddOwner.resx">
       <DependentUpon>frmAddOwner.cs</DependentUpon>
     </EmbeddedResource>

@@ -33,5 +33,11 @@ namespace PropertyRentalSystem
             var addOwner = new frmAddOwner();
             addOwner.Show();
         }
+
+        private void mnuPFRAddProperty_Click(object sender, EventArgs e)
+        {
+            var addProperty = new frmAddProperty();
+            addProperty.Show();
+        }
     }
 }
