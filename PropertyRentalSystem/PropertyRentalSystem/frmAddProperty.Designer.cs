@@ -48,7 +48,7 @@ namespace PropertyRentalSystem
             this.chkHasWifi = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
             this.chkGardenSpace = new System.Windows.Forms.CheckBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numParkingSpaces = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.numTotalBathrooms = new System.Windows.Forms.NumericUpDown();
             this.numEnsuiteBedrooms = new System.Windows.Forms.NumericUpDown();
@@ -62,7 +62,7 @@ namespace PropertyRentalSystem
             this.btnAddProperty = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numParkingSpaces)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTotalBathrooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numEnsuiteBedrooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTotalBedrooms)).BeginInit();
@@ -85,7 +85,7 @@ namespace PropertyRentalSystem
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(20, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(494, 371);
+            this.groupBox1.Size = new System.Drawing.Size(520, 371);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Property Details";
@@ -203,7 +203,7 @@ namespace PropertyRentalSystem
             this.groupBox2.Controls.Add(this.chkHasWifi);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.chkGardenSpace);
-            this.groupBox2.Controls.Add(this.numericUpDown1);
+            this.groupBox2.Controls.Add(this.numParkingSpaces);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.numTotalBathrooms);
             this.groupBox2.Controls.Add(this.numEnsuiteBedrooms);
@@ -215,7 +215,7 @@ namespace PropertyRentalSystem
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Location = new System.Drawing.Point(19, 384);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(494, 153);
+            this.groupBox2.Size = new System.Drawing.Size(521, 153);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Property Extras";
@@ -273,12 +273,17 @@ namespace PropertyRentalSystem
             this.chkGardenSpace.Text = "Garden Space:";
             this.chkGardenSpace.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown1
+            // numParkingSpaces
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(361, 29);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(57, 22);
-            this.numericUpDown1.TabIndex = 10;
+            this.numParkingSpaces.Location = new System.Drawing.Point(361, 29);
+            this.numParkingSpaces.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numParkingSpaces.Name = "numParkingSpaces";
+            this.numParkingSpaces.Size = new System.Drawing.Size(57, 22);
+            this.numParkingSpaces.TabIndex = 10;
             // 
             // label12
             // 
@@ -291,14 +296,24 @@ namespace PropertyRentalSystem
             // 
             // numTotalBathrooms
             // 
-            this.numTotalBathrooms.Location = new System.Drawing.Point(137, 120);
+            this.numTotalBathrooms.Location = new System.Drawing.Point(137, 91);
+            this.numTotalBathrooms.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
             this.numTotalBathrooms.Name = "numTotalBathrooms";
             this.numTotalBathrooms.Size = new System.Drawing.Size(57, 22);
             this.numTotalBathrooms.TabIndex = 7;
             // 
             // numEnsuiteBedrooms
             // 
-            this.numEnsuiteBedrooms.Location = new System.Drawing.Point(137, 89);
+            this.numEnsuiteBedrooms.Location = new System.Drawing.Point(137, 119);
+            this.numEnsuiteBedrooms.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
             this.numEnsuiteBedrooms.Name = "numEnsuiteBedrooms";
             this.numEnsuiteBedrooms.Size = new System.Drawing.Size(57, 22);
             this.numEnsuiteBedrooms.TabIndex = 6;
@@ -306,6 +321,11 @@ namespace PropertyRentalSystem
             // numTotalBedrooms
             // 
             this.numTotalBedrooms.Location = new System.Drawing.Point(137, 58);
+            this.numTotalBedrooms.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
             this.numTotalBedrooms.Name = "numTotalBedrooms";
             this.numTotalBedrooms.Size = new System.Drawing.Size(57, 22);
             this.numTotalBedrooms.TabIndex = 5;
@@ -313,6 +333,11 @@ namespace PropertyRentalSystem
             // numTotalRooms
             // 
             this.numTotalRooms.Location = new System.Drawing.Point(137, 27);
+            this.numTotalRooms.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
             this.numTotalRooms.Name = "numTotalRooms";
             this.numTotalRooms.Size = new System.Drawing.Size(57, 22);
             this.numTotalRooms.TabIndex = 4;
@@ -320,7 +345,7 @@ namespace PropertyRentalSystem
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(11, 120);
+            this.label10.Location = new System.Drawing.Point(11, 91);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(120, 17);
             this.label10.TabIndex = 3;
@@ -329,7 +354,7 @@ namespace PropertyRentalSystem
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(11, 89);
+            this.label9.Location = new System.Drawing.Point(8, 121);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(131, 17);
             this.label9.TabIndex = 2;
@@ -365,7 +390,7 @@ namespace PropertyRentalSystem
             // 
             // btnAddProperty
             // 
-            this.btnAddProperty.Location = new System.Drawing.Point(142, 543);
+            this.btnAddProperty.Location = new System.Drawing.Point(168, 543);
             this.btnAddProperty.Name = "btnAddProperty";
             this.btnAddProperty.Size = new System.Drawing.Size(232, 28);
             this.btnAddProperty.TabIndex = 13;
@@ -377,7 +402,7 @@ namespace PropertyRentalSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 583);
+            this.ClientSize = new System.Drawing.Size(552, 583);
             this.Controls.Add(this.btnAddProperty);
             this.Controls.Add(this.cboHeatingSource);
             this.Controls.Add(this.groupBox2);
@@ -389,7 +414,7 @@ namespace PropertyRentalSystem
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numParkingSpaces)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTotalBathrooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numEnsuiteBedrooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTotalBedrooms)).EndInit();
@@ -425,7 +450,7 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox chkGardenSpace;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numParkingSpaces;
         private System.Windows.Forms.ComboBox cboHeatingSource;
         private System.Windows.Forms.CheckBox chkOwnerOccupied;
         private System.Windows.Forms.CheckBox chkPetsAllowed;

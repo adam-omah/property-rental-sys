@@ -8,13 +8,13 @@ namespace PropertyRentalSystem
 {
     public class validationFunctions
     {
-        public static bool validNumber(string number)
+        public static bool validPositiveNumber(string number)
         {
             bool result = true;
             char[] numberChars = number.ToCharArray();
             int dots = 0;
 
-            // valid numbers must be numeric and only contain one '.' symbol
+            // valid numbers must be numeric and only contain one '.' symbol - is not allowed.
 
             for (int i = 0; i < numberChars.Length; i++)
             {
@@ -188,4 +188,4 @@ namespace PropertyRentalSystem
         }
     }
 }
-}
+

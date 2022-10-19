@@ -103,17 +103,66 @@ namespace PropertyRentalSystem
             }
 
             // moved validation of numbers to a public helper class to make it more gloabl.
-            bool isValidNum = validationFunctions.validNumber(txtMonthlyRent.Text);
+            bool isValidNum = validationFunctions.validPositiveNumber(txtMonthlyRent.Text);
             if (!isValidNum)
             {
-                MessageBox.Show("Invalid Monthly Rent\nMust be numeric value with only one decimal .", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid Monthly Rent\nMust be Positive Numeric value with only one decimal .", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtMonthlyRent.Focus();
                 return;
             }
 
 
+            // check if property Description is empty
+            if (rtxPropertyDescription.Text.Equals(""))
+            {
+                MessageBox.Show("Property Description must be entered", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                rtxPropertyDescription.Focus();
+                return;
+            }
 
-            
+
+            // number up down does not allow negative values.
+
+            //check if total rooms is more than 0
+            if(numTotalRooms.Value == 0)
+            {
+                MessageBox.Show("A property must have atleast One Room!", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                numTotalRooms.Focus();
+                return;
+            }
+
+            // check if total bedrooms is more than total rooms.
+            if (numTotalRooms.Value < numTotalBedrooms.Value)
+            {
+                MessageBox.Show("Number of bedrooms cannot be greater than total rooms!", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                numTotalBedrooms.Focus();
+                return;
+            }
+            // check if Ensuite bedrooms is more than total Bedrooms.
+            if (numTotalBedrooms.Value < numEnsuiteBedrooms.Value)
+            {
+                MessageBox.Show("Number of Ensuite Bedrooms cannot be greater than Total Bedrooms!", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                numEnsuiteBedrooms.Focus();
+                return;
+            }
+
+            // check if total ensuite bedrooms is more than total bathrooms.
+            if (numTotalBathrooms.Value < numEnsuiteBedrooms.Value)
+            {
+                MessageBox.Show("Number of Ensuite Bedrooms cannot be greater than Total Bathrooms!", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                numEnsuiteBedrooms.Focus();
+                return;
+            }
+
+            // check if total bedrooms + total bathrooms is more than total rooms.
+            if (numTotalRooms.Value < (numTotalBedrooms.Value + numTotalBathrooms.Value))
+            {
+                MessageBox.Show("Number of bedrooms and bathrooms cannot be greater than total rooms!\nIncrease total rooms or rectify bedrooms/bathrooms", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                numTotalRooms.Focus();
+                return;
+            }
+
+            // check if heating source was selected.
             if (cboHeatingSource.SelectedIndex == -1)
             {
                 MessageBox.Show("Heating Source must be Selected!", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -123,53 +172,64 @@ namespace PropertyRentalSystem
 
 
 
-
             // Give property Appropriate Property ID.
+            // Set Property status to Available.
             // Save Property to Properties Data Store.
             // NOT DOING THIS!
+
+
             // Show confirmation message.
+            MessageBox.Show("Property has been sucessfully added to the Properties Data Store", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
             // Reset UI.
             cboActiveOwnerList.SelectedIndex = -1;
             cboPropertyType.SelectedIndex = -1;
             cboHeatingSource.SelectedIndex = -1;
+            txtPropertyName.Clear();
+            txtEircode.Clear();
+            txtMonthlyRent.Clear();
+            rtxPropertyDescription.Clear();
+
+            numTotalRooms.Value = 0;
+            numTotalBedrooms.Value = 0;
+            numTotalBathrooms.Value = 0;
+            numEnsuiteBedrooms.Value = 0;
+            numParkingSpaces.Value = 0;
+
+            chkGardenSpace.Checked = false;
+            chkHasWifi.Checked = false;
+            chkOwnerOccupied.Checked = false;
+            chkPetsAllowed.Checked = false;
+
+
+            txtPropertyName.Focus();
 
         }
 
-        private bool validNumber(string rent)
+        private bool validPropertyName(string text)
         {
             bool result = true;
-            char[] rentChars = rent.ToCharArray();
-            int dots = 0;
+            Char[] nameChars = text.ToCharArray();
 
-            // valid numbers must be numeric and only contain one '.' symbol
 
-            for (int i = 0; i < rentChars.Length; i++)
+            for (int i = 0; i < nameChars.Length; i++)
             {
-                if ( rentChars[i] == '.' || (rentChars[i] >= '0' && rentChars[i] <= '9'))
+                // Allowed chars in property name are normal english letters &
+                // spaces, numbers and 's.
+                if (nameChars[i] == '\'' || nameChars[i] == ' '
+                    || (nameChars[i] >= 'a' && nameChars[i] <= 'z') || (nameChars[i] >= 'A' && nameChars[i] <= 'Z')
+                    || (nameChars[i] >= '0' && nameChars[i] <= '9'))
                 {
-                    if (rentChars[i] == '.')
-                    {
-                        if (dots == 1)
-                        {
-                            result = false;
-                        }
-                        else
-                            dots++;
 
-                    }
                 }
                 else
                     result = false;
             }
 
+
             return result;
-        }
-
-        
-
-        
+        }  
 
     }
 }
