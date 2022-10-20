@@ -30,20 +30,20 @@ namespace PropertyRentalSystem
         private void InitializeComponent()
         {
             this.mnuPFRMainMenu = new System.Windows.Forms.MenuStrip();
+            this.ownersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAddOwner = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuUpdateOwner = new System.Windows.Forms.ToolStripMenuItem();
             this.propertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPFRAddProperty = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPFRUpdateProperty = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPFRAddPropertyType = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPFRUpdatePropertyType = new System.Windows.Forms.ToolStripMenuItem();
-            this.ownersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuAddOwner = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuUpdateOwner = new System.Windows.Forms.ToolStripMenuItem();
-            this.rentalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuCreateRental = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuUpdateRental = new System.Windows.Forms.ToolStripMenuItem();
             this.tenantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAddTenant = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuUpdateTenant = new System.Windows.Forms.ToolStripMenuItem();
+            this.rentalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCreateRental = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuUpdateRental = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuYearlyProfitAndLoss = new System.Windows.Forms.ToolStripMenuItem();
             this.produceEstateAgentEarningsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,16 +58,39 @@ namespace PropertyRentalSystem
             // 
             this.mnuPFRMainMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuPFRMainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.propertiesToolStripMenuItem,
             this.ownersToolStripMenuItem,
-            this.rentalsToolStripMenuItem,
+            this.propertiesToolStripMenuItem,
             this.tenantsToolStripMenuItem,
+            this.rentalsToolStripMenuItem,
             this.adminToolStripMenuItem});
             this.mnuPFRMainMenu.Location = new System.Drawing.Point(0, 0);
             this.mnuPFRMainMenu.Name = "mnuPFRMainMenu";
             this.mnuPFRMainMenu.Size = new System.Drawing.Size(610, 28);
             this.mnuPFRMainMenu.TabIndex = 0;
             this.mnuPFRMainMenu.Text = "menuStrip1";
+            // 
+            // ownersToolStripMenuItem
+            // 
+            this.ownersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAddOwner,
+            this.mnuUpdateOwner});
+            this.ownersToolStripMenuItem.Name = "ownersToolStripMenuItem";
+            this.ownersToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
+            this.ownersToolStripMenuItem.Text = "Owners";
+            // 
+            // mnuAddOwner
+            // 
+            this.mnuAddOwner.Name = "mnuAddOwner";
+            this.mnuAddOwner.Size = new System.Drawing.Size(224, 26);
+            this.mnuAddOwner.Text = "Add Owner";
+            this.mnuAddOwner.Click += new System.EventHandler(this.mnuAddOwner_Click);
+            // 
+            // mnuUpdateOwner
+            // 
+            this.mnuUpdateOwner.Name = "mnuUpdateOwner";
+            this.mnuUpdateOwner.Size = new System.Drawing.Size(224, 26);
+            this.mnuUpdateOwner.Text = "Update Owner";
+            this.mnuUpdateOwner.Click += new System.EventHandler(this.mnuUpdateOwner_Click);
             // 
             // propertiesToolStripMenuItem
             // 
@@ -106,27 +129,27 @@ namespace PropertyRentalSystem
             this.mnuPFRUpdatePropertyType.Size = new System.Drawing.Size(236, 26);
             this.mnuPFRUpdatePropertyType.Text = "Update Property Type";
             // 
-            // ownersToolStripMenuItem
+            // tenantsToolStripMenuItem
             // 
-            this.ownersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuAddOwner,
-            this.mnuUpdateOwner});
-            this.ownersToolStripMenuItem.Name = "ownersToolStripMenuItem";
-            this.ownersToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
-            this.ownersToolStripMenuItem.Text = "Owners";
+            this.tenantsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAddTenant,
+            this.mnuUpdateTenant});
+            this.tenantsToolStripMenuItem.Name = "tenantsToolStripMenuItem";
+            this.tenantsToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.tenantsToolStripMenuItem.Text = "Tenants";
             // 
-            // mnuAddOwner
+            // mnuAddTenant
             // 
-            this.mnuAddOwner.Name = "mnuAddOwner";
-            this.mnuAddOwner.Size = new System.Drawing.Size(188, 26);
-            this.mnuAddOwner.Text = "Add Owner";
-            this.mnuAddOwner.Click += new System.EventHandler(this.mnuAddOwner_Click);
+            this.mnuAddTenant.Name = "mnuAddTenant";
+            this.mnuAddTenant.Size = new System.Drawing.Size(189, 26);
+            this.mnuAddTenant.Text = "Add Tenant";
+            this.mnuAddTenant.Click += new System.EventHandler(this.mnuAddTenant_Click);
             // 
-            // mnuUpdateOwner
+            // mnuUpdateTenant
             // 
-            this.mnuUpdateOwner.Name = "mnuUpdateOwner";
-            this.mnuUpdateOwner.Size = new System.Drawing.Size(188, 26);
-            this.mnuUpdateOwner.Text = "Update Owner";
+            this.mnuUpdateTenant.Name = "mnuUpdateTenant";
+            this.mnuUpdateTenant.Size = new System.Drawing.Size(189, 26);
+            this.mnuUpdateTenant.Text = "Update Tenant";
             // 
             // rentalsToolStripMenuItem
             // 
@@ -148,27 +171,6 @@ namespace PropertyRentalSystem
             this.mnuUpdateRental.Name = "mnuUpdateRental";
             this.mnuUpdateRental.Size = new System.Drawing.Size(247, 26);
             this.mnuUpdateRental.Text = "Update Rental Contract";
-            // 
-            // tenantsToolStripMenuItem
-            // 
-            this.tenantsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuAddTenant,
-            this.mnuUpdateTenant});
-            this.tenantsToolStripMenuItem.Name = "tenantsToolStripMenuItem";
-            this.tenantsToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
-            this.tenantsToolStripMenuItem.Text = "Tenants";
-            // 
-            // mnuAddTenant
-            // 
-            this.mnuAddTenant.Name = "mnuAddTenant";
-            this.mnuAddTenant.Size = new System.Drawing.Size(189, 26);
-            this.mnuAddTenant.Text = "Add Tenant";
-            // 
-            // mnuUpdateTenant
-            // 
-            this.mnuUpdateTenant.Name = "mnuUpdateTenant";
-            this.mnuUpdateTenant.Size = new System.Drawing.Size(189, 26);
-            this.mnuUpdateTenant.Text = "Update Tenant";
             // 
             // adminToolStripMenuItem
             // 

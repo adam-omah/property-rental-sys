@@ -97,12 +97,12 @@ namespace PropertyRentalSystem
             Boolean result = true;
             char[] ibanChars = iban.ToCharArray();
 
-            //Iban's can vary between 22 and 34 characthers.
+            // Iban's can vary between 22 and 34 characthers.
             // in Ireland the standard IBAN is 22 characthers in length.
             // there is other patterns involved but in the interest of simplicity
             // I am only adding simple validation. testing length and components.
 
-            if (iban.Length < 22 && iban.Length > 34)
+            if (ibanChars.Length < 22 || ibanChars.Length > 34)
             {
                 result = false;
             }
@@ -130,25 +130,31 @@ namespace PropertyRentalSystem
             char[] phoneChars = phone.ToCharArray();
             int plusCount = 0;
 
-            for (int i = 0; i < phoneChars.Length; i++)
+            if (phoneChars.Length > 6)
             {
-                if (phoneChars[i] >= '0' && phoneChars[i] <= '9')
+                for (int i = 0; i < phoneChars.Length; i++)
                 {
-
-                }
-                else
-                {
-                    if (phoneChars[i] == '+' && plusCount < 1)
+                    if (phoneChars[i] >= '0' && phoneChars[i] <= '9')
                     {
-                        plusCount++;
+
                     }
                     else
                     {
-                        result = false;
-                        return result;
+                        if (phoneChars[i] == '+' && plusCount < 1)
+                        {
+                            plusCount++;
+                        }
+                        else
+                        {
+                            result = false;
+                            return result;
+                        }
                     }
                 }
             }
+            else
+                result = false;
+            
 
 
             return result;

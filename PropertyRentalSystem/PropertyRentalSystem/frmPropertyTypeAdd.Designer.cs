@@ -1,7 +1,7 @@
 ﻿
 namespace PropertyRentalSystem
 {
-    partial class frmAddPropertyType
+    partial class frmPropertyTypeAdd
     {
         /// <summary>
         /// Required designer variable.

@@ -1,7 +1,7 @@
 ﻿
 namespace PropertyRentalSystem
 {
-    partial class frmAddOwner
+    partial class frmTenantAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -30,50 +30,55 @@ namespace PropertyRentalSystem
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtHomeEircode = new System.Windows.Forms.TextBox();
+            this.txtTenantIban = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtEmailAddress = new System.Windows.Forms.TextBox();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAddOwner = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtOwnerIban = new System.Windows.Forms.TextBox();
+            this.btnAddTenant = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtOwnerIban);
+            this.groupBox1.Controls.Add(this.txtTenantIban);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtHomeEircode);
             this.groupBox1.Controls.Add(this.txtEmailAddress);
             this.groupBox1.Controls.Add(this.txtPhoneNumber);
             this.groupBox1.Controls.Add(this.txtLastName);
             this.groupBox1.Controls.Add(this.txtFirstName);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(16, 5);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(387, 290);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.Size = new System.Drawing.Size(373, 234);
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Owner Details";
+            this.groupBox1.Text = "Tenant Details";
             // 
-            // txtHomeEircode
+            // txtTenantIban
             // 
-            this.txtHomeEircode.Location = new System.Drawing.Point(140, 192);
-            this.txtHomeEircode.MaxLength = 7;
-            this.txtHomeEircode.Name = "txtHomeEircode";
-            this.txtHomeEircode.Size = new System.Drawing.Size(122, 22);
-            this.txtHomeEircode.TabIndex = 10;
+            this.txtTenantIban.Location = new System.Drawing.Point(84, 196);
+            this.txtTenantIban.MaxLength = 34;
+            this.txtTenantIban.Name = "txtTenantIban";
+            this.txtTenantIban.Size = new System.Drawing.Size(272, 22);
+            this.txtTenantIban.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(31, 199);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 17);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "IBAN: ";
             // 
             // txtEmailAddress
             // 
@@ -106,15 +111,6 @@ namespace PropertyRentalSystem
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(235, 22);
             this.txtFirstName.TabIndex = 6;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(31, 195);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 17);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Home Eircode: ";
             // 
             // label4
             // 
@@ -152,42 +148,25 @@ namespace PropertyRentalSystem
             this.label1.TabIndex = 1;
             this.label1.Text = "First Name: ";
             // 
-            // btnAddOwner
+            // btnAddTenant
             // 
-            this.btnAddOwner.Location = new System.Drawing.Point(122, 301);
-            this.btnAddOwner.Name = "btnAddOwner";
-            this.btnAddOwner.Size = new System.Drawing.Size(156, 36);
-            this.btnAddOwner.TabIndex = 1;
-            this.btnAddOwner.Text = "Add Owner";
-            this.btnAddOwner.UseVisualStyleBackColor = true;
-            this.btnAddOwner.Click += new System.EventHandler(this.btnAddOwner_Click);
+            this.btnAddTenant.Location = new System.Drawing.Point(133, 270);
+            this.btnAddTenant.Name = "btnAddTenant";
+            this.btnAddTenant.Size = new System.Drawing.Size(129, 40);
+            this.btnAddTenant.TabIndex = 2;
+            this.btnAddTenant.Text = "Add Tenant";
+            this.btnAddTenant.UseVisualStyleBackColor = true;
+            this.btnAddTenant.Click += new System.EventHandler(this.btnAddTenant_Click);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(31, 235);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 17);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "IBAN: ";
-            // 
-            // txtOwnerIban
-            // 
-            this.txtOwnerIban.Location = new System.Drawing.Point(84, 235);
-            this.txtOwnerIban.MaxLength = 34;
-            this.txtOwnerIban.Name = "txtOwnerIban";
-            this.txtOwnerIban.Size = new System.Drawing.Size(272, 22);
-            this.txtOwnerIban.TabIndex = 12;
-            // 
-            // frmAddOwner
+            // frmAddTenant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 349);
-            this.Controls.Add(this.btnAddOwner);
+            this.ClientSize = new System.Drawing.Size(397, 322);
+            this.Controls.Add(this.btnAddTenant);
             this.Controls.Add(this.groupBox1);
-            this.Name = "frmAddOwner";
-            this.Text = "Perfect Fit Rentals - [Add Owner]";
+            this.Name = "frmAddTenant";
+            this.Text = "frmAddTenant";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -197,18 +176,16 @@ namespace PropertyRentalSystem
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtTenantIban;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtEmailAddress;
+        private System.Windows.Forms.TextBox txtPhoneNumber;
+        private System.Windows.Forms.TextBox txtLastName;
+        private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.TextBox txtPhoneNumber;
-        private System.Windows.Forms.TextBox txtLastName;
-        private System.Windows.Forms.TextBox txtHomeEircode;
-        private System.Windows.Forms.TextBox txtEmailAddress;
-        private System.Windows.Forms.Button btnAddOwner;
-        private System.Windows.Forms.TextBox txtOwnerIban;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnAddTenant;
     }
 }

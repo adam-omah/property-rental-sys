@@ -1,7 +1,7 @@
 ﻿
 namespace PropertyRentalSystem
 {
-    partial class frmAddProperty
+    partial class frmPropertyAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace PropertyRentalSystem
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpPropertyDetails = new System.Windows.Forms.GroupBox();
             this.rtxPropertyDescription = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtMonthlyRent = new System.Windows.Forms.TextBox();
@@ -40,9 +40,8 @@ namespace PropertyRentalSystem
             this.label3 = new System.Windows.Forms.Label();
             this.cboPropertyType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cboActiveOwnerList = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpPropertyExtras = new System.Windows.Forms.GroupBox();
             this.chkOwnerOccupied = new System.Windows.Forms.CheckBox();
             this.chkPetsAllowed = new System.Windows.Forms.CheckBox();
             this.chkHasWifi = new System.Windows.Forms.CheckBox();
@@ -58,44 +57,55 @@ namespace PropertyRentalSystem
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.cboHeatingSource = new System.Windows.Forms.ComboBox();
             this.btnAddProperty = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.btnSurnameSRH = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtSurnameSRH = new System.Windows.Forms.TextBox();
+            this.cboHeatingSource = new System.Windows.Forms.ComboBox();
+            this.txtPropertyOwner = new System.Windows.Forms.TextBox();
+            this.grdOwners = new System.Windows.Forms.DataGridView();
+            this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grpPropertyDetails.SuspendLayout();
+            this.grpPropertyExtras.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numParkingSpaces)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTotalBathrooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numEnsuiteBedrooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTotalBedrooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTotalRooms)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdOwners)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // grpPropertyDetails
             // 
-            this.groupBox1.Controls.Add(this.rtxPropertyDescription);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtMonthlyRent);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtEircode);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtPropertyName);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.cboPropertyType);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.cboActiveOwnerList);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(20, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(520, 371);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Property Details";
+            this.grpPropertyDetails.Controls.Add(this.txtPropertyOwner);
+            this.grpPropertyDetails.Controls.Add(this.label13);
+            this.grpPropertyDetails.Controls.Add(this.rtxPropertyDescription);
+            this.grpPropertyDetails.Controls.Add(this.label6);
+            this.grpPropertyDetails.Controls.Add(this.txtMonthlyRent);
+            this.grpPropertyDetails.Controls.Add(this.label5);
+            this.grpPropertyDetails.Controls.Add(this.txtEircode);
+            this.grpPropertyDetails.Controls.Add(this.label4);
+            this.grpPropertyDetails.Controls.Add(this.txtPropertyName);
+            this.grpPropertyDetails.Controls.Add(this.label3);
+            this.grpPropertyDetails.Controls.Add(this.cboPropertyType);
+            this.grpPropertyDetails.Controls.Add(this.label2);
+            this.grpPropertyDetails.Location = new System.Drawing.Point(26, 67);
+            this.grpPropertyDetails.Name = "grpPropertyDetails";
+            this.grpPropertyDetails.Size = new System.Drawing.Size(520, 356);
+            this.grpPropertyDetails.TabIndex = 4;
+            this.grpPropertyDetails.TabStop = false;
+            this.grpPropertyDetails.Text = "Property Details";
+            this.grpPropertyDetails.Visible = false;
             // 
             // rtxPropertyDescription
             // 
             this.rtxPropertyDescription.Location = new System.Drawing.Point(8, 239);
             this.rtxPropertyDescription.Name = "rtxPropertyDescription";
-            this.rtxPropertyDescription.Size = new System.Drawing.Size(480, 122);
-            this.rtxPropertyDescription.TabIndex = 11;
+            this.rtxPropertyDescription.Size = new System.Drawing.Size(480, 111);
+            this.rtxPropertyDescription.TabIndex = 10;
             this.rtxPropertyDescription.Text = "";
             // 
             // label6
@@ -130,7 +140,7 @@ namespace PropertyRentalSystem
             this.txtEircode.MaxLength = 7;
             this.txtEircode.Name = "txtEircode";
             this.txtEircode.Size = new System.Drawing.Size(188, 22);
-            this.txtEircode.TabIndex = 7;
+            this.txtEircode.TabIndex = 8;
             // 
             // label4
             // 
@@ -147,7 +157,7 @@ namespace PropertyRentalSystem
             this.txtPropertyName.MaxLength = 100;
             this.txtPropertyName.Name = "txtPropertyName";
             this.txtPropertyName.Size = new System.Drawing.Size(290, 22);
-            this.txtPropertyName.TabIndex = 5;
+            this.txtPropertyName.TabIndex = 7;
             // 
             // label3
             // 
@@ -166,7 +176,7 @@ namespace PropertyRentalSystem
             this.cboPropertyType.Name = "cboPropertyType";
             this.cboPropertyType.Size = new System.Drawing.Size(188, 24);
             this.cboPropertyType.Sorted = true;
-            this.cboPropertyType.TabIndex = 3;
+            this.cboPropertyType.TabIndex = 6;
             // 
             // label2
             // 
@@ -177,48 +187,40 @@ namespace PropertyRentalSystem
             this.label2.TabIndex = 2;
             this.label2.Text = "Property Type: ";
             // 
-            // cboActiveOwnerList
-            // 
-            this.cboActiveOwnerList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboActiveOwnerList.FormattingEnabled = true;
-            this.cboActiveOwnerList.Location = new System.Drawing.Point(120, 40);
-            this.cboActiveOwnerList.Name = "cboActiveOwnerList";
-            this.cboActiveOwnerList.Size = new System.Drawing.Size(354, 24);
-            this.cboActiveOwnerList.Sorted = true;
-            this.cboActiveOwnerList.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 43);
+            this.label1.Location = new System.Drawing.Point(24, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 17);
+            this.label1.Size = new System.Drawing.Size(118, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Property Owner: ";
+            this.label1.Text = "Owner Surname: ";
             // 
-            // groupBox2
+            // grpPropertyExtras
             // 
-            this.groupBox2.Controls.Add(this.chkOwnerOccupied);
-            this.groupBox2.Controls.Add(this.chkPetsAllowed);
-            this.groupBox2.Controls.Add(this.chkHasWifi);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.chkGardenSpace);
-            this.groupBox2.Controls.Add(this.numParkingSpaces);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.numTotalBathrooms);
-            this.groupBox2.Controls.Add(this.numEnsuiteBedrooms);
-            this.groupBox2.Controls.Add(this.numTotalBedrooms);
-            this.groupBox2.Controls.Add(this.numTotalRooms);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Location = new System.Drawing.Point(19, 384);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(521, 153);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Property Extras";
+            this.grpPropertyExtras.Controls.Add(this.cboHeatingSource);
+            this.grpPropertyExtras.Controls.Add(this.chkOwnerOccupied);
+            this.grpPropertyExtras.Controls.Add(this.chkPetsAllowed);
+            this.grpPropertyExtras.Controls.Add(this.chkHasWifi);
+            this.grpPropertyExtras.Controls.Add(this.label11);
+            this.grpPropertyExtras.Controls.Add(this.chkGardenSpace);
+            this.grpPropertyExtras.Controls.Add(this.numParkingSpaces);
+            this.grpPropertyExtras.Controls.Add(this.label12);
+            this.grpPropertyExtras.Controls.Add(this.numTotalBathrooms);
+            this.grpPropertyExtras.Controls.Add(this.numEnsuiteBedrooms);
+            this.grpPropertyExtras.Controls.Add(this.numTotalBedrooms);
+            this.grpPropertyExtras.Controls.Add(this.numTotalRooms);
+            this.grpPropertyExtras.Controls.Add(this.label10);
+            this.grpPropertyExtras.Controls.Add(this.label9);
+            this.grpPropertyExtras.Controls.Add(this.label8);
+            this.grpPropertyExtras.Controls.Add(this.label7);
+            this.grpPropertyExtras.Location = new System.Drawing.Point(26, 445);
+            this.grpPropertyExtras.Name = "grpPropertyExtras";
+            this.grpPropertyExtras.Size = new System.Drawing.Size(521, 153);
+            this.grpPropertyExtras.TabIndex = 11;
+            this.grpPropertyExtras.TabStop = false;
+            this.grpPropertyExtras.Text = "Property Extras";
+            this.grpPropertyExtras.Visible = false;
             // 
             // chkOwnerOccupied
             // 
@@ -227,7 +229,7 @@ namespace PropertyRentalSystem
             this.chkOwnerOccupied.Location = new System.Drawing.Point(352, 126);
             this.chkOwnerOccupied.Name = "chkOwnerOccupied";
             this.chkOwnerOccupied.Size = new System.Drawing.Size(139, 21);
-            this.chkOwnerOccupied.TabIndex = 15;
+            this.chkOwnerOccupied.TabIndex = 21;
             this.chkOwnerOccupied.Text = "Owner Occupied:";
             this.chkOwnerOccupied.UseVisualStyleBackColor = true;
             // 
@@ -238,7 +240,7 @@ namespace PropertyRentalSystem
             this.chkPetsAllowed.Location = new System.Drawing.Point(232, 126);
             this.chkPetsAllowed.Name = "chkPetsAllowed";
             this.chkPetsAllowed.Size = new System.Drawing.Size(114, 21);
-            this.chkPetsAllowed.TabIndex = 14;
+            this.chkPetsAllowed.TabIndex = 20;
             this.chkPetsAllowed.Text = "Pets Allowed:";
             this.chkPetsAllowed.UseVisualStyleBackColor = true;
             // 
@@ -249,7 +251,7 @@ namespace PropertyRentalSystem
             this.chkHasWifi.Location = new System.Drawing.Point(363, 90);
             this.chkHasWifi.Name = "chkHasWifi";
             this.chkHasWifi.Size = new System.Drawing.Size(114, 21);
-            this.chkHasWifi.TabIndex = 13;
+            this.chkHasWifi.TabIndex = 19;
             this.chkHasWifi.Text = "Wifi Included:";
             this.chkHasWifi.UseVisualStyleBackColor = true;
             // 
@@ -269,7 +271,7 @@ namespace PropertyRentalSystem
             this.chkGardenSpace.Location = new System.Drawing.Point(228, 90);
             this.chkGardenSpace.Name = "chkGardenSpace";
             this.chkGardenSpace.Size = new System.Drawing.Size(126, 21);
-            this.chkGardenSpace.TabIndex = 11;
+            this.chkGardenSpace.TabIndex = 18;
             this.chkGardenSpace.Text = "Garden Space:";
             this.chkGardenSpace.UseVisualStyleBackColor = true;
             // 
@@ -283,7 +285,7 @@ namespace PropertyRentalSystem
             0});
             this.numParkingSpaces.Name = "numParkingSpaces";
             this.numParkingSpaces.Size = new System.Drawing.Size(57, 22);
-            this.numParkingSpaces.TabIndex = 10;
+            this.numParkingSpaces.TabIndex = 16;
             // 
             // label12
             // 
@@ -304,7 +306,7 @@ namespace PropertyRentalSystem
             0});
             this.numTotalBathrooms.Name = "numTotalBathrooms";
             this.numTotalBathrooms.Size = new System.Drawing.Size(57, 22);
-            this.numTotalBathrooms.TabIndex = 7;
+            this.numTotalBathrooms.TabIndex = 14;
             // 
             // numEnsuiteBedrooms
             // 
@@ -316,7 +318,7 @@ namespace PropertyRentalSystem
             0});
             this.numEnsuiteBedrooms.Name = "numEnsuiteBedrooms";
             this.numEnsuiteBedrooms.Size = new System.Drawing.Size(57, 22);
-            this.numEnsuiteBedrooms.TabIndex = 6;
+            this.numEnsuiteBedrooms.TabIndex = 15;
             // 
             // numTotalBedrooms
             // 
@@ -328,7 +330,7 @@ namespace PropertyRentalSystem
             0});
             this.numTotalBedrooms.Name = "numTotalBedrooms";
             this.numTotalBedrooms.Size = new System.Drawing.Size(57, 22);
-            this.numTotalBedrooms.TabIndex = 5;
+            this.numTotalBedrooms.TabIndex = 13;
             // 
             // numTotalRooms
             // 
@@ -340,7 +342,7 @@ namespace PropertyRentalSystem
             0});
             this.numTotalRooms.Name = "numTotalRooms";
             this.numTotalRooms.Size = new System.Drawing.Size(57, 22);
-            this.numTotalRooms.TabIndex = 4;
+            this.numTotalRooms.TabIndex = 12;
             // 
             // label10
             // 
@@ -378,55 +380,137 @@ namespace PropertyRentalSystem
             this.label7.TabIndex = 0;
             this.label7.Text = "Total Rooms: ";
             // 
+            // btnAddProperty
+            // 
+            this.btnAddProperty.Location = new System.Drawing.Point(175, 604);
+            this.btnAddProperty.Name = "btnAddProperty";
+            this.btnAddProperty.Size = new System.Drawing.Size(232, 28);
+            this.btnAddProperty.TabIndex = 22;
+            this.btnAddProperty.Text = "Add Property";
+            this.btnAddProperty.UseVisualStyleBackColor = true;
+            this.btnAddProperty.Visible = false;
+            this.btnAddProperty.Click += new System.EventHandler(this.btnAddProperty_Click);
+            // 
+            // btnSurnameSRH
+            // 
+            this.btnSurnameSRH.Location = new System.Drawing.Point(398, 23);
+            this.btnSurnameSRH.Name = "btnSurnameSRH";
+            this.btnSurnameSRH.Size = new System.Drawing.Size(75, 23);
+            this.btnSurnameSRH.TabIndex = 2;
+            this.btnSurnameSRH.Text = "Search Surname";
+            this.btnSurnameSRH.UseVisualStyleBackColor = true;
+            this.btnSurnameSRH.Click += new System.EventHandler(this.btnSurnameSRH_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(5, 43);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(115, 17);
+            this.label13.TabIndex = 15;
+            this.label13.Text = "Property Owner: ";
+            // 
+            // txtSurnameSRH
+            // 
+            this.txtSurnameSRH.Location = new System.Drawing.Point(192, 24);
+            this.txtSurnameSRH.Name = "txtSurnameSRH";
+            this.txtSurnameSRH.Size = new System.Drawing.Size(180, 22);
+            this.txtSurnameSRH.TabIndex = 1;
+            // 
             // cboHeatingSource
             // 
             this.cboHeatingSource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboHeatingSource.FormattingEnabled = true;
-            this.cboHeatingSource.Location = new System.Drawing.Point(371, 444);
+            this.cboHeatingSource.ItemHeight = 16;
+            this.cboHeatingSource.Location = new System.Drawing.Point(352, 57);
             this.cboHeatingSource.Name = "cboHeatingSource";
             this.cboHeatingSource.Size = new System.Drawing.Size(136, 24);
             this.cboHeatingSource.Sorted = true;
-            this.cboHeatingSource.TabIndex = 12;
+            this.cboHeatingSource.TabIndex = 17;
             // 
-            // btnAddProperty
+            // txtPropertyOwner
             // 
-            this.btnAddProperty.Location = new System.Drawing.Point(168, 543);
-            this.btnAddProperty.Name = "btnAddProperty";
-            this.btnAddProperty.Size = new System.Drawing.Size(232, 28);
-            this.btnAddProperty.TabIndex = 13;
-            this.btnAddProperty.Text = "Add Property";
-            this.btnAddProperty.UseVisualStyleBackColor = true;
-            this.btnAddProperty.Click += new System.EventHandler(this.btnAddProperty_Click);
+            this.txtPropertyOwner.Location = new System.Drawing.Point(120, 40);
+            this.txtPropertyOwner.Name = "txtPropertyOwner";
+            this.txtPropertyOwner.ReadOnly = true;
+            this.txtPropertyOwner.Size = new System.Drawing.Size(354, 22);
+            this.txtPropertyOwner.TabIndex = 5;
             // 
-            // frmAddProperty
+            // grdOwners
+            // 
+            this.grdOwners.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdOwners.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdOwners.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.firstName,
+            this.lastName,
+            this.phone,
+            this.id});
+            this.grdOwners.Location = new System.Drawing.Point(12, 55);
+            this.grdOwners.Name = "grdOwners";
+            this.grdOwners.RowHeadersWidth = 51;
+            this.grdOwners.RowTemplate.Height = 24;
+            this.grdOwners.Size = new System.Drawing.Size(554, 192);
+            this.grdOwners.TabIndex = 3;
+            this.grdOwners.Visible = false;
+            this.grdOwners.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdOwners_CellClick_1);
+            // 
+            // firstName
+            // 
+            this.firstName.HeaderText = "First Name";
+            this.firstName.MinimumWidth = 6;
+            this.firstName.Name = "firstName";
+            // 
+            // lastName
+            // 
+            this.lastName.HeaderText = "Surname";
+            this.lastName.MinimumWidth = 6;
+            this.lastName.Name = "lastName";
+            // 
+            // phone
+            // 
+            this.phone.HeaderText = "Phone Number";
+            this.phone.MinimumWidth = 6;
+            this.phone.Name = "phone";
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Owner Id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            // 
+            // frmPropertyAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(552, 583);
+            this.ClientSize = new System.Drawing.Size(578, 651);
+            this.Controls.Add(this.grdOwners);
+            this.Controls.Add(this.txtSurnameSRH);
+            this.Controls.Add(this.btnSurnameSRH);
             this.Controls.Add(this.btnAddProperty);
-            this.Controls.Add(this.cboHeatingSource);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Name = "frmAddProperty";
+            this.Controls.Add(this.grpPropertyExtras);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.grpPropertyDetails);
+            this.Name = "frmPropertyAdd";
             this.Text = "Perfect Fit Rentals - [Add Property]";
             this.Load += new System.EventHandler(this.frmAddProperty_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grpPropertyDetails.ResumeLayout(false);
+            this.grpPropertyDetails.PerformLayout();
+            this.grpPropertyExtras.ResumeLayout(false);
+            this.grpPropertyExtras.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numParkingSpaces)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTotalBathrooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numEnsuiteBedrooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTotalBedrooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTotalRooms)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdOwners)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cboActiveOwnerList;
+        private System.Windows.Forms.GroupBox grpPropertyDetails;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboPropertyType;
         private System.Windows.Forms.Label label2;
@@ -438,7 +522,7 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtEircode;
         private System.Windows.Forms.RichTextBox rtxPropertyDescription;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpPropertyExtras;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -451,10 +535,19 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox chkGardenSpace;
         private System.Windows.Forms.NumericUpDown numParkingSpaces;
-        private System.Windows.Forms.ComboBox cboHeatingSource;
         private System.Windows.Forms.CheckBox chkOwnerOccupied;
         private System.Windows.Forms.CheckBox chkPetsAllowed;
         private System.Windows.Forms.CheckBox chkHasWifi;
         private System.Windows.Forms.Button btnAddProperty;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnSurnameSRH;
+        private System.Windows.Forms.ComboBox cboHeatingSource;
+        private System.Windows.Forms.TextBox txtSurnameSRH;
+        private System.Windows.Forms.TextBox txtPropertyOwner;
+        private System.Windows.Forms.DataGridView grdOwners;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
     }
 }

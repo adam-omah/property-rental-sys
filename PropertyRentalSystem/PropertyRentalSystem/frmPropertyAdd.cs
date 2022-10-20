@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PropertyRentalSystem
 {
-    public partial class frmAddProperty : Form
+    public partial class frmPropertyAdd : Form
     {
-        public frmAddProperty()
+        public frmPropertyAdd()
         {
             InitializeComponent();
         }
@@ -22,10 +22,6 @@ namespace PropertyRentalSystem
             // Owners with status 'A' for active are retrieved from the Owners Data store7
             // Owner id and tele phone number are retrieved along with first name last name
 
-            cboActiveOwnerList.Items.Add("John Doe - 087 777 7777 - 124");
-            cboActiveOwnerList.Items.Add("Mary O'Conner - 089 777 7777 - 58");
-            cboActiveOwnerList.Items.Add("Jerry Finnerty - 085 777 7777 - 150");
-            cboActiveOwnerList.Items.Add("Sarah O'Shea - 086 777 7777 - 73");
 
             cboPropertyType.Items.Add("BO - Bungalo");
             cboPropertyType.Items.Add("SD - Semi Detatched");
@@ -46,13 +42,15 @@ namespace PropertyRentalSystem
             // When add property is pressed
             // Validate Data Entered
 
-            // selection lists are not empty:
-            if (cboActiveOwnerList.SelectedIndex == -1)
+            // Owner not selected:
+            if (txtPropertyOwner.Text.Equals(""))
             {
-                MessageBox.Show("Active Owner must be Selected!", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cboActiveOwnerList.Focus();
+                MessageBox.Show("No Owner Selected.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPropertyOwner.Focus();
                 return;
             }
+
+            // property type is empty:
 
             if (cboPropertyType.SelectedIndex == -1)
             {
@@ -183,7 +181,6 @@ namespace PropertyRentalSystem
 
 
             // Reset UI.
-            cboActiveOwnerList.SelectedIndex = -1;
             cboPropertyType.SelectedIndex = -1;
             cboHeatingSource.SelectedIndex = -1;
             txtPropertyName.Clear();
@@ -229,7 +226,49 @@ namespace PropertyRentalSystem
 
 
             return result;
-        }  
+        }
 
+        private void btnSurnameSRH_Click(object sender, EventArgs e)
+        {
+            if (txtSurnameSRH.Text.Equals("Smith"))
+            {
+
+                // Find matching owners with surname.
+                // retrieves owners with matching surnames from owners data file:
+                grdOwners.Rows.Add("John", "Smith", "0877777777", 123);
+                grdOwners.Rows.Add("Sarah", "Smith", "0867777777", 103);
+                grdOwners.Rows.Add("Mary", "Smith", "0857777777", 134);
+                grdOwners.Rows.Add("Jason", "Smith", "0897777777", 79);
+
+
+                //display owners grid
+                grdOwners.Visible = true;
+
+                // Hide other grps if second time searching
+                grpPropertyDetails.Visible = false;
+                grpPropertyExtras.Visible = false;
+                btnAddProperty.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("The surname " + txtSurnameSRH.Text + " Was not found,\nPlease try another surname such as  'Smith' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSurnameSRH.Focus();
+                return;
+            }
+        }
+
+        private void grdOwners_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            // Retrieve Full owner Details from File.
+            grdOwners.CurrentRow.Selected = true;
+
+            txtPropertyOwner.Text = (string)grdOwners.Rows[e.RowIndex].Cells["firstName"].Value + " " + (string)grdOwners.Rows[e.RowIndex].Cells["lastName"].Value;
+
+            // display owner details.
+            grpPropertyDetails.Visible = true;
+            grpPropertyExtras.Visible = true;
+            btnAddProperty.Visible = true;
+            grdOwners.Visible = false;
+        }
     }
 }

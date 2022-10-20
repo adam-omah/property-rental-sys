@@ -24,20 +24,32 @@ namespace PropertyRentalSystem
 
         private void mnuPFRAddPropertyType_Click(object sender, EventArgs e)
         {
-            var addPropertyType = new frmAddPropertyType();
+            var addPropertyType = new frmPropertyTypeAdd();
             addPropertyType.Show();
         }
 
         private void mnuAddOwner_Click(object sender, EventArgs e)
         {
-            var addOwner = new frmAddOwner();
+            var addOwner = new frmOwnerAdd();
             addOwner.Show();
         }
 
         private void mnuPFRAddProperty_Click(object sender, EventArgs e)
         {
-            var addProperty = new frmAddProperty();
+            var addProperty = new frmPropertyAdd();
             addProperty.Show();
+        }
+
+        private void mnuAddTenant_Click(object sender, EventArgs e)
+        {
+            var addTenant = new frmTenantAdd();
+            addTenant.Show();
+        }
+
+        private void mnuUpdateOwner_Click(object sender, EventArgs e)
+        {
+            var updateOwner = new frmOwnerUpdate();
+            updateOwner.Show();
         }
     }
 }

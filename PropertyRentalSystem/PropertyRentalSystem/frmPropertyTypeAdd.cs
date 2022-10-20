@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PropertyRentalSystem
 {
-    public partial class frmAddPropertyType : Form
+    public partial class frmPropertyTypeAdd : Form
     {
-        public frmAddPropertyType()
+        public frmPropertyTypeAdd()
         {
             InitializeComponent();
         }
