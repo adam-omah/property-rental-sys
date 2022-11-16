@@ -10,30 +10,30 @@ using System.Windows.Forms;
 
 namespace PropertyRentalSystem
 {
-    public partial class frmOwnerUpdate : Form
+    public partial class frmTenantUpdate : Form
     {
-        public frmOwnerUpdate()
+        public frmTenantUpdate()
         {
             InitializeComponent();
         }
 
-        private void txtSearch_Click(object sender, EventArgs e)
+        private void txtSearch_Click_1(object sender, EventArgs e)
         {
             if (txtSurnameSRH.Text.Equals("Smith"))
             {
                 // Find matching owners with surname.
                 // retrieves owners with matching surnames from owners data file:
-                grdOwners.Rows.Add("John", "Smith", "0877777777", 123);
-                grdOwners.Rows.Add("Sarah", "Smith", "0867777777", 103);
-                grdOwners.Rows.Add("Mary", "Smith", "0857777777", 134);
-                grdOwners.Rows.Add("Jason", "Smith", "0897777777", 79);
+                grdTenants.Rows.Add("John", "Smith", "0877777777", 123);
+                grdTenants.Rows.Add("Sarah", "Smith", "0867777777", 103);
+                grdTenants.Rows.Add("Mary", "Smith", "0857777777", 134);
+                grdTenants.Rows.Add("Jason", "Smith", "0897777777", 79);
 
 
                 //display owners surname search grid 
-                grdOwners.Visible = true;
+                grdTenants.Visible = true;
 
                 // Hiding Owner details if new search.
-                grpOwner.Visible = false;
+                grpTenant.Visible = false;
             }
             else
             {
@@ -41,44 +41,43 @@ namespace PropertyRentalSystem
                 txtSearch.Focus();
                 return;
             }
-            
         }
 
-        private void grdOwners_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void grdTenants_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Retrieve Full owner Details from File.
             // Place retrieved data into the update details UI.
-            grdOwners.CurrentRow.Selected = true;
-            txtFirstName.Text = (string)grdOwners.Rows[e.RowIndex].Cells["firstName"].Value;
-            txtLastName.Text = (string)grdOwners.Rows[e.RowIndex].Cells["lastName"].Value;
-            txtPhoneNumber.Text = (string)grdOwners.Rows[e.RowIndex].Cells["phone"].Value;
+            grdTenants.CurrentRow.Selected = true;
+            txtFirstName.Text = (string)grdTenants.Rows[e.RowIndex].Cells["firstName"].Value;
+            txtLastName.Text = (string)grdTenants.Rows[e.RowIndex].Cells["lastName"].Value;
+            txtPhoneNumber.Text = (string)grdTenants.Rows[e.RowIndex].Cells["phone"].Value;
 
             // these values will be retrieved from the data store in the future however for now it is simply populated:
             txtEmailAddress.Text = "Smith123@example.ie";
-            txtHomeEircode.Text = "V92FFFF";
-            txtOwnerIban.Text = "AIBK123456789123456789";
-            cboOwnerStatus.SelectedIndex = 0;
+            txtTenantIban.Text = "AIBK123456789123456789";
+            cboTenantStatus.SelectedIndex = 0;
 
 
             // display owner details.
-            grpOwner.Visible = true;
+            grpTenant.Visible = true;
 
             // hiding surname search grid after selection:
-            grdOwners.Visible = false;
-
+            grdTenants.Visible = false;
         }
 
-        private void frmOwnerUpdate_Load(object sender, EventArgs e)
-        {
-            // loading the possible Owner Status's :
-            cboOwnerStatus.Items.Add(" Active - 'A' ");
-            cboOwnerStatus.Items.Add(" Inactive - 'I' ");
 
+
+        private void frmTenantUpdate_Load(object sender, EventArgs e)
+        {
+            // loading the possible Tenant Status's :
+            cboTenantStatus.Items.Add(" Active - 'A' ");
+            cboTenantStatus.Items.Add(" Inactive - 'I' ");
         }
 
-        private void btnUpdateOwnerDetails_Click(object sender, EventArgs e)
+        private void btnUpdateTenantDetails_Click(object sender, EventArgs e)
         {
-            // on click validation is same as add owner but with the addition of the status field.
+            // On CLick Validate Add Tenant Details.
+            // Very similar to add Owner however there is no Eircode.
 
             // checks name fields
             if (txtFirstName.Text.Equals(""))
@@ -125,75 +124,56 @@ namespace PropertyRentalSystem
 
             if (!isValidEmail)
             {
-                MessageBox.Show("Email entered is not valid format. \nsmith@exmaple.ie is a valid format.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Email entered is not valid", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtEmailAddress.Focus();
                 return;
             }
 
-            // eircode validation:
 
-            if (txtHomeEircode.Text.Equals(""))
-            {
-                MessageBox.Show("Eircode Must Be Entered", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtHomeEircode.Focus();
-                return;
-            }
-
-            // moved validation of Eircode to a public helper class to make it more gloabl.
-            bool isValidEircode = validationFunctions.validEircode(txtHomeEircode.Text);
-
-            if (!isValidEircode)
-            {
-                MessageBox.Show("Eircode is Invalid, Please enter a valid Eircode", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtHomeEircode.Focus();
-                return;
-            }
 
             // IBAN Validation:
-            if (txtOwnerIban.Text.Equals(""))
+            if (txtTenantIban.Text.Equals(""))
             {
                 MessageBox.Show("IBAN Must be Entered", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtOwnerIban.Focus();
+                txtTenantIban.Focus();
                 return;
             }
             // moved validation of Iban to a public helper class
-            bool isValidIban = validationFunctions.validIban(txtOwnerIban.Text);
+            bool isValidIban = validationFunctions.validIban(txtTenantIban.Text);
 
             if (!isValidIban)
             {
-                MessageBox.Show("Valid IBAN Must be entered! Please check IBAN again.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtOwnerIban.Focus();
+                MessageBox.Show("Valid IBAN Must be entered!", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTenantIban.Focus();
                 return;
             }
 
 
-            // Set Owner status to 'A' for Active,
-            // Assign Owner an Owner ID.
-
+            // Set Tenant status to 'A' for Active,
+            // Assign Tenant an appropriate TenantID.
             // Save to Data Store once validated.
             // NOT DOING THIS!
 
             // display confirmation Message:
-            MessageBox.Show("Owner Details have been updated \nAnd Updated in the Owners Data Store", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Tenant Details Have Been Updated on the Tenants Data Store", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // Reset UI
             txtFirstName.Clear();
             txtLastName.Clear();
             txtEmailAddress.Clear();
-            txtHomeEircode.Clear();
             txtPhoneNumber.Clear();
-            txtOwnerIban.Clear();
-            cboOwnerStatus.SelectedIndex = -1;
+            txtTenantIban.Clear();
+            //Reset focus to first name.
             txtSurnameSRH.Clear();
 
             // Hide Update Details again.
-            grpOwner.Visible = false;
-            grdOwners.Visible = false;
+            grpTenant.Visible = false;
+            grdTenants.Visible = false;
 
             //Reset focus to Search field.
             txtSurnameSRH.Focus();
-
         }
 
+        
     }
 }

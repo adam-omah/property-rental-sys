@@ -81,14 +81,14 @@ namespace PropertyRentalSystem
             // mnuAddOwner
             // 
             this.mnuAddOwner.Name = "mnuAddOwner";
-            this.mnuAddOwner.Size = new System.Drawing.Size(224, 26);
+            this.mnuAddOwner.Size = new System.Drawing.Size(188, 26);
             this.mnuAddOwner.Text = "Add Owner";
             this.mnuAddOwner.Click += new System.EventHandler(this.mnuAddOwner_Click);
             // 
             // mnuUpdateOwner
             // 
             this.mnuUpdateOwner.Name = "mnuUpdateOwner";
-            this.mnuUpdateOwner.Size = new System.Drawing.Size(224, 26);
+            this.mnuUpdateOwner.Size = new System.Drawing.Size(188, 26);
             this.mnuUpdateOwner.Text = "Update Owner";
             this.mnuUpdateOwner.Click += new System.EventHandler(this.mnuUpdateOwner_Click);
             // 
@@ -128,6 +128,7 @@ namespace PropertyRentalSystem
             this.mnuPFRUpdatePropertyType.Name = "mnuPFRUpdatePropertyType";
             this.mnuPFRUpdatePropertyType.Size = new System.Drawing.Size(236, 26);
             this.mnuPFRUpdatePropertyType.Text = "Update Property Type";
+            this.mnuPFRUpdatePropertyType.Click += new System.EventHandler(this.mnuPFRUpdatePropertyType_Click);
             // 
             // tenantsToolStripMenuItem
             // 
@@ -141,15 +142,16 @@ namespace PropertyRentalSystem
             // mnuAddTenant
             // 
             this.mnuAddTenant.Name = "mnuAddTenant";
-            this.mnuAddTenant.Size = new System.Drawing.Size(189, 26);
+            this.mnuAddTenant.Size = new System.Drawing.Size(224, 26);
             this.mnuAddTenant.Text = "Add Tenant";
             this.mnuAddTenant.Click += new System.EventHandler(this.mnuAddTenant_Click);
             // 
             // mnuUpdateTenant
             // 
             this.mnuUpdateTenant.Name = "mnuUpdateTenant";
-            this.mnuUpdateTenant.Size = new System.Drawing.Size(189, 26);
+            this.mnuUpdateTenant.Size = new System.Drawing.Size(224, 26);
             this.mnuUpdateTenant.Text = "Update Tenant";
+            this.mnuUpdateTenant.Click += new System.EventHandler(this.mnuUpdateTenant_Click);
             // 
             // rentalsToolStripMenuItem
             // 

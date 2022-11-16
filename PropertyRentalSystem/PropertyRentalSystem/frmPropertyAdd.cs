@@ -269,6 +269,7 @@ namespace PropertyRentalSystem
             grpPropertyExtras.Visible = true;
             btnAddProperty.Visible = true;
             grdOwners.Visible = false;
+            txtPropertyName.Focus();
         }
     }
 }

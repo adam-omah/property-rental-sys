@@ -51,5 +51,17 @@ namespace PropertyRentalSystem
             var updateOwner = new frmOwnerUpdate();
             updateOwner.Show();
         }
+
+        private void mnuPFRUpdatePropertyType_Click(object sender, EventArgs e)
+        {
+            var propertyTypeUpdate = new frmPropertyTypeUpdate();
+            propertyTypeUpdate.Show();
+        }
+
+        private void mnuUpdateTenant_Click(object sender, EventArgs e)
+        {
+            var updateTenant = new frmTenantUpdate();
+            updateTenant.Show();
+        }
     }
 }

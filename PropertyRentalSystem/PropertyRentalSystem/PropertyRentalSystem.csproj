@@ -64,6 +64,12 @@
     <Compile Include="frmPropertyTypeAdd.Designer.cs">
       <DependentUpon>frmPropertyTypeAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPropertyTypeUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPropertyTypeUpdate.Designer.cs">
+      <DependentUpon>frmPropertyTypeUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTenantAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,12 @@
     <Compile Include="frmPFRHome.Designer.cs">
       <DependentUpon>frmPFRHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTenantUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTenantUpdate.Designer.cs">
+      <DependentUpon>frmTenantUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="validationFunctions.cs" />
@@ -94,6 +106,9 @@
     <EmbeddedResource Include="frmPropertyTypeAdd.resx">
       <DependentUpon>frmPropertyTypeAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPropertyTypeUpdate.resx">
+      <DependentUpon>frmPropertyTypeUpdate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTenantAdd.resx">
       <DependentUpon>frmTenantAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPFRHome.resx">
       <DependentUpon>frmPFRHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTenantUpdate.resx">
+      <DependentUpon>frmTenantUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
