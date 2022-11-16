@@ -10,16 +10,15 @@ using System.Windows.Forms;
 
 namespace PropertyRentalSystem
 {
-    public partial class frmPropertyAdd : Form
+    public partial class frmPropertyUpdate : Form
     {
-        public frmPropertyAdd()
+        public frmPropertyUpdate()
         {
             InitializeComponent();
         }
 
-        private void frmAddProperty_Load(object sender, EventArgs e)
+        private void frmPropertyUpdate_Load(object sender, EventArgs e)
         {
-
             cboPropertyType.Items.Add("BO - Bungalo");
             cboPropertyType.Items.Add("SD - Semi Detatched");
             cboPropertyType.Items.Add("DS - Standard Detatched");
@@ -34,7 +33,7 @@ namespace PropertyRentalSystem
             cboHeatingSource.Items.Add("Solid Fuel Stove");
         }
 
-        private void btnAddProperty_Click(object sender, EventArgs e)
+        private void btnUpdateProperty_Click(object sender, EventArgs e)
         {
             // When add property is pressed
             // Validate Data Entered
@@ -71,19 +70,10 @@ namespace PropertyRentalSystem
             }
 
             // Eircode Validation: (same as for Add Owner)
-            
+
             if (txtEircode.Text.Equals(""))
             {
                 MessageBox.Show("Eircode Must Be Entered", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtEircode.Focus();
-                return;
-            }
-            // moved validation of numbers to a public helper class to make it more gloabl.
-            bool isValidEircode = validationFunctions.validEircode(txtEircode.Text);
-
-            if (!isValidEircode)
-            {
-                MessageBox.Show("Eircode is Invalid, Please enter a valid Eircode", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtEircode.Focus();
                 return;
             }
@@ -119,7 +109,7 @@ namespace PropertyRentalSystem
             // number up down does not allow negative values.
 
             //check if total rooms is more than 0
-            if(numTotalRooms.Value == 0)
+            if (numTotalRooms.Value == 0)
             {
                 MessageBox.Show("A property must have atleast One Room!", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 numTotalRooms.Focus();
@@ -198,7 +188,6 @@ namespace PropertyRentalSystem
 
 
             txtPropertyName.Focus();
-
         }
 
         private bool validPropertyName(string text)
@@ -225,48 +214,32 @@ namespace PropertyRentalSystem
             return result;
         }
 
-        private void btnSurnameSRH_Click(object sender, EventArgs e)
+        private void btnSearchEircode_Click(object sender, EventArgs e)
         {
-            if (txtSurnameSRH.Text.Equals("Smith"))
+            // moved validation of numbers to a public helper class to make it more gloabl.
+            bool isValidEircode = validationFunctions.validEircode(txtEircode.Text);
+
+            if (!isValidEircode)
             {
-
-                // Find matching owners with surname.
-                // retrieves owners with matching surnames from owners data file:
-                grdOwners.Rows.Add("John", "Smith", "0877777777", 123);
-                grdOwners.Rows.Add("Sarah", "Smith", "0867777777", 103);
-                grdOwners.Rows.Add("Mary", "Smith", "0857777777", 134);
-                grdOwners.Rows.Add("Jason", "Smith", "0897777777", 79);
-
-
-                //display owners grid
-                grdOwners.Visible = true;
-
-                // Hide other grps if second time searching
-                grpPropertyDetails.Visible = false;
-                grpPropertyExtras.Visible = false;
-                btnAddProperty.Visible = false;
+                MessageBox.Show("Eircode is Invalid, Please enter a valid Eircode", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtEircode.Clear();
+                txtEircode.Focus();
+                return;
             }
             else
             {
-                MessageBox.Show("The surname " + txtSurnameSRH.Text + " Was not found,\nPlease try another surname such as  'Smith' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtSurnameSRH.Focus();
-                return;
+                if(txtEircode.Text.Equals("V92FFFF") || txtEircode.Text.Equals("v92ffff"))
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("Eircode Not Found, Please try another Eircode Such as V92FFFF ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtEircode.Clear();
+                    txtEircode.Focus();
+                    return;
+                }
             }
-        }
-
-        private void grdOwners_CellClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            // Retrieve Full owner Details from File.
-            grdOwners.CurrentRow.Selected = true;
-
-            txtPropertyOwner.Text = (string)grdOwners.Rows[e.RowIndex].Cells["firstName"].Value + " " + (string)grdOwners.Rows[e.RowIndex].Cells["lastName"].Value;
-
-            // display owner details.
-            grpPropertyDetails.Visible = true;
-            grpPropertyExtras.Visible = true;
-            btnAddProperty.Visible = true;
-            grdOwners.Visible = false;
-            txtPropertyName.Focus();
         }
     }
 }
