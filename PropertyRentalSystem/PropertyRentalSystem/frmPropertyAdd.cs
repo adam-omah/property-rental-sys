@@ -227,7 +227,7 @@ namespace PropertyRentalSystem
 
         private void btnSurnameSRH_Click(object sender, EventArgs e)
         {
-            if (txtSurnameSRH.Text.Equals("Smith"))
+            if (txtSurnameSRH.Text.Equals("Smith") || txtSurnameSRH.Text.Equals("smith"))
             {
 
                 // Find matching owners with surname.
@@ -249,6 +249,7 @@ namespace PropertyRentalSystem
             else
             {
                 MessageBox.Show("The surname " + txtSurnameSRH.Text + " Was not found,\nPlease try another surname such as  'Smith' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSurnameSRH.Clear();
                 txtSurnameSRH.Focus();
                 return;
             }

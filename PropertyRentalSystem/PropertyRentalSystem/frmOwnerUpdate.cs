@@ -17,9 +17,9 @@ namespace PropertyRentalSystem
             InitializeComponent();
         }
 
-        private void txtSearch_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (txtSurnameSRH.Text.Equals("Smith"))
+            if (txtSurnameSRH.Text.Equals("Smith") || txtSurnameSRH.Text.Equals("smith"))
             {
                 // Find matching owners with surname.
                 // retrieves owners with matching surnames from owners data file:
@@ -38,7 +38,8 @@ namespace PropertyRentalSystem
             else
             {
                 MessageBox.Show("The surname " + txtSurnameSRH.Text + " Was not found,\nPlease try another surname such as  'Smith' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtSearch.Focus();
+                txtSurnameSRH.Clear();
+                txtSurnameSRH.Focus();
                 return;
             }
             

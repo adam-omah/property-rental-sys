@@ -164,7 +164,7 @@ namespace PropertyRentalSystem
 
 
             // Show confirmation message.
-            MessageBox.Show("Property has been sucessfully added to the Properties Data Store", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Property has been sucessfully Updated in the Properties Data Store", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
             // Reset UI.
@@ -174,6 +174,8 @@ namespace PropertyRentalSystem
             txtEircode.Clear();
             txtMonthlyRent.Clear();
             rtxPropertyDescription.Clear();
+            txtPropertyOwner.Clear();
+            txtSurnameSRH.Clear();
 
             numTotalRooms.Value = 0;
             numTotalBedrooms.Value = 0;
@@ -185,6 +187,10 @@ namespace PropertyRentalSystem
             chkHasWifi.Checked = false;
             chkOwnerOccupied.Checked = false;
             chkPetsAllowed.Checked = false;
+
+            grpPropertyDetails.Visible = false;
+            grpPropertyExtras.Visible = false;
+            btnUpdateProperty.Visible = false;
 
 
             txtPropertyName.Focus();
@@ -230,6 +236,26 @@ namespace PropertyRentalSystem
             {
                 if(txtEircode.Text.Equals("V92FFFF") || txtEircode.Text.Equals("v92ffff"))
                 {
+                    txtPropertyOwner.Text = "Adam O'Mahony";
+                    cboPropertyType.SelectedIndex = 1;
+                    cboHeatingSource.SelectedIndex = 5;
+                    txtPropertyName.Text = "Birds Cottage";
+                    txtMonthlyRent.Text = "500";
+                    rtxPropertyDescription.Text = "Open plan country cottage bungalow set around 1 arce of woodlands.";
+                    numTotalRooms.Value = 5;
+                    numTotalBedrooms.Value = 2;
+                    numTotalBathrooms.Value = 2;
+                    numEnsuiteBedrooms.Value = 1;
+                    numParkingSpaces.Value = 3;
+                    chkGardenSpace.Checked = true;
+                    chkHasWifi.Checked = true;
+                    chkPetsAllowed.Checked = true;
+                    chkOwnerOccupied.Checked = false;
+
+                    grpPropertyDetails.Visible = true;
+                    grpPropertyExtras.Visible = true;
+                    btnUpdateProperty.Visible = true;
+
 
                 }
                 else
@@ -240,6 +266,46 @@ namespace PropertyRentalSystem
                     return;
                 }
             }
+        }
+
+        private void btnSurnameSRH_Click(object sender, EventArgs e)
+        {
+            if (txtSurnameSRH.Text.Equals("Smith") || txtSurnameSRH.Text.Equals("smith"))
+            {
+                // Find matching owners with surname.
+                // retrieves owners with matching surnames from owners data file:
+                grdOwners.Rows.Add("John", "Smith", "0877777777", 123);
+                grdOwners.Rows.Add("Sarah", "Smith", "0867777777", 103);
+                grdOwners.Rows.Add("Mary", "Smith", "0857777777", 134);
+                grdOwners.Rows.Add("Jason", "Smith", "0897777777", 79);
+
+                grdOwners.Visible = true;
+                grpPropertyExtras.Visible = false;
+                grpPropertyDetails.Visible = false;
+                btnUpdateProperty.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("The surname " + txtSurnameSRH.Text + " Was not found,\nPlease try another surname such as  'Smith' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSurnameSRH.Clear();
+                txtSurnameSRH.Focus();
+                return;
+            }
+        }
+
+        private void grdOwners_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Retrieve Full owner Details from File.
+            grdOwners.CurrentRow.Selected = true;
+
+            txtPropertyOwner.Text = (string)grdOwners.Rows[e.RowIndex].Cells["firstName"].Value + " " + (string)grdOwners.Rows[e.RowIndex].Cells["lastName"].Value;
+
+            // display owner details.
+            grpPropertyDetails.Visible = true;
+            grpPropertyExtras.Visible = true;
+            btnUpdateProperty.Visible = true;
+            grdOwners.Visible = false;
+            txtPropertyName.Focus();
         }
     }
 }

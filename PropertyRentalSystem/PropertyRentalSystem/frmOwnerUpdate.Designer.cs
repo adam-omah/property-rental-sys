@@ -31,13 +31,16 @@ namespace PropertyRentalSystem
         {
             this.label1 = new System.Windows.Forms.Label();
             this.txtSurnameSRH = new System.Windows.Forms.TextBox();
-            this.txtSearch = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.grdOwners = new System.Windows.Forms.DataGridView();
             this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpOwner = new System.Windows.Forms.GroupBox();
+            this.cboOwnerStatus = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnUpdateOwnerDetails = new System.Windows.Forms.Button();
             this.txtOwnerIban = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtHomeEircode = new System.Windows.Forms.TextBox();
@@ -50,9 +53,6 @@ namespace PropertyRentalSystem
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnUpdateOwnerDetails = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cboOwnerStatus = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdOwners)).BeginInit();
             this.grpOwner.SuspendLayout();
             this.SuspendLayout();
@@ -73,15 +73,15 @@ namespace PropertyRentalSystem
             this.txtSurnameSRH.Size = new System.Drawing.Size(180, 22);
             this.txtSurnameSRH.TabIndex = 1;
             // 
-            // txtSearch
+            // btnSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(542, 31);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(75, 23);
-            this.txtSearch.TabIndex = 2;
-            this.txtSearch.Text = "Search";
-            this.txtSearch.UseVisualStyleBackColor = true;
-            this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
+            this.btnSearch.Location = new System.Drawing.Point(542, 31);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // grdOwners
             // 
@@ -149,6 +149,34 @@ namespace PropertyRentalSystem
             this.grpOwner.TabStop = false;
             this.grpOwner.Text = "Owner Details";
             this.grpOwner.Visible = false;
+            // 
+            // cboOwnerStatus
+            // 
+            this.cboOwnerStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboOwnerStatus.FormattingEnabled = true;
+            this.cboOwnerStatus.Location = new System.Drawing.Point(134, 268);
+            this.cboOwnerStatus.Name = "cboOwnerStatus";
+            this.cboOwnerStatus.Size = new System.Drawing.Size(211, 24);
+            this.cboOwnerStatus.TabIndex = 15;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(31, 275);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(97, 17);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Owner Status:";
+            // 
+            // btnUpdateOwnerDetails
+            // 
+            this.btnUpdateOwnerDetails.Location = new System.Drawing.Point(102, 327);
+            this.btnUpdateOwnerDetails.Name = "btnUpdateOwnerDetails";
+            this.btnUpdateOwnerDetails.Size = new System.Drawing.Size(199, 38);
+            this.btnUpdateOwnerDetails.TabIndex = 13;
+            this.btnUpdateOwnerDetails.Text = "Update Owner Details";
+            this.btnUpdateOwnerDetails.UseVisualStyleBackColor = true;
+            this.btnUpdateOwnerDetails.Click += new System.EventHandler(this.btnUpdateOwnerDetails_Click);
             // 
             // txtOwnerIban
             // 
@@ -252,41 +280,13 @@ namespace PropertyRentalSystem
             this.label7.TabIndex = 1;
             this.label7.Text = "First Name: ";
             // 
-            // btnUpdateOwnerDetails
-            // 
-            this.btnUpdateOwnerDetails.Location = new System.Drawing.Point(102, 327);
-            this.btnUpdateOwnerDetails.Name = "btnUpdateOwnerDetails";
-            this.btnUpdateOwnerDetails.Size = new System.Drawing.Size(199, 38);
-            this.btnUpdateOwnerDetails.TabIndex = 13;
-            this.btnUpdateOwnerDetails.Text = "Update Owner Details";
-            this.btnUpdateOwnerDetails.UseVisualStyleBackColor = true;
-            this.btnUpdateOwnerDetails.Click += new System.EventHandler(this.btnUpdateOwnerDetails_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(31, 275);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(97, 17);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Owner Status:";
-            // 
-            // cboOwnerStatus
-            // 
-            this.cboOwnerStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboOwnerStatus.FormattingEnabled = true;
-            this.cboOwnerStatus.Location = new System.Drawing.Point(134, 268);
-            this.cboOwnerStatus.Name = "cboOwnerStatus";
-            this.cboOwnerStatus.Size = new System.Drawing.Size(211, 24);
-            this.cboOwnerStatus.TabIndex = 15;
-            // 
             // frmOwnerUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 497);
             this.Controls.Add(this.grpOwner);
-            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSurnameSRH);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.grdOwners);
@@ -305,7 +305,7 @@ namespace PropertyRentalSystem
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSurnameSRH;
-        private System.Windows.Forms.Button txtSearch;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DataGridView grdOwners;
         private System.Windows.Forms.GroupBox grpOwner;
         private System.Windows.Forms.TextBox txtOwnerIban;

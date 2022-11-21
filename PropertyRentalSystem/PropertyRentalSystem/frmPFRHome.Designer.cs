@@ -115,6 +115,7 @@ namespace PropertyRentalSystem
             this.mnuPFRUpdateProperty.Name = "mnuPFRUpdateProperty";
             this.mnuPFRUpdateProperty.Size = new System.Drawing.Size(236, 26);
             this.mnuPFRUpdateProperty.Text = "Update Property";
+            this.mnuPFRUpdateProperty.Click += new System.EventHandler(this.mnuPFRUpdateProperty_Click);
             // 
             // mnuPFRAddPropertyType
             // 
@@ -142,14 +143,14 @@ namespace PropertyRentalSystem
             // mnuAddTenant
             // 
             this.mnuAddTenant.Name = "mnuAddTenant";
-            this.mnuAddTenant.Size = new System.Drawing.Size(224, 26);
+            this.mnuAddTenant.Size = new System.Drawing.Size(189, 26);
             this.mnuAddTenant.Text = "Add Tenant";
             this.mnuAddTenant.Click += new System.EventHandler(this.mnuAddTenant_Click);
             // 
             // mnuUpdateTenant
             // 
             this.mnuUpdateTenant.Name = "mnuUpdateTenant";
-            this.mnuUpdateTenant.Size = new System.Drawing.Size(224, 26);
+            this.mnuUpdateTenant.Size = new System.Drawing.Size(189, 26);
             this.mnuUpdateTenant.Text = "Update Tenant";
             this.mnuUpdateTenant.Click += new System.EventHandler(this.mnuUpdateTenant_Click);
             // 

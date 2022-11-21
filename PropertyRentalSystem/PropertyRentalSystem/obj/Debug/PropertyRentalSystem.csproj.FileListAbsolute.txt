@@ -27,3 +27,4 @@ C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRent
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmTenantAdd.resources
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmPropertyTypeUpdate.resources
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmTenantUpdate.resources
+C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmPropertyUpdate.resources

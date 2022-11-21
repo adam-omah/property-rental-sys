@@ -88,13 +88,14 @@ namespace PropertyRentalSystem
             this.lastName,
             this.phone,
             this.id});
-            this.grdOwners.Location = new System.Drawing.Point(574, 152);
+            this.grdOwners.Location = new System.Drawing.Point(26, 57);
             this.grdOwners.Name = "grdOwners";
             this.grdOwners.RowHeadersWidth = 51;
             this.grdOwners.RowTemplate.Height = 24;
             this.grdOwners.Size = new System.Drawing.Size(554, 192);
             this.grdOwners.TabIndex = 26;
             this.grdOwners.Visible = false;
+            this.grdOwners.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdOwners_CellClick);
             // 
             // firstName
             // 
@@ -135,6 +136,7 @@ namespace PropertyRentalSystem
             this.btnSurnameSRH.TabIndex = 25;
             this.btnSurnameSRH.Text = "Search Surname";
             this.btnSurnameSRH.UseVisualStyleBackColor = true;
+            this.btnSurnameSRH.Click += new System.EventHandler(this.btnSurnameSRH_Click);
             // 
             // btnUpdateProperty
             // 
@@ -492,14 +494,14 @@ namespace PropertyRentalSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(878, 797);
+            this.ClientSize = new System.Drawing.Size(609, 797);
             this.Controls.Add(this.btnSearchEircode);
             this.Controls.Add(this.txtEircode);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.grdOwners);
             this.Controls.Add(this.btnUpdateProperty);
             this.Controls.Add(this.grpPropertyExtras);
             this.Controls.Add(this.grpPropertyDetails);
+            this.Controls.Add(this.grdOwners);
             this.Name = "frmPropertyUpdate";
             this.Text = "frmPropertyUpdate";
             this.Load += new System.EventHandler(this.frmPropertyUpdate_Load);

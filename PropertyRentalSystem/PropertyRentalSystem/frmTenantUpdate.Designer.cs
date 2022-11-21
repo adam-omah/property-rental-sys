@@ -43,7 +43,7 @@ namespace PropertyRentalSystem
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.txtSurnameSRH = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grdTenants = new System.Windows.Forms.DataGridView();
@@ -191,15 +191,15 @@ namespace PropertyRentalSystem
             this.label7.TabIndex = 1;
             this.label7.Text = "First Name: ";
             // 
-            // txtSearch
+            // btnSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(528, 52);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(75, 23);
-            this.txtSearch.TabIndex = 7;
-            this.txtSearch.Text = "Search";
-            this.txtSearch.UseVisualStyleBackColor = true;
-            this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click_1);
+            this.btnSearch.Location = new System.Drawing.Point(528, 52);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 7;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
             // 
             // txtSurnameSRH
             // 
@@ -255,7 +255,7 @@ namespace PropertyRentalSystem
             // 
             // id
             // 
-            this.id.HeaderText = "Owner Id";
+            this.id.HeaderText = "Tenant Id";
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             // 
@@ -265,7 +265,7 @@ namespace PropertyRentalSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(775, 540);
             this.Controls.Add(this.grpTenant);
-            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSurnameSRH);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.grdTenants);
@@ -296,7 +296,7 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button txtSearch;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSurnameSRH;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView grdTenants;
