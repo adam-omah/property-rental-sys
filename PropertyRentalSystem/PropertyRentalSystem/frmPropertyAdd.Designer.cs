@@ -30,6 +30,8 @@ namespace PropertyRentalSystem
         private void InitializeComponent()
         {
             this.grpPropertyDetails = new System.Windows.Forms.GroupBox();
+            this.txtPropertyOwner = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.rtxPropertyDescription = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtMonthlyRent = new System.Windows.Forms.TextBox();
@@ -42,6 +44,7 @@ namespace PropertyRentalSystem
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grpPropertyExtras = new System.Windows.Forms.GroupBox();
+            this.cboHeatingSource = new System.Windows.Forms.ComboBox();
             this.chkOwnerOccupied = new System.Windows.Forms.CheckBox();
             this.chkPetsAllowed = new System.Windows.Forms.CheckBox();
             this.chkHasWifi = new System.Windows.Forms.CheckBox();
@@ -59,15 +62,13 @@ namespace PropertyRentalSystem
             this.label7 = new System.Windows.Forms.Label();
             this.btnAddProperty = new System.Windows.Forms.Button();
             this.btnSurnameSRH = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
             this.txtSurnameSRH = new System.Windows.Forms.TextBox();
-            this.cboHeatingSource = new System.Windows.Forms.ComboBox();
-            this.txtPropertyOwner = new System.Windows.Forms.TextBox();
             this.grdOwners = new System.Windows.Forms.DataGridView();
             this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.grpPropertyDetails.SuspendLayout();
             this.grpPropertyExtras.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numParkingSpaces)).BeginInit();
@@ -99,6 +100,23 @@ namespace PropertyRentalSystem
             this.grpPropertyDetails.TabStop = false;
             this.grpPropertyDetails.Text = "Property Details";
             this.grpPropertyDetails.Visible = false;
+            // 
+            // txtPropertyOwner
+            // 
+            this.txtPropertyOwner.Location = new System.Drawing.Point(120, 40);
+            this.txtPropertyOwner.Name = "txtPropertyOwner";
+            this.txtPropertyOwner.ReadOnly = true;
+            this.txtPropertyOwner.Size = new System.Drawing.Size(354, 22);
+            this.txtPropertyOwner.TabIndex = 5;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(5, 43);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(115, 17);
+            this.label13.TabIndex = 15;
+            this.label13.Text = "Property Owner: ";
             // 
             // rtxPropertyDescription
             // 
@@ -221,6 +239,17 @@ namespace PropertyRentalSystem
             this.grpPropertyExtras.TabStop = false;
             this.grpPropertyExtras.Text = "Property Extras";
             this.grpPropertyExtras.Visible = false;
+            // 
+            // cboHeatingSource
+            // 
+            this.cboHeatingSource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboHeatingSource.FormattingEnabled = true;
+            this.cboHeatingSource.ItemHeight = 16;
+            this.cboHeatingSource.Location = new System.Drawing.Point(352, 57);
+            this.cboHeatingSource.Name = "cboHeatingSource";
+            this.cboHeatingSource.Size = new System.Drawing.Size(136, 24);
+            this.cboHeatingSource.Sorted = true;
+            this.cboHeatingSource.TabIndex = 17;
             // 
             // chkOwnerOccupied
             // 
@@ -401,40 +430,12 @@ namespace PropertyRentalSystem
             this.btnSurnameSRH.UseVisualStyleBackColor = true;
             this.btnSurnameSRH.Click += new System.EventHandler(this.btnSurnameSRH_Click);
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(5, 43);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(115, 17);
-            this.label13.TabIndex = 15;
-            this.label13.Text = "Property Owner: ";
-            // 
             // txtSurnameSRH
             // 
             this.txtSurnameSRH.Location = new System.Drawing.Point(192, 24);
             this.txtSurnameSRH.Name = "txtSurnameSRH";
             this.txtSurnameSRH.Size = new System.Drawing.Size(180, 22);
             this.txtSurnameSRH.TabIndex = 1;
-            // 
-            // cboHeatingSource
-            // 
-            this.cboHeatingSource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboHeatingSource.FormattingEnabled = true;
-            this.cboHeatingSource.ItemHeight = 16;
-            this.cboHeatingSource.Location = new System.Drawing.Point(352, 57);
-            this.cboHeatingSource.Name = "cboHeatingSource";
-            this.cboHeatingSource.Size = new System.Drawing.Size(136, 24);
-            this.cboHeatingSource.Sorted = true;
-            this.cboHeatingSource.TabIndex = 17;
-            // 
-            // txtPropertyOwner
-            // 
-            this.txtPropertyOwner.Location = new System.Drawing.Point(120, 40);
-            this.txtPropertyOwner.Name = "txtPropertyOwner";
-            this.txtPropertyOwner.ReadOnly = true;
-            this.txtPropertyOwner.Size = new System.Drawing.Size(354, 22);
-            this.txtPropertyOwner.TabIndex = 5;
             // 
             // grdOwners
             // 
@@ -483,13 +484,13 @@ namespace PropertyRentalSystem
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(578, 651);
-            this.Controls.Add(this.grdOwners);
             this.Controls.Add(this.txtSurnameSRH);
             this.Controls.Add(this.btnSurnameSRH);
             this.Controls.Add(this.btnAddProperty);
             this.Controls.Add(this.grpPropertyExtras);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.grpPropertyDetails);
+            this.Controls.Add(this.grdOwners);
             this.Name = "frmPropertyAdd";
             this.Text = "Perfect Fit Rentals - [Add Property]";
             this.Load += new System.EventHandler(this.frmAddProperty_Load);
@@ -549,5 +550,6 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn phone;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

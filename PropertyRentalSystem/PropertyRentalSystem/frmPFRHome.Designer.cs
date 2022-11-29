@@ -168,12 +168,14 @@ namespace PropertyRentalSystem
             this.mnuCreateRental.Name = "mnuCreateRental";
             this.mnuCreateRental.Size = new System.Drawing.Size(247, 26);
             this.mnuCreateRental.Text = "Create Rental Contract";
+            this.mnuCreateRental.Click += new System.EventHandler(this.mnuCreateRental_Click);
             // 
             // mnuUpdateRental
             // 
             this.mnuUpdateRental.Name = "mnuUpdateRental";
             this.mnuUpdateRental.Size = new System.Drawing.Size(247, 26);
             this.mnuUpdateRental.Text = "Update Rental Contract";
+            this.mnuUpdateRental.Click += new System.EventHandler(this.mnuUpdateRental_Click);
             // 
             // adminToolStripMenuItem
             // 

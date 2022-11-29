@@ -69,5 +69,17 @@ namespace PropertyRentalSystem
             var updateProperty = new frmPropertyUpdate();
             updateProperty.Show();
         }
+
+        private void mnuCreateRental_Click(object sender, EventArgs e)
+        {
+            var createRental = new frmRentalNew();
+            createRental.Show();
+        }
+
+        private void mnuUpdateRental_Click(object sender, EventArgs e)
+        {
+            var updateRental = new frmRentalUpdate();
+            updateRental.Show();
+        }
     }
 }

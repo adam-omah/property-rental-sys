@@ -76,6 +76,18 @@
     <Compile Include="frmPropertyUpdate.Designer.cs">
       <DependentUpon>frmPropertyUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRentalNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRentalNew.Designer.cs">
+      <DependentUpon>frmRentalNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRentalUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRentalUpdate.Designer.cs">
+      <DependentUpon>frmRentalUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTenantAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +129,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPropertyUpdate.resx">
       <DependentUpon>frmPropertyUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRentalNew.resx">
+      <DependentUpon>frmRentalNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRentalUpdate.resx">
+      <DependentUpon>frmRentalUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTenantAdd.resx">
       <DependentUpon>frmTenantAdd.cs</DependentUpon>

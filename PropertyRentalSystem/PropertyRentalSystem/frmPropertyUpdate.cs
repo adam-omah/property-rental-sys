@@ -234,7 +234,7 @@ namespace PropertyRentalSystem
             }
             else
             {
-                if(txtEircode.Text.Equals("V92FFFF") || txtEircode.Text.Equals("v92ffff"))
+                if (txtEircode.Text.Equals("V92FFFF") || txtEircode.Text.Equals("v92ffff"))
                 {
                     txtPropertyOwner.Text = "Adam O'Mahony";
                     cboPropertyType.SelectedIndex = 1;
