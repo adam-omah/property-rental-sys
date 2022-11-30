@@ -76,11 +76,23 @@
     <Compile Include="frmPropertyUpdate.Designer.cs">
       <DependentUpon>frmPropertyUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRecordPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecordPayment.Designer.cs">
+      <DependentUpon>frmRecordPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRentalNew.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmRentalNew.Designer.cs">
       <DependentUpon>frmRentalNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRentalsYear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRentalsYear.Designer.cs">
+      <DependentUpon>frmRentalsYear.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRentalUpdate.cs">
       <SubType>Form</SubType>
@@ -112,6 +124,12 @@
     <Compile Include="frmTenantUpdate.Designer.cs">
       <DependentUpon>frmTenantUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmYearlyCommission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYearlyCommission.Designer.cs">
+      <DependentUpon>frmYearlyCommission.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="validationFunctions.cs" />
@@ -130,8 +148,14 @@
     <EmbeddedResource Include="frmPropertyUpdate.resx">
       <DependentUpon>frmPropertyUpdate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRecordPayment.resx">
+      <DependentUpon>frmRecordPayment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRentalNew.resx">
       <DependentUpon>frmRentalNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRentalsYear.resx">
+      <DependentUpon>frmRentalsYear.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRentalUpdate.resx">
       <DependentUpon>frmRentalUpdate.cs</DependentUpon>
@@ -147,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTenantUpdate.resx">
       <DependentUpon>frmTenantUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYearlyCommission.resx">
+      <DependentUpon>frmYearlyCommission.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -173,6 +200,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\IKEA TINY HOME.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Comm2018.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Comm2019.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rentals2018.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rentals2019.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

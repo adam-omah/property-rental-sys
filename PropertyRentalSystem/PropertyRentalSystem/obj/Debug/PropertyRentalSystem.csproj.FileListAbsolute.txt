@@ -30,3 +30,6 @@ C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRent
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmPropertyUpdate.resources
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmRentalNew.resources
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmRentalUpdate.resources
+C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmRecordPayment.resources
+C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmYearlyCommission.resources
+C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmRentalsYear.resources

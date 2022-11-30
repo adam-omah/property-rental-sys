@@ -44,11 +44,10 @@ namespace PropertyRentalSystem
             this.rentalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCreateRental = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuUpdateRental = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRecordPayment = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuYearlyProfitAndLoss = new System.Windows.Forms.ToolStripMenuItem();
-            this.produceEstateAgentEarningsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuAddEstateAgent = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuUpdateEstateAgent = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuYearlyCommission = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRentalsInYear = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mnuPFRMainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -158,7 +157,8 @@ namespace PropertyRentalSystem
             // 
             this.rentalsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuCreateRental,
-            this.mnuUpdateRental});
+            this.mnuUpdateRental,
+            this.mnuRecordPayment});
             this.rentalsToolStripMenuItem.Name = "rentalsToolStripMenuItem";
             this.rentalsToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
             this.rentalsToolStripMenuItem.Text = "Rentals";
@@ -177,40 +177,35 @@ namespace PropertyRentalSystem
             this.mnuUpdateRental.Text = "Update Rental Contract";
             this.mnuUpdateRental.Click += new System.EventHandler(this.mnuUpdateRental_Click);
             // 
+            // mnuRecordPayment
+            // 
+            this.mnuRecordPayment.Name = "mnuRecordPayment";
+            this.mnuRecordPayment.Size = new System.Drawing.Size(247, 26);
+            this.mnuRecordPayment.Text = "Record Payment";
+            this.mnuRecordPayment.Click += new System.EventHandler(this.mnuRecordPayment_Click);
+            // 
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuYearlyProfitAndLoss,
-            this.produceEstateAgentEarningsToolStripMenuItem,
-            this.mnuAddEstateAgent,
-            this.mnuUpdateEstateAgent});
+            this.mnuYearlyCommission,
+            this.mnuRentalsInYear});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.adminToolStripMenuItem.Text = "Admin";
             // 
-            // mnuYearlyProfitAndLoss
+            // mnuYearlyCommission
             // 
-            this.mnuYearlyProfitAndLoss.Name = "mnuYearlyProfitAndLoss";
-            this.mnuYearlyProfitAndLoss.Size = new System.Drawing.Size(294, 26);
-            this.mnuYearlyProfitAndLoss.Text = "Produce Yearly Profit and Loss";
+            this.mnuYearlyCommission.Name = "mnuYearlyCommission";
+            this.mnuYearlyCommission.Size = new System.Drawing.Size(323, 26);
+            this.mnuYearlyCommission.Text = "Produce Yearly Commission Report";
+            this.mnuYearlyCommission.Click += new System.EventHandler(this.mnuYearlyCommission_Click);
             // 
-            // produceEstateAgentEarningsToolStripMenuItem
+            // mnuRentalsInYear
             // 
-            this.produceEstateAgentEarningsToolStripMenuItem.Name = "produceEstateAgentEarningsToolStripMenuItem";
-            this.produceEstateAgentEarningsToolStripMenuItem.Size = new System.Drawing.Size(294, 26);
-            this.produceEstateAgentEarningsToolStripMenuItem.Text = "Produce Estate Agent Earnings";
-            // 
-            // mnuAddEstateAgent
-            // 
-            this.mnuAddEstateAgent.Name = "mnuAddEstateAgent";
-            this.mnuAddEstateAgent.Size = new System.Drawing.Size(294, 26);
-            this.mnuAddEstateAgent.Text = "Add Estate Agent";
-            // 
-            // mnuUpdateEstateAgent
-            // 
-            this.mnuUpdateEstateAgent.Name = "mnuUpdateEstateAgent";
-            this.mnuUpdateEstateAgent.Size = new System.Drawing.Size(294, 26);
-            this.mnuUpdateEstateAgent.Text = "Update Estate Agent";
+            this.mnuRentalsInYear.Name = "mnuRentalsInYear";
+            this.mnuRentalsInYear.Size = new System.Drawing.Size(323, 26);
+            this.mnuRentalsInYear.Text = "Produce Rentals In Year Report";
+            this.mnuRentalsInYear.Click += new System.EventHandler(this.mnuRentalsInYear_Click);
             // 
             // pictureBox1
             // 
@@ -259,11 +254,10 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.ToolStripMenuItem mnuAddTenant;
         private System.Windows.Forms.ToolStripMenuItem mnuUpdateTenant;
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mnuYearlyProfitAndLoss;
+        private System.Windows.Forms.ToolStripMenuItem mnuYearlyCommission;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ToolStripMenuItem produceEstateAgentEarningsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mnuAddEstateAgent;
-        private System.Windows.Forms.ToolStripMenuItem mnuUpdateEstateAgent;
+        private System.Windows.Forms.ToolStripMenuItem mnuRentalsInYear;
+        private System.Windows.Forms.ToolStripMenuItem mnuRecordPayment;
     }
 }
 

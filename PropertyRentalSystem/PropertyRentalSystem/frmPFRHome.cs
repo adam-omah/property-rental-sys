@@ -81,5 +81,23 @@ namespace PropertyRentalSystem
             var updateRental = new frmRentalUpdate();
             updateRental.Show();
         }
+
+        private void mnuRecordPayment_Click(object sender, EventArgs e)
+        {
+            var recordPayment = new frmRecordPayment();
+            recordPayment.Show();
+        }
+
+        private void mnuYearlyCommission_Click(object sender, EventArgs e)
+        {
+            var yearlyCommissionReports = new frmYearlyCommission();
+            yearlyCommissionReports.Show();
+        }
+
+        private void mnuRentalsInYear_Click(object sender, EventArgs e)
+        {
+            var rentalsYearReport = new frmRentalsYear();
+            rentalsYearReport.Show();
+        }
     }
 }

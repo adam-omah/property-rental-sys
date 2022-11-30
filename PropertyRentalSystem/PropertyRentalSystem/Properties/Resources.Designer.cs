@@ -63,9 +63,49 @@ namespace PropertyRentalSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Comm2018 {
+            get {
+                object obj = ResourceManager.GetObject("Comm2018", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Comm2019 {
+            get {
+                object obj = ResourceManager.GetObject("Comm2019", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IKEA_TINY_HOME {
             get {
                 object obj = ResourceManager.GetObject("IKEA TINY HOME", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rentals2018 {
+            get {
+                object obj = ResourceManager.GetObject("Rentals2018", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rentals2019 {
+            get {
+                object obj = ResourceManager.GetObject("Rentals2019", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
