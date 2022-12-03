@@ -503,7 +503,7 @@ namespace PropertyRentalSystem
             this.Controls.Add(this.grpPropertyDetails);
             this.Controls.Add(this.grdOwners);
             this.Name = "frmPropertyUpdate";
-            this.Text = "frmPropertyUpdate";
+            this.Text = "Perfect Fit Rentals - [Update Property]";
             this.Load += new System.EventHandler(this.frmPropertyUpdate_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdOwners)).EndInit();
             this.grpPropertyExtras.ResumeLayout(false);

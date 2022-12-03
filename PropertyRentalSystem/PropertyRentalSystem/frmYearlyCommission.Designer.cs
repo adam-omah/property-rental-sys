@@ -73,7 +73,7 @@ namespace PropertyRentalSystem
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboYearlyCommision);
             this.Name = "frmYearlyCommission";
-            this.Text = "frmYearlyCommission";
+            this.Text = "Perfect Fit Rentals - [Yearly Commission Report]";
             this.Load += new System.EventHandler(this.frmYearlyCommission_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pboYearlyGraph)).EndInit();
             this.ResumeLayout(false);

@@ -40,10 +40,10 @@ namespace PropertyRentalSystem
             this.txtTenantName = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.grpPaymentDetails = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dtpPaymentDate = new System.Windows.Forms.DateTimePicker();
             this.txtPayAmount = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtpPaymentDate = new System.Windows.Forms.DateTimePicker();
             this.btnRecordPayment = new System.Windows.Forms.Button();
             this.grpPayerDetails.SuspendLayout();
             this.grpPaymentDetails.SuspendLayout();
@@ -157,22 +157,6 @@ namespace PropertyRentalSystem
             this.grpPaymentDetails.Text = "Payment Details";
             this.grpPaymentDetails.Visible = false;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(38, 73);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(121, 17);
-            this.label5.TabIndex = 24;
-            this.label5.Text = "Date of Payment :";
-            // 
-            // dtpPaymentDate
-            // 
-            this.dtpPaymentDate.Location = new System.Drawing.Point(165, 73);
-            this.dtpPaymentDate.Name = "dtpPaymentDate";
-            this.dtpPaymentDate.Size = new System.Drawing.Size(287, 22);
-            this.dtpPaymentDate.TabIndex = 23;
-            // 
             // txtPayAmount
             // 
             this.txtPayAmount.Location = new System.Drawing.Point(165, 32);
@@ -189,6 +173,22 @@ namespace PropertyRentalSystem
             this.label2.Size = new System.Drawing.Size(127, 17);
             this.label2.TabIndex = 25;
             this.label2.Text = "Payment Amount : ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(38, 73);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(121, 17);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "Date of Payment :";
+            // 
+            // dtpPaymentDate
+            // 
+            this.dtpPaymentDate.Location = new System.Drawing.Point(165, 73);
+            this.dtpPaymentDate.Name = "dtpPaymentDate";
+            this.dtpPaymentDate.Size = new System.Drawing.Size(287, 22);
+            this.dtpPaymentDate.TabIndex = 23;
             // 
             // btnRecordPayment
             // 
@@ -213,7 +213,7 @@ namespace PropertyRentalSystem
             this.Controls.Add(this.txtSRHTenant);
             this.Controls.Add(this.label7);
             this.Name = "frmRecordPayment";
-            this.Text = "frmRecordPayment";
+            this.Text = "Perfect Fit Rentals - [Record Payments]";
             this.grpPayerDetails.ResumeLayout(false);
             this.grpPayerDetails.PerformLayout();
             this.grpPaymentDetails.ResumeLayout(false);

@@ -291,7 +291,7 @@ namespace PropertyRentalSystem
             this.Controls.Add(this.label1);
             this.Controls.Add(this.grdOwners);
             this.Name = "frmOwnerUpdate";
-            this.Text = "frmOwnerUpdate";
+            this.Text = "Perfect Fit Rentals - [Update Owner]";
             this.Load += new System.EventHandler(this.frmOwnerUpdate_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdOwners)).EndInit();
             this.grpOwner.ResumeLayout(false);

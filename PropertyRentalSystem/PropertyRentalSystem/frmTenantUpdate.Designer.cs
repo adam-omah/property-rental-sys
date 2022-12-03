@@ -270,7 +270,7 @@ namespace PropertyRentalSystem
             this.Controls.Add(this.label1);
             this.Controls.Add(this.grdTenants);
             this.Name = "frmTenantUpdate";
-            this.Text = "frmTenantUpdate";
+            this.Text = "Perfect Fit Rentals - [Update Tenant]";
             this.Load += new System.EventHandler(this.frmTenantUpdate_Load);
             this.grpTenant.ResumeLayout(false);
             this.grpTenant.PerformLayout();

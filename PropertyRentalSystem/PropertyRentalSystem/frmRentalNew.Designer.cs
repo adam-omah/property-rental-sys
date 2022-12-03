@@ -42,6 +42,12 @@ namespace PropertyRentalSystem
             this.txtPropertyOwner = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.grpRentalDetails = new System.Windows.Forms.GroupBox();
+            this.chkDirectDebit = new System.Windows.Forms.CheckBox();
+            this.chkDepositPaid = new System.Windows.Forms.CheckBox();
+            this.numRentDuration = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.grdTenants = new System.Windows.Forms.DataGridView();
             this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,17 +58,11 @@ namespace PropertyRentalSystem
             this.label7 = new System.Windows.Forms.Label();
             this.btnCreateRental = new System.Windows.Forms.Button();
             this.grpTenants = new System.Windows.Forms.GroupBox();
-            this.chkDirectDebit = new System.Windows.Forms.CheckBox();
-            this.chkDepositPaid = new System.Windows.Forms.CheckBox();
-            this.numRentDuration = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.grpPropertyDetails.SuspendLayout();
             this.grpRentalDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numRentDuration)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTenants)).BeginInit();
             this.grpTenants.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numRentDuration)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSRHEircode
@@ -194,6 +194,71 @@ namespace PropertyRentalSystem
             this.grpRentalDetails.Text = "Rental Details";
             this.grpRentalDetails.Visible = false;
             // 
+            // chkDirectDebit
+            // 
+            this.chkDirectDebit.AutoSize = true;
+            this.chkDirectDebit.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkDirectDebit.Location = new System.Drawing.Point(28, 108);
+            this.chkDirectDebit.Name = "chkDirectDebit";
+            this.chkDirectDebit.Size = new System.Drawing.Size(155, 21);
+            this.chkDirectDebit.TabIndex = 26;
+            this.chkDirectDebit.Text = "Direct Debit Set Up:";
+            this.chkDirectDebit.UseVisualStyleBackColor = true;
+            // 
+            // chkDepositPaid
+            // 
+            this.chkDepositPaid.AutoSize = true;
+            this.chkDepositPaid.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkDepositPaid.Location = new System.Drawing.Point(28, 81);
+            this.chkDepositPaid.Name = "chkDepositPaid";
+            this.chkDepositPaid.Size = new System.Drawing.Size(196, 21);
+            this.chkDepositPaid.TabIndex = 25;
+            this.chkDepositPaid.Text = "First Month / Depoist Paid:";
+            this.chkDepositPaid.UseVisualStyleBackColor = true;
+            // 
+            // numRentDuration
+            // 
+            this.numRentDuration.Location = new System.Drawing.Point(198, 53);
+            this.numRentDuration.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numRentDuration.Name = "numRentDuration";
+            this.numRentDuration.Size = new System.Drawing.Size(83, 22);
+            this.numRentDuration.TabIndex = 24;
+            this.numRentDuration.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numRentDuration.Value = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(28, 55);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(164, 17);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Rent Duration (Months) :";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(28, 21);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 17);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Rent Start Date:";
+            // 
+            // dtpStartDate
+            // 
+            this.dtpStartDate.Location = new System.Drawing.Point(144, 21);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(287, 22);
+            this.dtpStartDate.TabIndex = 21;
+            // 
             // grdTenants
             // 
             this.grdTenants.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -287,71 +352,6 @@ namespace PropertyRentalSystem
             this.grpTenants.Text = "Tenants";
             this.grpTenants.Visible = false;
             // 
-            // chkDirectDebit
-            // 
-            this.chkDirectDebit.AutoSize = true;
-            this.chkDirectDebit.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.chkDirectDebit.Location = new System.Drawing.Point(28, 108);
-            this.chkDirectDebit.Name = "chkDirectDebit";
-            this.chkDirectDebit.Size = new System.Drawing.Size(155, 21);
-            this.chkDirectDebit.TabIndex = 26;
-            this.chkDirectDebit.Text = "Direct Debit Set Up:";
-            this.chkDirectDebit.UseVisualStyleBackColor = true;
-            // 
-            // chkDepositPaid
-            // 
-            this.chkDepositPaid.AutoSize = true;
-            this.chkDepositPaid.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.chkDepositPaid.Location = new System.Drawing.Point(28, 81);
-            this.chkDepositPaid.Name = "chkDepositPaid";
-            this.chkDepositPaid.Size = new System.Drawing.Size(196, 21);
-            this.chkDepositPaid.TabIndex = 25;
-            this.chkDepositPaid.Text = "First Month / Depoist Paid:";
-            this.chkDepositPaid.UseVisualStyleBackColor = true;
-            // 
-            // numRentDuration
-            // 
-            this.numRentDuration.Location = new System.Drawing.Point(198, 53);
-            this.numRentDuration.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numRentDuration.Name = "numRentDuration";
-            this.numRentDuration.Size = new System.Drawing.Size(83, 22);
-            this.numRentDuration.TabIndex = 24;
-            this.numRentDuration.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numRentDuration.Value = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 55);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(164, 17);
-            this.label6.TabIndex = 23;
-            this.label6.Text = "Rent Duration (Months) :";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 17);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Rent Start Date:";
-            // 
-            // dtpStartDate
-            // 
-            this.dtpStartDate.Location = new System.Drawing.Point(144, 21);
-            this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(287, 22);
-            this.dtpStartDate.TabIndex = 21;
-            // 
             // frmRentalNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -365,15 +365,15 @@ namespace PropertyRentalSystem
             this.Controls.Add(this.label4);
             this.Controls.Add(this.grpRentalDetails);
             this.Name = "frmRentalNew";
-            this.Text = "frmRentalNew";
+            this.Text = "Perfect Fit Rentals - [New Rental]";
             this.grpPropertyDetails.ResumeLayout(false);
             this.grpPropertyDetails.PerformLayout();
             this.grpRentalDetails.ResumeLayout(false);
             this.grpRentalDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numRentDuration)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTenants)).EndInit();
             this.grpTenants.ResumeLayout(false);
             this.grpTenants.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numRentDuration)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

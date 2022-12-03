@@ -158,15 +158,15 @@ namespace PropertyRentalSystem
             this.btnAddTenant.UseVisualStyleBackColor = true;
             this.btnAddTenant.Click += new System.EventHandler(this.btnAddTenant_Click);
             // 
-            // frmAddTenant
+            // frmTenantAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(397, 322);
             this.Controls.Add(this.btnAddTenant);
             this.Controls.Add(this.groupBox1);
-            this.Name = "frmAddTenant";
-            this.Text = "frmAddTenant";
+            this.Name = "frmTenantAdd";
+            this.Text = "Perfect Fit Rentals - [Add Tenant]";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

@@ -105,7 +105,7 @@ namespace PropertyRentalSystem
             this.Controls.Add(this.cboPropType);
             this.Controls.Add(this.grpUpdateType);
             this.Name = "frmPropertyTypeUpdate";
-            this.Text = "frmPropertyTypeUpdate";
+            this.Text = "Perfect Fit Rentals - [Update Property Type]";
             this.Load += new System.EventHandler(this.frmPropertyTypeUpdate_Load);
             this.grpUpdateType.ResumeLayout(false);
             this.grpUpdateType.PerformLayout();

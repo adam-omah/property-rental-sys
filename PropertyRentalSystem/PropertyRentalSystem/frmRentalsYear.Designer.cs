@@ -73,7 +73,7 @@ namespace PropertyRentalSystem
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboRentalsInYear);
             this.Name = "frmRentalsYear";
-            this.Text = "frmRentalsYear";
+            this.Text = "Perfect Fit Rentals - [Rentals Per Year Report]";
             this.Load += new System.EventHandler(this.frmRentalsYear_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pboRentalsGraph)).EndInit();
             this.ResumeLayout(false);
