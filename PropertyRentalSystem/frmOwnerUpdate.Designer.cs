@@ -33,11 +33,9 @@ namespace PropertyRentalSystem
             this.txtSurnameSRH = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.grdOwners = new System.Windows.Forms.DataGridView();
-            this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpOwner = new System.Windows.Forms.GroupBox();
+            this.txtOwnerID = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.cboOwnerStatus = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnUpdateOwnerDetails = new System.Windows.Forms.Button();
@@ -87,11 +85,6 @@ namespace PropertyRentalSystem
             // 
             this.grdOwners.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdOwners.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdOwners.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.firstName,
-            this.lastName,
-            this.phone,
-            this.id});
             this.grdOwners.Location = new System.Drawing.Point(12, 102);
             this.grdOwners.Name = "grdOwners";
             this.grdOwners.RowHeadersWidth = 51;
@@ -101,32 +94,10 @@ namespace PropertyRentalSystem
             this.grdOwners.Visible = false;
             this.grdOwners.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdOwners_CellClick);
             // 
-            // firstName
-            // 
-            this.firstName.HeaderText = "First Name";
-            this.firstName.MinimumWidth = 6;
-            this.firstName.Name = "firstName";
-            // 
-            // lastName
-            // 
-            this.lastName.HeaderText = "Surname";
-            this.lastName.MinimumWidth = 6;
-            this.lastName.Name = "lastName";
-            // 
-            // phone
-            // 
-            this.phone.HeaderText = "Phone Number";
-            this.phone.MinimumWidth = 6;
-            this.phone.Name = "phone";
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Owner Id";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            // 
             // grpOwner
             // 
+            this.grpOwner.Controls.Add(this.txtOwnerID);
+            this.grpOwner.Controls.Add(this.label9);
             this.grpOwner.Controls.Add(this.cboOwnerStatus);
             this.grpOwner.Controls.Add(this.label8);
             this.grpOwner.Controls.Add(this.btnUpdateOwnerDetails);
@@ -142,19 +113,37 @@ namespace PropertyRentalSystem
             this.grpOwner.Controls.Add(this.label3);
             this.grpOwner.Controls.Add(this.label2);
             this.grpOwner.Controls.Add(this.label7);
-            this.grpOwner.Location = new System.Drawing.Point(230, 102);
+            this.grpOwner.Location = new System.Drawing.Point(230, 61);
             this.grpOwner.Name = "grpOwner";
-            this.grpOwner.Size = new System.Drawing.Size(387, 383);
+            this.grpOwner.Size = new System.Drawing.Size(387, 424);
             this.grpOwner.TabIndex = 4;
             this.grpOwner.TabStop = false;
             this.grpOwner.Text = "Owner Details";
             this.grpOwner.Visible = false;
             // 
+            // txtOwnerID
+            // 
+            this.txtOwnerID.Location = new System.Drawing.Point(120, 38);
+            this.txtOwnerID.MaxLength = 60;
+            this.txtOwnerID.Name = "txtOwnerID";
+            this.txtOwnerID.ReadOnly = true;
+            this.txtOwnerID.Size = new System.Drawing.Size(235, 22);
+            this.txtOwnerID.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(31, 41);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(74, 17);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Owner ID: ";
+            // 
             // cboOwnerStatus
             // 
             this.cboOwnerStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboOwnerStatus.FormattingEnabled = true;
-            this.cboOwnerStatus.Location = new System.Drawing.Point(134, 268);
+            this.cboOwnerStatus.Location = new System.Drawing.Point(134, 305);
             this.cboOwnerStatus.Name = "cboOwnerStatus";
             this.cboOwnerStatus.Size = new System.Drawing.Size(211, 24);
             this.cboOwnerStatus.TabIndex = 15;
@@ -162,7 +151,7 @@ namespace PropertyRentalSystem
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(31, 275);
+            this.label8.Location = new System.Drawing.Point(31, 312);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(97, 17);
             this.label8.TabIndex = 14;
@@ -170,7 +159,7 @@ namespace PropertyRentalSystem
             // 
             // btnUpdateOwnerDetails
             // 
-            this.btnUpdateOwnerDetails.Location = new System.Drawing.Point(102, 327);
+            this.btnUpdateOwnerDetails.Location = new System.Drawing.Point(102, 364);
             this.btnUpdateOwnerDetails.Name = "btnUpdateOwnerDetails";
             this.btnUpdateOwnerDetails.Size = new System.Drawing.Size(199, 38);
             this.btnUpdateOwnerDetails.TabIndex = 13;
@@ -180,7 +169,7 @@ namespace PropertyRentalSystem
             // 
             // txtOwnerIban
             // 
-            this.txtOwnerIban.Location = new System.Drawing.Point(84, 235);
+            this.txtOwnerIban.Location = new System.Drawing.Point(84, 272);
             this.txtOwnerIban.MaxLength = 34;
             this.txtOwnerIban.Name = "txtOwnerIban";
             this.txtOwnerIban.Size = new System.Drawing.Size(272, 22);
@@ -189,7 +178,7 @@ namespace PropertyRentalSystem
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(31, 235);
+            this.label6.Location = new System.Drawing.Point(31, 272);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 17);
             this.label6.TabIndex = 11;
@@ -197,7 +186,7 @@ namespace PropertyRentalSystem
             // 
             // txtHomeEircode
             // 
-            this.txtHomeEircode.Location = new System.Drawing.Point(140, 192);
+            this.txtHomeEircode.Location = new System.Drawing.Point(140, 229);
             this.txtHomeEircode.MaxLength = 7;
             this.txtHomeEircode.Name = "txtHomeEircode";
             this.txtHomeEircode.Size = new System.Drawing.Size(122, 22);
@@ -205,7 +194,7 @@ namespace PropertyRentalSystem
             // 
             // txtEmailAddress
             // 
-            this.txtEmailAddress.Location = new System.Drawing.Point(140, 161);
+            this.txtEmailAddress.Location = new System.Drawing.Point(140, 198);
             this.txtEmailAddress.MaxLength = 100;
             this.txtEmailAddress.Name = "txtEmailAddress";
             this.txtEmailAddress.Size = new System.Drawing.Size(215, 22);
@@ -213,15 +202,15 @@ namespace PropertyRentalSystem
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(167, 117);
-            this.txtPhoneNumber.MaxLength = 20;
+            this.txtPhoneNumber.Location = new System.Drawing.Point(167, 154);
+            this.txtPhoneNumber.MaxLength = 10;
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(189, 22);
             this.txtPhoneNumber.TabIndex = 8;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(121, 77);
+            this.txtLastName.Location = new System.Drawing.Point(121, 114);
             this.txtLastName.MaxLength = 80;
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(235, 22);
@@ -229,7 +218,7 @@ namespace PropertyRentalSystem
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(121, 36);
+            this.txtFirstName.Location = new System.Drawing.Point(121, 73);
             this.txtFirstName.MaxLength = 60;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(235, 22);
@@ -238,7 +227,7 @@ namespace PropertyRentalSystem
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(31, 195);
+            this.label5.Location = new System.Drawing.Point(31, 232);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 17);
             this.label5.TabIndex = 5;
@@ -247,7 +236,7 @@ namespace PropertyRentalSystem
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 160);
+            this.label4.Location = new System.Drawing.Point(31, 197);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 17);
             this.label4.TabIndex = 4;
@@ -256,7 +245,7 @@ namespace PropertyRentalSystem
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 120);
+            this.label3.Location = new System.Drawing.Point(31, 157);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(138, 17);
             this.label3.TabIndex = 3;
@@ -265,7 +254,7 @@ namespace PropertyRentalSystem
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 80);
+            this.label2.Location = new System.Drawing.Point(31, 117);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 17);
             this.label2.TabIndex = 2;
@@ -274,7 +263,7 @@ namespace PropertyRentalSystem
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(31, 39);
+            this.label7.Location = new System.Drawing.Point(31, 76);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(84, 17);
             this.label7.TabIndex = 1;
@@ -320,12 +309,10 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.ComboBox cboOwnerStatus;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnUpdateOwnerDetails;
+        private System.Windows.Forms.TextBox txtOwnerID;
+        private System.Windows.Forms.Label label9;
     }
 }

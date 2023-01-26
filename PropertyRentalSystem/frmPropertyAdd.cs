@@ -7,11 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Oracle.ManagedDataAccess.Client;
 
 namespace PropertyRentalSystem
 {
     public partial class frmPropertyAdd : Form
     {
+
+        DataSet ds;
+
+
         public frmPropertyAdd()
         {
             InitializeComponent();
@@ -20,11 +25,16 @@ namespace PropertyRentalSystem
         private void frmAddProperty_Load(object sender, EventArgs e)
         {
 
-            cboPropertyType.Items.Add("BO - Bungalo");
-            cboPropertyType.Items.Add("SD - Semi Detatched");
-            cboPropertyType.Items.Add("DS - Standard Detatched");
-            cboPropertyType.Items.Add("AP - Apartment");
-            cboPropertyType.Items.Add("TH - Town House");
+
+            // Load Property Types and Type Codes.
+
+            //Load TypeCodes into ComboBox
+            ds = PropertyType.getTypes();
+            cboPropertyType.Items.Clear();
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                cboPropertyType.Items.Add(ds.Tables[0].Rows[i][0] + " - " + ds.Tables[0].Rows[i][1].ToString().Substring(0, 2));
+            }
 
             cboHeatingSource.Items.Add("Oil Central Heating");
             cboHeatingSource.Items.Add("Electric Central Heating");

@@ -12,6 +12,9 @@ namespace PropertyRentalSystem
 {
     public partial class frmPropertyTypeUpdate : Form
     {
+        DataSet ds;
+        PropertyType thePropertyType = new PropertyType();
+
         public frmPropertyTypeUpdate()
         {
             InitializeComponent();
@@ -19,9 +22,19 @@ namespace PropertyRentalSystem
 
         private void frmPropertyTypeUpdate_Load(object sender, EventArgs e)
         {
-            cboPropType.Items.Add("BO - Bungalo");
-            cboPropType.Items.Add("DS - Standard Detatched");
-            cboPropType.Items.Add("TH - Town House");
+            LoadPropertyTypes();
+        }
+
+        private void LoadPropertyTypes()
+        {
+            //Load TypeCodes into ComboBox
+            ds = PropertyType.getTypes();
+            cboPropType.Items.Clear();
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                // Adds each item to the drop down, substring limits description to 20 chars.
+                cboPropType.Items.Add(ds.Tables[0].Rows[i][0] + " - " + ds.Tables[0].Rows[i][1].ToString().Substring(0, 20));
+            }
         }
 
         private void cboPropType_SelectedIndexChanged(object sender, EventArgs e)
@@ -31,23 +44,13 @@ namespace PropertyRentalSystem
                 txtPropertyTypeDescription.Clear();
                 grpUpdateType.Visible = false;
             }
-            if (cboPropType.SelectedIndex == 0)
+            else
             {
-                txtPropertyTypeDescription.Text = "Single Story Detached house";
+                // Access the data set and get the description.
+                txtPropertyTypeDescription.Text = ds.Tables[0].Rows[cboPropType.SelectedIndex][1].ToString();
                 grpUpdateType.Visible = true;
-            }
-            if (cboPropType.SelectedIndex == 1)
-            {
-                txtPropertyTypeDescription.Text = "Standard Detached house";
-                grpUpdateType.Visible = true;
-            }
-            if (cboPropType.SelectedIndex == 2)
-            {
-                txtPropertyTypeDescription.Text = "Town House, central location";
-                grpUpdateType.Visible = true;
-            }
 
-
+            }
 
         }
 
@@ -68,7 +71,10 @@ namespace PropertyRentalSystem
 
 
             // Update Data in Data Store once validated.
-            // NOT DOING THIS!
+            thePropertyType.setTypeCode(ds.Tables[0].Rows[cboPropType.SelectedIndex][0].ToString());
+            thePropertyType.setDescription(txtPropertyTypeDescription.Text);
+
+            thePropertyType.updateType();
 
             // display confirmation Message:
             MessageBox.Show("Property Type Has Been Updated", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -77,7 +83,12 @@ namespace PropertyRentalSystem
 
             txtPropertyTypeDescription.Clear();
             grpUpdateType.Visible = false;
+
+            LoadPropertyTypes();
+
             cboPropType.SelectedIndex = -1;
+
+
         }
     }
 }

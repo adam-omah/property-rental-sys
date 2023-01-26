@@ -125,3 +125,5 @@ C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRent
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.csproj.CopyComplete
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.exe
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.pdb
+C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\bin\Debug\System.Reactive.dll
+C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\bin\Debug\System.Reactive.xml

@@ -47,7 +47,7 @@ namespace PropertyRentalSystem
             bool isValidPhone = validationFunctions.validPhoneNumber(txtPhoneNumber.Text);
             if (!isValidPhone)
             {
-                MessageBox.Show("Phone Number Must Be Valid,\nLarger than 7 numbers and can only have one +, no spaces!", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Phone Number Must Be Valid,\nAt least than 7 digits and max 15 digits, no spaces!", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPhoneNumber.Focus();
                 return;
             }
@@ -62,7 +62,7 @@ namespace PropertyRentalSystem
             }
 
             // moved validation of Email to a public helper class.
-            bool isValidEmail = validationFunctions.validEmailAddres(txtEmailAddress.Text);
+            bool isValidEmail = validationFunctions.validEmail(txtEmailAddress.Text);
 
             if (!isValidEmail)
             {
@@ -116,8 +116,6 @@ namespace PropertyRentalSystem
             //invoke the method to add the data to the Products table
             aOwner.addOwner();
 
-            // Save to Data Store once validated.
-            // NOT DOING THIS!
 
             // display confirmation Message:
             MessageBox.Show("Owner Has Been Added to the Owners Data Store", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);

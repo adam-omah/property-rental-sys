@@ -103,7 +103,7 @@ namespace PropertyRentalSystem
             // txtPhoneNumber
             // 
             this.txtPhoneNumber.Location = new System.Drawing.Point(167, 117);
-            this.txtPhoneNumber.MaxLength = 20;
+            this.txtPhoneNumber.MaxLength = 10;
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(189, 22);
             this.txtPhoneNumber.TabIndex = 8;

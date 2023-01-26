@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace PropertyRentalSystem
@@ -128,9 +129,8 @@ namespace PropertyRentalSystem
         {
             Boolean result = true;
             char[] phoneChars = phone.ToCharArray();
-            int plusCount = 0;
 
-            if (phoneChars.Length > 6 && phoneChars.Length < 16)
+            if (phoneChars.Length > 6 && phoneChars.Length < 11)
             {
                 for (int i = 0; i < phoneChars.Length; i++)
                 {
@@ -140,15 +140,9 @@ namespace PropertyRentalSystem
                     }
                     else
                     {
-                        if (phoneChars[i] == '+' && plusCount < 1)
-                        {
-                            plusCount++;
-                        }
-                        else
-                        {
-                            result = false;
-                            return result;
-                        }
+
+                        result = false;
+                        return result;
                     }
                 }
             }
@@ -191,6 +185,29 @@ namespace PropertyRentalSystem
 
 
             return result;
+        }
+
+        public static bool validEmail(String email)
+        {
+            bool result = true;
+
+            string strRegex = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
+         @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
+         @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+
+
+            Regex emailTest = new Regex(strRegex);
+            if (emailTest.IsMatch(email)) 
+            {
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+
+            return result;
+
         }
     }
 }

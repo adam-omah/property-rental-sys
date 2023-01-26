@@ -12,6 +12,8 @@ namespace PropertyRentalSystem
 {
     public partial class frmOwnerUpdate : Form
     {
+        Owners theOwner = new Owners();
+
         public frmOwnerUpdate()
         {
             InitializeComponent();
@@ -19,46 +21,55 @@ namespace PropertyRentalSystem
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (txtSurnameSRH.Text.Equals("Smith") || txtSurnameSRH.Text.Equals("smith"))
-            {
-                // Find matching owners with surname.
-                // retrieves owners with matching surnames from owners data file:
-                grdOwners.Rows.Add("John", "Smith", "0877777777", 123);
-                grdOwners.Rows.Add("Sarah", "Smith", "0867777777", 103);
-                grdOwners.Rows.Add("Mary", "Smith", "0857777777", 134);
-                grdOwners.Rows.Add("Jason", "Smith", "0897777777", 79);
 
+            //find matching products
+            grdOwners.DataSource = Owners.findOwners(txtSurnameSRH.Text).Tables["Owner"];
 
-                //display owners surname search grid 
-                grdOwners.Visible = true;
-
-                // Hiding Owner details if new search.
-                grpOwner.Visible = false;
-            }
-            else
+            if (grdOwners.Rows.Count == 1)
             {
                 MessageBox.Show("The surname " + txtSurnameSRH.Text + " Was not found,\nPlease try another surname such as  'Smith' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSurnameSRH.Clear();
                 txtSurnameSRH.Focus();
                 return;
             }
-            
+
+
+            //display owners surname search grid 
+            grdOwners.Visible = true;
+
+            // Hiding Owner details if new search.
+            grpOwner.Visible = false;
         }
 
         private void grdOwners_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Retrieve Full owner Details from File.
-            // Place retrieved data into the update details UI.
-            grdOwners.CurrentRow.Selected = true;
-            txtFirstName.Text = (string)grdOwners.Rows[e.RowIndex].Cells["firstName"].Value;
-            txtLastName.Text = (string)grdOwners.Rows[e.RowIndex].Cells["lastName"].Value;
-            txtPhoneNumber.Text = (string)grdOwners.Rows[e.RowIndex].Cells["phone"].Value;
+            //extract the OwnerID from column zero on the selected row in grid and use tof ind owner
+            int Id = Convert.ToInt32(grdOwners.Rows[grdOwners.CurrentCell.RowIndex].Cells[0].Value.ToString());
+
+            //instantiate The Owner
+            theOwner.getOwner(Id);
 
             // these values will be retrieved from the data store in the future however for now it is simply populated:
-            txtEmailAddress.Text = "Smith123@example.ie";
-            txtHomeEircode.Text = "V92FFFF";
-            txtOwnerIban.Text = "AIBK123456789123456789";
-            cboOwnerStatus.SelectedIndex = 0;
+            txtOwnerID.Text = theOwner.getOwnerID().ToString();
+            txtFirstName.Text = theOwner.getFirstName();
+            txtLastName.Text = theOwner.getSurname();
+            txtPhoneNumber.Text = theOwner.getPhoneNumber().ToString();
+            txtEmailAddress.Text = theOwner.getEmail();
+            txtHomeEircode.Text = theOwner.getEircode();
+            txtOwnerIban.Text = theOwner.getIban();
+
+
+            // Set Status based on owner status.
+            if(theOwner.getStatus() == 'A')
+            {
+                cboOwnerStatus.SelectedIndex = 0;
+            }
+            else
+            {
+                cboOwnerStatus.SelectedIndex = 1;
+            }
+            
 
 
             // display owner details.
@@ -72,8 +83,8 @@ namespace PropertyRentalSystem
         private void frmOwnerUpdate_Load(object sender, EventArgs e)
         {
             // loading the possible Owner Status's :
-            cboOwnerStatus.Items.Add(" Active - 'A' ");
-            cboOwnerStatus.Items.Add(" Inactive - 'I' ");
+            cboOwnerStatus.Items.Add("Active - 'A' ");
+            cboOwnerStatus.Items.Add("Inactive - 'I' ");
 
         }
 
@@ -122,7 +133,7 @@ namespace PropertyRentalSystem
             }
 
             // moved validation of Email to a public helper class.
-            bool isValidEmail = validationFunctions.validEmailAddres(txtEmailAddress.Text);
+            bool isValidEmail = validationFunctions.validEmail(txtEmailAddress.Text);
 
             if (!isValidEmail)
             {
@@ -168,11 +179,20 @@ namespace PropertyRentalSystem
             }
 
 
-            // Set Owner status to 'A' for Active,
-            // Assign Owner an Owner ID.
+
 
             // Save to Data Store once validated.
-            // NOT DOING THIS!
+            //instantiate the object variables
+            theOwner.setOwnerID(Convert.ToInt32(txtOwnerID.Text));
+            theOwner.setFirstName(txtFirstName.Text);
+            theOwner.setSurname(txtLastName.Text);
+            theOwner.setPhone(Convert.ToInt32(txtPhoneNumber.Text));
+            theOwner.setEmail(txtEmailAddress.Text);
+            theOwner.setEircode(txtHomeEircode.Text);
+            theOwner.setIban(txtOwnerIban.Text);
+            theOwner.setStatus(cboOwnerStatus.Text.Substring(0, 1));
+
+            theOwner.updateOwner();
 
             // display confirmation Message:
             MessageBox.Show("Owner Details have been updated \nAnd Updated in the Owners Data Store", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);

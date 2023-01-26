@@ -13,11 +13,23 @@ namespace PropertyRentalSystem
         private int ownerID;
         private String firstName;
         private String lastName;
-        private int phone;
+        private int phoneNumber;
         private String email;
         private String eircode;
         private String iban;
         private char status;
+
+        public Owners()
+        {
+            this.ownerID = 0;
+            this.firstName = "";
+            this.lastName = "";
+            this.phoneNumber = 0;
+            this.email = "";
+            this.eircode = "";
+            this.iban = "";
+            this.status = 'I';
+        }
 
         public Owners( string firstName, string lastName, int phone, string email, string eircode, string iban, char status)
         {
@@ -25,7 +37,7 @@ namespace PropertyRentalSystem
 
             this.firstName = firstName;
             this.lastName = lastName;
-            this.phone = phone;
+            this.phoneNumber = phone;
             this.email = email;
             this.eircode = eircode;
             this.iban = iban;
@@ -59,6 +71,8 @@ namespace PropertyRentalSystem
 
         }
 
+        
+
         public void addOwner()
         {
             //Open a db connection
@@ -70,7 +84,7 @@ namespace PropertyRentalSystem
                 this.ownerID + ",'" +
                 this.firstName + "','" +
                 this.lastName + "'," +
-                this.phone + ",'" +
+                this.phoneNumber + ",'" +
                 this.email + "','" +
                 this.eircode + "','" +
                 this.iban + "','" +
@@ -79,6 +93,85 @@ namespace PropertyRentalSystem
             //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             
+
+            cmd.ExecuteNonQuery();
+
+            //Close db connection
+            conn.Close();
+        }
+
+        public static DataSet findOwners(String surname)
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //Define the SQL query to be executed
+            String sqlQuery = "SELECT ownerID, firstName, lastName, phoneNumber FROM owners " +
+                "WHERE lastName LIKE '%" + surname + "%' ORDER BY firstName";
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "owner");
+
+            //Close db connection
+            conn.Close();
+
+            return ds;
+        }
+
+        public void getOwner(int Id)
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //Define the SQL query to be executed
+            String sqlQuery = "SELECT * FROM owners WHERE ownerID = " + Id;
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            OracleDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+
+            //set the instance variables with values from data reader
+            setOwnerID(dr.GetInt32(0));
+            setFirstName(dr.GetString(1));
+            setSurname(dr.GetString(2));
+            setPhone(dr.GetInt32(3));
+            setEmail(dr.GetString(4));
+            setEircode(dr.GetString(5));
+            setIban(dr.GetString(6));
+            setStatus(dr.GetString(7));
+
+            //close DB
+            conn.Close();
+        }
+
+        public void updateOwner()
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //Define the SQL query to be executed
+            String sqlQuery = "UPDATE Owners SET " +
+                "ownerId = " + this.ownerID + "," +
+                "firstName = '" + this.firstName + "'," +
+                "lastName = '" + this.lastName + "'," +
+                "phoneNumber = " + this.phoneNumber + "," +
+                "email = '" + this.email + "'," +
+                "eircode = '" + this.eircode + "'," +
+                "iban = '" + this.iban + "'," +
+                "status = '" + this.status + "' " +
+                "WHERE ownerId = " + this.ownerID;
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
 
             cmd.ExecuteNonQuery();
 
@@ -115,7 +208,7 @@ namespace PropertyRentalSystem
 
         public String getSurname() { return this.lastName; }
 
-        public int getPhoneNumber() { return this.phone; }
+        public int getPhoneNumber() { return this.phoneNumber; }
 
         public String getEmail() { return this.email; }
 
@@ -132,7 +225,7 @@ namespace PropertyRentalSystem
 
         public void setSurname(String Surname) { lastName = Surname; }
 
-        public void setPhone(int PhoneNumber) { phone = PhoneNumber; }
+        public void setPhone(int PhoneNumber) { phoneNumber = PhoneNumber; }
 
         public void setEmail (String Email) { email = Email; }
 
@@ -140,7 +233,7 @@ namespace PropertyRentalSystem
 
         public void setIban(String IBAN) { iban = IBAN; }
 
-        public void setStatus(Char Status) { status = Status; }
+        public void setStatus(String Status) { status = Status[0]; }
 
 
         public override bool Equals(object obj)
@@ -149,7 +242,7 @@ namespace PropertyRentalSystem
                    ownerID == owner.ownerID &&
                    firstName == owner.firstName &&
                    lastName == owner.lastName &&
-                   phone == owner.phone;
+                   phoneNumber == owner.phoneNumber;
         }
     }
 }

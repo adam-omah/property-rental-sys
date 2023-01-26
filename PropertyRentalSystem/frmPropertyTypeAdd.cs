@@ -12,10 +12,12 @@ namespace PropertyRentalSystem
 {
     public partial class frmPropertyTypeAdd : Form
     {
+
         public frmPropertyTypeAdd()
         {
             InitializeComponent();
         }
+
 
         private void btnAddPropertyType_Click(object sender, EventArgs e)
         {
@@ -39,9 +41,9 @@ namespace PropertyRentalSystem
                 return;
             }
 
-            //Check to see if Code already Exists, (Using dummy data of SD representing Semi-Detatched.).
+            //Check to see if Code already Exists.
 
-            if (txtPropertyTypeCode.Text.Equals("SD"))
+            if (!PropertyType.TypeCodeExists(txtPropertyTypeCode.Text))
             {
                 MessageBox.Show("Property Type Code 'SD' Already Exists", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPropertyTypeCode.Focus();
@@ -57,10 +59,14 @@ namespace PropertyRentalSystem
                 return;
             }
 
-            
+
 
             // Save to Data Store once validated.
-            // NOT DOING THIS!
+
+            PropertyType newType = new PropertyType(txtPropertyTypeCode.Text,txtPropertyTypeDescription.Text);
+
+            newType.addPropertyType();
+            
 
             // display confirmation Message:
             MessageBox.Show("Property Type Has Been Added", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
