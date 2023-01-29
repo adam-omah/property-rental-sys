@@ -22,7 +22,7 @@ namespace PropertyRentalSystem
         private void btnSearch_Click(object sender, EventArgs e)
         {
 
-            //find matching products
+            //find matching Owners
             grdOwners.DataSource = Owners.findOwners(txtSurnameSRH.Text).Tables["Owner"];
 
             if (grdOwners.Rows.Count == 1)
@@ -188,7 +188,8 @@ namespace PropertyRentalSystem
             theOwner.setSurname(txtLastName.Text);
             theOwner.setPhone(Convert.ToInt32(txtPhoneNumber.Text));
             theOwner.setEmail(txtEmailAddress.Text);
-            theOwner.setEircode(txtHomeEircode.Text);
+            // setting eircode to uper case chars, removes inconsistency.
+            theOwner.setEircode(txtHomeEircode.Text.ToUpper());
             theOwner.setIban(txtOwnerIban.Text);
             theOwner.setStatus(cboOwnerStatus.Text.Substring(0, 1));
 

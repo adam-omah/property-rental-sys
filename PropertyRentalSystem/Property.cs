@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +17,7 @@ namespace PropertyRentalSystem
         private double rentalPrice;
         private String propertyDescription;
         private int totalRooms;
-        private int standardBedrooms;
+        private int totalBedrooms;
         private int ensuiteBedrooms;
         private int bathrooms;
         private int parkingSpaces;
@@ -32,10 +34,10 @@ namespace PropertyRentalSystem
             eircode = "NA";
             ownerID = 1;
             houseName = "none";
-            rentalPrice = 100.00f;
+            rentalPrice = 100;
             propertyDescription = "None";
             totalRooms = 0;
-            standardBedrooms = 0;
+            totalBedrooms = 0;
             ensuiteBedrooms = 0;
             bathrooms = 0;
             parkingSpaces = 0;
@@ -56,7 +58,7 @@ namespace PropertyRentalSystem
             this.rentalPrice = rentalPrice;
             this.propertyDescription = propertyDescription;
             this.totalRooms = totalRooms;
-            this.standardBedrooms = standardBedrooms;
+            this.totalBedrooms = standardBedrooms;
             this.ensuiteBedrooms = ensuiteBedrooms;
             this.bathrooms = bathrooms;
             this.parkingSpaces = parkingSpaces;
@@ -66,6 +68,108 @@ namespace PropertyRentalSystem
             this.wifi = wifi;
             this.ownerOccupied = ownerOccupied;
             this.status = status;
+        }
+
+        public void addProperty()
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            //Define the SQL query to be executed
+            String sqlQuery = "INSERT INTO Properties Values (\'" +
+                this.eircode + "','" +
+                this.typeCode + "'," +
+                this.ownerID + ",'" +
+                this.houseName + "','" +
+                this.propertyDescription + "'," +
+                this.rentalPrice + "," +
+                this.totalRooms + "," +
+                this.totalBedrooms + "," +
+                this.ensuiteBedrooms + "," +
+                this.parkingSpaces + ",'" +
+                this.heatingSource + "','" +
+                this.gardenSpace + "','" +
+                this.petsAllowed + "','" +
+                this.wifi + "','" +
+                this.ownerOccupied + "','" +
+                this.status + "')";
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+
+            cmd.ExecuteNonQuery();
+
+            //Close db connection
+            conn.Close();
+        }
+
+        public void getProperty(String eircode)
+        {
+
+
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            
+
+
+            //Define the SQL query to be executed
+            String sqlQuery = "SELECT * FROM Properties WHERE eircode = '" + eircode + "'";
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            OracleDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+
+            //set the instance variables with values from data reader
+            setEircode(dr.GetString(0));
+            setTypeCode(dr.GetString(1));
+            setOwnerID(dr.GetInt32(2));
+            setHouseName(dr.GetString(3));
+            setPropertyDescription(dr.GetString(4));
+            setRentalPrice(dr.GetDouble(5));
+            setTotalRooms(dr.GetInt32(6));
+            setTotalBedrooms(dr.GetInt32(7));
+            setEnsuiteBedrooms(dr.GetInt32(8));
+            setParkingSpaces(dr.GetInt32(9));
+            setHeatingSource(dr.GetString(10));
+            setGardenSpace(dr.GetString(11));
+            setPetsAllowed(dr.GetString(12));
+            setWifi(dr.GetString(13));
+            setOwnerOccupied(dr.GetString(14));
+            setStatus(dr.GetString(15));
+
+            //close DB
+            conn.Close();
+        }
+
+        public static DataSet findProperties(String eircode)
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //Define the SQL query to be executed
+            String sqlQuery = "SELECT OwnerID, Eircode, housename FROM Properties " +
+                "WHERE eircode LIKE '%" + eircode + "%'";
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "properties");
+
+            //Close db connection
+            conn.Close();
+
+            return ds;
         }
 
         public String getEircode()
@@ -138,14 +242,14 @@ namespace PropertyRentalSystem
             this.totalRooms = totalRooms;
         }
 
-        public int getStandardBedrooms()
+        public int getTotalBedrooms()
         {
-            return standardBedrooms;
+            return totalBedrooms;
         }
 
-        public void setStandardBedrooms(int standardBedrooms)
+        public void setTotalBedrooms(int totalBedrooms)
         {
-            this.standardBedrooms = standardBedrooms;
+            this.totalBedrooms = totalBedrooms;
         }
 
         public int getEnsuiteBedrooms()
@@ -193,9 +297,9 @@ namespace PropertyRentalSystem
             return gardenSpace;
         }
 
-        public void setGardenSpace(char gardenSpace)
+        public void setGardenSpace(String gardenSpace)
         {
-            this.gardenSpace = gardenSpace;
+            this.gardenSpace = gardenSpace[0];
         }
 
         public char getPetsAllowed()
@@ -203,9 +307,9 @@ namespace PropertyRentalSystem
             return petsAllowed;
         }
 
-        public void setPetsAllowed(char petsAllowed)
+        public void setPetsAllowed(String petsAllowed)
         {
-            this.petsAllowed = petsAllowed;
+            this.petsAllowed = petsAllowed[0];
         }
 
         public char getWifi()
@@ -213,9 +317,9 @@ namespace PropertyRentalSystem
             return wifi;
         }
 
-        public void setWifi(char wifi)
+        public void setWifi(String wifi)
         {
-            this.wifi = wifi;
+            this.wifi = wifi[0];
         }
 
         public char getOwnerOccupied()
@@ -223,9 +327,9 @@ namespace PropertyRentalSystem
             return ownerOccupied;
         }
 
-        public void setOwnerOccupied(char ownerOccupied)
+        public void setOwnerOccupied(String ownerOccupied)
         {
-            this.ownerOccupied = ownerOccupied;
+            this.ownerOccupied = ownerOccupied[0];
         }
 
         public char getStatus()
@@ -233,9 +337,9 @@ namespace PropertyRentalSystem
             return status;
         }
 
-        public void setStatus(char status)
+        public void setStatus(String status)
         {
-            this.status = status;
+            this.status = status[0];
         }
     }
 }

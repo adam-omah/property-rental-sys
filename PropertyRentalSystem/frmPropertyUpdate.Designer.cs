@@ -30,10 +30,6 @@ namespace PropertyRentalSystem
         private void InitializeComponent()
         {
             this.grdOwners = new System.Windows.Forms.DataGridView();
-            this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSurnameSRH = new System.Windows.Forms.TextBox();
             this.btnSurnameSRH = new System.Windows.Forms.Button();
             this.btnUpdateProperty = new System.Windows.Forms.Button();
@@ -56,6 +52,8 @@ namespace PropertyRentalSystem
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grpPropertyDetails = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtOwnerId = new System.Windows.Forms.TextBox();
             this.txtPropertyOwner = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.rtxPropertyDescription = new System.Windows.Forms.RichTextBox();
@@ -83,11 +81,6 @@ namespace PropertyRentalSystem
             // 
             this.grdOwners.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdOwners.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdOwners.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.firstName,
-            this.lastName,
-            this.phone,
-            this.id});
             this.grdOwners.Location = new System.Drawing.Point(26, 57);
             this.grdOwners.Name = "grdOwners";
             this.grdOwners.RowHeadersWidth = 51;
@@ -96,30 +89,6 @@ namespace PropertyRentalSystem
             this.grdOwners.TabIndex = 26;
             this.grdOwners.Visible = false;
             this.grdOwners.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdOwners_CellClick);
-            // 
-            // firstName
-            // 
-            this.firstName.HeaderText = "First Name";
-            this.firstName.MinimumWidth = 6;
-            this.firstName.Name = "firstName";
-            // 
-            // lastName
-            // 
-            this.lastName.HeaderText = "Surname";
-            this.lastName.MinimumWidth = 6;
-            this.lastName.Name = "lastName";
-            // 
-            // phone
-            // 
-            this.phone.HeaderText = "Phone Number";
-            this.phone.MinimumWidth = 6;
-            this.phone.Name = "phone";
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Owner Id";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
             // 
             // txtSurnameSRH
             // 
@@ -355,6 +324,8 @@ namespace PropertyRentalSystem
             // 
             // grpPropertyDetails
             // 
+            this.grpPropertyDetails.Controls.Add(this.label14);
+            this.grpPropertyDetails.Controls.Add(this.txtOwnerId);
             this.grpPropertyDetails.Controls.Add(this.txtPropertyOwner);
             this.grpPropertyDetails.Controls.Add(this.btnSurnameSRH);
             this.grpPropertyDetails.Controls.Add(this.txtSurnameSRH);
@@ -376,9 +347,26 @@ namespace PropertyRentalSystem
             this.grpPropertyDetails.Text = "Property Details";
             this.grpPropertyDetails.Visible = false;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(5, 52);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(72, 17);
+            this.label14.TabIndex = 27;
+            this.label14.Text = "Owner Id: ";
+            // 
+            // txtOwnerId
+            // 
+            this.txtOwnerId.Location = new System.Drawing.Point(123, 49);
+            this.txtOwnerId.Name = "txtOwnerId";
+            this.txtOwnerId.ReadOnly = true;
+            this.txtOwnerId.Size = new System.Drawing.Size(185, 22);
+            this.txtOwnerId.TabIndex = 26;
+            // 
             // txtPropertyOwner
             // 
-            this.txtPropertyOwner.Location = new System.Drawing.Point(120, 40);
+            this.txtPropertyOwner.Location = new System.Drawing.Point(123, 21);
             this.txtPropertyOwner.Name = "txtPropertyOwner";
             this.txtPropertyOwner.ReadOnly = true;
             this.txtPropertyOwner.Size = new System.Drawing.Size(354, 22);
@@ -387,7 +375,7 @@ namespace PropertyRentalSystem
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(5, 43);
+            this.label13.Location = new System.Drawing.Point(8, 24);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(115, 17);
             this.label13.TabIndex = 15;
@@ -413,7 +401,7 @@ namespace PropertyRentalSystem
             // txtMonthlyRent
             // 
             this.txtMonthlyRent.Location = new System.Drawing.Point(158, 186);
-            this.txtMonthlyRent.MaxLength = 16;
+            this.txtMonthlyRent.MaxLength = 9;
             this.txtMonthlyRent.Name = "txtMonthlyRent";
             this.txtMonthlyRent.Size = new System.Drawing.Size(150, 22);
             this.txtMonthlyRent.TabIndex = 9;
@@ -523,10 +511,6 @@ namespace PropertyRentalSystem
         #endregion
 
         private System.Windows.Forms.DataGridView grdOwners;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.TextBox txtSurnameSRH;
         private System.Windows.Forms.Button btnSurnameSRH;
         private System.Windows.Forms.Button btnUpdateProperty;
@@ -562,5 +546,7 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtEircode;
         private System.Windows.Forms.Button btnSearchEircode;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtOwnerId;
     }
 }

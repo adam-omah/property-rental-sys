@@ -64,10 +64,6 @@ namespace PropertyRentalSystem
             this.btnSurnameSRH = new System.Windows.Forms.Button();
             this.txtSurnameSRH = new System.Windows.Forms.TextBox();
             this.grdOwners = new System.Windows.Forms.DataGridView();
-            this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.grpPropertyDetails.SuspendLayout();
             this.grpPropertyExtras.SuspendLayout();
@@ -138,7 +134,7 @@ namespace PropertyRentalSystem
             // txtMonthlyRent
             // 
             this.txtMonthlyRent.Location = new System.Drawing.Point(158, 186);
-            this.txtMonthlyRent.MaxLength = 16;
+            this.txtMonthlyRent.MaxLength = 9;
             this.txtMonthlyRent.Name = "txtMonthlyRent";
             this.txtMonthlyRent.Size = new System.Drawing.Size(150, 22);
             this.txtMonthlyRent.TabIndex = 9;
@@ -441,11 +437,6 @@ namespace PropertyRentalSystem
             // 
             this.grdOwners.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdOwners.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdOwners.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.firstName,
-            this.lastName,
-            this.phone,
-            this.id});
             this.grdOwners.Location = new System.Drawing.Point(12, 55);
             this.grdOwners.Name = "grdOwners";
             this.grdOwners.RowHeadersWidth = 51;
@@ -454,30 +445,6 @@ namespace PropertyRentalSystem
             this.grdOwners.TabIndex = 3;
             this.grdOwners.Visible = false;
             this.grdOwners.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdOwners_CellClick_1);
-            // 
-            // firstName
-            // 
-            this.firstName.HeaderText = "First Name";
-            this.firstName.MinimumWidth = 6;
-            this.firstName.Name = "firstName";
-            // 
-            // lastName
-            // 
-            this.lastName.HeaderText = "Surname";
-            this.lastName.MinimumWidth = 6;
-            this.lastName.Name = "lastName";
-            // 
-            // phone
-            // 
-            this.phone.HeaderText = "Phone Number";
-            this.phone.MinimumWidth = 6;
-            this.phone.Name = "phone";
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Owner Id";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
             // 
             // frmPropertyAdd
             // 
@@ -546,10 +513,6 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.TextBox txtSurnameSRH;
         private System.Windows.Forms.TextBox txtPropertyOwner;
         private System.Windows.Forms.DataGridView grdOwners;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

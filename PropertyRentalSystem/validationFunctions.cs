@@ -39,6 +39,27 @@ namespace PropertyRentalSystem
             return result;
         }
 
+        public static bool validPositiveInt(string number)
+        {
+            bool result = true;
+            char[] numberChars = number.ToCharArray();
+
+            // valid numbers must be numeric and only contain one '.' symbol - is not allowed.
+
+            for (int i = 0; i < numberChars.Length; i++)
+            {
+                if (numberChars[i] >= '0' && numberChars[i] <= '9')
+                {
+
+                }
+                else
+                    result = false;
+            }
+
+            return result;
+        }
+
+
         public static bool validEircode(string eircode)
         {
             Boolean result = true;

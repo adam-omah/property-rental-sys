@@ -32,8 +32,16 @@ namespace PropertyRentalSystem
             cboPropType.Items.Clear();
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
-                // Adds each item to the drop down, substring limits description to 20 chars.
-                cboPropType.Items.Add(ds.Tables[0].Rows[i][0] + " - " + ds.Tables[0].Rows[i][1].ToString().Substring(0, 20));
+
+                // Checks length of description, if more than 15, substring, if not use all.
+                if (ds.Tables[0].Rows[i][1].ToString().Length > 15)
+                {
+                    cboPropType.Items.Add(ds.Tables[0].Rows[i][0] + " - " + ds.Tables[0].Rows[i][1].ToString().Substring(0, 15));
+                }
+                else
+                {
+                    cboPropType.Items.Add(ds.Tables[0].Rows[i][0] + " - " + ds.Tables[0].Rows[i][1].ToString());
+                }
             }
         }
 
@@ -64,6 +72,13 @@ namespace PropertyRentalSystem
             if (txtPropertyTypeDescription.Text.Equals(""))
             {
                 MessageBox.Show("Property Type Description Must Be Entered", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPropertyTypeDescription.Focus();
+                return;
+            }
+
+            if (txtPropertyTypeDescription.Text.Length < 5)
+            {
+                MessageBox.Show("Property Type Description Must longer than 5 characthers.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPropertyTypeDescription.Focus();
                 return;
             }

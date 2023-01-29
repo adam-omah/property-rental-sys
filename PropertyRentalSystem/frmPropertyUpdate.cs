@@ -12,6 +12,18 @@ namespace PropertyRentalSystem
 {
     public partial class frmPropertyUpdate : Form
     {
+
+        DataSet ds;
+        Owners theOwner = new Owners();
+        Property theProperty = new Property();
+
+        // Default values for check boxes.
+        char wifi = 'N';
+        char gardenSpace = 'N';
+        char pets = 'N';
+        char ownerO = 'N';
+
+
         public frmPropertyUpdate()
         {
             InitializeComponent();
@@ -19,18 +31,35 @@ namespace PropertyRentalSystem
 
         private void frmPropertyUpdate_Load(object sender, EventArgs e)
         {
-            cboPropertyType.Items.Add("BO - Bungalo");
-            cboPropertyType.Items.Add("SD - Semi Detatched");
-            cboPropertyType.Items.Add("DS - Standard Detatched");
-            cboPropertyType.Items.Add("AP - Apartment");
-            cboPropertyType.Items.Add("TH - Town House");
+            // Load Property Types and Type Codes.
 
+            //Load TypeCodes into ComboBox
+            ds = PropertyType.getTypes();
+            cboPropertyType.Items.Clear();
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                // Checks length of description, if more than 15, substring, if not use all.
+                if (ds.Tables[0].Rows[i][1].ToString().Length > 15)
+                {
+                    cboPropertyType.Items.Add(ds.Tables[0].Rows[i][0] + " - " + ds.Tables[0].Rows[i][1].ToString().Substring(0, 15));
+                }
+                else
+                {
+                    cboPropertyType.Items.Add(ds.Tables[0].Rows[i][0] + " - " + ds.Tables[0].Rows[i][1].ToString());
+                }
+
+            }
+
+            // These values are hard coded in as they are the only options.
+            // in reality a heating type could be added as an option or this field would be a txt field,
+            // I think a drop down works better for this section as it keeps everything simple to use for the end user.
             cboHeatingSource.Items.Add("Oil Central Heating");
             cboHeatingSource.Items.Add("Electric Central Heating");
             cboHeatingSource.Items.Add("Heat Pump Central Heating");
             cboHeatingSource.Items.Add("Electric Radiators");
             cboHeatingSource.Items.Add("Storage Heaters");
             cboHeatingSource.Items.Add("Solid Fuel Stove");
+            cboHeatingSource.Items.Add("Geothermal");
         }
 
         private void btnUpdateProperty_Click(object sender, EventArgs e)
@@ -91,7 +120,7 @@ namespace PropertyRentalSystem
             bool isValidNum = validationFunctions.validPositiveNumber(txtMonthlyRent.Text);
             if (!isValidNum)
             {
-                MessageBox.Show("Invalid Monthly Rent\nMust be Positive Numeric value with only one decimal .", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid Monthly Rent\nMust be Positive Number, only 1 . ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtMonthlyRent.Focus();
                 return;
             }
@@ -223,7 +252,7 @@ namespace PropertyRentalSystem
         private void btnSearchEircode_Click(object sender, EventArgs e)
         {
             // moved validation of numbers to a public helper class to make it more gloabl.
-            bool isValidEircode = validationFunctions.validEircode(txtEircode.Text);
+            bool isValidEircode = validationFunctions.validEircode(txtEircode.Text.ToUpper());
 
             if (!isValidEircode)
             {
@@ -234,36 +263,90 @@ namespace PropertyRentalSystem
             }
             else
             {
-                if (txtEircode.Text.Equals("V92FFFF") || txtEircode.Text.Equals("v92ffff"))
+                //find matching Property
+                grdOwners.DataSource = Property.findProperties(txtEircode.Text.ToUpper()).Tables["Properties"];
+
+                if (grdOwners.Rows.Count == 1)
                 {
-                    txtPropertyOwner.Text = "Adam O'Mahony";
-                    cboPropertyType.SelectedIndex = 1;
-                    cboHeatingSource.SelectedIndex = 5;
-                    txtPropertyName.Text = "Birds Cottage";
-                    txtMonthlyRent.Text = "500";
-                    rtxPropertyDescription.Text = "Open plan country cottage bungalow set around 1 arce of woodlands.";
-                    numTotalRooms.Value = 5;
-                    numTotalBedrooms.Value = 2;
-                    numTotalBathrooms.Value = 2;
-                    numEnsuiteBedrooms.Value = 1;
-                    numParkingSpaces.Value = 3;
-                    chkGardenSpace.Checked = true;
-                    chkHasWifi.Checked = true;
-                    chkPetsAllowed.Checked = true;
-                    chkOwnerOccupied.Checked = false;
+                    MessageBox.Show("The Eircode " + txtSurnameSRH.Text + " Is not on the system,\nPlease try another eircode such as  'v92cccc' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtSurnameSRH.Clear();
+                    txtSurnameSRH.Focus();
+                    return;
+                }
+                else
+                {
+                    // Property was found, instantiate it.
+                    // setting eircode to uper case chars, removes inconsistency.
+                    theProperty.getProperty(txtEircode.Text.ToUpper());
+
+                    //instantiate The Owner
+                    theOwner.getOwner(theProperty.getOwnerID());
+
+                    // Set Owner name into field.
+                    txtPropertyOwner.Text = (string)theOwner.getFirstName() + " " + (string)theOwner.getSurname();
+
+                    txtEircode.Text = theProperty.getEircode();
+                    
+                    txtOwnerId.Text = theProperty.getOwnerID().ToString();
+                    txtMonthlyRent.Text = theProperty.getRentalPrice().ToString();
+
+                    // set property type select to correct one.
+                    for (int i = 0; i < cboPropertyType.Items.Count; i++)
+                    {
+                        if(cboPropertyType.Items[i].ToString().Substring(0, 2).Equals(theProperty.getTypeCode()))
+                        {
+                            cboPropertyType.SelectedIndex = i;
+                        }
+                    
+                    }
+
+                    // set Heating source select to correct one.
+                    for (int i = 0; i < cboHeatingSource.Items.Count; i++)
+                    {
+                        if (cboHeatingSource.Items[i].ToString().Equals(theProperty.getHeatingSource()))
+                        {
+                            cboHeatingSource.SelectedIndex = i;
+                        }
+
+                    }
+
+                    txtPropertyName.Text = theProperty.getHouseName();
+                    rtxPropertyDescription.Text = theProperty.getPropertyDescription();
+
+                    // setting the number values from the property found.
+                    numTotalRooms.Value = theProperty.getTotalRooms();
+                    numTotalBedrooms.Value = theProperty.getTotalBedrooms();
+                    numTotalBathrooms.Value = theProperty.getBathrooms();
+                    numEnsuiteBedrooms.Value = theProperty.getEnsuiteBedrooms();
+                    numParkingSpaces.Value = theProperty.getParkingSpaces();
+
+                    // checkboxes
+                    if (theProperty.getGardenSpace() == 'Y')
+                        chkGardenSpace.Checked = true;
+                    else
+                        chkGardenSpace.Checked = false;
+
+                    if (theProperty.getPetsAllowed() == 'Y')
+                        chkPetsAllowed.Checked = true;
+                    else
+                        chkPetsAllowed.Checked = false;
+
+                    if (theProperty.getWifi() == 'Y')
+                        chkHasWifi.Checked = true;
+                    else
+                        chkHasWifi.Checked = false;
+
+                    if (theProperty.getOwnerOccupied() == 'Y')
+                        chkOwnerOccupied.Checked = true;
+                    else
+                        chkOwnerOccupied.Checked = false;
+
+                    // need to add in property Status!
+
 
                     grpPropertyDetails.Visible = true;
                     grpPropertyExtras.Visible = true;
                     btnUpdateProperty.Visible = true;
-
-
-                }
-                else
-                {
-                    MessageBox.Show("Eircode Not Found, Please try another Eircode Such as V92FFFF ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtEircode.Clear();
-                    txtEircode.Focus();
-                    return;
                 }
             }
         }

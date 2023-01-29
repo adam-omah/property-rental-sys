@@ -88,7 +88,7 @@ namespace PropertyRentalSystem
             bool isValidNum = validationFunctions.validPositiveNumber(txtPayAmount.Text);
             if (!isValidNum)
             {
-                MessageBox.Show("Invalid Payment Amount \nMust be Positive Numeric value with only one decimal .", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid Payment Amount \nMust be Positive Number, only 1 . ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPayAmount.Focus();
                 return;
             }

@@ -15,6 +15,14 @@ namespace PropertyRentalSystem
     {
 
         DataSet ds;
+        Owners theOwner = new Owners();
+
+        // Default values for check boxes.
+        char wifi = 'N';
+        char gardenSpace = 'N';
+        char pets = 'N';
+        char ownerO = 'N';
+
 
 
         public frmPropertyAdd()
@@ -33,15 +41,29 @@ namespace PropertyRentalSystem
             cboPropertyType.Items.Clear();
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
-                cboPropertyType.Items.Add(ds.Tables[0].Rows[i][0] + " - " + ds.Tables[0].Rows[i][1].ToString().Substring(0, 2));
+                // Checks length of description, if more than 15, substring, if not use all.
+                if (ds.Tables[0].Rows[i][1].ToString().Length > 15)
+                {
+                    cboPropertyType.Items.Add(ds.Tables[0].Rows[i][0] + " - " + ds.Tables[0].Rows[i][1].ToString().Substring(0, 15));
+                }
+                else
+                {
+                    cboPropertyType.Items.Add(ds.Tables[0].Rows[i][0] + " - " + ds.Tables[0].Rows[i][1].ToString());
+                }
+
             }
 
+
+            // These values are hard coded in as they are the only options.
+            // in reality a heating type could be added as an option or this field would be a txt field,
+            // I think a drop down works better for this section as it keeps everything simple to use for the end user.
             cboHeatingSource.Items.Add("Oil Central Heating");
             cboHeatingSource.Items.Add("Electric Central Heating");
             cboHeatingSource.Items.Add("Heat Pump Central Heating");
             cboHeatingSource.Items.Add("Electric Radiators");
             cboHeatingSource.Items.Add("Storage Heaters");
             cboHeatingSource.Items.Add("Solid Fuel Stove");
+            cboHeatingSource.Items.Add("Geothermal");
         }
 
         private void btnAddProperty_Click(object sender, EventArgs e)
@@ -108,10 +130,10 @@ namespace PropertyRentalSystem
             }
 
             // moved validation of numbers to a public helper class to make it more gloabl.
-            bool isValidNum = validationFunctions.validPositiveNumber(txtMonthlyRent.Text);
+            bool isValidNum = validationFunctions.validPositiveInt(txtMonthlyRent.Text);
             if (!isValidNum)
             {
-                MessageBox.Show("Invalid Monthly Rent\nMust be Positive Numeric value with only one decimal .", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid Monthly Rent\nMust be Positive Number, only 1 . ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtMonthlyRent.Focus();
                 return;
             }
@@ -180,7 +202,64 @@ namespace PropertyRentalSystem
             // Give property Appropriate Property ID.
             // Set Property status to Available.
             // Save Property to Properties Data Store.
-            // NOT DOING THIS!
+            // Set Property Status to 'A' for active.
+            
+
+            Property aProperty = new Property();
+
+            // normal text fields.
+            // setting eircode to uper case chars, removes inconsistency.
+            aProperty.setEircode(txtEircode.Text.ToUpper());
+            aProperty.setTypeCode(ds.Tables[0].Rows[cboPropertyType.SelectedIndex][0].ToString());
+            aProperty.setOwnerID(theOwner.getOwnerID());
+            aProperty.setHouseName(txtPropertyName.Text);
+            aProperty.setPropertyDescription(rtxPropertyDescription.Text);
+            aProperty.setRentalPrice(Convert.ToDouble(txtMonthlyRent.Text));
+
+            // number selections
+            aProperty.setTotalRooms(Convert.ToInt32(numTotalRooms.Value));
+            aProperty.setTotalBedrooms(Convert.ToInt32(numTotalBedrooms.Value));
+            aProperty.setEnsuiteBedrooms(Convert.ToInt32(numEnsuiteBedrooms.Value));
+            aProperty.setBathrooms(Convert.ToInt32(numTotalBathrooms.Value));
+            aProperty.setParkingSpaces(Convert.ToInt32(numParkingSpaces.Value));
+
+            // cbo
+            aProperty.setHeatingSource(cboHeatingSource.Text);
+
+            // yes no options
+            if (chkHasWifi.Checked)
+                wifi = 'Y';
+            else
+                wifi = 'N';
+
+            if (chkOwnerOccupied.Checked)
+                ownerO = 'Y';
+            else
+                ownerO = 'N';
+
+            if (chkGardenSpace.Checked)
+                gardenSpace = 'Y';
+            else
+                gardenSpace = 'N';
+
+            if (chkPetsAllowed.Checked)
+                pets = 'Y';
+            else
+                pets = 'N';
+
+            // set char values
+            aProperty.setWifi(wifi.ToString());
+            aProperty.setPetsAllowed(wifi.ToString());
+            aProperty.setOwnerOccupied(wifi.ToString());
+            aProperty.setGardenSpace(wifi.ToString());
+            // settting status to A for available.
+            aProperty.setStatus("A");
+
+
+
+
+            //invoke the method to add the data to the Products table
+            aProperty.addProperty();
 
 
             // Show confirmation message.
@@ -237,40 +316,40 @@ namespace PropertyRentalSystem
 
         private void btnSurnameSRH_Click(object sender, EventArgs e)
         {
-            if (txtSurnameSRH.Text.Equals("Smith") || txtSurnameSRH.Text.Equals("smith"))
-            {
 
-                // Find matching owners with surname.
-                // retrieves owners with matching surnames from owners data file:
-                grdOwners.Rows.Add("John", "Smith", "0877777777", 123);
-                grdOwners.Rows.Add("Sarah", "Smith", "0867777777", 103);
-                grdOwners.Rows.Add("Mary", "Smith", "0857777777", 134);
-                grdOwners.Rows.Add("Jason", "Smith", "0897777777", 79);
+                //find matching Owners
+                grdOwners.DataSource = Owners.findOwners(txtSurnameSRH.Text).Tables["Owner"];
+
+                if (grdOwners.Rows.Count == 1)
+                {
+                    MessageBox.Show("The surname " + txtSurnameSRH.Text + " Was not found,\nPlease try another surname such as  'Smith' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtSurnameSRH.Clear();
+                    txtSurnameSRH.Focus();
+                    return;
+                }
 
 
-                //display owners grid
+                //display owners surname search grid 
                 grdOwners.Visible = true;
 
                 // Hide other grps if second time searching
                 grpPropertyDetails.Visible = false;
                 grpPropertyExtras.Visible = false;
                 btnAddProperty.Visible = false;
-            }
-            else
-            {
-                MessageBox.Show("The surname " + txtSurnameSRH.Text + " Was not found,\nPlease try another surname such as  'Smith' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtSurnameSRH.Clear();
-                txtSurnameSRH.Focus();
-                return;
-            }
+            
         }
 
         private void grdOwners_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             // Retrieve Full owner Details from File.
-            grdOwners.CurrentRow.Selected = true;
+            //extract the OwnerID from column zero on the selected row in grid and use tof ind owner
+            int Id = Convert.ToInt32(grdOwners.Rows[grdOwners.CurrentCell.RowIndex].Cells[0].Value.ToString());
 
-            txtPropertyOwner.Text = (string)grdOwners.Rows[e.RowIndex].Cells["firstName"].Value + " " + (string)grdOwners.Rows[e.RowIndex].Cells["lastName"].Value;
+            //instantiate The Owner
+            theOwner.getOwner(Id);
+
+            // Set Owner name into field.
+            txtPropertyOwner.Text = (string)theOwner.getFirstName() + " " + (string)theOwner.getSurname();
 
             // display owner details.
             grpPropertyDetails.Visible = true;

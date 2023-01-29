@@ -160,7 +160,7 @@ namespace PropertyRentalSystem
             // txtPayAmount
             // 
             this.txtPayAmount.Location = new System.Drawing.Point(165, 32);
-            this.txtPayAmount.MaxLength = 16;
+            this.txtPayAmount.MaxLength = 9;
             this.txtPayAmount.Name = "txtPayAmount";
             this.txtPayAmount.Size = new System.Drawing.Size(150, 22);
             this.txtPayAmount.TabIndex = 26;
