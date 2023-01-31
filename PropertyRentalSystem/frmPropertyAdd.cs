@@ -95,7 +95,9 @@ namespace PropertyRentalSystem
                 txtPropertyName.Focus();
                 return;
             }
-            if (!validPropertyName(txtPropertyName.Text))
+
+            bool isValidName = validationFunctions.validPropertyName(txtPropertyName.Text);
+            if (!isValidName)
             {
                 MessageBox.Show("Property Name Invalid!\nProperty name must be English letters, spaces and 's are allowed.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPropertyName.Focus();
@@ -146,12 +148,23 @@ namespace PropertyRentalSystem
                 rtxPropertyDescription.Focus();
                 return;
             }
+            if(rtxPropertyDescription.Text.Length >= 200)
+            {
+                MessageBox.Show("Property Descriptionis too long, Please keep below 200 chars.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                rtxPropertyDescription.Focus();
+                return;
+            }else if(rtxPropertyDescription.Text.Length <= 10)
+            {
+                MessageBox.Show("Property Descriptionis too short, Please enter at least 10 chars.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                rtxPropertyDescription.Focus();
+                return;
+            }
 
 
             // number up down does not allow negative values.
 
-            //check if total rooms is more than 0
-            if(numTotalRooms.Value == 0)
+                //check if total rooms is more than 0
+                if(numTotalRooms.Value == 0)
             {
                 MessageBox.Show("A property must have atleast One Room!", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 numTotalRooms.Focus();
@@ -196,14 +209,7 @@ namespace PropertyRentalSystem
                 cboHeatingSource.Focus();
                 return;
             }
-
-
-
-            // Give property Appropriate Property ID.
-            // Set Property status to Available.
             // Save Property to Properties Data Store.
-            // Set Property Status to 'A' for active.
-            
 
             Property aProperty = new Property();
 
@@ -285,34 +291,15 @@ namespace PropertyRentalSystem
             chkOwnerOccupied.Checked = false;
             chkPetsAllowed.Checked = false;
 
+            //set visiables
+            grpPropertyDetails.Visible = false;
+            grpPropertyExtras.Visible = false;
+            btnAddProperty.Visible = false;
 
-            txtPropertyName.Focus();
+            txtSurnameSRH.Focus();
 
         }
 
-        private bool validPropertyName(string text)
-        {
-            bool result = true;
-            Char[] nameChars = text.ToCharArray();
-
-
-            for (int i = 0; i < nameChars.Length; i++)
-            {
-                // Allowed chars in property name are normal english letters &
-                // spaces, numbers and 's.
-                if (nameChars[i] == '\'' || nameChars[i] == ' '
-                    || (nameChars[i] >= 'a' && nameChars[i] <= 'z') || (nameChars[i] >= 'A' && nameChars[i] <= 'Z')
-                    || (nameChars[i] >= '0' && nameChars[i] <= '9'))
-                {
-
-                }
-                else
-                    result = false;
-            }
-
-
-            return result;
-        }
 
         private void btnSurnameSRH_Click(object sender, EventArgs e)
         {

@@ -100,7 +100,8 @@ namespace PropertyRentalSystem
                 txtPropertyName.Focus();
                 return;
             }
-            if (!validPropertyName(txtPropertyName.Text))
+            bool isValidName = validationFunctions.validPropertyName(txtPropertyName.Text);
+            if (!isValidName)
             {
                 MessageBox.Show("Property Name Invalid!\nProperty name must be English letters, spaces and 's are allowed.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPropertyName.Focus();
@@ -282,30 +283,6 @@ namespace PropertyRentalSystem
 
 
             txtEircode.Focus();
-        }
-
-        private bool validPropertyName(string text)
-        {
-            bool result = true;
-            Char[] nameChars = text.ToCharArray();
-
-
-            for (int i = 0; i < nameChars.Length; i++)
-            {
-                // Allowed chars in property name are normal english letters &
-                // spaces, numbers and 's.
-                if (nameChars[i] == '\'' || nameChars[i] == ' '
-                    || (nameChars[i] >= 'a' && nameChars[i] <= 'z') || (nameChars[i] >= 'A' && nameChars[i] <= 'Z')
-                    || (nameChars[i] >= '0' && nameChars[i] <= '9'))
-                {
-
-                }
-                else
-                    result = false;
-            }
-
-
-            return result;
         }
 
         private void btnSearchEircode_Click(object sender, EventArgs e)

@@ -85,6 +85,7 @@ namespace PropertyRentalSystem
                 this.propertyDescription + "'," +
                 this.rentalPrice + "," +
                 this.totalRooms + "," +
+                this.bathrooms + "," +
                 this.totalBedrooms + "," +
                 this.ensuiteBedrooms + "," +
                 this.parkingSpaces + ",'" +
@@ -119,6 +120,7 @@ namespace PropertyRentalSystem
                 "description = '" + this.propertyDescription + "'," +
                 "monthlyRent = " + this.rentalPrice + "," +
                 "totalRooms = " + this.totalRooms + "," +
+                "bathrooms = " + this.bathrooms + "," +
                 "bedrooms = " + this.totalBedrooms + "," +
                 "ensuiteBedrooms = " + this.ensuiteBedrooms + "," +
                 "parkingSpaces = " + this.parkingSpaces + "," +
@@ -168,15 +170,16 @@ namespace PropertyRentalSystem
             setPropertyDescription(dr.GetString(4));
             setRentalPrice(dr.GetDouble(5));
             setTotalRooms(dr.GetInt32(6));
-            setTotalBedrooms(dr.GetInt32(7));
-            setEnsuiteBedrooms(dr.GetInt32(8));
-            setParkingSpaces(dr.GetInt32(9));
-            setHeatingSource(dr.GetString(10));
-            setGardenSpace(dr.GetString(11));
-            setPetsAllowed(dr.GetString(12));
-            setWifi(dr.GetString(13));
-            setOwnerOccupied(dr.GetString(14));
-            setStatus(dr.GetString(15));
+            setBathrooms(dr.GetInt32(7));
+            setTotalBedrooms(dr.GetInt32(8));
+            setEnsuiteBedrooms(dr.GetInt32(9));
+            setParkingSpaces(dr.GetInt32(10));
+            setHeatingSource(dr.GetString(11));
+            setGardenSpace(dr.GetString(12));
+            setPetsAllowed(dr.GetString(13));
+            setWifi(dr.GetString(14));
+            setOwnerOccupied(dr.GetString(15));
+            setStatus(dr.GetString(16));
 
             //close DB
             conn.Close();

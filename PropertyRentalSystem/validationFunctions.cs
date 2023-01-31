@@ -9,6 +9,29 @@ namespace PropertyRentalSystem
 {
     public class validationFunctions
     {
+
+        public static bool validPropertyName(string text)
+        {
+            bool result = true;
+            Char[] nameChars = text.ToCharArray();
+
+
+            for (int i = 0; i < nameChars.Length; i++)
+            {
+                // Allowed chars in property name are normal english letters &
+                // spaces, numbers and 's.
+                if (nameChars[i] == '\'' || nameChars[i] == ' '
+                    || (nameChars[i] >= 'a' && nameChars[i] <= 'z') || (nameChars[i] >= 'A' && nameChars[i] <= 'Z')
+                    || (nameChars[i] >= '0' && nameChars[i] <= '9'))
+                {
+
+                }
+                else
+                    result = false;
+            }
+            return result;
+        }
+
         public static bool validPositiveNumber(string number)
         {
             bool result = true;
