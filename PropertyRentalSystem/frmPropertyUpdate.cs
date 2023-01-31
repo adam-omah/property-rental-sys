@@ -60,6 +60,15 @@ namespace PropertyRentalSystem
             cboHeatingSource.Items.Add("Storage Heaters");
             cboHeatingSource.Items.Add("Solid Fuel Stove");
             cboHeatingSource.Items.Add("Geothermal");
+
+
+            // Status Values are also hard coded as these do not change and are part of the requirements.
+
+            cboPropStatus.Items.Add("A - Available");
+            cboPropStatus.Items.Add("R - Rented");
+            cboPropStatus.Items.Add("I - Inactive");
+
+
         }
 
         private void btnUpdateProperty_Click(object sender, EventArgs e)
@@ -184,13 +193,63 @@ namespace PropertyRentalSystem
                 return;
             }
 
+            // There is no Validation for Status as program
+            // will not allow non value for status when updating.
 
 
-            // Give property Appropriate Property ID.
-            // Set Property status to Available.
-            // Save Property to Properties Data Store.
-            // NOT DOING THIS!
+            // Update Property in Properties Data Store.
+            // normal text fields.
+            // setting eircode to uper case chars, removes inconsistency.
+            theProperty.setEircode(txtEircode.Text.ToUpper());
+            theProperty.setTypeCode(ds.Tables[0].Rows[cboPropertyType.SelectedIndex][0].ToString());
+            theProperty.setOwnerID(theOwner.getOwnerID());
+            theProperty.setHouseName(txtPropertyName.Text);
+            theProperty.setPropertyDescription(rtxPropertyDescription.Text);
+            theProperty.setRentalPrice(Convert.ToDouble(txtMonthlyRent.Text));
 
+            // number selections
+            theProperty.setTotalRooms(Convert.ToInt32(numTotalRooms.Value));
+            theProperty.setTotalBedrooms(Convert.ToInt32(numTotalBedrooms.Value));
+            theProperty.setEnsuiteBedrooms(Convert.ToInt32(numEnsuiteBedrooms.Value));
+            theProperty.setBathrooms(Convert.ToInt32(numTotalBathrooms.Value));
+            theProperty.setParkingSpaces(Convert.ToInt32(numParkingSpaces.Value));
+
+            // cbo
+            theProperty.setHeatingSource(cboHeatingSource.Text);
+
+            // yes no options
+            if (chkHasWifi.Checked)
+                wifi = 'Y';
+            else
+                wifi = 'N';
+
+            if (chkOwnerOccupied.Checked)
+                ownerO = 'Y';
+            else
+                ownerO = 'N';
+
+            if (chkGardenSpace.Checked)
+                gardenSpace = 'Y';
+            else
+                gardenSpace = 'N';
+
+            if (chkPetsAllowed.Checked)
+                pets = 'Y';
+            else
+                pets = 'N';
+
+            // set char values
+            theProperty.setWifi(wifi.ToString());
+            theProperty.setPetsAllowed(pets.ToString());
+            theProperty.setOwnerOccupied(ownerO.ToString());
+            theProperty.setGardenSpace(gardenSpace.ToString());
+
+            // settting status
+            theProperty.setStatus(cboPropStatus.Text.Substring(0,1));
+
+            // Update the property.
+
+            theProperty.updateProperty();
 
             // Show confirmation message.
             MessageBox.Show("Property has been sucessfully Updated in the Properties Data Store", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -222,7 +281,7 @@ namespace PropertyRentalSystem
             btnUpdateProperty.Visible = false;
 
 
-            txtPropertyName.Focus();
+            txtEircode.Focus();
         }
 
         private bool validPropertyName(string text)
@@ -341,7 +400,18 @@ namespace PropertyRentalSystem
                     else
                         chkOwnerOccupied.Checked = false;
 
-                    // need to add in property Status!
+                    // Status
+                    if (theProperty.getStatus() == 'A')
+                    {
+                        cboPropStatus.SelectedIndex = 0;
+                    }else if (theProperty.getStatus() == 'R')
+                    {
+                        cboPropStatus.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        cboPropStatus.SelectedIndex = 2;
+                    }
 
 
                     grpPropertyDetails.Visible = true;

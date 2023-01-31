@@ -67,6 +67,8 @@ namespace PropertyRentalSystem
             this.label4 = new System.Windows.Forms.Label();
             this.txtEircode = new System.Windows.Forms.TextBox();
             this.btnSearchEircode = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.cboPropStatus = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdOwners)).BeginInit();
             this.grpPropertyExtras.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numParkingSpaces)).BeginInit();
@@ -109,7 +111,7 @@ namespace PropertyRentalSystem
             // 
             // btnUpdateProperty
             // 
-            this.btnUpdateProperty.Location = new System.Drawing.Point(197, 617);
+            this.btnUpdateProperty.Location = new System.Drawing.Point(195, 677);
             this.btnUpdateProperty.Name = "btnUpdateProperty";
             this.btnUpdateProperty.Size = new System.Drawing.Size(232, 28);
             this.btnUpdateProperty.TabIndex = 29;
@@ -120,6 +122,8 @@ namespace PropertyRentalSystem
             // 
             // grpPropertyExtras
             // 
+            this.grpPropertyExtras.Controls.Add(this.cboPropStatus);
+            this.grpPropertyExtras.Controls.Add(this.label15);
             this.grpPropertyExtras.Controls.Add(this.cboHeatingSource);
             this.grpPropertyExtras.Controls.Add(this.chkOwnerOccupied);
             this.grpPropertyExtras.Controls.Add(this.chkPetsAllowed);
@@ -138,7 +142,7 @@ namespace PropertyRentalSystem
             this.grpPropertyExtras.Controls.Add(this.label7);
             this.grpPropertyExtras.Location = new System.Drawing.Point(48, 458);
             this.grpPropertyExtras.Name = "grpPropertyExtras";
-            this.grpPropertyExtras.Size = new System.Drawing.Size(521, 153);
+            this.grpPropertyExtras.Size = new System.Drawing.Size(521, 213);
             this.grpPropertyExtras.TabIndex = 28;
             this.grpPropertyExtras.TabStop = false;
             this.grpPropertyExtras.Text = "Property Extras";
@@ -478,6 +482,26 @@ namespace PropertyRentalSystem
             this.btnSearchEircode.UseVisualStyleBackColor = true;
             this.btnSearchEircode.Click += new System.EventHandler(this.btnSearchEircode_Click);
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(80, 174);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(114, 17);
+            this.label15.TabIndex = 22;
+            this.label15.Text = "Property Status: ";
+            // 
+            // cboPropStatus
+            // 
+            this.cboPropStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPropStatus.FormattingEnabled = true;
+            this.cboPropStatus.ItemHeight = 16;
+            this.cboPropStatus.Location = new System.Drawing.Point(199, 171);
+            this.cboPropStatus.Name = "cboPropStatus";
+            this.cboPropStatus.Size = new System.Drawing.Size(136, 24);
+            this.cboPropStatus.Sorted = true;
+            this.cboPropStatus.TabIndex = 23;
+            // 
             // frmPropertyUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -548,5 +572,7 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.Button btnSearchEircode;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtOwnerId;
+        private System.Windows.Forms.ComboBox cboPropStatus;
+        private System.Windows.Forms.Label label15;
     }
 }

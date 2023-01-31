@@ -249,9 +249,9 @@ namespace PropertyRentalSystem
 
             // set char values
             aProperty.setWifi(wifi.ToString());
-            aProperty.setPetsAllowed(wifi.ToString());
-            aProperty.setOwnerOccupied(wifi.ToString());
-            aProperty.setGardenSpace(wifi.ToString());
+            aProperty.setPetsAllowed(pets.ToString());
+            aProperty.setOwnerOccupied(ownerO.ToString());
+            aProperty.setGardenSpace(gardenSpace.ToString());
             // settting status to A for available.
             aProperty.setStatus("A");
 

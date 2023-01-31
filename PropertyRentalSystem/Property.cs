@@ -105,6 +105,41 @@ namespace PropertyRentalSystem
             conn.Close();
         }
 
+        public void updateProperty()
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //Define the SQL query to be executed
+            String sqlQuery = "UPDATE Properties SET " +
+                "eircode = '" + this.eircode + "'," +
+                "typeCode = '" + this.typeCode + "'," +
+                "ownerId = " + this.ownerID + "," +
+                "houseName = '" + this.houseName + "'," +
+                "description = '" + this.propertyDescription + "'," +
+                "monthlyRent = " + this.rentalPrice + "," +
+                "totalRooms = " + this.totalRooms + "," +
+                "bedrooms = " + this.totalBedrooms + "," +
+                "ensuiteBedrooms = " + this.ensuiteBedrooms + "," +
+                "parkingSpaces = " + this.parkingSpaces + "," +
+                "heatingSource = '" + this.heatingSource + "'," +
+                "gardenSpace = '" + this.gardenSpace + "'," +
+                "petsAllowed = '" + this.petsAllowed + "'," +
+                "wifi = '" + this.wifi + "'," +
+                "ownerOccupied = '" + this.ownerOccupied + "'," +
+                "status = '" + this.status + "' " +
+                "WHERE eircode = '" + this.eircode +"'";
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+
+            //Close db connection
+            conn.Close();
+        }
+
         public void getProperty(String eircode)
         {
 
