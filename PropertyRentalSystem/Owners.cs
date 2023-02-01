@@ -13,7 +13,7 @@ namespace PropertyRentalSystem
         private int ownerID;
         private String firstName;
         private String lastName;
-        private int phoneNumber;
+        private Int64 phoneNumber;
         private String email;
         private String eircode;
         private String iban;
@@ -31,7 +31,7 @@ namespace PropertyRentalSystem
             this.status = 'I';
         }
 
-        public Owners( string firstName, string lastName, int phone, string email, string eircode, string iban, char status)
+        public Owners( string firstName, string lastName, Int64 phone, string email, string eircode, string iban, char status)
         {
             
 
@@ -142,7 +142,7 @@ namespace PropertyRentalSystem
             setOwnerID(dr.GetInt32(0));
             setFirstName(dr.GetString(1));
             setSurname(dr.GetString(2));
-            setPhone(dr.GetInt32(3));
+            setPhone(dr.GetInt64(3));
             setEmail(dr.GetString(4));
             setEircode(dr.GetString(5));
             setIban(dr.GetString(6));
@@ -208,7 +208,7 @@ namespace PropertyRentalSystem
 
         public String getSurname() { return this.lastName; }
 
-        public int getPhoneNumber() { return this.phoneNumber; }
+        public Int64 getPhoneNumber() { return this.phoneNumber; }
 
         public String getEmail() { return this.email; }
 
@@ -225,7 +225,7 @@ namespace PropertyRentalSystem
 
         public void setSurname(String Surname) { lastName = Surname; }
 
-        public void setPhone(int PhoneNumber) { phoneNumber = PhoneNumber; }
+        public void setPhone(Int64 PhoneNumber) { phoneNumber = PhoneNumber; }
 
         public void setEmail (String Email) { email = Email; }
 
