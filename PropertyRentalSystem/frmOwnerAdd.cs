@@ -22,16 +22,30 @@ namespace PropertyRentalSystem
             // On CLick Validate Add Owner Details.
 
             // checks name fields
+            //check first name.
             if (txtFirstName.Text.Equals(""))
             {
                 MessageBox.Show("First Name Must Be Entered", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtFirstName.Focus();
                 return;
             }
+            if (txtFirstName.Text.Length > 25)
+            {
+                MessageBox.Show("First Name Can only have 25 characthers max", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Focus();
+                return;
+            }
+            // checks last name.
             if (txtLastName.Text.Equals(""))
             {
                 MessageBox.Show("Last Name Must Be Entered", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtLastName.Focus();
+                return;
+            }
+            if (txtLastName.Text.Length > 30)
+            {
+                MessageBox.Show("Last Name Can only have 30 characthers max", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Focus();
                 return;
             }
             //checks valid phone number:
@@ -110,7 +124,7 @@ namespace PropertyRentalSystem
 
             //Create an instance of Owner and instantiate with values from form controls
             // Set Owner Status to 'A' for active, Owner ID is assigned in Owners.cs
-            Owners aOwner = new Owners(txtFirstName.Text, txtLastName.Text, Convert.ToInt32(txtPhoneNumber.Text),
+            Owners aOwner = new Owners(validationFunctions.SQLApostrophe(txtFirstName.Text), validationFunctions.SQLApostrophe(txtLastName.Text), Convert.ToInt32(txtPhoneNumber.Text),
                 txtEmailAddress.Text, txtHomeEircode.Text,txtOwnerIban.Text, 'A');
 
             //invoke the method to add the data to the Products table

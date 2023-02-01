@@ -17,49 +17,60 @@ namespace PropertyRentalSystem
             InitializeComponent();
         }
 
+        Tenant theTenant = new Tenant();
+
         private void btnSearch_Click_1(object sender, EventArgs e)
         {
-            if (txtSurnameSRH.Text.Equals("Smith") || txtSurnameSRH.Text.Equals("smith"))
-            {
-                // Find matching owners with surname.
-                // retrieves owners with matching surnames from owners data file:
-                grdTenants.Rows.Add("John", "Smith", "0877777777", 123);
-                grdTenants.Rows.Add("Sarah", "Smith", "0867777777", 103);
-                grdTenants.Rows.Add("Mary", "Smith", "0857777777", 134);
-                grdTenants.Rows.Add("Jason", "Smith", "0897777777", 79);
 
+            //find matching Tenants
+            grdTenants.DataSource = Tenant.findTenants(txtSurnameSRH.Text).Tables["Tenants"];
 
-                //display owners surname search grid 
-                grdTenants.Visible = true;
-
-                // Hiding Owner details if new search.
-                grpTenant.Visible = false;
-            }
-            else
+            if (grdTenants.Rows.Count == 1)
             {
                 MessageBox.Show("The surname " + txtSurnameSRH.Text + " Was not found,\nPlease try another surname such as  'Smith' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSurnameSRH.Clear();
                 txtSurnameSRH.Focus();
                 return;
             }
+
+            //display Tenants surname search grid 
+            grdTenants.Visible = true;
+
+            // Hiding Tenant details if new search.
+            grpTenant.Visible = false;
+            
         }
 
         private void grdTenants_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Retrieve Full owner Details from File.
-            // Place retrieved data into the update details UI.
-            grdTenants.CurrentRow.Selected = true;
-            txtFirstName.Text = (string)grdTenants.Rows[e.RowIndex].Cells["firstName"].Value;
-            txtLastName.Text = (string)grdTenants.Rows[e.RowIndex].Cells["lastName"].Value;
-            txtPhoneNumber.Text = (string)grdTenants.Rows[e.RowIndex].Cells["phone"].Value;
+            // Retrieve Full Tenant Details from File.
+            //extract the TenantID from column zero on the selected row in grid and use tof ind Tenant
+            int Id = Convert.ToInt32(grdTenants.Rows[grdTenants.CurrentCell.RowIndex].Cells[0].Value.ToString());
+
+            //instantiate The Tenant
+            theTenant.getTenant(Id);
 
             // these values will be retrieved from the data store in the future however for now it is simply populated:
-            txtEmailAddress.Text = "Smith123@example.ie";
-            txtTenantIban.Text = "AIBK123456789123456789";
-            cboTenantStatus.SelectedIndex = 0;
+            txtTenantID.Text = theTenant.getTenantID().ToString();
+            txtFirstName.Text = theTenant.getFirstName();
+            txtLastName.Text = theTenant.getLastName();
+            txtPhoneNumber.Text = theTenant.getPhoneNumber().ToString();
+            txtEmailAddress.Text = theTenant.getEmail();
+            txtTenantIban.Text = theTenant.getIban();
 
 
-            // display owner details.
+            // Set Status based on Tenant status.
+            if (theTenant.getStatus().Substring(0,1).Equals("A"))
+            {
+                cboTenantStatus.SelectedIndex = 0;
+            }
+            else
+            {
+                cboTenantStatus.SelectedIndex = 1;
+            }
+
+
+            // display Tenant details.
             grpTenant.Visible = true;
 
             // hiding surname search grid after selection:
@@ -71,26 +82,40 @@ namespace PropertyRentalSystem
         private void frmTenantUpdate_Load(object sender, EventArgs e)
         {
             // loading the possible Tenant Status's :
-            cboTenantStatus.Items.Add(" Active - 'A' ");
-            cboTenantStatus.Items.Add(" Inactive - 'I' ");
+            cboTenantStatus.Items.Add("Active - 'A' ");
+            cboTenantStatus.Items.Add("Inactive - 'I' ");
         }
 
         private void btnUpdateTenantDetails_Click(object sender, EventArgs e)
         {
             // On CLick Validate Add Tenant Details.
-            // Very similar to add Owner however there is no Eircode.
+            // Very similar to add Tenant however there is no Eircode.
 
             // checks name fields
+            //check first name.
             if (txtFirstName.Text.Equals(""))
             {
                 MessageBox.Show("First Name Must Be Entered", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtFirstName.Focus();
                 return;
             }
+            if (txtFirstName.Text.Length > 25)
+            {
+                MessageBox.Show("First Name Can only have 25 characthers max", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Focus();
+                return;
+            }
+            // checks last name.
             if (txtLastName.Text.Equals(""))
             {
                 MessageBox.Show("Last Name Must Be Entered", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtLastName.Focus();
+                return;
+            }
+            if (txtLastName.Text.Length > 30)
+            {
+                MessageBox.Show("Last Name Can only have 30 characthers max", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Focus();
                 return;
             }
             //checks valid phone number:
@@ -150,15 +175,25 @@ namespace PropertyRentalSystem
             }
 
 
-            // Set Tenant status to 'A' for Active,
-            // Assign Tenant an appropriate TenantID.
-            // Save to Data Store once validated.
-            // NOT DOING THIS!
+            // Update Tenant in Tenants Data Store once validated.
+
+            //instantiate the object variables
+            theTenant.setTenantID(Convert.ToInt32(txtTenantID.Text));
+            theTenant.setFirstName(validationFunctions.SQLApostrophe(txtFirstName.Text));
+            theTenant.setLastName(validationFunctions.SQLApostrophe(txtLastName.Text));
+            theTenant.setPhoneNumber(Convert.ToInt32(txtPhoneNumber.Text));
+            theTenant.setEmail(txtEmailAddress.Text);
+            // setting eircode to uper case chars, removes inconsistency.
+            theTenant.setIban(txtTenantIban.Text);
+            theTenant.setStatus(cboTenantStatus.Text.Substring(0, 1));
+
+            theTenant.updateTenant();
 
             // display confirmation Message:
             MessageBox.Show("Tenant Details Have Been Updated on the Tenants Data Store", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // Reset UI
+            txtTenantID.Clear();
             txtFirstName.Clear();
             txtLastName.Clear();
             txtEmailAddress.Clear();

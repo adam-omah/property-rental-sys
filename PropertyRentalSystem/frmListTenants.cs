@@ -21,7 +21,7 @@ namespace PropertyRentalSystem
         {
             // Retrieve all the data from our table. and insert into grid.
 
-            grdTenants.DataSource = Tenants.getAllTenants().Tables["tenants"];
+            grdTenants.DataSource = Tenant.getAllTenants().Tables["tenants"];
 
 
         }

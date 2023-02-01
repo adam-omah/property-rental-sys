@@ -23,16 +23,30 @@ namespace PropertyRentalSystem
             // Very similar to add Owner however there is no Eircode.
 
             // checks name fields
+            //check first name.
             if (txtFirstName.Text.Equals(""))
             {
                 MessageBox.Show("First Name Must Be Entered", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtFirstName.Focus();
                 return;
             }
+            if(txtFirstName.Text.Length > 25)
+            {
+                MessageBox.Show("First Name Can only have 25 characthers max","Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Focus();
+                return;
+            }
+            // checks last name.
             if (txtLastName.Text.Equals(""))
             {
                 MessageBox.Show("Last Name Must Be Entered", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtLastName.Focus();
+                return;
+            }
+            if (txtLastName.Text.Length > 30)
+            {
+                MessageBox.Show("Last Name Can only have 30 characthers max", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Focus();
                 return;
             }
             //checks valid phone number:
@@ -92,10 +106,14 @@ namespace PropertyRentalSystem
             }
 
 
-            // Set Tenant status to 'A' for Active,
-            // Assign Tenant an appropriate TenantID.
             // Save to Data Store once validated.
-            // NOT DOING THIS!
+            // Set Tenant Status to 'A' for active, Tenant ID is assigned in Tenants.cs
+            Tenant aTenant = new Tenant(validationFunctions.SQLApostrophe(txtFirstName.Text), validationFunctions.SQLApostrophe(txtLastName.Text), Convert.ToInt32(txtPhoneNumber.Text),
+                txtEmailAddress.Text, txtTenantIban.Text, "A");
+
+            //invoke the method to add the data to the Products table
+            aTenant.addTenant();
+
 
             // display confirmation Message:
             MessageBox.Show("Tenant Has Been Added to the Tenants Data Store", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);

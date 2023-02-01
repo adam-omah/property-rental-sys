@@ -47,16 +47,16 @@ namespace PropertyRentalSystem
             this.txtSurnameSRH = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grdTenants = new System.Windows.Forms.DataGridView();
-            this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtTenantID = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.grpTenant.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTenants)).BeginInit();
             this.SuspendLayout();
             // 
             // grpTenant
             // 
+            this.grpTenant.Controls.Add(this.txtTenantID);
+            this.grpTenant.Controls.Add(this.label9);
             this.grpTenant.Controls.Add(this.cboTenantStatus);
             this.grpTenant.Controls.Add(this.label8);
             this.grpTenant.Controls.Add(this.btnUpdateTenantDetails);
@@ -82,7 +82,7 @@ namespace PropertyRentalSystem
             // 
             this.cboTenantStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTenantStatus.FormattingEnabled = true;
-            this.cboTenantStatus.Location = new System.Drawing.Point(134, 231);
+            this.cboTenantStatus.Location = new System.Drawing.Point(139, 269);
             this.cboTenantStatus.Name = "cboTenantStatus";
             this.cboTenantStatus.Size = new System.Drawing.Size(222, 24);
             this.cboTenantStatus.TabIndex = 15;
@@ -90,7 +90,7 @@ namespace PropertyRentalSystem
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(31, 234);
+            this.label8.Location = new System.Drawing.Point(36, 272);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(101, 17);
             this.label8.TabIndex = 14;
@@ -98,7 +98,7 @@ namespace PropertyRentalSystem
             // 
             // btnUpdateTenantDetails
             // 
-            this.btnUpdateTenantDetails.Location = new System.Drawing.Point(102, 290);
+            this.btnUpdateTenantDetails.Location = new System.Drawing.Point(107, 328);
             this.btnUpdateTenantDetails.Name = "btnUpdateTenantDetails";
             this.btnUpdateTenantDetails.Size = new System.Drawing.Size(199, 38);
             this.btnUpdateTenantDetails.TabIndex = 13;
@@ -108,7 +108,7 @@ namespace PropertyRentalSystem
             // 
             // txtTenantIban
             // 
-            this.txtTenantIban.Location = new System.Drawing.Point(84, 198);
+            this.txtTenantIban.Location = new System.Drawing.Point(89, 236);
             this.txtTenantIban.MaxLength = 34;
             this.txtTenantIban.Name = "txtTenantIban";
             this.txtTenantIban.Size = new System.Drawing.Size(272, 22);
@@ -117,7 +117,7 @@ namespace PropertyRentalSystem
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(31, 198);
+            this.label6.Location = new System.Drawing.Point(36, 236);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 17);
             this.label6.TabIndex = 11;
@@ -125,7 +125,7 @@ namespace PropertyRentalSystem
             // 
             // txtEmailAddress
             // 
-            this.txtEmailAddress.Location = new System.Drawing.Point(140, 161);
+            this.txtEmailAddress.Location = new System.Drawing.Point(145, 199);
             this.txtEmailAddress.MaxLength = 100;
             this.txtEmailAddress.Name = "txtEmailAddress";
             this.txtEmailAddress.Size = new System.Drawing.Size(215, 22);
@@ -133,7 +133,7 @@ namespace PropertyRentalSystem
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(167, 117);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(172, 155);
             this.txtPhoneNumber.MaxLength = 20;
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(189, 22);
@@ -141,7 +141,7 @@ namespace PropertyRentalSystem
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(121, 77);
+            this.txtLastName.Location = new System.Drawing.Point(126, 115);
             this.txtLastName.MaxLength = 80;
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(235, 22);
@@ -149,7 +149,7 @@ namespace PropertyRentalSystem
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(121, 36);
+            this.txtFirstName.Location = new System.Drawing.Point(126, 74);
             this.txtFirstName.MaxLength = 60;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(235, 22);
@@ -158,7 +158,7 @@ namespace PropertyRentalSystem
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 160);
+            this.label4.Location = new System.Drawing.Point(36, 198);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 17);
             this.label4.TabIndex = 4;
@@ -167,7 +167,7 @@ namespace PropertyRentalSystem
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 120);
+            this.label3.Location = new System.Drawing.Point(36, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(138, 17);
             this.label3.TabIndex = 3;
@@ -176,7 +176,7 @@ namespace PropertyRentalSystem
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 80);
+            this.label2.Location = new System.Drawing.Point(36, 118);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 17);
             this.label2.TabIndex = 2;
@@ -185,7 +185,7 @@ namespace PropertyRentalSystem
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(31, 39);
+            this.label7.Location = new System.Drawing.Point(36, 77);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(84, 17);
             this.label7.TabIndex = 1;
@@ -221,11 +221,6 @@ namespace PropertyRentalSystem
             // 
             this.grdTenants.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdTenants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdTenants.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.firstName,
-            this.lastName,
-            this.phone,
-            this.id});
             this.grdTenants.Location = new System.Drawing.Point(-2, 123);
             this.grdTenants.Name = "grdTenants";
             this.grdTenants.RowHeadersWidth = 51;
@@ -235,29 +230,23 @@ namespace PropertyRentalSystem
             this.grdTenants.Visible = false;
             this.grdTenants.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTenants_CellClick);
             // 
-            // firstName
+            // txtTenantID
             // 
-            this.firstName.HeaderText = "First Name";
-            this.firstName.MinimumWidth = 6;
-            this.firstName.Name = "firstName";
+            this.txtTenantID.Location = new System.Drawing.Point(125, 37);
+            this.txtTenantID.MaxLength = 60;
+            this.txtTenantID.Name = "txtTenantID";
+            this.txtTenantID.ReadOnly = true;
+            this.txtTenantID.Size = new System.Drawing.Size(235, 22);
+            this.txtTenantID.TabIndex = 19;
             // 
-            // lastName
+            // label9
             // 
-            this.lastName.HeaderText = "Surname";
-            this.lastName.MinimumWidth = 6;
-            this.lastName.Name = "lastName";
-            // 
-            // phone
-            // 
-            this.phone.HeaderText = "Phone Number";
-            this.phone.MinimumWidth = 6;
-            this.phone.Name = "phone";
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Tenant Id";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(36, 40);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(78, 17);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Tenant ID: ";
             // 
             // frmTenantUpdate
             // 
@@ -300,9 +289,7 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.TextBox txtSurnameSRH;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView grdTenants;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.TextBox txtTenantID;
+        private System.Windows.Forms.Label label9;
     }
 }

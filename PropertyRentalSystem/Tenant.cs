@@ -9,11 +9,10 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace PropertyRentalSystem
 {
-    class Tenants
+    class Tenant
     {
 
-        public class Tenant
-        {
+        
             private int tenantID;
             private String firstName;
             private String lastName;
@@ -105,8 +104,8 @@ namespace PropertyRentalSystem
                 OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
                 //Define the SQL query to be executed
-                String sqlQuery = "SELECT TenantID, firstName, lastName, phoneNumber FROM Tenants " +
-                    "WHERE lastName LIKE '%" + surname + "%' ORDER BY firstName";
+                String sqlQuery = "SELECT TenantID, firstName, lastName, phone FROM Tenants " +
+                    "WHERE lastName LIKE '%" + validationFunctions.SQLApostrophe(surname) + "%' ORDER BY firstName";
 
                 //Execute the SQL query (OracleCommand)
                 OracleCommand cmd = new OracleCommand(sqlQuery, conn);
@@ -160,7 +159,7 @@ namespace PropertyRentalSystem
                     "TenantId = " + this.tenantID + "," +
                     "firstName = '" + this.firstName + "'," +
                     "lastName = '" + this.lastName + "'," +
-                    "phoneNumber = " + this.phoneNumber + "," +
+                    "phone = " + this.phoneNumber + "," +
                     "email = '" + this.email + "'," +
                     "iban = '" + this.iban + "'," +
                     "status = '" + this.status + "' " +
@@ -246,7 +245,7 @@ namespace PropertyRentalSystem
             {
                 this.status = status;
             }
-        }
+        
 
 
         public static DataSet getAllTenants()

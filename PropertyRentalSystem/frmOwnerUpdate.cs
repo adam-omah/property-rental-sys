@@ -182,17 +182,17 @@ namespace PropertyRentalSystem
 
 
             // Save to Data Store once validated.
-            //instantiate the object variables
+            //Set the object variables
             theOwner.setOwnerID(Convert.ToInt32(txtOwnerID.Text));
-            theOwner.setFirstName(txtFirstName.Text);
-            theOwner.setSurname(txtLastName.Text);
+            theOwner.setFirstName(validationFunctions.SQLApostrophe(txtFirstName.Text));
+            theOwner.setSurname(validationFunctions.SQLApostrophe(txtLastName.Text));
             theOwner.setPhone(Convert.ToInt32(txtPhoneNumber.Text));
             theOwner.setEmail(txtEmailAddress.Text);
             // setting eircode to uper case chars, removes inconsistency.
             theOwner.setEircode(txtHomeEircode.Text.ToUpper());
             theOwner.setIban(txtOwnerIban.Text);
             theOwner.setStatus(cboOwnerStatus.Text.Substring(0, 1));
-
+            // update called
             theOwner.updateOwner();
 
             // display confirmation Message:

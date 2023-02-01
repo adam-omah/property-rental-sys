@@ -107,7 +107,7 @@ namespace PropertyRentalSystem
 
             //Define the SQL query to be executed
             String sqlQuery = "SELECT ownerID, firstName, lastName, phoneNumber FROM owners " +
-                "WHERE lastName LIKE '%" + surname + "%' ORDER BY firstName";
+                "WHERE lastName LIKE '%" + validationFunctions.SQLApostrophe(surname) + "%' ORDER BY firstName";
 
             //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);

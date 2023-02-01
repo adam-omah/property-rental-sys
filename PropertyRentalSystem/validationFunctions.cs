@@ -231,6 +231,13 @@ namespace PropertyRentalSystem
             return result;
         }
 
+        public static String SQLApostrophe(String text)
+        {
+
+            String temp = text.Replace("\'","\'\'");
+            return temp;
+        }
+
         public static bool validEmail(String email)
         {
             bool result = true;
