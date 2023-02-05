@@ -45,7 +45,6 @@ namespace PropertyRentalSystem
 
             // Connecting to DB to get new Owner ID for onwer,
             // As owner Records are not fully deleted count is usable.
-
             //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
