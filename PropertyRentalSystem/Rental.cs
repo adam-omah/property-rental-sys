@@ -13,7 +13,7 @@ namespace PropertyRentalSystem
         private String startDate;
         private int rentDuration;
         private String status;
-
+        private int ownerID;
         private String eircode;
 
         public Rental()
@@ -25,13 +25,14 @@ namespace PropertyRentalSystem
             eircode = "fffffff";
         }
 
-        public Rental(String startDate, int rentDuration, String status, String eircode)
+        public Rental(String startDate, int ownerID, int rentDuration, String status, String eircode)
         {
 
             this.eircode = eircode;
             this.startDate = startDate;
             this.rentDuration = rentDuration;
             this.status = status;
+            this.ownerID = ownerID;
 
             // Connecting to DB to get new RentalID for Rental,
             // As Rental Records are not fully deleted count is usable.
@@ -59,9 +60,45 @@ namespace PropertyRentalSystem
             this.rentalID = count + 1;
         }
 
+        public void addRental()
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            //Define the SQL query to be executed
+            String sqlQuery = "INSERT INTO Rentals Values (" +
+                this.rentalID + "," +
+                this.ownerID + ",'" +
+                this.eircode + "','" +
+                this.startDate + "'," +
+                this.rentDuration + ",'" +
+                this.status + "')";
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+
+            cmd.ExecuteNonQuery();
+
+            //Close db connection
+            conn.Close();
+        }
+
+
         public int getRentalID()
         {
             return rentalID;
+        }
+
+        public int getOwnerID()
+        {
+            return ownerID;
+        }
+
+        public void setOwnerID(int ownerID)
+        {
+            this.ownerID = ownerID;
         }
 
         public void setRentalID(int rentalID)

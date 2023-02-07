@@ -198,8 +198,10 @@ namespace PropertyRentalSystem
             return result;
         }
 
+        
         public static bool validEmailAddres(String email)
         {
+            // Old email validation (slef made).
             Boolean result = true;
             int indexAt = email.IndexOf('@');
             int indexDot = email.IndexOf('.');

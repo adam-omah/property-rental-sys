@@ -15,7 +15,7 @@ namespace PropertyRentalSystem
     {
 
         DataSet ds;
-        Owners theOwner = new Owners();
+        PropOwner theOwner = new PropOwner();
 
         // Default values for check boxes.
         char wifi = 'N';
@@ -305,7 +305,7 @@ namespace PropertyRentalSystem
         {
 
                 //find matching Owners
-                grdOwners.DataSource = Owners.findOwners(txtSurnameSRH.Text).Tables["Owner"];
+                grdOwners.DataSource = PropOwner.findOwners(txtSurnameSRH.Text).Tables["Owner"];
 
                 if (grdOwners.Rows.Count == 1)
                 {

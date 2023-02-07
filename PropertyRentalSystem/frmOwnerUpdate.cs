@@ -12,7 +12,7 @@ namespace PropertyRentalSystem
 {
     public partial class frmOwnerUpdate : Form
     {
-        Owners theOwner = new Owners();
+        PropOwner theOwner = new PropOwner();
 
         public frmOwnerUpdate()
         {
@@ -21,9 +21,11 @@ namespace PropertyRentalSystem
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            // Hiding Owner details if new search.
+            grpOwner.Visible = false;
 
             //find matching Owners
-            grdOwners.DataSource = Owners.findOwners(txtSurnameSRH.Text).Tables["Owner"];
+            grdOwners.DataSource = PropOwner.findOwners(txtSurnameSRH.Text).Tables["Owner"];
 
             if (grdOwners.Rows.Count == 1)
             {
@@ -37,8 +39,7 @@ namespace PropertyRentalSystem
             //display owners surname search grid 
             grdOwners.Visible = true;
 
-            // Hiding Owner details if new search.
-            grpOwner.Visible = false;
+
         }
 
         private void grdOwners_CellClick(object sender, DataGridViewCellEventArgs e)

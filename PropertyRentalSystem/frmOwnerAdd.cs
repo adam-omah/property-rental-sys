@@ -124,7 +124,7 @@ namespace PropertyRentalSystem
 
             //Create an instance of Owner and instantiate with values from form controls
             // Set Owner Status to 'A' for active, Owner ID is assigned in Owners.cs
-            Owners aOwner = new Owners(validationFunctions.SQLApostrophe(txtFirstName.Text), validationFunctions.SQLApostrophe(txtLastName.Text), Convert.ToInt32(txtPhoneNumber.Text),
+            PropOwner aOwner = new PropOwner(validationFunctions.SQLApostrophe(txtFirstName.Text), validationFunctions.SQLApostrophe(txtLastName.Text), Convert.ToInt32(txtPhoneNumber.Text),
                 txtEmailAddress.Text, txtHomeEircode.Text,txtOwnerIban.Text, 'A');
 
             //invoke the method to add the data to the Products table

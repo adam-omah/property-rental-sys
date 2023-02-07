@@ -34,6 +34,8 @@ namespace PropertyRentalSystem
             this.btnSurnameSRH = new System.Windows.Forms.Button();
             this.btnUpdateProperty = new System.Windows.Forms.Button();
             this.grpPropertyExtras = new System.Windows.Forms.GroupBox();
+            this.cboPropStatus = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.cboHeatingSource = new System.Windows.Forms.ComboBox();
             this.chkOwnerOccupied = new System.Windows.Forms.CheckBox();
             this.chkPetsAllowed = new System.Windows.Forms.CheckBox();
@@ -67,8 +69,6 @@ namespace PropertyRentalSystem
             this.label4 = new System.Windows.Forms.Label();
             this.txtEircode = new System.Windows.Forms.TextBox();
             this.btnSearchEircode = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.cboPropStatus = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdOwners)).BeginInit();
             this.grpPropertyExtras.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numParkingSpaces)).BeginInit();
@@ -147,6 +147,26 @@ namespace PropertyRentalSystem
             this.grpPropertyExtras.TabStop = false;
             this.grpPropertyExtras.Text = "Property Extras";
             this.grpPropertyExtras.Visible = false;
+            // 
+            // cboPropStatus
+            // 
+            this.cboPropStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPropStatus.FormattingEnabled = true;
+            this.cboPropStatus.ItemHeight = 16;
+            this.cboPropStatus.Location = new System.Drawing.Point(199, 171);
+            this.cboPropStatus.Name = "cboPropStatus";
+            this.cboPropStatus.Size = new System.Drawing.Size(136, 24);
+            this.cboPropStatus.Sorted = true;
+            this.cboPropStatus.TabIndex = 23;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(80, 174);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(114, 17);
+            this.label15.TabIndex = 22;
+            this.label15.Text = "Property Status: ";
             // 
             // cboHeatingSource
             // 
@@ -273,7 +293,7 @@ namespace PropertyRentalSystem
             // 
             this.numTotalRooms.Location = new System.Drawing.Point(137, 27);
             this.numTotalRooms.Maximum = new decimal(new int[] {
-            30,
+            40,
             0,
             0,
             0});
@@ -481,26 +501,6 @@ namespace PropertyRentalSystem
             this.btnSearchEircode.Text = "Search Surname";
             this.btnSearchEircode.UseVisualStyleBackColor = true;
             this.btnSearchEircode.Click += new System.EventHandler(this.btnSearchEircode_Click);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(80, 174);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(114, 17);
-            this.label15.TabIndex = 22;
-            this.label15.Text = "Property Status: ";
-            // 
-            // cboPropStatus
-            // 
-            this.cboPropStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPropStatus.FormattingEnabled = true;
-            this.cboPropStatus.ItemHeight = 16;
-            this.cboPropStatus.Location = new System.Drawing.Point(199, 171);
-            this.cboPropStatus.Name = "cboPropStatus";
-            this.cboPropStatus.Size = new System.Drawing.Size(136, 24);
-            this.cboPropStatus.Sorted = true;
-            this.cboPropStatus.TabIndex = 23;
             // 
             // frmPropertyUpdate
             // 

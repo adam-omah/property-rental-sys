@@ -8,7 +8,9 @@ using System.Data;
 
 namespace PropertyRentalSystem
 {
-    class Owners
+
+    // Have to use propOwner as Owner is a reservered word.
+    class PropOwner
     {
         private int ownerID;
         private String firstName;
@@ -19,7 +21,7 @@ namespace PropertyRentalSystem
         private String iban;
         private char status;
 
-        public Owners()
+        public PropOwner()
         {
             this.ownerID = 0;
             this.firstName = "";
@@ -31,7 +33,7 @@ namespace PropertyRentalSystem
             this.status = 'I';
         }
 
-        public Owners( string firstName, string lastName, Int64 phone, string email, string eircode, string iban, char status)
+        public PropOwner( string firstName, string lastName, Int64 phone, string email, string eircode, string iban, char status)
         {
             
 
@@ -237,7 +239,7 @@ namespace PropertyRentalSystem
 
         public override bool Equals(object obj)
         {
-            return obj is Owners owner &&
+            return obj is PropOwner owner &&
                    ownerID == owner.ownerID &&
                    firstName == owner.firstName &&
                    lastName == owner.lastName &&

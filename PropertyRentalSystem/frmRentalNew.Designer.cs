@@ -29,6 +29,7 @@ namespace PropertyRentalSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRentalNew));
             this.btnSRHEircode = new System.Windows.Forms.Button();
             this.txtEircodeSRH = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,32 +43,33 @@ namespace PropertyRentalSystem
             this.txtPropertyOwner = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.grpRentalDetails = new System.Windows.Forms.GroupBox();
-            this.chkDirectDebit = new System.Windows.Forms.CheckBox();
-            this.chkDepositPaid = new System.Windows.Forms.CheckBox();
             this.numRentDuration = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.grdTenants = new System.Windows.Forms.DataGridView();
-            this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSRHTenants = new System.Windows.Forms.Button();
-            this.txtSRHTenant = new System.Windows.Forms.TextBox();
+            this.txtSurnameSRH = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnCreateRental = new System.Windows.Forms.Button();
             this.grpTenants = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.grdTenantsAdded = new System.Windows.Forms.DataGridView();
+            this.tenantID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpPropertyDetails.SuspendLayout();
             this.grpRentalDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numRentDuration)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTenants)).BeginInit();
             this.grpTenants.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdTenantsAdded)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSRHEircode
             // 
-            this.btnSRHEircode.Location = new System.Drawing.Point(366, 25);
+            this.btnSRHEircode.Location = new System.Drawing.Point(380, 26);
             this.btnSRHEircode.Name = "btnSRHEircode";
             this.btnSRHEircode.Size = new System.Drawing.Size(75, 23);
             this.btnSRHEircode.TabIndex = 34;
@@ -77,7 +79,7 @@ namespace PropertyRentalSystem
             // 
             // txtEircodeSRH
             // 
-            this.txtEircodeSRH.Location = new System.Drawing.Point(170, 25);
+            this.txtEircodeSRH.Location = new System.Drawing.Point(184, 26);
             this.txtEircodeSRH.MaxLength = 7;
             this.txtEircodeSRH.Name = "txtEircodeSRH";
             this.txtEircodeSRH.Size = new System.Drawing.Size(188, 22);
@@ -86,7 +88,7 @@ namespace PropertyRentalSystem
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 28);
+            this.label4.Location = new System.Drawing.Point(49, 29);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 17);
             this.label4.TabIndex = 35;
@@ -180,45 +182,26 @@ namespace PropertyRentalSystem
             // 
             // grpRentalDetails
             // 
-            this.grpRentalDetails.Controls.Add(this.chkDirectDebit);
-            this.grpRentalDetails.Controls.Add(this.chkDepositPaid);
             this.grpRentalDetails.Controls.Add(this.numRentDuration);
             this.grpRentalDetails.Controls.Add(this.label6);
             this.grpRentalDetails.Controls.Add(this.label5);
             this.grpRentalDetails.Controls.Add(this.dtpStartDate);
             this.grpRentalDetails.Location = new System.Drawing.Point(10, 207);
             this.grpRentalDetails.Name = "grpRentalDetails";
-            this.grpRentalDetails.Size = new System.Drawing.Size(502, 151);
+            this.grpRentalDetails.Size = new System.Drawing.Size(502, 85);
             this.grpRentalDetails.TabIndex = 44;
             this.grpRentalDetails.TabStop = false;
             this.grpRentalDetails.Text = "Rental Details";
             this.grpRentalDetails.Visible = false;
             // 
-            // chkDirectDebit
-            // 
-            this.chkDirectDebit.AutoSize = true;
-            this.chkDirectDebit.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.chkDirectDebit.Location = new System.Drawing.Point(28, 108);
-            this.chkDirectDebit.Name = "chkDirectDebit";
-            this.chkDirectDebit.Size = new System.Drawing.Size(155, 21);
-            this.chkDirectDebit.TabIndex = 26;
-            this.chkDirectDebit.Text = "Direct Debit Set Up:";
-            this.chkDirectDebit.UseVisualStyleBackColor = true;
-            // 
-            // chkDepositPaid
-            // 
-            this.chkDepositPaid.AutoSize = true;
-            this.chkDepositPaid.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.chkDepositPaid.Location = new System.Drawing.Point(28, 81);
-            this.chkDepositPaid.Name = "chkDepositPaid";
-            this.chkDepositPaid.Size = new System.Drawing.Size(196, 21);
-            this.chkDepositPaid.TabIndex = 25;
-            this.chkDepositPaid.Text = "First Month / Depoist Paid:";
-            this.chkDepositPaid.UseVisualStyleBackColor = true;
-            // 
             // numRentDuration
             // 
             this.numRentDuration.Location = new System.Drawing.Point(198, 53);
+            this.numRentDuration.Maximum = new decimal(new int[] {
+            96,
+            0,
+            0,
+            0});
             this.numRentDuration.Minimum = new decimal(new int[] {
             1,
             0,
@@ -263,11 +246,6 @@ namespace PropertyRentalSystem
             // 
             this.grdTenants.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdTenants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdTenants.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.firstName,
-            this.lastName,
-            this.phone,
-            this.id});
             this.grdTenants.Location = new System.Drawing.Point(6, 53);
             this.grdTenants.Name = "grdTenants";
             this.grdTenants.RowHeadersWidth = 51;
@@ -275,30 +253,7 @@ namespace PropertyRentalSystem
             this.grdTenants.Size = new System.Drawing.Size(489, 180);
             this.grdTenants.TabIndex = 45;
             this.grdTenants.Visible = false;
-            // 
-            // firstName
-            // 
-            this.firstName.HeaderText = "First Name";
-            this.firstName.MinimumWidth = 6;
-            this.firstName.Name = "firstName";
-            // 
-            // lastName
-            // 
-            this.lastName.HeaderText = "Surname";
-            this.lastName.MinimumWidth = 6;
-            this.lastName.Name = "lastName";
-            // 
-            // phone
-            // 
-            this.phone.HeaderText = "Phone Number";
-            this.phone.MinimumWidth = 6;
-            this.phone.Name = "phone";
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Tenant Id";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
+            this.grdTenants.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTenants_CellClick);
             // 
             // btnSRHTenants
             // 
@@ -310,26 +265,26 @@ namespace PropertyRentalSystem
             this.btnSRHTenants.UseVisualStyleBackColor = true;
             this.btnSRHTenants.Click += new System.EventHandler(this.btnSRHTenants_Click);
             // 
-            // txtSRHTenant
+            // txtSurnameSRH
             // 
-            this.txtSRHTenant.Location = new System.Drawing.Point(224, 19);
-            this.txtSRHTenant.MaxLength = 10;
-            this.txtSRHTenant.Name = "txtSRHTenant";
-            this.txtSRHTenant.Size = new System.Drawing.Size(188, 22);
-            this.txtSRHTenant.TabIndex = 48;
+            this.txtSurnameSRH.Location = new System.Drawing.Point(186, 19);
+            this.txtSurnameSRH.MaxLength = 10;
+            this.txtSurnameSRH.Name = "txtSurnameSRH";
+            this.txtSurnameSRH.Size = new System.Drawing.Size(226, 22);
+            this.txtSurnameSRH.TabIndex = 48;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(11, 19);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(207, 17);
+            this.label7.Size = new System.Drawing.Size(169, 17);
             this.label7.TabIndex = 47;
-            this.label7.Text = "Find Tenant By Phone Number:";
+            this.label7.Text = "Find Tenant By Surname:";
             // 
             // btnCreateRental
             // 
-            this.btnCreateRental.Location = new System.Drawing.Point(154, 609);
+            this.btnCreateRental.Location = new System.Drawing.Point(140, 752);
             this.btnCreateRental.Name = "btnCreateRental";
             this.btnCreateRental.Size = new System.Drawing.Size(232, 28);
             this.btnCreateRental.TabIndex = 49;
@@ -340,23 +295,78 @@ namespace PropertyRentalSystem
             // 
             // grpTenants
             // 
+            this.grpTenants.Controls.Add(this.label8);
+            this.grpTenants.Controls.Add(this.grdTenantsAdded);
             this.grpTenants.Controls.Add(this.btnSRHTenants);
-            this.grpTenants.Controls.Add(this.txtSRHTenant);
+            this.grpTenants.Controls.Add(this.txtSurnameSRH);
             this.grpTenants.Controls.Add(this.label7);
             this.grpTenants.Controls.Add(this.grdTenants);
-            this.grpTenants.Location = new System.Drawing.Point(12, 364);
+            this.grpTenants.Location = new System.Drawing.Point(12, 298);
             this.grpTenants.Name = "grpTenants";
-            this.grpTenants.Size = new System.Drawing.Size(501, 239);
+            this.grpTenants.Size = new System.Drawing.Size(501, 448);
             this.grpTenants.TabIndex = 50;
             this.grpTenants.TabStop = false;
             this.grpTenants.Text = "Tenants";
             this.grpTenants.Visible = false;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(193, 236);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(109, 17);
+            this.label8.TabIndex = 50;
+            this.label8.Text = "Tenants Added:";
+            // 
+            // grdTenantsAdded
+            // 
+            this.grdTenantsAdded.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdTenantsAdded.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdTenantsAdded.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tenantID,
+            this.firstName,
+            this.lastName,
+            this.phone});
+            this.grdTenantsAdded.Location = new System.Drawing.Point(6, 256);
+            this.grdTenantsAdded.Name = "grdTenantsAdded";
+            this.grdTenantsAdded.RowHeadersWidth = 51;
+            this.grdTenantsAdded.RowTemplate.Height = 24;
+            this.grdTenantsAdded.Size = new System.Drawing.Size(489, 180);
+            this.grdTenantsAdded.TabIndex = 49;
+            this.grdTenantsAdded.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTenantsAdded_CellClick);
+            // 
+            // tenantID
+            // 
+            this.tenantID.HeaderText = "Tenant ID";
+            this.tenantID.MinimumWidth = 6;
+            this.tenantID.Name = "tenantID";
+            // 
+            // firstName
+            // 
+            this.firstName.HeaderText = "First Name";
+            this.firstName.MinimumWidth = 6;
+            this.firstName.Name = "firstName";
+            // 
+            // lastName
+            // 
+            this.lastName.HeaderText = "Last Name";
+            this.lastName.MinimumWidth = 6;
+            this.lastName.Name = "lastName";
+            // 
+            // phone
+            // 
+            this.phone.HeaderText = "Phone";
+            this.phone.MinimumWidth = 6;
+            this.phone.Name = "phone";
+            // 
             // frmRentalNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 649);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(523, 791);
             this.Controls.Add(this.grpTenants);
             this.Controls.Add(this.btnCreateRental);
             this.Controls.Add(this.grpPropertyDetails);
@@ -364,6 +374,7 @@ namespace PropertyRentalSystem
             this.Controls.Add(this.txtEircodeSRH);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.grpRentalDetails);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRentalNew";
             this.Text = "Perfect Fit Rentals - [New Rental]";
             this.grpPropertyDetails.ResumeLayout(false);
@@ -374,6 +385,7 @@ namespace PropertyRentalSystem
             ((System.ComponentModel.ISupportInitialize)(this.grdTenants)).EndInit();
             this.grpTenants.ResumeLayout(false);
             this.grpTenants.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdTenantsAdded)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -395,20 +407,20 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox grpRentalDetails;
         private System.Windows.Forms.DataGridView grdTenants;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.Button btnSRHTenants;
-        private System.Windows.Forms.TextBox txtSRHTenant;
+        private System.Windows.Forms.TextBox txtSurnameSRH;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnCreateRental;
         private System.Windows.Forms.GroupBox grpTenants;
-        private System.Windows.Forms.CheckBox chkDirectDebit;
-        private System.Windows.Forms.CheckBox chkDepositPaid;
         private System.Windows.Forms.NumericUpDown numRentDuration;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpStartDate;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridView grdTenantsAdded;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenantID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phone;
     }
 }

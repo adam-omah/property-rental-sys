@@ -77,7 +77,7 @@ namespace PropertyRentalSystem
             }
 
             // moved validation of Email to a public helper class.
-            bool isValidEmail = validationFunctions.validEmailAddres(txtEmailAddress.Text);
+            bool isValidEmail = validationFunctions.validEmail(txtEmailAddress.Text);
 
             if (!isValidEmail)
             {

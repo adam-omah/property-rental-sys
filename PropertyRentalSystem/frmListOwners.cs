@@ -20,7 +20,7 @@ namespace PropertyRentalSystem
         private void frmList_Load(object sender, EventArgs e)
         {
             //retrieve all data from Owners table
-            grdOwners.DataSource = Owners.getAllOwners().Tables["owner"];
+            grdOwners.DataSource = PropOwner.getAllOwners().Tables["owner"];
 
         }
     }

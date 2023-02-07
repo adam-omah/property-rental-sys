@@ -14,7 +14,7 @@ namespace PropertyRentalSystem
     {
 
         DataSet ds;
-        Owners theOwner = new Owners();
+        PropOwner theOwner = new PropOwner();
         Property theProperty = new Property();
 
         // Default values for check boxes.

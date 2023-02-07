@@ -187,12 +187,14 @@
     <Compile Include="frmYearlyCommission.Designer.cs">
       <DependentUpon>frmYearlyCommission.cs</DependentUpon>
     </Compile>
-    <Compile Include="Owners.cs" />
+    <Compile Include="PropOwner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Property.cs" />
     <Compile Include="PropertyType.cs" />
+    <Compile Include="Rental.cs" />
     <Compile Include="Tenant.cs" />
+    <Compile Include="TenantRental.cs" />
     <Compile Include="validationFunctions.cs" />
     <EmbeddedResource Include="frmDBConnect.resx">
       <DependentUpon>frmDBConnect.cs</DependentUpon>
