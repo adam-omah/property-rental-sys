@@ -156,7 +156,8 @@ namespace PropertyRentalSystem
             // Create Tenant Rentals in tenant rentals file for each tenant.
             for (int i = 0; i < tenants.Count; i++)
             {
-                MessageBox.Show("Tenant to add: " + tenants[i].getTenantID() + "\nRental Id : " + theRental.getRentalID());
+                // message box was for testing purpose.
+                //MessageBox.Show("Tenant to add: " + tenants[i].getTenantID() + "\nRental Id : " + theRental.getRentalID());
                 TenantRental tRent = new TenantRental(Convert.ToInt32(theRental.getRentalID()), Convert.ToInt32(tenants[i].getTenantID()), "A");
                 // add the tenant rental to tenant Rentals file.
                 tRent.addTenantRental();

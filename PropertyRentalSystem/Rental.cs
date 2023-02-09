@@ -113,7 +113,30 @@ namespace PropertyRentalSystem
             conn.Close();
         }
 
-       
+        public void updateRental()
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //Define the SQL query to be executed
+            String sqlQuery = "UPDATE Rentals SET " +
+                "rentalId = " + this.rentalID + "," +
+                "ownerId = " + this.ownerID + "," +
+                "eircode = '" + this.eircode + "'," +
+                "startDate = '" + this.startDate + "'," +
+                "endDate = '" + this.endDate + "'," +
+                "status = '" + this.status + "' " +
+                "WHERE rentalId = " + this.rentalID;
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+
+            //Close db connection
+            conn.Close();
+        }
 
 
         public int getRentalID()

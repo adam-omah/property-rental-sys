@@ -268,6 +268,7 @@ namespace PropertyRentalSystem
             this.btnSRHTenants.TabIndex = 46;
             this.btnSRHTenants.Text = "Search Surname";
             this.btnSRHTenants.UseVisualStyleBackColor = true;
+            this.btnSRHTenants.Click += new System.EventHandler(this.btnSRHTenants_Click_1);
             // 
             // txtSurnameSRH
             // 

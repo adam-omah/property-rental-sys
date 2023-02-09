@@ -43,7 +43,7 @@ namespace PropertyRentalSystem
             conn.Close();
         }
 
-        public static DataSet findTenantRentals(int rentalID)
+        public static DataSet findActiveTenantRentals(int rentalID)
         {
             //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -65,6 +65,52 @@ namespace PropertyRentalSystem
             conn.Close();
 
             return ds;
+        }
+
+        public static DataSet findAllTenantRentals(int rentalID)
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+
+            //Define the SQL query to be executed
+            String sqlQuery = "SELECT * FROM tenant_rentals " +
+                "WHERE RENTALID = " + rentalID ;
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "tenant_rentals");
+
+            //Close db connection
+            conn.Close();
+
+            return ds;
+        }
+
+        public static void updateTenantRental(int rentalID, int tenantID,String status)
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //Define the SQL query to be executed
+            String sqlQuery = "UPDATE Tenant_Rentals SET " +
+                "rentalId = " + rentalID + "," +
+                "tenantId = " + tenantID + "," +
+                "status = '" + status + "' " +
+                "WHERE tenantId = " + tenantID + " AND rentalID = " + rentalID;
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+
+            //Close db connection
+            conn.Close();
         }
 
         public String getStatus()
