@@ -43,7 +43,6 @@ namespace PropertyRentalSystem
             this.txtPropertyOwner = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.grpRentalDetails = new System.Windows.Forms.GroupBox();
-            this.numRentDuration = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
@@ -59,9 +58,9 @@ namespace PropertyRentalSystem
             this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.grpPropertyDetails.SuspendLayout();
             this.grpRentalDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numRentDuration)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTenants)).BeginInit();
             this.grpTenants.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTenantsAdded)).BeginInit();
@@ -80,6 +79,7 @@ namespace PropertyRentalSystem
             // txtEircodeSRH
             // 
             this.txtEircodeSRH.Location = new System.Drawing.Point(184, 26);
+            this.txtEircodeSRH.Margin = new System.Windows.Forms.Padding(3, 3, 3, 6);
             this.txtEircodeSRH.MaxLength = 7;
             this.txtEircodeSRH.Name = "txtEircodeSRH";
             this.txtEircodeSRH.Size = new System.Drawing.Size(188, 22);
@@ -182,49 +182,26 @@ namespace PropertyRentalSystem
             // 
             // grpRentalDetails
             // 
-            this.grpRentalDetails.Controls.Add(this.numRentDuration);
+            this.grpRentalDetails.Controls.Add(this.dtpEndDate);
             this.grpRentalDetails.Controls.Add(this.label6);
             this.grpRentalDetails.Controls.Add(this.label5);
             this.grpRentalDetails.Controls.Add(this.dtpStartDate);
             this.grpRentalDetails.Location = new System.Drawing.Point(10, 207);
             this.grpRentalDetails.Name = "grpRentalDetails";
-            this.grpRentalDetails.Size = new System.Drawing.Size(502, 85);
+            this.grpRentalDetails.Size = new System.Drawing.Size(502, 107);
             this.grpRentalDetails.TabIndex = 44;
             this.grpRentalDetails.TabStop = false;
             this.grpRentalDetails.Text = "Rental Details";
             this.grpRentalDetails.Visible = false;
             // 
-            // numRentDuration
-            // 
-            this.numRentDuration.Location = new System.Drawing.Point(198, 53);
-            this.numRentDuration.Maximum = new decimal(new int[] {
-            96,
-            0,
-            0,
-            0});
-            this.numRentDuration.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numRentDuration.Name = "numRentDuration";
-            this.numRentDuration.Size = new System.Drawing.Size(83, 22);
-            this.numRentDuration.TabIndex = 24;
-            this.numRentDuration.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numRentDuration.Value = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 55);
+            this.label6.Location = new System.Drawing.Point(28, 61);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(164, 17);
+            this.label6.Size = new System.Drawing.Size(105, 17);
             this.label6.TabIndex = 23;
-            this.label6.Text = "Rent Duration (Months) :";
+            this.label6.Text = "Rent End Date:";
             // 
             // label5
             // 
@@ -284,9 +261,10 @@ namespace PropertyRentalSystem
             // 
             // btnCreateRental
             // 
-            this.btnCreateRental.Location = new System.Drawing.Point(140, 752);
+            this.btnCreateRental.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateRental.Location = new System.Drawing.Point(140, 360);
             this.btnCreateRental.Name = "btnCreateRental";
-            this.btnCreateRental.Size = new System.Drawing.Size(232, 28);
+            this.btnCreateRental.Size = new System.Drawing.Size(232, 47);
             this.btnCreateRental.TabIndex = 49;
             this.btnCreateRental.Text = "Create Rental";
             this.btnCreateRental.UseVisualStyleBackColor = true;
@@ -301,7 +279,7 @@ namespace PropertyRentalSystem
             this.grpTenants.Controls.Add(this.txtSurnameSRH);
             this.grpTenants.Controls.Add(this.label7);
             this.grpTenants.Controls.Add(this.grdTenants);
-            this.grpTenants.Location = new System.Drawing.Point(12, 298);
+            this.grpTenants.Location = new System.Drawing.Point(531, 12);
             this.grpTenants.Name = "grpTenants";
             this.grpTenants.Size = new System.Drawing.Size(501, 448);
             this.grpTenants.TabIndex = 50;
@@ -312,7 +290,7 @@ namespace PropertyRentalSystem
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(193, 236);
+            this.label8.Location = new System.Drawing.Point(11, 236);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(109, 17);
             this.label8.TabIndex = 50;
@@ -359,6 +337,13 @@ namespace PropertyRentalSystem
             this.phone.MinimumWidth = 6;
             this.phone.Name = "phone";
             // 
+            // dtpEndDate
+            // 
+            this.dtpEndDate.Location = new System.Drawing.Point(144, 61);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(287, 22);
+            this.dtpEndDate.TabIndex = 24;
+            // 
             // frmRentalNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -366,7 +351,7 @@ namespace PropertyRentalSystem
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(523, 791);
+            this.ClientSize = new System.Drawing.Size(1047, 472);
             this.Controls.Add(this.grpTenants);
             this.Controls.Add(this.btnCreateRental);
             this.Controls.Add(this.grpPropertyDetails);
@@ -377,11 +362,11 @@ namespace PropertyRentalSystem
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRentalNew";
             this.Text = "Perfect Fit Rentals - [New Rental]";
+            this.Load += new System.EventHandler(this.frmRentalNew_Load);
             this.grpPropertyDetails.ResumeLayout(false);
             this.grpPropertyDetails.PerformLayout();
             this.grpRentalDetails.ResumeLayout(false);
             this.grpRentalDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numRentDuration)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTenants)).EndInit();
             this.grpTenants.ResumeLayout(false);
             this.grpTenants.PerformLayout();
@@ -412,7 +397,6 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnCreateRental;
         private System.Windows.Forms.GroupBox grpTenants;
-        private System.Windows.Forms.NumericUpDown numRentDuration;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpStartDate;
@@ -422,5 +406,6 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn phone;
+        private System.Windows.Forms.DateTimePicker dtpEndDate;
     }
 }

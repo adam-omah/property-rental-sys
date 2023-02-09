@@ -22,10 +22,10 @@ namespace PropertyRentalSystem
         Property theProperty = new Property();
         PropOwner theOwner = new PropOwner();
         Tenant theTenant = new Tenant();
-        String dateFormat;
+        String startDateFormat;
+        String endDateFormat;
 
         public Boolean tenant1Added = false;
-        public Boolean tenant2Added = false;
 
         private void btnSRHEircode_Click(object sender, EventArgs e)
         {
@@ -34,6 +34,7 @@ namespace PropertyRentalSystem
             grpRentalDetails.Visible = false;
             grpTenants.Visible = false;
             btnCreateRental.Visible = false;
+            grdTenants.Visible = false;
 
             // moved validation of numbers to a public helper class to make it more gloabl.
             bool isValidEircode = validationFunctions.validEircode(txtEircodeSRH.Text);
@@ -103,32 +104,28 @@ namespace PropertyRentalSystem
 
             // Validate Data.
 
-            // Date must be sometime in the futre.
-            if (!(dtpStartDate.Value.Date >= DateTime.Now.Date))
+            //Date Validation. moved to validation functions for re-use in update rental.
+
+            // Start Date
+            bool isValidStart= validationFunctions.validStartDate(dtpStartDate.Value.Date);
+
+            if (!isValidStart)
             {
-                MessageBox.Show("Start Date must be from today or in the future! cannot be in the past.");
+                MessageBox.Show("Invalid Start date, Must be Time in futurue and no greater than 3 months in future.");
+                dtpStartDate.Focus();
                 return;
             }
-            // Checks if start date is greater than 3 months from start date. (for months up to month 9.)
-            else if(dtpStartDate.Value.Date.Month <= 10 && dtpStartDate.Value.Date.Month > DateTime.Now.Month +2)
+
+            // end date validation, requires start date to be checked first.
+            bool isValidEnd = validationFunctions.validEndDate(dtpEndDate.Value.Date, dtpStartDate.Value.Date);
+
+            if (!isValidEnd)
             {
-                MessageBox.Show("Start Date must be Less than 3 months into the future, \nCurrent Month + 2 Calander Months  Regardless of Day.");
+                MessageBox.Show("Invalid End date, Must be minimum 1 month ahead of start date, and maximum 10 years ahead.");
+                dtpStartDate.Focus();
                 return;
             }
-            // check if month is November and not greater than febuary
-            else if
-                (DateTime.Now.Month == 11 && !(dtpStartDate.Value.Date.Month == 11 || dtpStartDate.Value.Date.Month == 12 ||  dtpStartDate.Value.Date.Month == 1))
-            {
-                MessageBox.Show("Start Date must be Less than 3 months into the future, \nCurrent Month + 2 Calander Months Regardless of Day.");
-                return;
-            }
-            //  checks if month is december and start date nto greater than march.
-            else if
-                (DateTime.Now.Month == 12 && !(dtpStartDate.Value.Date.Month == 12 || dtpStartDate.Value.Date.Month == 1 || dtpStartDate.Value.Date.Month == 2))
-            {
-                MessageBox.Show("Start Date must be Less than 3 months into the future, \nCurrent Month + 2 Calander Months Regardless of Day.");
-                return;
-            }
+
 
 
             // if no tenants are added.
@@ -142,10 +139,11 @@ namespace PropertyRentalSystem
             // after all validation above has been checked,
 
             // Save Rental Contract to Rentals Data file.
-            dateFormat = String.Format("{0:dd-MMM-yy}", dtpStartDate.Value);
+            startDateFormat = String.Format("{0:dd-MMM-yy}", dtpStartDate.Value);
+            endDateFormat = String.Format("{0:dd-MMM-yy}", dtpEndDate.Value);
 
             // Instantiate the Rental.
-            Rental theRental = new Rental(dateFormat, Convert.ToInt32(theOwner.getOwnerID()),Convert.ToInt32(numRentDuration.Value),"A",theProperty.getEircode());
+            Rental theRental = new Rental(startDateFormat, Convert.ToInt32(theOwner.getOwnerID()),endDateFormat,"A",theProperty.getEircode());
 
             theRental.addRental();
 
@@ -175,7 +173,8 @@ namespace PropertyRentalSystem
             txtPropertyOwner.Clear();
 
             dtpStartDate.Value = DateTime.Now;
-            numRentDuration.Value = 12;
+            // end date 12 months ahead default.
+            dtpEndDate.Value = DateTime.Now.AddMonths(12);
 
             txtSurnameSRH.Clear();
             grdTenants.DataSource.Equals(null);
@@ -308,6 +307,14 @@ namespace PropertyRentalSystem
             }
 
             MessageBox.Show("The following Tenants are in the list:\n " + message);
+        }
+
+        private void frmRentalNew_Load(object sender, EventArgs e)
+        {
+            // At start set time date time to now and future time to 12 months ahead.
+            dtpStartDate.Value = DateTime.Now;
+            // end date 12 months ahead default.
+            dtpEndDate.Value = DateTime.Now.AddMonths(12);
         }
     }
 }

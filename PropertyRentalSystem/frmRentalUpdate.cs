@@ -17,11 +17,26 @@ namespace PropertyRentalSystem
             InitializeComponent();
         }
 
+        List<Tenant> StartTenants = new List<Tenant>();
+        List<Tenant> EndTenants = new List<Tenant>();
+        Property theProperty = new Property();
+        PropOwner theOwner = new PropOwner();
+        Tenant theTenant = new Tenant();
+        Rental theRental = new Rental();
+        String startDateFormat;
+        String endDateFormat;
+
         public Boolean tenant1Added = false;
-        public Boolean tenant2Added = false;
 
         private void btnSRHEircode_Click(object sender, EventArgs e)
         {
+            // Set groups to invisible (ensures that if an eircode was already search is not same one).
+            grpPropertyDetails.Visible = false;
+            grpRentalDetails.Visible = false;
+            grpTenants.Visible = false;
+            grdTenants.Visible = false;
+            btnUpdateRental.Visible = false;
+
             // moved validation of numbers to a public helper class to make it more gloabl.
             bool isValidEircode = validationFunctions.validEircode(txtEircodeSRH.Text);
 
@@ -34,33 +49,114 @@ namespace PropertyRentalSystem
             }
             else
             {
-                if (txtEircodeSRH.Text.Equals("V92FFFF") || txtEircodeSRH.Text.Equals("v92ffff"))
-                {
-                    txtPropertyOwner.Text = "Adam O'Mahony";
-                    txtPropertyName.Text = "Birds Cottage";
-                    txtPropertyEircode.Text = txtEircodeSRH.Text.ToUpper();
-                    txtMonthlyRent.Text = "500";
-                    grpPropertyDetails.Visible = true;
-                    grpRentalDetails.Visible = true;
-                    grpTenants.Visible = true;
-                    btnUpdateRental.Visible = true;
-                    dtpEndDate.Value = new DateTime(2023,11, 29);
+                //find matching Property
+                grdTenants.DataSource = Property.findProperties(txtEircodeSRH.Text.ToUpper()).Tables["Properties"];
 
-                    chkDirectDebit.Checked = true;
-                    chkDepositPaid.Checked = false;
-                    grdTenants.Visible = true;
-
-                    grdTenants.Rows.Add("John", "Smith", "0877777777", 123);
-                    grdTenants.Rows.Add("Sarah", "Summers", "0867777777", 103);
-                    grdTenants.Rows.Add("Mary", "Smith", "0857777777", 134);
-                    grdTenants.Rows.Add("Jason", "Summers", "0897777777", 79);
-                }
-                else
+                if (grdTenants.Rows.Count == 1)
                 {
-                    MessageBox.Show("Rental with that Eircode Not Found Or is Available for Rent, Please try another Eircode Such as V92FFFF ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Property Not found.
+                    MessageBox.Show("The Eircode " + txtEircodeSRH.Text + " Is not on the system,\nPlease try another eircode such as  'v92cccc' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtEircodeSRH.Clear();
                     txtEircodeSRH.Focus();
                     return;
+                }
+                else
+                {
+                    // Property was found, instantiate it.
+                    // setting eircode to uper case chars, removes inconsistency.
+                    theProperty.getProperty(txtEircodeSRH.Text.ToUpper());
+
+
+                    if (theProperty.getStatus() == 'R')
+                    {
+                        // Find the Rental ID asscoiated with this rental.
+                        theRental.getRental(theProperty.getEircode());
+
+
+                        // If property is Rented and Rental ID is Active. Set Grps to visible.
+                        grpPropertyDetails.Visible = true;
+                        grpRentalDetails.Visible = true;
+                        btnUpdateRental.Visible = true;
+
+                        txtPropertyEircode.Text = theProperty.getEircode();
+                        txtMonthlyRent.Text = theProperty.getRentalPrice().ToString();
+                        txtPropertyName.Text = theProperty.getHouseName();
+
+                        // Set Owner from property Owner ID.
+                        theOwner.getOwner(theProperty.getOwnerID());
+                        // Set the Owners Name into text box.
+                        txtPropertyOwner.Text = theOwner.getFirstName() + " " + theOwner.getSurname();
+
+                        // Set Rental ID
+                        txtRentalID.Text = theRental.getRentalID().ToString();
+
+                        // set rental details.
+                        startDateFormat = theRental.getStartDate();
+                        endDateFormat = theRental.getEndDate();
+
+                        dtpStartDate.Value = DateTime.Parse(startDateFormat);
+
+                        // if start date is in the past, lock the start date from being changed.
+                        // this ensures that start date is historically correct,
+                        // but allows for a rent that was to start in the future to be started earlier.
+                        if(dtpStartDate.Value.Date <= DateTime.Now.Date)
+                        {
+                            dtpStartDate.Enabled = false;
+                        }
+
+                        dtpEndDate.Value = DateTime.Parse(endDateFormat);
+             
+
+                        // find all the tenants in the rental id that are active:
+                        grdTenants.DataSource = TenantRental.findTenantRentals(theRental.getRentalID()).Tables["tenant_rentals"];
+
+
+
+
+                        // must be -1 from checking row count
+                        // MessageBox.Show("row count: " + grdTenants.Rows.Count);
+                        // row count is always > 1 as there must a tenant on a rental.
+                        for (int i = 0; i < grdTenants.Rows.Count- 1; i++)
+                        {
+                            // just for testing
+                            //MessageBox.Show("Tenant id: " + grdTenants.Rows[i].Cells["TenantID"].Value.ToString());
+                            
+                            //Add each unit to the starting tentants array (keeps track of tenants id's already active.)
+                            Tenant aTenant = new Tenant();
+                            aTenant.getTenant(Convert.ToInt32(grdTenants.Rows[i].Cells["TenantID"].Value.ToString()));
+                            StartTenants.Add(aTenant);
+                        }
+
+                        foreach (var tenant in StartTenants)
+                        {
+                            grdTenantsAdded.Rows.Add(tenant.getTenantID().ToString(), tenant.getFirstName().ToString(),tenant.getLastName().ToString(), tenant.getPhoneNumber().ToString());
+                        }
+
+                        //testing only:
+                        //DisplayTenantsList();
+                        
+
+                        // since only active rentals can be updated:
+                        cboRentalStatus.SelectedIndex = 0;
+
+                        // Set groups visible
+                        grpPropertyDetails.Visible = true;
+                        grpRentalDetails.Visible = true;
+                        grpTenants.Visible = true;
+                        btnUpdateRental.Visible = true;
+                        grdTenants.Visible = false;
+
+                        
+
+                    }
+                    else
+                    {
+                        // Property is not available.
+                        MessageBox.Show("The Eircode " + txtEircodeSRH.Text + " Is On the System\nBut is NOT Rented, (Available or Unavailable)\nPlease try another eircode such as  'v92cccc' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtEircodeSRH.Clear();
+                        txtEircodeSRH.Focus();
+                        return;
+                    }
                 }
             }
         }
@@ -82,83 +178,41 @@ namespace PropertyRentalSystem
 
         private void btnSRHTenants_Click(object sender, EventArgs e)
         {
-            // same code as new rental search.
-            //validate phone number entered.
+            //validate Surname entered.
 
-            if (txtSRHTenant.Text.Equals(""))
+            if (txtSurnameSRH.Text.Equals(""))
             {
-                MessageBox.Show("Phone Number Must Be Entered", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtSRHTenant.Focus();
+                MessageBox.Show("A Surname Must Be Entered", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSurnameSRH.Focus();
                 return;
             }
 
-            // moved validation of Phone numbers in helper class.
-            bool isValidPhone = validationFunctions.validPhoneNumber(txtSRHTenant.Text);
-            if (!isValidPhone)
+            //find matching Tenants
+            grdTenants.DataSource = Tenant.findTenants(txtSurnameSRH.Text).Tables["Tenants"];
+
+            if (grdTenants.Rows.Count == 1)
             {
-                MessageBox.Show("Phone Number Must Be Valid,\nLarger than 7 numbers and can only have one +, no spaces!", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtSRHTenant.Focus();
+                MessageBox.Show("The surname " + txtSurnameSRH.Text + " Was not found,\nPlease try another surname such as  'Smith' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSurnameSRH.Clear();
+                txtSurnameSRH.Focus();
                 return;
             }
 
-            // if valid phone 
-            if (txtSRHTenant.Text.Equals("0877777777"))
-            {
-                if (tenant1Added == false)
-                {
-                    grdTenants.Rows.Add("Adam", "Smith", "0877777777", 123);
-                    grdTenants.Visible = true;
-                    tenant1Added = true;
-                }
-                else
-                {
-                    MessageBox.Show("This Tenant was already added", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtSRHTenant.Focus();
-                    return;
-                }
-            }
-            else if (txtSRHTenant.Text.Equals("0879999999"))
-            {
-                if (tenant2Added == false)
-                {
-                    grdTenants.Rows.Add("Helena", "Smith", "0877777777", 123);
-                    grdTenants.Visible = true;
-                    tenant2Added = true;
-                }
-                else
-                {
-                    MessageBox.Show("This Tenant was already added", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtSRHTenant.Focus();
-                    return;
-                }
-            }
-            else
-            {
-                MessageBox.Show("A tenant with that phone number was not found. \n Try 0877777777 or 0879999999 for example", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtSRHTenant.Focus();
-                return;
-            }
+            grdTenants.Visible = true;
+
         }
 
         private void btnUpdateRental_Click(object sender, EventArgs e)
         {
             //Validation for update:
             
-            // extend months is always 0 or positive so no need for validation.
-
-            // direct debit must be set up before a rental contract can be made.
-            // first months rent / deposit can be paid in cash though.
-            if (chkDirectDebit.Checked == false)
-            {
-                MessageBox.Show("Please set up the direct debit for the tenants, this is an external process.");
-                return;
-            }
+            // extend months is always 0 or positive and capped at 5 years extension so no need for validation.
 
             // if no tenants are added.
             if (grdTenants.RowCount == 1)
             {
                 MessageBox.Show("Please add atleast one tenant using the search bar.");
-                txtSRHTenant.Focus();
+                txtSurnameSRH.Focus();
                 return;
             }
 
@@ -179,11 +233,8 @@ namespace PropertyRentalSystem
             txtPropertyOwner.Clear();
 
             dtpEndDate.Value = DateTime.Now;
-            numRentDuration.Value = 12;
-            chkDepositPaid.Checked = false;
-            chkDirectDebit.Checked = false;
 
-            txtSRHTenant.Clear();
+            txtSurnameSRH.Clear();
             grdTenants.Rows.Clear();
 
             grpPropertyDetails.Visible = false;
@@ -192,6 +243,101 @@ namespace PropertyRentalSystem
             btnUpdateRental.Visible = false;
 
             txtEircodeSRH.Focus();
+        }
+
+        private void frmRentalUpdate_Load(object sender, EventArgs e)
+        {
+            cboRentalStatus.Items.Add("Active - 'A' ");
+            cboRentalStatus.Items.Add("Inactive - 'I' ");
+        }
+
+        private void DisplayTenantsList()
+        {
+            String message = "";
+
+            foreach (var item in StartTenants)
+            {
+                message += item.getFirstName() + "\n";
+            }
+
+            MessageBox.Show("The following Tenants are in the list:\n " + message);
+        }
+
+        private void grdTenants_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Would you like to Add the tenant? " + (string)grdTenants.Rows[e.RowIndex].Cells["firstName"].Value + " To this Rental?", "Add Tenant To Rental Contract.", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                // if yes Add to Added grd.
+                tenant1Added = false;
+
+                //check if this tenant is already added.
+                if (grdTenantsAdded.Rows.Count > 1)
+                {
+
+                    for (int i = 0; i < grdTenantsAdded.Rows.Count; i++)
+                    {
+                        // Checks if Tenant has already been added.
+                        if (Convert.ToInt32(grdTenantsAdded.Rows[i].Cells["tenantID"].Value) == Convert.ToInt32(grdTenants.Rows[e.RowIndex].Cells["TenantID"].Value))
+                        {
+                            tenant1Added = true;
+                        }
+
+                    }
+
+                }
+                if (!tenant1Added)
+                {
+                    //add to grd.
+                    grdTenantsAdded.Rows.Add(grdTenants.Rows[e.RowIndex].Cells["TenantID"].Value.ToString(), (string)grdTenants.Rows[e.RowIndex].Cells["firstName"].Value, (string)grdTenants.Rows[e.RowIndex].Cells["lastName"].Value, grdTenants.Rows[e.RowIndex].Cells["phone"].Value.ToString());
+                    // add to the tenants array.
+
+                    Tenant aTenant = new Tenant();
+
+
+                    aTenant.getTenant(Convert.ToInt32(grdTenants.Rows[e.RowIndex].Cells["TenantID"].Value.ToString()));
+
+                    EndTenants.Add(aTenant);
+
+                }
+                else
+                {
+                    MessageBox.Show("This Tenant has already been added, Please try another Tenant.", "Error Tenant Already Added.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtSurnameSRH.Focus();
+                    return;
+                }
+
+            }
+        }
+
+        private void grdTenantsAdded_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            grdTenantsAdded.CurrentRow.Selected = true;
+
+            DialogResult dialogResult = MessageBox.Show("Would you like to remove the tenant? " + (string)grdTenantsAdded.Rows[e.RowIndex].Cells["firstName"].Value + " from this rental?", "Warning!!!! Removing Tenant", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                // if yes Remove the tenant from the grd.
+
+                // find index of tenant in tenants list.
+                int removeTenantIndex = -1;
+                for (int i = 0; i < EndTenants.Count; i++)
+                {
+                    if (EndTenants[i].getTenantID() == Convert.ToInt32(grdTenantsAdded.Rows[e.RowIndex].Cells["tenantID"].Value))
+                    {
+                        removeTenantIndex = i;
+                    }
+                }
+
+                if (removeTenantIndex != -1)
+                {
+                    EndTenants.RemoveAt(removeTenantIndex);
+                }
+
+                grdTenantsAdded.Rows.RemoveAt(this.grdTenantsAdded.Rows[e.RowIndex].Index);
+            }
         }
     }
 }

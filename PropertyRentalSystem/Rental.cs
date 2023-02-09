@@ -1,6 +1,7 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace PropertyRentalSystem
     {
         private int rentalID;
         private String startDate;
-        private int rentDuration;
+        private String endDate;
         private String status;
         private int ownerID;
         private String eircode;
@@ -20,17 +21,17 @@ namespace PropertyRentalSystem
         {
             rentalID = 0;
             startDate = "01-MAY-20";
-            rentDuration = 1;
+            endDate = "01-MAY-21";
             status = "I";
             eircode = "fffffff";
         }
 
-        public Rental(String startDate, int ownerID, int rentDuration, String status, String eircode)
+        public Rental(String startDate, int ownerID, String endDate, String status, String eircode)
         {
 
             this.eircode = eircode;
             this.startDate = startDate;
-            this.rentDuration = rentDuration;
+            this.endDate = endDate;
             this.status = status;
             this.ownerID = ownerID;
 
@@ -71,8 +72,8 @@ namespace PropertyRentalSystem
                 this.rentalID + "," +
                 this.ownerID + ",'" +
                 this.eircode + "','" +
-                this.startDate + "'," +
-                this.rentDuration + ",'" +
+                this.startDate + "','" +
+                this.endDate + "','" +
                 this.status + "')";
 
             //Execute the SQL query (OracleCommand)
@@ -84,6 +85,35 @@ namespace PropertyRentalSystem
             //Close db connection
             conn.Close();
         }
+
+        public void getRental(String eircode)
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //Define the SQL query to be executed
+            String sqlQuery = "SELECT * FROM rentals WHERE eircode = '" + eircode + "' AND status = 'A'";
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            OracleDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+
+            //set the instance variables with values from data reader
+            setRentalID(dr.GetInt32(0));
+            setOwnerID(dr.GetInt32(1));
+            setEircode(dr.GetString(2));
+            setStartDate(dr.GetString(3));
+            setEndDate(dr.GetString(4));
+            setStatus(dr.GetString(5));
+
+            //close DB
+            conn.Close();
+        }
+
+       
 
 
         public int getRentalID()
@@ -126,14 +156,14 @@ namespace PropertyRentalSystem
             this.startDate = startDate;
         }
 
-        public int getRentDuration()
+        public String getEndDate()
         {
-            return rentDuration;
+            return endDate;
         }
 
-        public void setRentDuration(int rentDuration)
+        public void setEndDate(String endDate)
         {
-            this.rentDuration = rentDuration;
+            this.endDate = endDate;
         }
 
         public String getStatus()

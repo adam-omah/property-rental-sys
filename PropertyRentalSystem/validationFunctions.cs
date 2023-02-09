@@ -262,6 +262,51 @@ namespace PropertyRentalSystem
             return result;
 
         }
+
+        public static bool validStartDate(DateTime Date)
+        {
+            bool result = true;
+
+            // checks if start date is date in future.
+            if (!(Date >= DateTime.Now.Date))
+            {
+                result = false;
+            }
+            // Checks if start date is greater than 3 months from current date. 
+            else if (Date > DateTime.Now.AddMonths(3))
+            {
+                result = false;
+            }
+
+            return result;
+
+        }
+
+        public static bool validEndDate(DateTime end,DateTime start)
+        {
+            bool result = true;
+            // in case the add months function changes the values.
+            DateTime start10 = start;
+            DateTime start1 = start.AddMonths(1);
+
+            // checks if date is more than 1 month from start date.
+            // since start date is checked first and must be future date,
+            // this also checks if end date is future.
+            if (!(end >= start1))
+            {
+                result = false;
+            }
+
+            // checks if rent duration is greater than 10 years.
+            if(end.Year >= start10.AddYears(10).Year)
+            {
+                result = false;
+            }
+       
+
+            return result;
+
+        }
     }
 }
 
