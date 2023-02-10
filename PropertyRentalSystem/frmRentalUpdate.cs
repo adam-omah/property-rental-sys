@@ -327,8 +327,10 @@ namespace PropertyRentalSystem
             cboRentalStatus.Items.Add("Inactive - 'I' ");
         }
 
+
         private void DisplayTenantsList(List<Tenant> lists)
         {
+            // this method was used during testing to find out the state of lists at certain points.
             String message = "";
 
             foreach (var item in lists)

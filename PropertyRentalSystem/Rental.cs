@@ -113,6 +113,33 @@ namespace PropertyRentalSystem
             conn.Close();
         }
 
+        public void getRentalWithID(int id)
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //Define the SQL query to be executed
+            String sqlQuery = "SELECT * FROM rentals WHERE rentalID = " + id ;
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            OracleDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+
+            //set the instance variables with values from data reader
+            setRentalID(dr.GetInt32(0));
+            setOwnerID(dr.GetInt32(1));
+            setEircode(dr.GetString(2));
+            setStartDate(dr.GetString(3));
+            setEndDate(dr.GetString(4));
+            setStatus(dr.GetString(5));
+
+            //close DB
+            conn.Close();
+        }
+
         public void updateRental()
         {
             //Open a db connection
@@ -136,6 +163,29 @@ namespace PropertyRentalSystem
 
             //Close db connection
             conn.Close();
+        }
+
+        public static DataSet findRentals(String Eircode)
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //Define the SQL query to be executed
+            String sqlQuery = "SELECT * FROM Rentals " +
+                "WHERE eircode = '" + Eircode + "'";
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Rentals");
+
+            //Close db connection
+            conn.Close();
+
+            return ds;
         }
 
 

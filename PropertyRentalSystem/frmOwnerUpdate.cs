@@ -45,7 +45,7 @@ namespace PropertyRentalSystem
         private void grdOwners_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Retrieve Full owner Details from File.
-            //extract the OwnerID from column zero on the selected row in grid and use tof ind owner
+            //extract the OwnerID from column zero on the selected row in grid and use to find owner
             int Id = Convert.ToInt32(grdOwners.Rows[grdOwners.CurrentCell.RowIndex].Cells[0].Value.ToString());
 
             //instantiate The Owner

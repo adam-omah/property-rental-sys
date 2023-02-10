@@ -17,52 +17,10 @@ namespace PropertyRentalSystem
             InitializeComponent();
         }
 
-        private void btnSRHTenants_Click(object sender, EventArgs e)
-        {
-            //validate phone number entered.
 
-            if (txtSRHTenant.Text.Equals(""))
-            {
-                MessageBox.Show("Phone Number Must Be Entered", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtSRHTenant.Focus();
-                return;
-            }
-
-            // moved validation of Phone numbers in helper class.
-            bool isValidPhone = validationFunctions.validPhoneNumber(txtSRHTenant.Text);
-            if (!isValidPhone)
-            {
-                MessageBox.Show("Phone Number Must Be Valid,\nLarger than 7 numbers and can only have one +, no spaces!", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtSRHTenant.Focus();
-                return;
-            }
-
-            // if valid phone retrieve data from the tenants file + the rental information from their active tenant Rental.
-            if (txtSRHTenant.Text.Equals("0877777777"))
-            {
-                txtTenantName.Text = "Adam O'Mahony";
-                txtMonthlyRent.Text = "500";
-                txtActiveRental.Text = "Bird's Cottage";
-                grpPayerDetails.Visible = true;
-                grpPaymentDetails.Visible = true;
-                btnRecordPayment.Visible = true;
-            }
-            else if (txtSRHTenant.Text.Equals("0879999999"))
-            {
-                txtTenantName.Text = "Billy El";
-                txtMonthlyRent.Text = "400";
-                txtActiveRental.Text = "57, Lee Accomodation";
-                grpPayerDetails.Visible = true;
-                grpPaymentDetails.Visible = true;
-                btnRecordPayment.Visible = true;
-            }
-            else
-            {
-                MessageBox.Show("A tenant with that phone number was not found. \n Try 0877777777 or 0879999999 for example", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtSRHTenant.Focus();
-                return;
-            }
-        }
+        Property theProperty = new Property();
+        Rental theRental = new Rental();
+        
 
         private void btnRecordPayment_Click(object sender, EventArgs e)
         {
@@ -105,17 +63,108 @@ namespace PropertyRentalSystem
             // reset UI.
 
             txtPayAmount.Clear();
-            txtSRHTenant.Clear();
+            txtEircodeSRH.Clear();
             txtMonthlyRent.Clear();
-            txtTenantName.Clear();
+            txtEircode.Clear();
             dtpPaymentDate.Value = DateTime.Now;
 
             grpPayerDetails.Visible = false;
             grpPaymentDetails.Visible = false;
             btnRecordPayment.Visible = false;
 
-            txtSRHTenant.Focus();
+            txtEircodeSRH.Focus();
 
+        }
+
+        private void btnEircodeSRH_Click(object sender, EventArgs e)
+        {
+            // reset grd.
+            grdProperty.DataSource = null;
+            grdProperty.Rows.Clear();
+            grdProperty.Visible = false;
+
+            //find matching Property
+            grdProperty.DataSource = Property.findProperties(txtEircode.Text.ToUpper()).Tables["Properties"];
+
+            if (grdProperty.Rows.Count == 1)
+            {
+                MessageBox.Show("The Eircode " + txtEircodeSRH.Text + " Is not on the system,\nPlease try another eircode such as  'v92cccc' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtEircodeSRH.Clear();
+                txtEircodeSRH.Focus();
+                return;
+            }
+            else
+            {
+                // Property was found, instantiate it.
+                // setting eircode to uper case chars, removes inconsistency.
+                theProperty.getProperty(txtEircodeSRH.Text.ToUpper());
+
+                // Set the values in payer details to recovered details.
+                txtEircode.Text = theProperty.getEircode();
+                txtMonthlyRent.Text = theProperty.getRentalPrice().ToString();
+                txtPropertyName.Text = theProperty.getHouseName();
+
+                // if property is rented, instantiate the rental,
+
+                if (theProperty.getStatus() == 'R')
+                {
+                    //instantiate the rental
+                    theRental.getRental(txtEircodeSRH.Text.ToUpper());
+                    // set the rental id to active rental.
+                    txtActiveRental.Text = theRental.getRentalID().ToString();
+                    
+                    grdProperty.Visible = false;
+                    grpPayerDetails.Visible = true;
+                    grpPaymentDetails.Visible = true;
+                    btnRecordPayment.Visible = true;
+                }
+                // if not find historic rental
+                else
+                {
+                    // find all rentals of this 
+                    //find matching Tenants
+                    grdProperty.DataSource = null;
+                    grdProperty.Rows.Clear();
+
+                    grdProperty.DataSource = Rental.findRentals(theProperty.getEircode()).Tables["Rentals"];
+
+                    if (grdProperty.Rows.Count == 1)
+                    {
+                        MessageBox.Show("No rentals for this eircode were found,\nPlease try another Eirocde Or create the rental first. ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    grdProperty.Visible = true;
+                    grpPayerDetails.Visible = false;
+                    grpPaymentDetails.Visible = false;
+                    btnRecordPayment.Visible = false;
+                }
+            }
+        }
+
+        private void grdProperty_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Retrieve Full owner Details from File.
+            grdProperty.CurrentRow.Selected = true;
+
+            // Retrieve Full owner Details from File.
+            //extract the OwnerID from column zero on the selected row in grid and use to find owner
+            int rentId = Convert.ToInt32(grdProperty.Rows[grdProperty.CurrentCell.RowIndex].Cells[0].Value.ToString());
+
+            //instantiate The Rental
+            theRental.getRentalWithID(rentId);
+            // set the rental id to active rental.
+            txtActiveRental.Text = theRental.getRentalID().ToString();
+
+            // display Payment Details again. hide grd.
+            // reset grd.
+            grdProperty.DataSource = null;
+            grdProperty.Rows.Clear();
+            grdProperty.Visible = false;
+
+            grpPayerDetails.Visible = true;
+            grpPaymentDetails.Visible = true;
+            btnRecordPayment.Visible = true;
         }
     }
 }

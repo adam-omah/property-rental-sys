@@ -111,6 +111,8 @@ namespace PropertyRentalSystem
                 txtOwnerIban.Focus();
                 return;
             }
+
+
             // moved validation of Iban to a public helper class
             bool isValidIban = validationFunctions.validIban(txtOwnerIban.Text);
 

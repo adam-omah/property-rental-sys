@@ -200,8 +200,9 @@ namespace PropertyRentalSystem
 
             // Update Property in Properties Data Store.
             // normal text fields.
-            // setting eircode to uper case chars, removes inconsistency.
-            theProperty.setEircode(txtEircode.Text.ToUpper());
+            // Eircode Is not to be changed as this is the property Primary key,
+            // Eircode is set when property is found on search.
+            
             theProperty.setTypeCode(ds.Tables[0].Rows[cboPropertyType.SelectedIndex][0].ToString());
             theProperty.setOwnerID(theOwner.getOwnerID());
             theProperty.setHouseName(txtPropertyName.Text);
@@ -304,9 +305,9 @@ namespace PropertyRentalSystem
 
                 if (grdOwners.Rows.Count == 1)
                 {
-                    MessageBox.Show("The Eircode " + txtSurnameSRH.Text + " Is not on the system,\nPlease try another eircode such as  'v92cccc' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtSurnameSRH.Clear();
-                    txtSurnameSRH.Focus();
+                    MessageBox.Show("The Eircode " + txtEircode.Text + " Is not on the system,\nPlease try another eircode such as  'v92cccc' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtEircode.Clear();
+                    txtEircode.Focus();
                     return;
                 }
                 else
@@ -400,27 +401,24 @@ namespace PropertyRentalSystem
 
         private void btnSurnameSRH_Click(object sender, EventArgs e)
         {
-            if (txtSurnameSRH.Text.Equals("Smith") || txtSurnameSRH.Text.Equals("smith"))
-            {
-                // Find matching owners with surname.
-                // retrieves owners with matching surnames from owners data file:
-                grdOwners.Rows.Add("John", "Smith", "0877777777", 123);
-                grdOwners.Rows.Add("Sarah", "Smith", "0867777777", 103);
-                grdOwners.Rows.Add("Mary", "Smith", "0857777777", 134);
-                grdOwners.Rows.Add("Jason", "Smith", "0897777777", 79);
+            // Hiding Property details if new search.
+            grpPropertyDetails.Visible = false;
+            grpPropertyExtras.Visible = false;
+            btnUpdateProperty.Visible = false;
 
-                grdOwners.Visible = true;
-                grpPropertyExtras.Visible = false;
-                grpPropertyDetails.Visible = false;
-                btnUpdateProperty.Visible = false;
-            }
-            else
+            //find matching Owners
+            grdOwners.DataSource = PropOwner.findOwners(txtSurnameSRH.Text).Tables["Owner"];
+
+            if (grdOwners.Rows.Count == 1)
             {
                 MessageBox.Show("The surname " + txtSurnameSRH.Text + " Was not found,\nPlease try another surname such as  'Smith' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSurnameSRH.Clear();
                 txtSurnameSRH.Focus();
                 return;
             }
+
+            //display owners surname search grid 
+            grdOwners.Visible = true;
         }
 
         private void grdOwners_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -429,6 +427,15 @@ namespace PropertyRentalSystem
             grdOwners.CurrentRow.Selected = true;
 
             txtPropertyOwner.Text = (string)grdOwners.Rows[e.RowIndex].Cells["firstName"].Value + " " + (string)grdOwners.Rows[e.RowIndex].Cells["lastName"].Value;
+
+            // Retrieve Full owner Details from File.
+            //extract the OwnerID from column zero on the selected row in grid and use to find owner
+            int Id = Convert.ToInt32(grdOwners.Rows[grdOwners.CurrentCell.RowIndex].Cells[0].Value.ToString());
+
+            //instantiate The Owner
+            theOwner.getOwner(Id);
+
+            txtOwnerId.Text = Id.ToString();
 
             // display owner details.
             grpPropertyDetails.Visible = true;
