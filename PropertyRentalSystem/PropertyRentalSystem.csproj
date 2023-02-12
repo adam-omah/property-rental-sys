@@ -187,6 +187,7 @@
     <Compile Include="frmYearlyCommission.Designer.cs">
       <DependentUpon>frmYearlyCommission.cs</DependentUpon>
     </Compile>
+    <Compile Include="Payment.cs" />
     <Compile Include="PropOwner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

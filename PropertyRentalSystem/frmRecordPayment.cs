@@ -20,17 +20,29 @@ namespace PropertyRentalSystem
 
         Property theProperty = new Property();
         Rental theRental = new Rental();
-        
+
+        String payDateFormat;
+
 
         private void btnRecordPayment_Click(object sender, EventArgs e)
         {
 
             // Validate Data.
 
-            // Date must be sometime in the futre.
-            if (dtpPaymentDate.Value.Date > DateTime.Now)
+            // Date must be sometime in past or today. And in the last 10 years.
+            // I found that adding one hour makes this more accurate as it tries to equate
+            // now as the literal now by the milisecond.
+            if (DateTime.Now.Date.AddHours(1).CompareTo(dtpPaymentDate.Value.Date) <= 0)
             {
-                MessageBox.Show("Payment Date must be from today or in the Past! cannot be in the Future.");
+                MessageBox.Show("Payment Date must be in the Past!\nCannot be in the Future.");
+                dtpPaymentDate.Focus();
+                return;
+            }
+
+            if(DateTime.Now.Date.AddYears(-11) >= dtpPaymentDate.Value.Date)
+            {
+                MessageBox.Show("Payment Date must be within the last 10 years!\nCannot be further in the past!");
+                dtpPaymentDate.Focus();
                 return;
             }
 
@@ -52,10 +64,23 @@ namespace PropertyRentalSystem
             }
 
 
-            // after all validation above has been checked,
+            // check if the rental was instantiated
+            if (theRental.getRentalID() == 0)
+            {
+                MessageBox.Show("No Rental was found", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtEircodeSRH.Focus();
+                return;
+            }
 
+            // after all validation above has been checked,
             // Save Payment in the Payments Data file.
-            // NOT DOING THIS!!!
+
+            payDateFormat = String.Format("{0:dd-MMM-yy}", dtpPaymentDate.Value);
+
+            Payment thePayment = new Payment(theRental.getRentalID(), Convert.ToDouble(txtPayAmount.Text),payDateFormat);
+
+            thePayment.addPayment();
+
 
             //show confirmation message
             MessageBox.Show("Payment Details Have Been Recorded in the Payments Data Store", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -71,6 +96,11 @@ namespace PropertyRentalSystem
             grpPayerDetails.Visible = false;
             grpPaymentDetails.Visible = false;
             btnRecordPayment.Visible = false;
+
+            // reset grd.
+            grdProperty.DataSource = null;
+            grdProperty.Rows.Clear();
+            grdProperty.Visible = false;
 
             txtEircodeSRH.Focus();
 

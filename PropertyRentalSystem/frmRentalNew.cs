@@ -152,13 +152,24 @@ namespace PropertyRentalSystem
             theProperty.setStatus("R");
             theProperty.updateProperty();
 
-            DisplayTenantsList();
+            // was used for testing:
+            // DisplayTenantsList();
+
+            // find all the tenants in the rental id that are active:
+            grdTenants.DataSource = TenantRental.findAllTenantRentals(theRental.getRentalID()).Tables["tenant_rentals"];
+
             // Create Tenant Rentals in tenant rentals file for each tenant.
             for (int i = 0; i < tenants.Count; i++)
             {
                 // message box was for testing purpose.
+
+                // if A tenant rental already exits:
+
+
                 //MessageBox.Show("Tenant to add: " + tenants[i].getTenantID() + "\nRental Id : " + theRental.getRentalID());
-                TenantRental tRent = new TenantRental(Convert.ToInt32(theRental.getRentalID()), Convert.ToInt32(tenants[i].getTenantID()), "A");
+                TenantRental tRent = new TenantRental(Convert.ToInt32(theRental.getRentalID()),
+                    Convert.ToInt32(tenants[i].getTenantID()),
+                    "A");
                 // add the tenant rental to tenant Rentals file.
                 tRent.addTenantRental();
             }
@@ -178,8 +189,12 @@ namespace PropertyRentalSystem
             dtpEndDate.Value = DateTime.Now.AddMonths(12);
 
             txtSurnameSRH.Clear();
-            grdTenants.DataSource.Equals(null);
             grdTenants.Visible = false;
+
+            grdTenants.DataSource = null;
+            grdTenants.Rows.Clear();
+
+            grdTenantsAdded.DataSource = null;
             grdTenantsAdded.Rows.Clear();
 
             grpPropertyDetails.Visible = false;
