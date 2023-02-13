@@ -85,24 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBConnect.cs" />
-    <Compile Include="frmDBConnect.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDBConnect.Designer.cs">
-      <DependentUpon>frmDBConnect.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmListOwners.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmListOwners.Designer.cs">
-      <DependentUpon>frmListOwners.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmListTenants.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmListTenants.Designer.cs">
-      <DependentUpon>frmListTenants.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmOwnerAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,15 +179,6 @@
     <Compile Include="Tenant.cs" />
     <Compile Include="TenantRental.cs" />
     <Compile Include="validationFunctions.cs" />
-    <EmbeddedResource Include="frmDBConnect.resx">
-      <DependentUpon>frmDBConnect.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmListOwners.resx">
-      <DependentUpon>frmListOwners.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmListTenants.resx">
-      <DependentUpon>frmListTenants.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmOwnerAdd.resx">
       <DependentUpon>frmOwnerAdd.cs</DependentUpon>
     </EmbeddedResource>

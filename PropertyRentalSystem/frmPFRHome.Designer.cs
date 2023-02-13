@@ -29,6 +29,7 @@ namespace PropertyRentalSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPFRHome));
             this.mnuPFRMainMenu = new System.Windows.Forms.MenuStrip();
             this.ownersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAddOwner = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,9 +49,6 @@ namespace PropertyRentalSystem
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuYearlyCommission = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRentalsInYear = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuListItems = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuListOwners = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuListTenants = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mnuPFRMainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -64,8 +62,7 @@ namespace PropertyRentalSystem
             this.propertiesToolStripMenuItem,
             this.tenantsToolStripMenuItem,
             this.rentalsToolStripMenuItem,
-            this.adminToolStripMenuItem,
-            this.mnuListItems});
+            this.adminToolStripMenuItem});
             this.mnuPFRMainMenu.Location = new System.Drawing.Point(0, 0);
             this.mnuPFRMainMenu.Name = "mnuPFRMainMenu";
             this.mnuPFRMainMenu.Size = new System.Drawing.Size(610, 28);
@@ -84,14 +81,14 @@ namespace PropertyRentalSystem
             // mnuAddOwner
             // 
             this.mnuAddOwner.Name = "mnuAddOwner";
-            this.mnuAddOwner.Size = new System.Drawing.Size(188, 26);
+            this.mnuAddOwner.Size = new System.Drawing.Size(224, 26);
             this.mnuAddOwner.Text = "Add Owner";
             this.mnuAddOwner.Click += new System.EventHandler(this.mnuAddOwner_Click);
             // 
             // mnuUpdateOwner
             // 
             this.mnuUpdateOwner.Name = "mnuUpdateOwner";
-            this.mnuUpdateOwner.Size = new System.Drawing.Size(188, 26);
+            this.mnuUpdateOwner.Size = new System.Drawing.Size(224, 26);
             this.mnuUpdateOwner.Text = "Update Owner";
             this.mnuUpdateOwner.Click += new System.EventHandler(this.mnuUpdateOwner_Click);
             // 
@@ -211,30 +208,6 @@ namespace PropertyRentalSystem
             this.mnuRentalsInYear.Text = "Produce Rentals In Year Report";
             this.mnuRentalsInYear.Click += new System.EventHandler(this.mnuRentalsInYear_Click);
             // 
-            // mnuListItems
-            // 
-            this.mnuListItems.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuListOwners,
-            this.mnuListTenants});
-            this.mnuListItems.Name = "mnuListItems";
-            this.mnuListItems.Size = new System.Drawing.Size(45, 24);
-            this.mnuListItems.Text = "List";
-            this.mnuListItems.Click += new System.EventHandler(this.mnuListItems_Click);
-            // 
-            // mnuListOwners
-            // 
-            this.mnuListOwners.Name = "mnuListOwners";
-            this.mnuListOwners.Size = new System.Drawing.Size(224, 26);
-            this.mnuListOwners.Text = "List Owners";
-            this.mnuListOwners.Click += new System.EventHandler(this.mnuListOwners_Click);
-            // 
-            // mnuListTenants
-            // 
-            this.mnuListTenants.Name = "mnuListTenants";
-            this.mnuListTenants.Size = new System.Drawing.Size(224, 26);
-            this.mnuListTenants.Text = "List Tenants";
-            this.mnuListTenants.Click += new System.EventHandler(this.mnuListTenants_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PropertyRentalSystem.Properties.Resources.IKEA_TINY_HOME;
@@ -253,6 +226,7 @@ namespace PropertyRentalSystem
             this.ClientSize = new System.Drawing.Size(610, 431);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.mnuPFRMainMenu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuPFRMainMenu;
             this.Name = "frmPFRHome";
             this.Text = "Perfect Fit Rentals - [ Home ]";
@@ -286,9 +260,6 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem mnuRentalsInYear;
         private System.Windows.Forms.ToolStripMenuItem mnuRecordPayment;
-        private System.Windows.Forms.ToolStripMenuItem mnuListItems;
-        private System.Windows.Forms.ToolStripMenuItem mnuListOwners;
-        private System.Windows.Forms.ToolStripMenuItem mnuListTenants;
     }
 }
 

@@ -43,6 +43,7 @@ namespace PropertyRentalSystem
             this.txtPropertyOwner = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.grpRentalDetails = new System.Windows.Forms.GroupBox();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
@@ -58,7 +59,6 @@ namespace PropertyRentalSystem
             this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.grpPropertyDetails.SuspendLayout();
             this.grpRentalDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTenants)).BeginInit();
@@ -193,6 +193,13 @@ namespace PropertyRentalSystem
             this.grpRentalDetails.TabStop = false;
             this.grpRentalDetails.Text = "Rental Details";
             this.grpRentalDetails.Visible = false;
+            // 
+            // dtpEndDate
+            // 
+            this.dtpEndDate.Location = new System.Drawing.Point(144, 61);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(287, 22);
+            this.dtpEndDate.TabIndex = 24;
             // 
             // label6
             // 
@@ -336,13 +343,6 @@ namespace PropertyRentalSystem
             this.phone.HeaderText = "Phone";
             this.phone.MinimumWidth = 6;
             this.phone.Name = "phone";
-            // 
-            // dtpEndDate
-            // 
-            this.dtpEndDate.Location = new System.Drawing.Point(144, 61);
-            this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(287, 22);
-            this.dtpEndDate.TabIndex = 24;
             // 
             // frmRentalNew
             // 

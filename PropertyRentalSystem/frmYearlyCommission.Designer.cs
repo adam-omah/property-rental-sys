@@ -29,6 +29,7 @@ namespace PropertyRentalSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmYearlyCommission));
             this.cboYearlyCommision = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pboYearlyGraph = new System.Windows.Forms.PictureBox();
@@ -68,10 +69,13 @@ namespace PropertyRentalSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1062, 595);
             this.Controls.Add(this.pboYearlyGraph);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboYearlyCommision);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmYearlyCommission";
             this.Text = "Perfect Fit Rentals - [Yearly Commission Report]";
             this.Load += new System.EventHandler(this.frmYearlyCommission_Load);

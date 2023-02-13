@@ -29,6 +29,7 @@ namespace PropertyRentalSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPropertyUpdate));
             this.grdOwners = new System.Windows.Forms.DataGridView();
             this.txtSurnameSRH = new System.Windows.Forms.TextBox();
             this.btnSurnameSRH = new System.Windows.Forms.Button();
@@ -506,7 +507,9 @@ namespace PropertyRentalSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(609, 797);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(596, 797);
             this.Controls.Add(this.btnSearchEircode);
             this.Controls.Add(this.txtEircode);
             this.Controls.Add(this.label4);
@@ -514,6 +517,7 @@ namespace PropertyRentalSystem
             this.Controls.Add(this.grpPropertyExtras);
             this.Controls.Add(this.grpPropertyDetails);
             this.Controls.Add(this.grdOwners);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPropertyUpdate";
             this.Text = "Perfect Fit Rentals - [Update Property]";
             this.Load += new System.EventHandler(this.frmPropertyUpdate_Load);

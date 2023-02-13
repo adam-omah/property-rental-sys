@@ -29,7 +29,10 @@ namespace PropertyRentalSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTenantUpdate));
             this.grpTenant = new System.Windows.Forms.GroupBox();
+            this.txtTenantID = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.cboTenantStatus = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnUpdateTenantDetails = new System.Windows.Forms.Button();
@@ -47,8 +50,6 @@ namespace PropertyRentalSystem
             this.txtSurnameSRH = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grdTenants = new System.Windows.Forms.DataGridView();
-            this.txtTenantID = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.grpTenant.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTenants)).BeginInit();
             this.SuspendLayout();
@@ -77,6 +78,24 @@ namespace PropertyRentalSystem
             this.grpTenant.TabStop = false;
             this.grpTenant.Text = "Tenant Details";
             this.grpTenant.Visible = false;
+            // 
+            // txtTenantID
+            // 
+            this.txtTenantID.Location = new System.Drawing.Point(125, 37);
+            this.txtTenantID.MaxLength = 60;
+            this.txtTenantID.Name = "txtTenantID";
+            this.txtTenantID.ReadOnly = true;
+            this.txtTenantID.Size = new System.Drawing.Size(235, 22);
+            this.txtTenantID.TabIndex = 19;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(36, 40);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(78, 17);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Tenant ID: ";
             // 
             // cboTenantStatus
             // 
@@ -230,34 +249,19 @@ namespace PropertyRentalSystem
             this.grdTenants.Visible = false;
             this.grdTenants.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTenants_CellClick);
             // 
-            // txtTenantID
-            // 
-            this.txtTenantID.Location = new System.Drawing.Point(125, 37);
-            this.txtTenantID.MaxLength = 60;
-            this.txtTenantID.Name = "txtTenantID";
-            this.txtTenantID.ReadOnly = true;
-            this.txtTenantID.Size = new System.Drawing.Size(235, 22);
-            this.txtTenantID.TabIndex = 19;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(36, 40);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(78, 17);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "Tenant ID: ";
-            // 
             // frmTenantUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(775, 540);
             this.Controls.Add(this.grpTenant);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSurnameSRH);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.grdTenants);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmTenantUpdate";
             this.Text = "Perfect Fit Rentals - [Update Tenant]";
             this.Load += new System.EventHandler(this.frmTenantUpdate_Load);

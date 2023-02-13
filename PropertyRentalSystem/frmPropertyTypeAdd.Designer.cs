@@ -29,6 +29,7 @@ namespace PropertyRentalSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPropertyTypeAdd));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAddPropertyType = new System.Windows.Forms.Button();
             this.txtPropertyTypeDescription = new System.Windows.Forms.TextBox();
@@ -47,7 +48,7 @@ namespace PropertyRentalSystem
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(463, 271);
+            this.groupBox1.Size = new System.Drawing.Size(463, 223);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Property Type";
@@ -95,13 +96,16 @@ namespace PropertyRentalSystem
             this.label1.TabIndex = 0;
             this.label1.Text = "Poperty Type Code:";
             // 
-            // frmAddPropertyType
+            // frmPropertyTypeAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 298);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(488, 248);
             this.Controls.Add(this.groupBox1);
-            this.Name = "frmAddPropertyType";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "frmPropertyTypeAdd";
             this.Text = "Perfect Fit Rentals - [Add Property Type]";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

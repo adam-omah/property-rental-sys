@@ -74,7 +74,6 @@ namespace PropertyRentalSystem
 
             // after all validation above has been checked,
             // Save Payment in the Payments Data file.
-
             payDateFormat = String.Format("{0:dd-MMM-yy}", dtpPaymentDate.Value);
 
             Payment thePayment = new Payment(theRental.getRentalID(), Convert.ToDouble(txtPayAmount.Text),payDateFormat);

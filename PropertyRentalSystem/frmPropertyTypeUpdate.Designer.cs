@@ -29,6 +29,7 @@ namespace PropertyRentalSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPropertyTypeUpdate));
             this.grpUpdateType = new System.Windows.Forms.GroupBox();
             this.btnUpdatePropType = new System.Windows.Forms.Button();
             this.txtPropertyTypeDescription = new System.Windows.Forms.TextBox();
@@ -100,10 +101,13 @@ namespace PropertyRentalSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(511, 541);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(511, 459);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboPropType);
             this.Controls.Add(this.grpUpdateType);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPropertyTypeUpdate";
             this.Text = "Perfect Fit Rentals - [Update Property Type]";
             this.Load += new System.EventHandler(this.frmPropertyTypeUpdate_Load);

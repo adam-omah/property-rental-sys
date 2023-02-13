@@ -29,6 +29,7 @@ namespace PropertyRentalSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTenantAdd));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtTenantIban = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -165,6 +166,7 @@ namespace PropertyRentalSystem
             this.ClientSize = new System.Drawing.Size(397, 322);
             this.Controls.Add(this.btnAddTenant);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmTenantAdd";
             this.Text = "Perfect Fit Rentals - [Add Tenant]";
             this.groupBox1.ResumeLayout(false);
