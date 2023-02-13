@@ -104,17 +104,5 @@ namespace PropertyRentalSystem
         {
 
         }
-
-        private void mnuListOwners_Click(object sender, EventArgs e)
-        {
-            var listform = new frmListOwners();
-            listform.Show();
-        }
-
-        private void mnuListTenants_Click(object sender, EventArgs e)
-        {
-            var listTenants = new frmListTenants();
-            listTenants.Show();
-        }
     }
 }

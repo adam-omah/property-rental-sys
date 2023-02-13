@@ -13,7 +13,8 @@ namespace PropertyRentalSystem
         private String eircode;
         private int ownerID;
         private String typeCode;
-        private String houseName;
+        private String town;
+        private String address;
         private double rentalPrice;
         private String propertyDescription;
         private int totalRooms;
@@ -21,7 +22,7 @@ namespace PropertyRentalSystem
         private int ensuiteBedrooms;
         private int bathrooms;
         private int parkingSpaces;
-        private String heatingSource;
+        private int heatingSource;
         private char gardenSpace;
         private char petsAllowed;
         private char wifi;
@@ -33,7 +34,8 @@ namespace PropertyRentalSystem
         {
             eircode = "NA";
             ownerID = 1;
-            houseName = "none";
+            town = "none";
+            address = "none";
             rentalPrice = 100;
             propertyDescription = "None";
             totalRooms = 0;
@@ -41,7 +43,7 @@ namespace PropertyRentalSystem
             ensuiteBedrooms = 0;
             bathrooms = 0;
             parkingSpaces = 0;
-            heatingSource = "None";
+            heatingSource = 0;
             gardenSpace = 'N';
             petsAllowed = 'N';
             wifi = 'N';
@@ -49,12 +51,12 @@ namespace PropertyRentalSystem
             status = 'I';
         }
 
-        public Property(String eircode, int ownerID, String typeCode, String houseName, double rentalPrice, String propertyDescription, int totalRooms, int standardBedrooms, int ensuiteBedrooms, int bathrooms, int parkingSpaces, String heatingSource, char gardenSpace, char petsAllowed, char wifi, char ownerOccupied, char status)
+        public Property(String eircode, int ownerID, String typeCode, String houseName, double rentalPrice, String propertyDescription, int totalRooms, int standardBedrooms, int ensuiteBedrooms, int bathrooms, int parkingSpaces, int heatingSource, char gardenSpace, char petsAllowed, char wifi, char ownerOccupied, char status)
         {
             this.eircode = eircode;
             this.ownerID = ownerID;
             this.typeCode = typeCode;
-            this.houseName = houseName;
+            this.town = houseName;
             this.rentalPrice = rentalPrice;
             this.propertyDescription = propertyDescription;
             this.totalRooms = totalRooms;
@@ -81,15 +83,16 @@ namespace PropertyRentalSystem
                 this.eircode + "','" +
                 this.typeCode + "'," +
                 this.ownerID + ",'" +
-                this.houseName + "','" +
+                this.town + "','" +
+                this.address + "','" +
                 this.propertyDescription + "'," +
                 this.rentalPrice + "," +
                 this.totalRooms + "," +
                 this.bathrooms + "," +
                 this.totalBedrooms + "," +
                 this.ensuiteBedrooms + "," +
-                this.parkingSpaces + ",'" +
-                this.heatingSource + "','" +
+                this.parkingSpaces + "," +
+                this.heatingSource + ",'" +
                 this.gardenSpace + "','" +
                 this.petsAllowed + "','" +
                 this.wifi + "','" +
@@ -116,7 +119,8 @@ namespace PropertyRentalSystem
                 "eircode = '" + this.eircode + "'," +
                 "typeCode = '" + this.typeCode + "'," +
                 "ownerId = " + this.ownerID + "," +
-                "houseName = '" + this.houseName + "'," +
+                "town = '" + this.town + "'," +
+                "address = '" + this.address + "'," +
                 "description = '" + this.propertyDescription + "'," +
                 "monthlyRent = " + this.rentalPrice + "," +
                 "totalRooms = " + this.totalRooms + "," +
@@ -124,7 +128,7 @@ namespace PropertyRentalSystem
                 "bedrooms = " + this.totalBedrooms + "," +
                 "ensuiteBedrooms = " + this.ensuiteBedrooms + "," +
                 "parkingSpaces = " + this.parkingSpaces + "," +
-                "heatingSource = '" + this.heatingSource + "'," +
+                "heatingSource = " + this.heatingSource + "," +
                 "gardenSpace = '" + this.gardenSpace + "'," +
                 "petsAllowed = '" + this.petsAllowed + "'," +
                 "wifi = '" + this.wifi + "'," +
@@ -142,15 +146,34 @@ namespace PropertyRentalSystem
             conn.Close();
         }
 
+        public static DataSet getHeatingSources()
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //Define the SQL query to be executed
+            String sqlQuery = "SELECT * FROM heating_sources ORDER BY heatingID";
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "heating_sources");
+
+            //Close db connection
+            conn.Close();
+
+            return ds;
+        }
+
         public void getProperty(String eircode)
         {
 
 
             //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
-
-            
-
 
             //Define the SQL query to be executed
             String sqlQuery = "SELECT * FROM Properties WHERE eircode = '" + eircode + "'";
@@ -166,20 +189,21 @@ namespace PropertyRentalSystem
             setEircode(dr.GetString(0));
             setTypeCode(dr.GetString(1));
             setOwnerID(dr.GetInt32(2));
-            setHouseName(dr.GetString(3));
-            setPropertyDescription(dr.GetString(4));
-            setRentalPrice(dr.GetDouble(5));
-            setTotalRooms(dr.GetInt32(6));
-            setBathrooms(dr.GetInt32(7));
-            setTotalBedrooms(dr.GetInt32(8));
-            setEnsuiteBedrooms(dr.GetInt32(9));
-            setParkingSpaces(dr.GetInt32(10));
-            setHeatingSource(dr.GetString(11));
-            setGardenSpace(dr.GetString(12));
-            setPetsAllowed(dr.GetString(13));
-            setWifi(dr.GetString(14));
-            setOwnerOccupied(dr.GetString(15));
-            setStatus(dr.GetString(16));
+            setTown(dr.GetString(3));
+            setAddress(dr.GetString(4));
+            setPropertyDescription(dr.GetString(5));
+            setRentalPrice(dr.GetDouble(6));
+            setTotalRooms(dr.GetInt32(7));
+            setBathrooms(dr.GetInt32(8));
+            setTotalBedrooms(dr.GetInt32(9));
+            setEnsuiteBedrooms(dr.GetInt32(10));
+            setParkingSpaces(dr.GetInt32(11));
+            setHeatingSource(dr.GetInt32(12));
+            setGardenSpace(dr.GetString(13));
+            setPetsAllowed(dr.GetString(14));
+            setWifi(dr.GetString(15));
+            setOwnerOccupied(dr.GetString(16));
+            setStatus(dr.GetString(17));
 
             //close DB
             conn.Close();
@@ -191,7 +215,7 @@ namespace PropertyRentalSystem
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
             //Define the SQL query to be executed
-            String sqlQuery = "SELECT OwnerID, Eircode, housename FROM Properties " +
+            String sqlQuery = "SELECT OwnerID, Eircode, town FROM Properties " +
                 "WHERE eircode LIKE '%" + eircode + "%'";
 
             //Execute the SQL query (OracleCommand)
@@ -208,6 +232,51 @@ namespace PropertyRentalSystem
             conn.Close();
 
             return ds;
+        }
+
+        public static DataSet findPropertiesByTown(String Town)
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //Define the SQL query to be executed
+            String sqlQuery = "SELECT OwnerID, Eircode, town FROM Properties " +
+                "WHERE eircode LIKE '%" + Town + "%' ORDER BY bedrooms";
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "properties");
+
+            //Close db connection
+            conn.Close();
+
+            return ds;
+        }
+
+        public String getTown()
+        {
+            return town;
+        }
+
+        public void setTown(String town)
+        {
+            this.town = town;
+        }
+
+        public String getAddress()
+        {
+            return address;
+        }
+
+        public void setAddress(String address)
+        {
+            this.address = address;
         }
 
         public String getEircode()
@@ -240,15 +309,7 @@ namespace PropertyRentalSystem
             this.typeCode = typeCode;
         }
 
-        public String getHouseName()
-        {
-            return houseName;
-        }
-
-        public void setHouseName(String houseName)
-        {
-            this.houseName = houseName;
-        }
+        
 
         public double getRentalPrice()
         {
@@ -320,12 +381,12 @@ namespace PropertyRentalSystem
             this.parkingSpaces = parkingSpaces;
         }
 
-        public String getHeatingSource()
+        public int getHeatingSource()
         {
             return heatingSource;
         }
 
-        public void setHeatingSource(String heatingSource)
+        public void setHeatingSource(int heatingSource)
         {
             this.heatingSource = heatingSource;
         }

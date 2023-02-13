@@ -37,33 +37,33 @@ namespace PropertyRentalSystem
             grdTenants.Visible = false;
 
             // moved validation of numbers to a public helper class to make it more gloabl.
-            bool isValidEircode = validationFunctions.validEircode(txtEircodeSRH.Text);
+            bool isValidTown = validationFunctions.validTextString(txtTownSRH.Text);
 
-            if (!isValidEircode)
+            if (!isValidTown)
             {
                 MessageBox.Show("Eircode is Invalid, Please enter a valid Eircode", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtEircodeSRH.Clear();
-                txtEircodeSRH.Focus();
+                txtTownSRH.Clear();
+                txtTownSRH.Focus();
                 return;
             }
             else
             {
                 //find matching Property
-                grdTenants.DataSource = Property.findProperties(txtEircodeSRH.Text.ToUpper()).Tables["Properties"];
+                grdTenants.DataSource = Property.findProperties(txtTownSRH.Text.ToUpper()).Tables["Properties"];
 
                 if (grdTenants.Rows.Count == 1)
                 {
                     // Property Not found.
-                    MessageBox.Show("The Eircode " + txtEircodeSRH.Text + " Is not on the system,\nPlease try another eircode such as  'v92cccc' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtEircodeSRH.Clear();
-                    txtEircodeSRH.Focus();
+                    MessageBox.Show("The Eircode " + txtTownSRH.Text + " Is not on the system,\nPlease try another eircode such as  'v92cccc' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtTownSRH.Clear();
+                    txtTownSRH.Focus();
                     return;
                 }
                 else
                 {
                     // Property was found, instantiate it.
                     // setting eircode to uper case chars, removes inconsistency.
-                    theProperty.getProperty(txtEircodeSRH.Text.ToUpper());
+                    theProperty.getProperty(txtTownSRH.Text.ToUpper());
 
 
                     if (theProperty.getStatus() == 'A')
@@ -76,7 +76,7 @@ namespace PropertyRentalSystem
 
                         txtPropertyEircode.Text = theProperty.getEircode();
                         txtMonthlyRent.Text = theProperty.getRentalPrice().ToString();
-                        txtPropertyName.Text = theProperty.getHouseName();
+                        txtAddress.Text = theProperty.getAddress();
 
                         // Set Owner from property Owner ID.
                         theOwner.getOwner(theProperty.getOwnerID());
@@ -88,9 +88,9 @@ namespace PropertyRentalSystem
                     else
                     {
                         // Property is not available.
-                        MessageBox.Show("The Eircode " + txtEircodeSRH.Text + " Is On the System\nBut is NOT available (either Rented or unavailable.)\nPlease try another eircode such as  'v92cccc' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtEircodeSRH.Clear();
-                        txtEircodeSRH.Focus();
+                        MessageBox.Show("The Eircode " + txtTownSRH.Text + " Is On the System\nBut is NOT available (either Rented or unavailable.)\nPlease try another eircode such as  'v92cccc' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtTownSRH.Clear();
+                        txtTownSRH.Focus();
                         return;
                     }
 
@@ -178,10 +178,10 @@ namespace PropertyRentalSystem
             MessageBox.Show("Rental Details Have Been Updated on the Rental Data Store", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // reset UI.
-            txtEircodeSRH.Clear();
+            txtTownSRH.Clear();
             txtMonthlyRent.Clear();
             txtPropertyEircode.Clear();
-            txtPropertyName.Clear();
+            txtAddress.Clear();
             txtPropertyOwner.Clear();
 
             dtpStartDate.Value = DateTime.Now;
@@ -202,7 +202,7 @@ namespace PropertyRentalSystem
             grpTenants.Visible = false;
             btnCreateRental.Visible = false;
 
-            txtEircodeSRH.Focus();
+            txtTownSRH.Focus();
         }
 
         private void btnSRHTenants_Click(object sender, EventArgs e)

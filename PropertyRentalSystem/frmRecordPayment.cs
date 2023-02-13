@@ -131,7 +131,7 @@ namespace PropertyRentalSystem
                 // Set the values in payer details to recovered details.
                 txtEircode.Text = theProperty.getEircode();
                 txtMonthlyRent.Text = theProperty.getRentalPrice().ToString();
-                txtPropertyName.Text = theProperty.getHouseName();
+                txtPropertyName.Text = theProperty.getAddress();
 
                 // if property is rented, instantiate the rental,
 

@@ -31,6 +31,8 @@ namespace PropertyRentalSystem
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPropertyAdd));
             this.grpPropertyDetails = new System.Windows.Forms.GroupBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.txtPropertyOwner = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.rtxPropertyDescription = new System.Windows.Forms.RichTextBox();
@@ -39,7 +41,7 @@ namespace PropertyRentalSystem
             this.label5 = new System.Windows.Forms.Label();
             this.txtEircode = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtPropertyName = new System.Windows.Forms.TextBox();
+            this.txtTown = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cboPropertyType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -78,6 +80,8 @@ namespace PropertyRentalSystem
             // 
             // grpPropertyDetails
             // 
+            this.grpPropertyDetails.Controls.Add(this.txtAddress);
+            this.grpPropertyDetails.Controls.Add(this.label14);
             this.grpPropertyDetails.Controls.Add(this.txtPropertyOwner);
             this.grpPropertyDetails.Controls.Add(this.label13);
             this.grpPropertyDetails.Controls.Add(this.rtxPropertyDescription);
@@ -86,17 +90,34 @@ namespace PropertyRentalSystem
             this.grpPropertyDetails.Controls.Add(this.label5);
             this.grpPropertyDetails.Controls.Add(this.txtEircode);
             this.grpPropertyDetails.Controls.Add(this.label4);
-            this.grpPropertyDetails.Controls.Add(this.txtPropertyName);
+            this.grpPropertyDetails.Controls.Add(this.txtTown);
             this.grpPropertyDetails.Controls.Add(this.label3);
             this.grpPropertyDetails.Controls.Add(this.cboPropertyType);
             this.grpPropertyDetails.Controls.Add(this.label2);
             this.grpPropertyDetails.Location = new System.Drawing.Point(26, 67);
             this.grpPropertyDetails.Name = "grpPropertyDetails";
-            this.grpPropertyDetails.Size = new System.Drawing.Size(520, 356);
+            this.grpPropertyDetails.Size = new System.Drawing.Size(520, 391);
             this.grpPropertyDetails.TabIndex = 4;
             this.grpPropertyDetails.TabStop = false;
             this.grpPropertyDetails.Text = "Property Details";
             this.grpPropertyDetails.Visible = false;
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(120, 143);
+            this.txtAddress.MaxLength = 100;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(290, 22);
+            this.txtAddress.TabIndex = 17;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 143);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(110, 17);
+            this.label14.TabIndex = 16;
+            this.label14.Text = "Street Address :";
             // 
             // txtPropertyOwner
             // 
@@ -117,7 +138,7 @@ namespace PropertyRentalSystem
             // 
             // rtxPropertyDescription
             // 
-            this.rtxPropertyDescription.Location = new System.Drawing.Point(8, 239);
+            this.rtxPropertyDescription.Location = new System.Drawing.Point(8, 266);
             this.rtxPropertyDescription.Name = "rtxPropertyDescription";
             this.rtxPropertyDescription.Size = new System.Drawing.Size(480, 111);
             this.rtxPropertyDescription.TabIndex = 10;
@@ -126,7 +147,7 @@ namespace PropertyRentalSystem
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 220);
+            this.label6.Location = new System.Drawing.Point(7, 247);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(145, 17);
             this.label6.TabIndex = 10;
@@ -134,7 +155,7 @@ namespace PropertyRentalSystem
             // 
             // txtMonthlyRent
             // 
-            this.txtMonthlyRent.Location = new System.Drawing.Point(158, 186);
+            this.txtMonthlyRent.Location = new System.Drawing.Point(158, 209);
             this.txtMonthlyRent.MaxLength = 9;
             this.txtMonthlyRent.Name = "txtMonthlyRent";
             this.txtMonthlyRent.Size = new System.Drawing.Size(150, 22);
@@ -143,7 +164,7 @@ namespace PropertyRentalSystem
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 186);
+            this.label5.Location = new System.Drawing.Point(6, 209);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(146, 17);
             this.label5.TabIndex = 8;
@@ -151,7 +172,7 @@ namespace PropertyRentalSystem
             // 
             // txtEircode
             // 
-            this.txtEircode.Location = new System.Drawing.Point(120, 151);
+            this.txtEircode.Location = new System.Drawing.Point(120, 174);
             this.txtEircode.MaxLength = 7;
             this.txtEircode.Name = "txtEircode";
             this.txtEircode.Size = new System.Drawing.Size(188, 22);
@@ -160,28 +181,28 @@ namespace PropertyRentalSystem
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 154);
+            this.label4.Location = new System.Drawing.Point(44, 177);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "Eircode: ";
             // 
-            // txtPropertyName
+            // txtTown
             // 
-            this.txtPropertyName.Location = new System.Drawing.Point(184, 113);
-            this.txtPropertyName.MaxLength = 100;
-            this.txtPropertyName.Name = "txtPropertyName";
-            this.txtPropertyName.Size = new System.Drawing.Size(290, 22);
-            this.txtPropertyName.TabIndex = 7;
+            this.txtTown.Location = new System.Drawing.Point(120, 115);
+            this.txtTown.MaxLength = 50;
+            this.txtTown.Name = "txtTown";
+            this.txtTown.Size = new System.Drawing.Size(290, 22);
+            this.txtTown.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 116);
+            this.label3.Location = new System.Drawing.Point(62, 115);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(178, 17);
+            this.label3.Size = new System.Drawing.Size(46, 17);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Property Name or Number:";
+            this.label3.Text = "Town:";
             // 
             // cboPropertyType
             // 
@@ -229,7 +250,7 @@ namespace PropertyRentalSystem
             this.grpPropertyExtras.Controls.Add(this.label9);
             this.grpPropertyExtras.Controls.Add(this.label8);
             this.grpPropertyExtras.Controls.Add(this.label7);
-            this.grpPropertyExtras.Location = new System.Drawing.Point(26, 445);
+            this.grpPropertyExtras.Location = new System.Drawing.Point(27, 475);
             this.grpPropertyExtras.Name = "grpPropertyExtras";
             this.grpPropertyExtras.Size = new System.Drawing.Size(521, 153);
             this.grpPropertyExtras.TabIndex = 11;
@@ -408,7 +429,7 @@ namespace PropertyRentalSystem
             // 
             // btnAddProperty
             // 
-            this.btnAddProperty.Location = new System.Drawing.Point(175, 604);
+            this.btnAddProperty.Location = new System.Drawing.Point(176, 634);
             this.btnAddProperty.Name = "btnAddProperty";
             this.btnAddProperty.Size = new System.Drawing.Size(232, 28);
             this.btnAddProperty.TabIndex = 22;
@@ -453,7 +474,7 @@ namespace PropertyRentalSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(578, 651);
+            this.ClientSize = new System.Drawing.Size(578, 668);
             this.Controls.Add(this.txtSurnameSRH);
             this.Controls.Add(this.btnSurnameSRH);
             this.Controls.Add(this.btnAddProperty);
@@ -487,7 +508,7 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.ComboBox cboPropertyType;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtPropertyName;
+        private System.Windows.Forms.TextBox txtTown;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtMonthlyRent;
@@ -518,5 +539,7 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.TextBox txtPropertyOwner;
         private System.Windows.Forms.DataGridView grdOwners;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.Label label14;
     }
 }

@@ -14,7 +14,9 @@ namespace PropertyRentalSystem
     public partial class frmPropertyAdd : Form
     {
 
-        DataSet ds;
+        DataSet dsTypes;
+        DataSet dsHeat;
+        DataSet dsProps;
         PropOwner theOwner = new PropOwner();
 
         // Default values for check boxes.
@@ -37,33 +39,38 @@ namespace PropertyRentalSystem
             // Load Property Types and Type Codes.
 
             //Load TypeCodes into ComboBox
-            ds = PropertyType.getTypes();
+            dsTypes = PropertyType.getTypes();
+             
             cboPropertyType.Items.Clear();
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            for (int i = 0; i < dsTypes.Tables[0].Rows.Count; i++)
             {
                 // Checks length of description, if more than 15, substring, if not use all.
-                if (ds.Tables[0].Rows[i][1].ToString().Length > 15)
+                if (dsTypes.Tables[0].Rows[i][1].ToString().Length > 15)
                 {
-                    cboPropertyType.Items.Add(ds.Tables[0].Rows[i][0] + " - " + ds.Tables[0].Rows[i][1].ToString().Substring(0, 15));
+                    cboPropertyType.Items.Add(dsTypes.Tables[0].Rows[i][0] + " - " + dsTypes.Tables[0].Rows[i][1].ToString().Substring(0, 15));
                 }
                 else
                 {
-                    cboPropertyType.Items.Add(ds.Tables[0].Rows[i][0] + " - " + ds.Tables[0].Rows[i][1].ToString());
+                    cboPropertyType.Items.Add(dsTypes.Tables[0].Rows[i][0] + " - " + dsTypes.Tables[0].Rows[i][1].ToString());
                 }
 
             }
 
+            dsHeat = Property.getHeatingSources();
+            cboHeatingSource.Items.Clear();
+            for (int i = 0; i < dsHeat.Tables[0].Rows.Count; i++)
+            {
+                // Checks length of Heating Name, if more than 30, substring, if not use all.
+                if (dsHeat.Tables[0].Rows[i][1].ToString().Length > 30)
+                {
+                    cboHeatingSource.Items.Add(dsHeat.Tables[0].Rows[i][0] + " - " + dsHeat.Tables[0].Rows[i][1].ToString().Substring(0, 30));
+                }
+                else
+                {
+                    cboHeatingSource.Items.Add(dsHeat.Tables[0].Rows[i][0] + " - " + dsHeat.Tables[0].Rows[i][1].ToString());
+                }
 
-            // These values are hard coded in as they are the only options.
-            // in reality a heating type could be added as an option or this field would be a txt field,
-            // I think a drop down works better for this section as it keeps everything simple to use for the end user.
-            cboHeatingSource.Items.Add("Oil Central Heating");
-            cboHeatingSource.Items.Add("Electric Central Heating");
-            cboHeatingSource.Items.Add("Heat Pump Central Heating");
-            cboHeatingSource.Items.Add("Electric Radiators");
-            cboHeatingSource.Items.Add("Storage Heaters");
-            cboHeatingSource.Items.Add("Solid Fuel Stove");
-            cboHeatingSource.Items.Add("Geothermal");
+            }
         }
 
         private void btnAddProperty_Click(object sender, EventArgs e)
@@ -88,24 +95,54 @@ namespace PropertyRentalSystem
                 return;
             }
 
-            // Property Name or Number validation.
-            if (txtPropertyName.Text.Equals(""))
+            // Property Town
+            if (txtTown.Text.Equals(""))
             {
-                MessageBox.Show("Property Must have a name or number!", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtPropertyName.Focus();
+                MessageBox.Show("Town Must not be empty!", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTown.Focus();
                 return;
             }
-
-            bool isValidName = validationFunctions.validPropertyName(txtPropertyName.Text);
+            bool isValidName = validationFunctions.validTextString(txtTown.Text);
             if (!isValidName)
             {
-                MessageBox.Show("Property Name Invalid!\nProperty name must be English letters, spaces and 's are allowed.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtPropertyName.Focus();
+                MessageBox.Show("Property Town Invalid!\nProperty Town must be English letters, spaces and 's are allowed.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTown.Focus();
                 return;
             }
 
+            if (txtTown.Text.Length > 50)
+            {
+                MessageBox.Show("Property Town Invalid!\nMax 50 Characthers allowed.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAddress.Focus();
+                return;
+            }
+
+            // Property Address or Number validation.
+            if (txtAddress.Text.Equals(""))
+            {
+                MessageBox.Show("Address cannot be blank!", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAddress.Focus();
+                return;
+            }
+
+            bool isValidAddress = validationFunctions.validTextString(txtAddress.Text);
+            if (!isValidAddress)
+            {
+                MessageBox.Show("Property Address Invalid!\nProperty Address must be English letters, spaces and 's are allowed.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAddress.Focus();
+                return;
+            }
+
+            if(txtAddress.Text.Length > 100)
+            {
+                MessageBox.Show("Property Address Invalid!\nMax 100 Characthers allowed.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAddress.Focus();
+                return;
+            }
+
+
             // Eircode Validation: (same as for Add Owner)
-            
+
             if (txtEircode.Text.Equals(""))
             {
                 MessageBox.Show("Eircode Must Be Entered", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -209,6 +246,17 @@ namespace PropertyRentalSystem
                 cboHeatingSource.Focus();
                 return;
             }
+
+            // Check if Property exists on the datastore already (eircode must be unique).
+            dsProps = Property.findProperties(txtEircode.Text.ToUpper());
+            if (dsProps.Tables[0].Rows.Count != 0)
+            {
+                MessageBox.Show("A property with the Eircode, " + txtEircode.Text + " is already on the system!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dsProps = null;
+                return;
+            }
+
+
             // Save Property to Properties Data Store.
 
             Property aProperty = new Property();
@@ -216,10 +264,11 @@ namespace PropertyRentalSystem
             // normal text fields.
             // setting eircode to uper case chars, removes inconsistency.
             aProperty.setEircode(txtEircode.Text.ToUpper());
-            aProperty.setTypeCode(ds.Tables[0].Rows[cboPropertyType.SelectedIndex][0].ToString());
+            aProperty.setTypeCode(dsTypes.Tables[0].Rows[cboPropertyType.SelectedIndex][0].ToString());
             aProperty.setOwnerID(theOwner.getOwnerID());
-            aProperty.setHouseName(txtPropertyName.Text);
-            aProperty.setPropertyDescription(rtxPropertyDescription.Text);
+            aProperty.setTown(validationFunctions.SQLApostrophe(txtTown.Text));
+            aProperty.setAddress(validationFunctions.SQLApostrophe(txtAddress.Text));
+            aProperty.setPropertyDescription(validationFunctions.SQLApostrophe(rtxPropertyDescription.Text));
             aProperty.setRentalPrice(Convert.ToDouble(txtMonthlyRent.Text));
 
             // number selections
@@ -230,7 +279,7 @@ namespace PropertyRentalSystem
             aProperty.setParkingSpaces(Convert.ToInt32(numParkingSpaces.Value));
 
             // cbo
-            aProperty.setHeatingSource(cboHeatingSource.Text);
+            aProperty.setHeatingSource(Convert.ToInt32(cboHeatingSource.Text.Substring(0,1)));
 
             // yes no options
             if (chkHasWifi.Checked)
@@ -275,7 +324,7 @@ namespace PropertyRentalSystem
             // Reset UI.
             cboPropertyType.SelectedIndex = -1;
             cboHeatingSource.SelectedIndex = -1;
-            txtPropertyName.Clear();
+            txtTown.Clear();
             txtEircode.Clear();
             txtMonthlyRent.Clear();
             rtxPropertyDescription.Clear();
@@ -290,6 +339,9 @@ namespace PropertyRentalSystem
             chkHasWifi.Checked = false;
             chkOwnerOccupied.Checked = false;
             chkPetsAllowed.Checked = false;
+
+            //Reset dsProps
+            dsProps = null;
 
             //set visiables
             grpPropertyDetails.Visible = false;
@@ -343,7 +395,7 @@ namespace PropertyRentalSystem
             grpPropertyExtras.Visible = true;
             btnAddProperty.Visible = true;
             grdOwners.Visible = false;
-            txtPropertyName.Focus();
+            txtTown.Focus();
         }
     }
 }

@@ -102,9 +102,6 @@ C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRent
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\bin\Debug\System.ValueTuple.xml
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.csproj.AssemblyReference.cache
-C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmDBConnect.resources
-C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmListOwners.resources
-C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmListTenants.resources
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmOwnerAdd.resources
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmPropertyAdd.resources
 C:\Users\Adam\Desktop\ReqsEng\PropertyRentalSys\property-rental-sys\PropertyRentalSystem\obj\Debug\PropertyRentalSystem.frmPropertyTypeAdd.resources

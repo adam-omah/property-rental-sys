@@ -189,7 +189,7 @@ namespace PropertyRentalSystem
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmOwnerAdd";
-            this.Text = "Perfect Fit Rentals - [Add Owner]";
+            this.Text = "PFR - [Add Owner]";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

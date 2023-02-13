@@ -10,7 +10,7 @@ namespace PropertyRentalSystem
     public class validationFunctions
     {
 
-        public static bool validPropertyName(string text)
+        public static bool validTextString(string text)
         {
             bool result = true;
             Char[] nameChars = text.ToCharArray();

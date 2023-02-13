@@ -90,7 +90,7 @@ namespace PropertyRentalSystem
 
                         txtPropertyEircode.Text = theProperty.getEircode();
                         txtMonthlyRent.Text = theProperty.getRentalPrice().ToString();
-                        txtPropertyName.Text = theProperty.getHouseName();
+                        txtPropertyName.Text = theProperty.getAddress();
 
                         // Set Owner from property Owner ID.
                         theOwner.getOwner(theProperty.getOwnerID());

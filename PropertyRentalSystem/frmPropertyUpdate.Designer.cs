@@ -63,13 +63,15 @@ namespace PropertyRentalSystem
             this.label6 = new System.Windows.Forms.Label();
             this.txtMonthlyRent = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtPropertyName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.cboPropertyType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtEircode = new System.Windows.Forms.TextBox();
             this.btnSearchEircode = new System.Windows.Forms.Button();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtTown = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdOwners)).BeginInit();
             this.grpPropertyExtras.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numParkingSpaces)).BeginInit();
@@ -112,7 +114,7 @@ namespace PropertyRentalSystem
             // 
             // btnUpdateProperty
             // 
-            this.btnUpdateProperty.Location = new System.Drawing.Point(195, 677);
+            this.btnUpdateProperty.Location = new System.Drawing.Point(195, 732);
             this.btnUpdateProperty.Name = "btnUpdateProperty";
             this.btnUpdateProperty.Size = new System.Drawing.Size(232, 28);
             this.btnUpdateProperty.TabIndex = 29;
@@ -141,7 +143,7 @@ namespace PropertyRentalSystem
             this.grpPropertyExtras.Controls.Add(this.label9);
             this.grpPropertyExtras.Controls.Add(this.label8);
             this.grpPropertyExtras.Controls.Add(this.label7);
-            this.grpPropertyExtras.Location = new System.Drawing.Point(48, 458);
+            this.grpPropertyExtras.Location = new System.Drawing.Point(48, 513);
             this.grpPropertyExtras.Name = "grpPropertyExtras";
             this.grpPropertyExtras.Size = new System.Drawing.Size(521, 213);
             this.grpPropertyExtras.TabIndex = 28;
@@ -349,6 +351,10 @@ namespace PropertyRentalSystem
             // 
             // grpPropertyDetails
             // 
+            this.grpPropertyDetails.Controls.Add(this.txtAddress);
+            this.grpPropertyDetails.Controls.Add(this.label3);
+            this.grpPropertyDetails.Controls.Add(this.txtTown);
+            this.grpPropertyDetails.Controls.Add(this.label16);
             this.grpPropertyDetails.Controls.Add(this.label14);
             this.grpPropertyDetails.Controls.Add(this.txtOwnerId);
             this.grpPropertyDetails.Controls.Add(this.txtPropertyOwner);
@@ -360,13 +366,11 @@ namespace PropertyRentalSystem
             this.grpPropertyDetails.Controls.Add(this.txtMonthlyRent);
             this.grpPropertyDetails.Controls.Add(this.label1);
             this.grpPropertyDetails.Controls.Add(this.label5);
-            this.grpPropertyDetails.Controls.Add(this.txtPropertyName);
-            this.grpPropertyDetails.Controls.Add(this.label3);
             this.grpPropertyDetails.Controls.Add(this.cboPropertyType);
             this.grpPropertyDetails.Controls.Add(this.label2);
             this.grpPropertyDetails.Location = new System.Drawing.Point(48, 80);
             this.grpPropertyDetails.Name = "grpPropertyDetails";
-            this.grpPropertyDetails.Size = new System.Drawing.Size(520, 356);
+            this.grpPropertyDetails.Size = new System.Drawing.Size(521, 427);
             this.grpPropertyDetails.TabIndex = 27;
             this.grpPropertyDetails.TabStop = false;
             this.grpPropertyDetails.Text = "Property Details";
@@ -408,7 +412,7 @@ namespace PropertyRentalSystem
             // 
             // rtxPropertyDescription
             // 
-            this.rtxPropertyDescription.Location = new System.Drawing.Point(8, 239);
+            this.rtxPropertyDescription.Location = new System.Drawing.Point(13, 278);
             this.rtxPropertyDescription.Name = "rtxPropertyDescription";
             this.rtxPropertyDescription.Size = new System.Drawing.Size(480, 111);
             this.rtxPropertyDescription.TabIndex = 10;
@@ -417,7 +421,7 @@ namespace PropertyRentalSystem
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 220);
+            this.label6.Location = new System.Drawing.Point(12, 259);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(145, 17);
             this.label6.TabIndex = 10;
@@ -425,7 +429,7 @@ namespace PropertyRentalSystem
             // 
             // txtMonthlyRent
             // 
-            this.txtMonthlyRent.Location = new System.Drawing.Point(158, 186);
+            this.txtMonthlyRent.Location = new System.Drawing.Point(163, 225);
             this.txtMonthlyRent.MaxLength = 9;
             this.txtMonthlyRent.Name = "txtMonthlyRent";
             this.txtMonthlyRent.Size = new System.Drawing.Size(150, 22);
@@ -434,28 +438,11 @@ namespace PropertyRentalSystem
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 186);
+            this.label5.Location = new System.Drawing.Point(11, 225);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(146, 17);
             this.label5.TabIndex = 8;
             this.label5.Text = "Monthly Rental Price: ";
-            // 
-            // txtPropertyName
-            // 
-            this.txtPropertyName.Location = new System.Drawing.Point(184, 155);
-            this.txtPropertyName.MaxLength = 100;
-            this.txtPropertyName.Name = "txtPropertyName";
-            this.txtPropertyName.Size = new System.Drawing.Size(290, 22);
-            this.txtPropertyName.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 158);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(178, 17);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Property Name or Number:";
             // 
             // cboPropertyType
             // 
@@ -502,6 +489,40 @@ namespace PropertyRentalSystem
             this.btnSearchEircode.Text = "Search Surname";
             this.btnSearchEircode.UseVisualStyleBackColor = true;
             this.btnSearchEircode.Click += new System.EventHandler(this.btnSearchEircode_Click);
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(119, 190);
+            this.txtAddress.MaxLength = 100;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(290, 22);
+            this.txtAddress.TabIndex = 31;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 190);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 17);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Street Address :";
+            // 
+            // txtTown
+            // 
+            this.txtTown.Location = new System.Drawing.Point(119, 162);
+            this.txtTown.MaxLength = 50;
+            this.txtTown.Name = "txtTown";
+            this.txtTown.Size = new System.Drawing.Size(290, 22);
+            this.txtTown.TabIndex = 29;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(61, 162);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(46, 17);
+            this.label16.TabIndex = 28;
+            this.label16.Text = "Town:";
             // 
             // frmPropertyUpdate
             // 
@@ -567,8 +588,6 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtMonthlyRent;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtPropertyName;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboPropertyType;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
@@ -578,5 +597,9 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.TextBox txtOwnerId;
         private System.Windows.Forms.ComboBox cboPropStatus;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtTown;
+        private System.Windows.Forms.Label label16;
     }
 }

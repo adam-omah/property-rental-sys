@@ -284,7 +284,7 @@ namespace PropertyRentalSystem
             this.Controls.Add(this.grdOwners);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmOwnerUpdate";
-            this.Text = "Perfect Fit Rentals - [Update Owner]";
+            this.Text = "PFR - [Update Owner]";
             this.Load += new System.EventHandler(this.frmOwnerUpdate_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdOwners)).EndInit();
             this.grpOwner.ResumeLayout(false);
