@@ -71,6 +71,7 @@ namespace PropertyRentalSystem
             // btnSRHTown
             // 
             this.btnSRHTown.Location = new System.Drawing.Point(390, 31);
+            this.btnSRHTown.Margin = new System.Windows.Forms.Padding(10);
             this.btnSRHTown.Name = "btnSRHTown";
             this.btnSRHTown.Size = new System.Drawing.Size(106, 48);
             this.btnSRHTown.TabIndex = 34;
@@ -354,9 +355,10 @@ namespace PropertyRentalSystem
             this.grdProperties.Name = "grdProperties";
             this.grdProperties.RowHeadersWidth = 51;
             this.grdProperties.RowTemplate.Height = 24;
-            this.grdProperties.Size = new System.Drawing.Size(628, 372);
+            this.grdProperties.Size = new System.Drawing.Size(1029, 283);
             this.grdProperties.TabIndex = 51;
             this.grdProperties.Visible = false;
+            this.grdProperties.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProperties_CellClick);
             // 
             // frmRentalNew
             // 

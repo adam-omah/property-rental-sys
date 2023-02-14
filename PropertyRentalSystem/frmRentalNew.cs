@@ -27,6 +27,7 @@ namespace PropertyRentalSystem
 
         public Boolean tenant1Added = false;
 
+        // this is search town town now, for some reason the name never changed even though on form the btn is called different.
         private void btnSRHEircode_Click(object sender, EventArgs e)
         {
             // Set groups to invisible (ensures that if an eircode was already search is not same one).
@@ -36,65 +37,36 @@ namespace PropertyRentalSystem
             btnCreateRental.Visible = false;
             grdTenants.Visible = false;
 
+            grdProperties.DataSource = null;
+            grdProperties.Rows.Clear();
+
             // moved validation of numbers to a public helper class to make it more gloabl.
             bool isValidTown = validationFunctions.validTextString(txtTownSRH.Text);
 
             if (!isValidTown)
             {
-                MessageBox.Show("Eircode is Invalid, Please enter a valid Eircode", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Town is Invalid, Please enter a valid Eircode", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTownSRH.Clear();
                 txtTownSRH.Focus();
                 return;
             }
             else
             {
-                //find matching Property
-                grdTenants.DataSource = Property.findProperties(txtTownSRH.Text.ToUpper()).Tables["Properties"];
+                //find matching Properties
+                grdProperties.DataSource = Property.findPropertiesByTown(validationFunctions.SQLApostrophe(txtTownSRH.Text)).Tables["Properties"];
 
-                if (grdTenants.Rows.Count == 1)
+                if (grdProperties.Rows.Count == 1)
                 {
+                    grdProperties.Visible = false;
                     // Property Not found.
-                    MessageBox.Show("The Eircode " + txtTownSRH.Text + " Is not on the system,\nPlease try another eircode such as  'v92cccc' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("The Town " + txtTownSRH.Text + " Has no Available properties to Rent\nPlease try another Town such as  'Tralee' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtTownSRH.Clear();
                     txtTownSRH.Focus();
                     return;
                 }
                 else
                 {
-                    // Property was found, instantiate it.
-                    // setting eircode to uper case chars, removes inconsistency.
-                    theProperty.getProperty(txtTownSRH.Text.ToUpper());
-
-
-                    if (theProperty.getStatus() == 'A')
-                    {
-                        // If property is available. Set Grps to visible.
-                        grpPropertyDetails.Visible = true;
-                        grpRentalDetails.Visible = true;
-                        grpTenants.Visible = true;
-                        btnCreateRental.Visible = true;
-
-                        txtPropertyEircode.Text = theProperty.getEircode();
-                        txtMonthlyRent.Text = theProperty.getRentalPrice().ToString();
-                        txtAddress.Text = theProperty.getAddress();
-
-                        // Set Owner from property Owner ID.
-                        theOwner.getOwner(theProperty.getOwnerID());
-                        // Set the Owners Name into text box.
-                        txtPropertyOwner.Text = theOwner.getFirstName() + " " + theOwner.getSurname();
-
-
-                    }
-                    else
-                    {
-                        // Property is not available.
-                        MessageBox.Show("The Eircode " + txtTownSRH.Text + " Is On the System\nBut is NOT available (either Rented or unavailable.)\nPlease try another eircode such as  'v92cccc' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtTownSRH.Clear();
-                        txtTownSRH.Focus();
-                        return;
-                    }
-
-
+                    grdProperties.Visible = true;
                 }
             }
         }
@@ -309,7 +281,7 @@ namespace PropertyRentalSystem
                 grdTenantsAdded.Rows.RemoveAt(this.grdTenantsAdded.Rows[e.RowIndex].Index);
             }
 
-            DisplayTenantsList();
+            //DisplayTenantsList();
 
         }
 
@@ -331,6 +303,40 @@ namespace PropertyRentalSystem
             dtpStartDate.Value = DateTime.Now;
             // end date 12 months ahead default.
             dtpEndDate.Value = DateTime.Now.AddMonths(12);
+        }
+
+        private void grdProperties_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            // instantiate th property Selected.
+            theProperty.getProperty(grdProperties.Rows[e.RowIndex].Cells["eircode"].Value.ToString().ToUpper());
+
+
+            if (theProperty.getStatus() == 'A')
+            {
+                // If property is available. Set Grps to visible.
+                grpPropertyDetails.Visible = true;
+                grpRentalDetails.Visible = true;
+                grpTenants.Visible = true;
+                btnCreateRental.Visible = true;
+
+                //hide properties grd
+                grdProperties.Visible = false;
+
+                txtPropertyEircode.Text = theProperty.getEircode();
+                txtMonthlyRent.Text = theProperty.getRentalPrice().ToString();
+                txtAddress.Text = theProperty.getAddress();
+
+                // Set Owner from property Owner ID.
+                theOwner.getOwner(theProperty.getOwnerID());
+                // Set the Owners Name into text box.
+                txtPropertyOwner.Text = theOwner.getFirstName() + " " + theOwner.getSurname();
+            }
+            else {
+                MessageBox.Show("The Property Selected is not available to rent, Please select another property", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTownSRH.Focus();
+                return;
+            }
         }
     }
 }

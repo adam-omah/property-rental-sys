@@ -240,8 +240,8 @@ namespace PropertyRentalSystem
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
             //Define the SQL query to be executed
-            String sqlQuery = "SELECT OwnerID, Eircode, town FROM Properties " +
-                "WHERE eircode LIKE '%" + Town + "%' ORDER BY bedrooms";
+            String sqlQuery = "SELECT eircode, Town, Address, bedrooms, bathrooms, monthlyrent FROM Properties " +
+                "WHERE Town LIKE '" + Town + "%' And Status = 'A' ORDER BY bedrooms";
 
             //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);

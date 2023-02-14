@@ -251,7 +251,7 @@ namespace PropertyRentalSystem
             dsProps = Property.findProperties(txtEircode.Text.ToUpper());
             if (dsProps.Tables[0].Rows.Count != 0)
             {
-                MessageBox.Show("A property with the Eircode, " + txtEircode.Text + " is already on the system!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("A property with the Eircode, " + txtEircode.Text + " is already on the system! \nUse Update Property if new owner.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dsProps = null;
                 return;
             }
@@ -325,6 +325,8 @@ namespace PropertyRentalSystem
             cboPropertyType.SelectedIndex = -1;
             cboHeatingSource.SelectedIndex = -1;
             txtTown.Clear();
+            txtAddress.Clear();
+            txtSurnameSRH.Clear();
             txtEircode.Clear();
             txtMonthlyRent.Clear();
             rtxPropertyDescription.Clear();
