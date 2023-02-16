@@ -115,7 +115,7 @@ namespace PropertyRentalSystem
             //find matching Property
             grdProperty.DataSource = Property.findProperties(txtEircode.Text.ToUpper()).Tables["Properties"];
 
-            if (grdProperty.Rows.Count == 1)
+            if (grdProperty.Rows.Count == 0)
             {
                 MessageBox.Show("The Eircode " + txtEircodeSRH.Text + " Is not on the system,\nPlease try another eircode such as  'v92cccc' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtEircodeSRH.Clear();
@@ -157,7 +157,7 @@ namespace PropertyRentalSystem
 
                     grdProperty.DataSource = Rental.findRentals(theProperty.getEircode()).Tables["Rentals"];
 
-                    if (grdProperty.Rows.Count == 1)
+                    if (grdProperty.Rows.Count == 0)
                     {
                         MessageBox.Show("No rentals for this eircode were found,\nPlease try another Eirocde Or create the rental first. ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;

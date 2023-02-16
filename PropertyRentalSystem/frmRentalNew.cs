@@ -24,6 +24,7 @@ namespace PropertyRentalSystem
         Tenant theTenant = new Tenant();
         String startDateFormat;
         String endDateFormat;
+        DataSet dsTypes;
 
         public Boolean tenant1Added = false;
 
@@ -35,7 +36,9 @@ namespace PropertyRentalSystem
             grpRentalDetails.Visible = false;
             grpTenants.Visible = false;
             btnCreateRental.Visible = false;
+            btnHome.Visible = false;
             grdTenants.Visible = false;
+            lblRentals.Visible = false;
 
             grdProperties.DataSource = null;
             grdProperties.Rows.Clear();
@@ -53,9 +56,20 @@ namespace PropertyRentalSystem
             else
             {
                 //find matching Properties
-                grdProperties.DataSource = Property.findPropertiesByTown(validationFunctions.SQLApostrophe(txtTownSRH.Text)).Tables["Properties"];
 
-                if (grdProperties.Rows.Count == 1)
+                if(cboPropertyType.SelectedIndex == 0)
+                {
+                    // no search by type is selected.
+                    grdProperties.DataSource = Property.findPropertiesByTown(validationFunctions.SQLApostrophe(txtTownSRH.Text.ToUpper())).Tables["Properties"];
+                }
+                else
+                {
+                    //type is selected.
+                    grdProperties.DataSource = Property.findPropertiesByTownType(validationFunctions.SQLApostrophe(txtTownSRH.Text.ToUpper()),
+                        cboPropertyType.Items[cboPropertyType.SelectedIndex].ToString().Substring(0,2)).Tables["Properties"];
+                }
+
+                if (grdProperties.Rows.Count == 0)
                 {
                     grdProperties.Visible = false;
                     // Property Not found.
@@ -67,6 +81,7 @@ namespace PropertyRentalSystem
                 else
                 {
                     grdProperties.Visible = true;
+                    lblRentals.Visible = true;
                 }
             }
         }
@@ -101,7 +116,7 @@ namespace PropertyRentalSystem
 
 
             // if no tenants are added.
-            if (grdTenantsAdded.RowCount == 1)
+            if (grdTenantsAdded.RowCount == 0)
             {
                 MessageBox.Show("Please add atleast one tenant using the search bar.");
                 txtSurnameSRH.Focus();
@@ -173,6 +188,9 @@ namespace PropertyRentalSystem
             grpRentalDetails.Visible = false;
             grpTenants.Visible = false;
             btnCreateRental.Visible = false;
+            btnHome.Visible = false;
+
+            cboPropertyType.SelectedIndex = 0;
 
             txtTownSRH.Focus();
         }
@@ -189,9 +207,9 @@ namespace PropertyRentalSystem
             }
 
             //find matching Tenants
-            grdTenants.DataSource = Tenant.findTenants(txtSurnameSRH.Text).Tables["Tenants"];
+            grdTenants.DataSource = Tenant.findTenants(txtSurnameSRH.Text.ToUpper()).Tables["Tenants"];
 
-            if (grdTenants.Rows.Count == 1)
+            if (grdTenants.Rows.Count == 0)
             {
                 MessageBox.Show("The surname " + txtSurnameSRH.Text + " Was not found,\nPlease try another surname such as  'Smith' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSurnameSRH.Clear();
@@ -216,7 +234,7 @@ namespace PropertyRentalSystem
                 tenant1Added = false;
 
                 //check if this tenant is already added.
-                if(grdTenantsAdded.Rows.Count > 1){
+                if(grdTenantsAdded.Rows.Count > 0){
 
                     for (int i = 0; i < grdTenantsAdded.Rows.Count; i++)
                     {
@@ -299,10 +317,41 @@ namespace PropertyRentalSystem
 
         private void frmRentalNew_Load(object sender, EventArgs e)
         {
+            this.CenterToParent();
+            
             // At start set time date time to now and future time to 12 months ahead.
             dtpStartDate.Value = DateTime.Now;
             // end date 12 months ahead default.
             dtpEndDate.Value = DateTime.Now.AddMonths(12);
+
+            
+            //Load TypeCodes into ComboBox
+            dsTypes = PropertyType.getTypes();
+
+            cboPropertyType.Items.Clear();
+            for (int i = 0; i < dsTypes.Tables[0].Rows.Count; i++)
+            {
+
+                // Checks length of description, if more than 15, substring, if not use all.
+                if (dsTypes.Tables[0].Rows[i][1].ToString().Length > 15)
+                {
+                    cboPropertyType.Items.Add(dsTypes.Tables[0].Rows[i][0] + " - " + dsTypes.Tables[0].Rows[i][1].ToString().Substring(0, 15));
+                }
+                else
+                {
+                    cboPropertyType.Items.Add(dsTypes.Tables[0].Rows[i][0] + " - " + dsTypes.Tables[0].Rows[i][1].ToString());
+                }
+
+            }
+
+            // insert this at the start.
+            cboPropertyType.Items.Insert(0, "XX - No Property Type");
+
+
+            // set search by type to none.
+            cboPropertyType.SelectedIndex = 0;
+            txtTownSRH.Focus();
+
         }
 
         private void grdProperties_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -315,10 +364,12 @@ namespace PropertyRentalSystem
             if (theProperty.getStatus() == 'A')
             {
                 // If property is available. Set Grps to visible.
+                lblRentals.Visible = false;
                 grpPropertyDetails.Visible = true;
                 grpRentalDetails.Visible = true;
                 grpTenants.Visible = true;
                 btnCreateRental.Visible = true;
+                btnHome.Visible = true;
 
                 //hide properties grd
                 grdProperties.Visible = false;

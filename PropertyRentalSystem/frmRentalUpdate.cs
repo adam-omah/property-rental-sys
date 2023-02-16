@@ -36,6 +36,7 @@ namespace PropertyRentalSystem
             grpTenants.Visible = false;
             grdTenants.Visible = false;
             btnUpdateRental.Visible = false;
+            btnHome.Visible = false;
 
             //Reset Start & End Tenants on eircode search.
             StartTenants.Clear();
@@ -62,7 +63,7 @@ namespace PropertyRentalSystem
                 //find matching Property
                 grdTenants.DataSource = Property.findProperties(txtEircodeSRH.Text.ToUpper()).Tables["Properties"];
 
-                if (grdTenants.Rows.Count == 1)
+                if (grdTenants.Rows.Count == 0)
                 {
                     // Property Not found.
                     MessageBox.Show("The Eircode " + txtEircodeSRH.Text + " Is not on the system,\nPlease try another eircode such as  'v92cccc' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -87,6 +88,7 @@ namespace PropertyRentalSystem
                         grpPropertyDetails.Visible = true;
                         grpRentalDetails.Visible = true;
                         btnUpdateRental.Visible = true;
+                        btnHome.Visible = true;
 
                         txtPropertyEircode.Text = theProperty.getEircode();
                         txtMonthlyRent.Text = theProperty.getRentalPrice().ToString();
@@ -122,10 +124,9 @@ namespace PropertyRentalSystem
                         // find all the tenants in the rental id that are active:
                         grdTenants.DataSource = TenantRental.findActiveTenantRentals(theRental.getRentalID()).Tables["tenant_rentals"];
 
-                        // must be -1 from checking row count
-                        // MessageBox.Show("row count: " + grdTenants.Rows.Count);
-                        // row count is always > 1 as there must a tenant on a rental.
-                        for (int i = 0; i < grdTenants.Rows.Count- 1; i++)
+
+                        // row count is showuld always 1 as there must a tenant on a rental.
+                        for (int i = 0; i < grdTenants.Rows.Count; i++)
                         {
                             // just for testing
                             //MessageBox.Show("Tenant id: " + grdTenants.Rows[i].Cells["TenantID"].Value.ToString());
@@ -155,6 +156,7 @@ namespace PropertyRentalSystem
                         grpRentalDetails.Visible = true;
                         grpTenants.Visible = true;
                         btnUpdateRental.Visible = true;
+                        btnHome.Visible = true;
                         grdTenants.Visible = false;
                         
                         
@@ -204,7 +206,7 @@ namespace PropertyRentalSystem
             }
 
             // if no tenants are added.
-            if (grdTenantsAdded.RowCount == 1)
+            if (grdTenantsAdded.RowCount == 0)
             {
                 MessageBox.Show("Please add atleast one tenant using the search bar.");
                 txtSurnameSRH.Focus();
@@ -217,7 +219,7 @@ namespace PropertyRentalSystem
             startDateFormat = String.Format("{0:dd-MMM-yy}", dtpStartDate.Value);
             endDateFormat = String.Format("{0:dd-MMM-yy}", dtpEndDate.Value);
 
-            // update all tenant rentals (create new for new tenants, update old tenants if removed).
+            
 
             theRental.setStartDate(startDateFormat);
             theRental.setEndDate(endDateFormat);
@@ -261,7 +263,7 @@ namespace PropertyRentalSystem
                 {
 
                     bool tenantOnRental = false;
-                    for (int i = 0; i < grdTenants.Rows.Count - 1; i++)
+                    for (int i = 0; i < grdTenants.Rows.Count; i++)
                     {
                         // check if this tenant matches any of the tenant records found.
                         if (tenant.getTenantID().ToString().Equals(grdTenants.Rows[i].Cells["TenantID"].Value.ToString()))
@@ -288,6 +290,8 @@ namespace PropertyRentalSystem
 
                 
             }
+
+            grdTenants.Visible = false;
 
             //show confirmation message
             MessageBox.Show("Rental Details Have Been Updated in the Rental Data Store", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -317,6 +321,7 @@ namespace PropertyRentalSystem
             grpTenants.Visible = false;
             grdTenants.Visible = false;
             btnUpdateRental.Visible = false;
+            btnHome.Visible = false;
 
             txtEircodeSRH.Focus();
         }
@@ -325,6 +330,11 @@ namespace PropertyRentalSystem
         {
             cboRentalStatus.Items.Add("Active - 'A' ");
             cboRentalStatus.Items.Add("Inactive - 'I' ");
+
+            this.CenterToScreen();
+
+            btnHome.Visible = false;
+            txtEircodeSRH.Focus();
         }
 
 
@@ -351,7 +361,7 @@ namespace PropertyRentalSystem
                 tenant1Added = false;
 
                 //check if this tenant is already added.
-                if (grdTenantsAdded.Rows.Count > 1)
+                if (grdTenantsAdded.Rows.Count > 0)
                 {
 
                     for (int i = 0; i < grdTenantsAdded.Rows.Count; i++)
@@ -391,7 +401,7 @@ namespace PropertyRentalSystem
 
         private void grdTenantsAdded_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(grdTenantsAdded.Rows.Count == 1)
+            if(grdTenantsAdded.Rows.Count == 0)
             {
                 MessageBox.Show("No Tenants to be removed","Error No Tenants Added.");
                 return;
@@ -438,9 +448,9 @@ namespace PropertyRentalSystem
             }
 
             //find matching Tenants
-            grdTenants.DataSource = Tenant.findTenants(txtSurnameSRH.Text).Tables["Tenants"];
+            grdTenants.DataSource = Tenant.findTenants(txtSurnameSRH.Text.ToUpper()).Tables["Tenants"];
 
-            if (grdTenants.Rows.Count == 1)
+            if (grdTenants.Rows.Count == 0)
             {
                 MessageBox.Show("The surname " + txtSurnameSRH.Text + " Was not found,\nPlease try another surname such as  'Smith' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSurnameSRH.Clear();

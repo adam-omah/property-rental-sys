@@ -361,7 +361,7 @@ namespace PropertyRentalSystem
                 //find matching Owners
                 grdOwners.DataSource = PropOwner.findOwners(txtSurnameSRH.Text).Tables["Owner"];
 
-                if (grdOwners.Rows.Count == 1)
+                if (grdOwners.Rows.Count == 0)
                 {
                     MessageBox.Show("The surname " + txtSurnameSRH.Text + " Was not found,\nPlease try another surname such as  'Smith' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtSurnameSRH.Clear();

@@ -25,7 +25,7 @@ namespace PropertyRentalSystem
             //find matching Tenants
             grdTenants.DataSource = Tenant.findTenants(txtSurnameSRH.Text).Tables["Tenants"];
 
-            if (grdTenants.Rows.Count == 1)
+            if (grdTenants.Rows.Count == 0)
             {
                 MessageBox.Show("The surname " + txtSurnameSRH.Text + " Was not found,\nPlease try another surname such as  'Smith' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSurnameSRH.Clear();

@@ -259,6 +259,30 @@ namespace PropertyRentalSystem
 
             return ds;
         }
+        public static DataSet findPropertiesByTownType(String Town, String type)
+        {
+            //Open a db connection
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //Define the SQL query to be executed
+            String sqlQuery = "SELECT eircode, Town, Address, bedrooms, bathrooms, monthlyrent FROM Properties " +
+                "WHERE Town LIKE '" + Town + "%' And Status = 'A' AND typecode = '" + type +"' ORDER BY bedrooms";
+
+            //Execute the SQL query (OracleCommand)
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "properties");
+
+            //Close db connection
+            conn.Close();
+
+            return ds;
+        }
 
         public String getTown()
         {

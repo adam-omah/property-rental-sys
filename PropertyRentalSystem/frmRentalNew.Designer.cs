@@ -62,29 +62,34 @@ namespace PropertyRentalSystem
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grdProperties = new System.Windows.Forms.DataGridView();
             this.btnHome = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cboPropertyType = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblRentals = new System.Windows.Forms.Label();
             this.grpPropertyDetails.SuspendLayout();
             this.grpRentalDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTenants)).BeginInit();
             this.grpTenants.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTenantsAdded)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdProperties)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSRHTown
             // 
             this.btnSRHTown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSRHTown.Location = new System.Drawing.Point(390, 31);
+            this.btnSRHTown.Location = new System.Drawing.Point(405, 27);
             this.btnSRHTown.Margin = new System.Windows.Forms.Padding(10);
             this.btnSRHTown.Name = "btnSRHTown";
-            this.btnSRHTown.Size = new System.Drawing.Size(106, 48);
+            this.btnSRHTown.Size = new System.Drawing.Size(106, 59);
             this.btnSRHTown.TabIndex = 34;
-            this.btnSRHTown.Text = "Search Town";
+            this.btnSRHTown.Text = "Search Rentals";
             this.btnSRHTown.UseVisualStyleBackColor = true;
             this.btnSRHTown.Click += new System.EventHandler(this.btnSRHEircode_Click);
             // 
             // txtTownSRH
             // 
-            this.txtTownSRH.Location = new System.Drawing.Point(184, 44);
+            this.txtTownSRH.Location = new System.Drawing.Point(179, 31);
             this.txtTownSRH.Margin = new System.Windows.Forms.Padding(3, 3, 3, 6);
             this.txtTownSRH.MaxLength = 50;
             this.txtTownSRH.Name = "txtTownSRH";
@@ -95,7 +100,7 @@ namespace PropertyRentalSystem
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(39, 44);
+            this.label4.Location = new System.Drawing.Point(15, 31);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(137, 20);
             this.label4.TabIndex = 35;
@@ -112,9 +117,9 @@ namespace PropertyRentalSystem
             this.grpPropertyDetails.Controls.Add(this.label1);
             this.grpPropertyDetails.Controls.Add(this.txtPropertyOwner);
             this.grpPropertyDetails.Controls.Add(this.label13);
-            this.grpPropertyDetails.Location = new System.Drawing.Point(13, 95);
+            this.grpPropertyDetails.Location = new System.Drawing.Point(14, 125);
             this.grpPropertyDetails.Name = "grpPropertyDetails";
-            this.grpPropertyDetails.Size = new System.Drawing.Size(524, 143);
+            this.grpPropertyDetails.Size = new System.Drawing.Size(548, 143);
             this.grpPropertyDetails.TabIndex = 43;
             this.grpPropertyDetails.TabStop = false;
             this.grpPropertyDetails.Text = "Property Details";
@@ -122,7 +127,7 @@ namespace PropertyRentalSystem
             // 
             // txtMonthlyRent
             // 
-            this.txtMonthlyRent.Location = new System.Drawing.Point(143, 109);
+            this.txtMonthlyRent.Location = new System.Drawing.Point(169, 109);
             this.txtMonthlyRent.Name = "txtMonthlyRent";
             this.txtMonthlyRent.ReadOnly = true;
             this.txtMonthlyRent.Size = new System.Drawing.Size(373, 22);
@@ -132,7 +137,7 @@ namespace PropertyRentalSystem
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(27, 111);
+            this.label3.Location = new System.Drawing.Point(36, 111);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(117, 20);
             this.label3.TabIndex = 50;
@@ -140,7 +145,7 @@ namespace PropertyRentalSystem
             // 
             // txtPropertyEircode
             // 
-            this.txtPropertyEircode.Location = new System.Drawing.Point(143, 81);
+            this.txtPropertyEircode.Location = new System.Drawing.Point(169, 81);
             this.txtPropertyEircode.Name = "txtPropertyEircode";
             this.txtPropertyEircode.ReadOnly = true;
             this.txtPropertyEircode.Size = new System.Drawing.Size(373, 22);
@@ -150,7 +155,7 @@ namespace PropertyRentalSystem
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(-1, 86);
+            this.label2.Location = new System.Drawing.Point(8, 86);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(144, 20);
             this.label2.TabIndex = 48;
@@ -158,7 +163,7 @@ namespace PropertyRentalSystem
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(143, 53);
+            this.txtAddress.Location = new System.Drawing.Point(169, 53);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.ReadOnly = true;
             this.txtAddress.Size = new System.Drawing.Size(373, 22);
@@ -168,7 +173,7 @@ namespace PropertyRentalSystem
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(61, 55);
+            this.label1.Location = new System.Drawing.Point(70, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 20);
             this.label1.TabIndex = 46;
@@ -176,7 +181,7 @@ namespace PropertyRentalSystem
             // 
             // txtPropertyOwner
             // 
-            this.txtPropertyOwner.Location = new System.Drawing.Point(143, 26);
+            this.txtPropertyOwner.Location = new System.Drawing.Point(169, 26);
             this.txtPropertyOwner.Name = "txtPropertyOwner";
             this.txtPropertyOwner.ReadOnly = true;
             this.txtPropertyOwner.Size = new System.Drawing.Size(373, 22);
@@ -186,7 +191,7 @@ namespace PropertyRentalSystem
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(14, 28);
+            this.label13.Location = new System.Drawing.Point(23, 28);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(136, 20);
             this.label13.TabIndex = 44;
@@ -199,9 +204,9 @@ namespace PropertyRentalSystem
             this.grpRentalDetails.Controls.Add(this.label6);
             this.grpRentalDetails.Controls.Add(this.label5);
             this.grpRentalDetails.Controls.Add(this.dtpStartDate);
-            this.grpRentalDetails.Location = new System.Drawing.Point(12, 248);
+            this.grpRentalDetails.Location = new System.Drawing.Point(13, 274);
             this.grpRentalDetails.Name = "grpRentalDetails";
-            this.grpRentalDetails.Size = new System.Drawing.Size(525, 107);
+            this.grpRentalDetails.Size = new System.Drawing.Size(549, 107);
             this.grpRentalDetails.TabIndex = 44;
             this.grpRentalDetails.TabStop = false;
             this.grpRentalDetails.Text = "Rental Details";
@@ -209,16 +214,17 @@ namespace PropertyRentalSystem
             // 
             // dtpEndDate
             // 
-            this.dtpEndDate.Location = new System.Drawing.Point(165, 61);
+            this.dtpEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpEndDate.Location = new System.Drawing.Point(223, 56);
             this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(287, 22);
+            this.dtpEndDate.Size = new System.Drawing.Size(287, 26);
             this.dtpEndDate.TabIndex = 24;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(28, 61);
+            this.label6.Location = new System.Drawing.Point(37, 61);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(124, 20);
             this.label6.TabIndex = 23;
@@ -228,7 +234,7 @@ namespace PropertyRentalSystem
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(28, 21);
+            this.label5.Location = new System.Drawing.Point(37, 21);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(131, 20);
             this.label5.TabIndex = 22;
@@ -236,9 +242,10 @@ namespace PropertyRentalSystem
             // 
             // dtpStartDate
             // 
-            this.dtpStartDate.Location = new System.Drawing.Point(165, 21);
+            this.dtpStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpStartDate.Location = new System.Drawing.Point(223, 16);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(287, 22);
+            this.dtpStartDate.Size = new System.Drawing.Size(287, 26);
             this.dtpStartDate.TabIndex = 21;
             // 
             // grdTenants
@@ -259,7 +266,7 @@ namespace PropertyRentalSystem
             // btnSRHTenants
             // 
             this.btnSRHTenants.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSRHTenants.Location = new System.Drawing.Point(442, 18);
+            this.btnSRHTenants.Location = new System.Drawing.Point(469, 18);
             this.btnSRHTenants.Name = "btnSRHTenants";
             this.btnSRHTenants.Size = new System.Drawing.Size(104, 29);
             this.btnSRHTenants.TabIndex = 46;
@@ -269,7 +276,7 @@ namespace PropertyRentalSystem
             // 
             // txtSurnameSRH
             // 
-            this.txtSurnameSRH.Location = new System.Drawing.Point(210, 22);
+            this.txtSurnameSRH.Location = new System.Drawing.Point(237, 22);
             this.txtSurnameSRH.MaxLength = 10;
             this.txtSurnameSRH.Name = "txtSurnameSRH";
             this.txtSurnameSRH.Size = new System.Drawing.Size(226, 22);
@@ -306,8 +313,7 @@ namespace PropertyRentalSystem
             this.grpTenants.Controls.Add(this.txtSurnameSRH);
             this.grpTenants.Controls.Add(this.label7);
             this.grpTenants.Controls.Add(this.grdTenants);
-            this.grpTenants.Dock = System.Windows.Forms.DockStyle.Right;
-            this.grpTenants.Location = new System.Drawing.Point(543, 0);
+            this.grpTenants.Location = new System.Drawing.Point(568, 12);
             this.grpTenants.Name = "grpTenants";
             this.grpTenants.Size = new System.Drawing.Size(586, 510);
             this.grpTenants.TabIndex = 50;
@@ -380,13 +386,15 @@ namespace PropertyRentalSystem
             // 
             // grdProperties
             // 
+            this.grdProperties.AllowUserToAddRows = false;
+            this.grdProperties.AllowUserToDeleteRows = false;
             this.grdProperties.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdProperties.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdProperties.Location = new System.Drawing.Point(3, 88);
+            this.grdProperties.Location = new System.Drawing.Point(3, 146);
             this.grdProperties.Name = "grdProperties";
             this.grdProperties.RowHeadersWidth = 51;
             this.grdProperties.RowTemplate.Height = 24;
-            this.grdProperties.Size = new System.Drawing.Size(1029, 283);
+            this.grdProperties.Size = new System.Drawing.Size(928, 340);
             this.grdProperties.TabIndex = 51;
             this.grdProperties.Visible = false;
             this.grdProperties.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProperties_CellClick);
@@ -400,7 +408,52 @@ namespace PropertyRentalSystem
             this.btnHome.TabIndex = 62;
             this.btnHome.Text = "Back To Home";
             this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Visible = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(32, 62);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(118, 20);
+            this.label10.TabIndex = 63;
+            this.label10.Text = "Property Type:";
+            // 
+            // cboPropertyType
+            // 
+            this.cboPropertyType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPropertyType.FormattingEnabled = true;
+            this.cboPropertyType.Location = new System.Drawing.Point(179, 62);
+            this.cboPropertyType.Name = "cboPropertyType";
+            this.cboPropertyType.Size = new System.Drawing.Size(188, 24);
+            this.cboPropertyType.TabIndex = 64;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cboPropertyType);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.btnSRHTown);
+            this.groupBox1.Controls.Add(this.txtTownSRH);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(550, 107);
+            this.groupBox1.TabIndex = 65;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Find Rentals";
+            // 
+            // lblRentals
+            // 
+            this.lblRentals.AutoSize = true;
+            this.lblRentals.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRentals.Location = new System.Drawing.Point(8, 125);
+            this.lblRentals.Name = "lblRentals";
+            this.lblRentals.Size = new System.Drawing.Size(303, 20);
+            this.lblRentals.TabIndex = 65;
+            this.lblRentals.Text = "Please Select a Rental from list below :";
+            this.lblRentals.Visible = false;
             // 
             // frmRentalNew
             // 
@@ -409,16 +462,15 @@ namespace PropertyRentalSystem
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1129, 510);
+            this.ClientSize = new System.Drawing.Size(1166, 534);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.grpTenants);
             this.Controls.Add(this.btnCreateRental);
             this.Controls.Add(this.grpPropertyDetails);
-            this.Controls.Add(this.btnSRHTown);
-            this.Controls.Add(this.txtTownSRH);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.grpRentalDetails);
             this.Controls.Add(this.grdProperties);
+            this.Controls.Add(this.lblRentals);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRentalNew";
             this.Text = "Perfect Fit Rentals - [New Rental]";
@@ -432,6 +484,8 @@ namespace PropertyRentalSystem
             this.grpTenants.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTenantsAdded)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdProperties)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -471,5 +525,9 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.DataGridView grdProperties;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cboPropertyType;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblRentals;
     }
 }
