@@ -29,22 +29,17 @@ namespace PropertyRentalSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRentalsYear));
-            this.pboRentalsGraph = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cboRentalsInYear = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pboRentalsGraph)).BeginInit();
+            this.chtRentalsInYear = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.chtRentalsInYear)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pboRentalsGraph
-            // 
-            this.pboRentalsGraph.Location = new System.Drawing.Point(12, 39);
-            this.pboRentalsGraph.Name = "pboRentalsGraph";
-            this.pboRentalsGraph.Size = new System.Drawing.Size(1038, 541);
-            this.pboRentalsGraph.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pboRentalsGraph.TabIndex = 5;
-            this.pboRentalsGraph.TabStop = false;
-            this.pboRentalsGraph.Visible = false;
             // 
             // label1
             // 
@@ -65,30 +60,57 @@ namespace PropertyRentalSystem
             this.cboRentalsInYear.TabIndex = 3;
             this.cboRentalsInYear.SelectedIndexChanged += new System.EventHandler(this.cboRentalsInYear_SelectedIndexChanged);
             // 
+            // chtRentalsInYear
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chtRentalsInYear.ChartAreas.Add(chartArea1);
+            this.chtRentalsInYear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            legend1.Name = "Legend1";
+            this.chtRentalsInYear.Legends.Add(legend1);
+            this.chtRentalsInYear.Location = new System.Drawing.Point(21, 46);
+            this.chtRentalsInYear.Margin = new System.Windows.Forms.Padding(25);
+            this.chtRentalsInYear.Name = "chtRentalsInYear";
+            this.chtRentalsInYear.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series2";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
+            this.chtRentalsInYear.Series.Add(series1);
+            this.chtRentalsInYear.Series.Add(series2);
+            this.chtRentalsInYear.Size = new System.Drawing.Size(1296, 633);
+            this.chtRentalsInYear.TabIndex = 6;
+            this.chtRentalsInYear.Text = "Year 2020";
+            title1.Name = "GraphTitle";
+            title1.Text = "Test";
+            this.chtRentalsInYear.Titles.Add(title1);
+            // 
             // frmRentalsYear
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1058, 590);
-            this.Controls.Add(this.pboRentalsGraph);
+            this.ClientSize = new System.Drawing.Size(1332, 693);
+            this.Controls.Add(this.chtRentalsInYear);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboRentalsInYear);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRentalsYear";
             this.Text = "Perfect Fit Rentals - [Rentals Per Year Report]";
             this.Load += new System.EventHandler(this.frmRentalsYear_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pboRentalsGraph)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chtRentalsInYear)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pboRentalsGraph;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboRentalsInYear;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chtRentalsInYear;
     }
 }

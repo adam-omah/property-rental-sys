@@ -79,7 +79,7 @@ namespace PropertyRentalSystem
 
 
 
-            //pre-fill each array; Months[] with month name; Amounts[] with zero values
+            //Fill each Array, Months , Rental Paid, Commision, add to totals.
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 Months[i] = Admin.getMonth(Convert.ToInt32(dt.Rows[i][1]));
