@@ -23,6 +23,7 @@ namespace PropertyRentalSystem
         private void frmPropertyTypeUpdate_Load(object sender, EventArgs e)
         {
             LoadPropertyTypes();
+            this.CenterToScreen();
         }
 
         private void LoadPropertyTypes()
@@ -104,6 +105,11 @@ namespace PropertyRentalSystem
             cboPropType.SelectedIndex = -1;
 
 
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

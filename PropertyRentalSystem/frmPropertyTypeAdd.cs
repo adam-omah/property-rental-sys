@@ -76,5 +76,15 @@ namespace PropertyRentalSystem
             txtPropertyTypeDescription.Clear();
             txtPropertyTypeCode.Focus();
         }
+
+        private void frmPropertyTypeAdd_Load(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

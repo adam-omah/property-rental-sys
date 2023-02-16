@@ -25,6 +25,8 @@ namespace PropertyRentalSystem
 
         private void frmYearlyCommission_Load(object sender, EventArgs e)
         {
+            this.CenterToScreen();
+
             chtCommision.Visible = false;
             // On load retrieve data from completed years of opperation:
 

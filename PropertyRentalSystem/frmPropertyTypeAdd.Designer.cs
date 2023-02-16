@@ -36,11 +36,13 @@ namespace PropertyRentalSystem
             this.label2 = new System.Windows.Forms.Label();
             this.txtPropertyTypeCode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnHome = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnHome);
             this.groupBox1.Controls.Add(this.btnAddPropertyType);
             this.groupBox1.Controls.Add(this.txtPropertyTypeDescription);
             this.groupBox1.Controls.Add(this.label2);
@@ -57,7 +59,7 @@ namespace PropertyRentalSystem
             // 
             this.btnAddPropertyType.Location = new System.Drawing.Point(27, 161);
             this.btnAddPropertyType.Name = "btnAddPropertyType";
-            this.btnAddPropertyType.Size = new System.Drawing.Size(139, 40);
+            this.btnAddPropertyType.Size = new System.Drawing.Size(249, 40);
             this.btnAddPropertyType.TabIndex = 4;
             this.btnAddPropertyType.Text = "Add Property Type";
             this.btnAddPropertyType.UseVisualStyleBackColor = true;
@@ -96,6 +98,16 @@ namespace PropertyRentalSystem
             this.label1.TabIndex = 0;
             this.label1.Text = "Poperty Type Code:";
             // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(282, 161);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(175, 40);
+            this.btnHome.TabIndex = 7;
+            this.btnHome.Text = "Back To Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // frmPropertyTypeAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -107,6 +119,7 @@ namespace PropertyRentalSystem
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPropertyTypeAdd";
             this.Text = "Perfect Fit Rentals - [Add Property Type]";
+            this.Load += new System.EventHandler(this.frmPropertyTypeAdd_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -121,5 +134,6 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPropertyTypeCode;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnHome;
     }
 }

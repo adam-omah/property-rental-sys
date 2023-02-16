@@ -37,11 +37,11 @@ namespace PropertyRentalSystem
         {
             
 
-            this.firstName = firstName;
-            this.lastName = lastName;
+            this.firstName = firstName.ToUpper();
+            this.lastName = lastName.ToUpper();
             this.phoneNumber = phone;
             this.email = email;
-            this.eircode = eircode;
+            this.eircode = eircode.ToUpper();
             this.iban = iban;
             this.status = status;
 
@@ -222,15 +222,15 @@ namespace PropertyRentalSystem
 
         //setters
         public void setOwnerID(int OwnerID) { ownerID = OwnerID; }
-        public void setFirstName(String FirstName) { firstName = FirstName; }
+        public void setFirstName(String FirstName) { firstName = FirstName.ToUpper(); }
 
-        public void setSurname(String Surname) { lastName = Surname; }
+        public void setSurname(String Surname) { lastName = Surname.ToUpper(); }
 
         public void setPhone(Int64 PhoneNumber) { phoneNumber = PhoneNumber; }
 
         public void setEmail (String Email) { email = Email; }
 
-        public  void setEircode(String Eircode) { eircode = Eircode; }
+        public  void setEircode(String Eircode) { eircode = Eircode.ToUpper(); }
 
         public void setIban(String IBAN) { iban = IBAN; }
 

@@ -63,6 +63,7 @@ namespace PropertyRentalSystem
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
+            this.btnHome = new System.Windows.Forms.Button();
             this.grpPropertyDetails.SuspendLayout();
             this.grpTenants.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTenantsAdded)).BeginInit();
@@ -73,9 +74,9 @@ namespace PropertyRentalSystem
             // btnUpdateRental
             // 
             this.btnUpdateRental.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateRental.Location = new System.Drawing.Point(135, 401);
+            this.btnUpdateRental.Location = new System.Drawing.Point(20, 390);
             this.btnUpdateRental.Name = "btnUpdateRental";
-            this.btnUpdateRental.Size = new System.Drawing.Size(232, 47);
+            this.btnUpdateRental.Size = new System.Drawing.Size(324, 47);
             this.btnUpdateRental.TabIndex = 56;
             this.btnUpdateRental.Text = "Update Rental";
             this.btnUpdateRental.UseVisualStyleBackColor = true;
@@ -222,6 +223,8 @@ namespace PropertyRentalSystem
             // 
             // grdTenantsAdded
             // 
+            this.grdTenantsAdded.AllowUserToAddRows = false;
+            this.grdTenantsAdded.AllowUserToDeleteRows = false;
             this.grdTenantsAdded.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdTenantsAdded.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdTenantsAdded.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -290,6 +293,8 @@ namespace PropertyRentalSystem
             // 
             // grdTenants
             // 
+            this.grdTenants.AllowUserToAddRows = false;
+            this.grdTenants.AllowUserToDeleteRows = false;
             this.grdTenants.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdTenants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdTenants.Location = new System.Drawing.Point(6, 53);
@@ -386,6 +391,17 @@ namespace PropertyRentalSystem
             this.dtpStartDate.Size = new System.Drawing.Size(287, 22);
             this.dtpStartDate.TabIndex = 21;
             // 
+            // btnHome
+            // 
+            this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.Location = new System.Drawing.Point(350, 390);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(172, 47);
+            this.btnHome.TabIndex = 61;
+            this.btnHome.Text = "Back To Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // frmRentalUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -393,6 +409,7 @@ namespace PropertyRentalSystem
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1035, 467);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.grpRentalDetails);
             this.Controls.Add(this.grpTenants);
             this.Controls.Add(this.btnUpdateRental);
@@ -451,5 +468,6 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.DateTimePicker dtpStartDate;
         private System.Windows.Forms.TextBox txtRentalID;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnHome;
     }
 }

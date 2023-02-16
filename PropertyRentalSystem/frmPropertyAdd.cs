@@ -34,7 +34,7 @@ namespace PropertyRentalSystem
 
         private void frmAddProperty_Load(object sender, EventArgs e)
         {
-
+            this.CenterToScreen();
 
             // Load Property Types and Type Codes.
 
@@ -398,6 +398,11 @@ namespace PropertyRentalSystem
             btnAddProperty.Visible = true;
             grdOwners.Visible = false;
             txtTown.Focus();
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

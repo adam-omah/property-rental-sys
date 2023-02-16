@@ -195,5 +195,15 @@ namespace PropertyRentalSystem
             grpPaymentDetails.Visible = true;
             btnRecordPayment.Visible = true;
         }
+
+        private void frmRecordPayment_Load(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

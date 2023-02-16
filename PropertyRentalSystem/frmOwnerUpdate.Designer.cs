@@ -52,6 +52,7 @@ namespace PropertyRentalSystem
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnHome = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdOwners)).BeginInit();
             this.grpOwner.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +60,7 @@ namespace PropertyRentalSystem
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(194, 37);
+            this.label1.Location = new System.Drawing.Point(12, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 17);
             this.label1.TabIndex = 0;
@@ -67,14 +68,14 @@ namespace PropertyRentalSystem
             // 
             // txtSurnameSRH
             // 
-            this.txtSurnameSRH.Location = new System.Drawing.Point(332, 33);
+            this.txtSurnameSRH.Location = new System.Drawing.Point(149, 59);
             this.txtSurnameSRH.Name = "txtSurnameSRH";
             this.txtSurnameSRH.Size = new System.Drawing.Size(180, 22);
             this.txtSurnameSRH.TabIndex = 1;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(542, 31);
+            this.btnSearch.Location = new System.Drawing.Point(359, 57);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 2;
@@ -84,6 +85,8 @@ namespace PropertyRentalSystem
             // 
             // grdOwners
             // 
+            this.grdOwners.AllowUserToAddRows = false;
+            this.grdOwners.AllowUserToDeleteRows = false;
             this.grdOwners.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdOwners.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdOwners.Location = new System.Drawing.Point(12, 102);
@@ -97,6 +100,7 @@ namespace PropertyRentalSystem
             // 
             // grpOwner
             // 
+            this.grpOwner.Controls.Add(this.btnHome);
             this.grpOwner.Controls.Add(this.txtOwnerID);
             this.grpOwner.Controls.Add(this.label9);
             this.grpOwner.Controls.Add(this.cboOwnerStatus);
@@ -114,9 +118,9 @@ namespace PropertyRentalSystem
             this.grpOwner.Controls.Add(this.label3);
             this.grpOwner.Controls.Add(this.label2);
             this.grpOwner.Controls.Add(this.label7);
-            this.grpOwner.Location = new System.Drawing.Point(230, 61);
+            this.grpOwner.Location = new System.Drawing.Point(15, 86);
             this.grpOwner.Name = "grpOwner";
-            this.grpOwner.Size = new System.Drawing.Size(387, 424);
+            this.grpOwner.Size = new System.Drawing.Size(414, 408);
             this.grpOwner.TabIndex = 4;
             this.grpOwner.TabStop = false;
             this.grpOwner.Text = "Owner Details";
@@ -160,9 +164,9 @@ namespace PropertyRentalSystem
             // 
             // btnUpdateOwnerDetails
             // 
-            this.btnUpdateOwnerDetails.Location = new System.Drawing.Point(102, 364);
+            this.btnUpdateOwnerDetails.Location = new System.Drawing.Point(6, 354);
             this.btnUpdateOwnerDetails.Name = "btnUpdateOwnerDetails";
-            this.btnUpdateOwnerDetails.Size = new System.Drawing.Size(199, 38);
+            this.btnUpdateOwnerDetails.Size = new System.Drawing.Size(227, 38);
             this.btnUpdateOwnerDetails.TabIndex = 13;
             this.btnUpdateOwnerDetails.Text = "Update Owner Details";
             this.btnUpdateOwnerDetails.UseVisualStyleBackColor = true;
@@ -270,13 +274,23 @@ namespace PropertyRentalSystem
             this.label7.TabIndex = 1;
             this.label7.Text = "First Name: ";
             // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(239, 354);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(164, 38);
+            this.btnHome.TabIndex = 5;
+            this.btnHome.Text = "Back To Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // frmOwnerUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(800, 497);
+            this.ClientSize = new System.Drawing.Size(800, 521);
             this.Controls.Add(this.grpOwner);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSurnameSRH);
@@ -318,5 +332,6 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.Button btnUpdateOwnerDetails;
         private System.Windows.Forms.TextBox txtOwnerID;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnHome;
     }
 }

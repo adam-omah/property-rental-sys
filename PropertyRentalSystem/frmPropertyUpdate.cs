@@ -32,6 +32,7 @@ namespace PropertyRentalSystem
 
         private void frmPropertyUpdate_Load(object sender, EventArgs e)
         {
+            this.CenterToScreen();
             // Load Property Types and Type Codes.
 
             //Load TypeCodes into ComboBox
@@ -469,6 +470,11 @@ namespace PropertyRentalSystem
             btnUpdateProperty.Visible = true;
             grdOwners.Visible = false;
             txtTown.Focus();
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

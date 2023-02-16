@@ -68,6 +68,7 @@ namespace PropertyRentalSystem
             this.txtSurnameSRH = new System.Windows.Forms.TextBox();
             this.grdOwners = new System.Windows.Forms.DataGridView();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnHome = new System.Windows.Forms.Button();
             this.grpPropertyDetails.SuspendLayout();
             this.grpPropertyExtras.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numParkingSpaces)).BeginInit();
@@ -429,9 +430,9 @@ namespace PropertyRentalSystem
             // 
             // btnAddProperty
             // 
-            this.btnAddProperty.Location = new System.Drawing.Point(176, 634);
+            this.btnAddProperty.Location = new System.Drawing.Point(26, 634);
             this.btnAddProperty.Name = "btnAddProperty";
-            this.btnAddProperty.Size = new System.Drawing.Size(232, 28);
+            this.btnAddProperty.Size = new System.Drawing.Size(329, 28);
             this.btnAddProperty.TabIndex = 22;
             this.btnAddProperty.Text = "Add Property";
             this.btnAddProperty.UseVisualStyleBackColor = true;
@@ -457,6 +458,8 @@ namespace PropertyRentalSystem
             // 
             // grdOwners
             // 
+            this.grdOwners.AllowUserToAddRows = false;
+            this.grdOwners.AllowUserToDeleteRows = false;
             this.grdOwners.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdOwners.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdOwners.Location = new System.Drawing.Point(12, 55);
@@ -468,6 +471,16 @@ namespace PropertyRentalSystem
             this.grdOwners.Visible = false;
             this.grdOwners.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdOwners_CellClick_1);
             // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(361, 634);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(187, 28);
+            this.btnHome.TabIndex = 23;
+            this.btnHome.Text = "Back To Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // frmPropertyAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -475,6 +488,7 @@ namespace PropertyRentalSystem
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(578, 668);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.txtSurnameSRH);
             this.Controls.Add(this.btnSurnameSRH);
             this.Controls.Add(this.btnAddProperty);
@@ -541,5 +555,6 @@ namespace PropertyRentalSystem
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnHome;
     }
 }

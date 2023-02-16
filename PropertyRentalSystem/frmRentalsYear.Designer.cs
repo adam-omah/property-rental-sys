@@ -38,13 +38,14 @@ namespace PropertyRentalSystem
             this.label1 = new System.Windows.Forms.Label();
             this.cboRentalsInYear = new System.Windows.Forms.ComboBox();
             this.chtRentalsInYear = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnHome = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chtRentalsInYear)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(315, 12);
+            this.label1.Location = new System.Drawing.Point(26, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(146, 17);
             this.label1.TabIndex = 4;
@@ -54,7 +55,7 @@ namespace PropertyRentalSystem
             // 
             this.cboRentalsInYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboRentalsInYear.FormattingEnabled = true;
-            this.cboRentalsInYear.Location = new System.Drawing.Point(467, 9);
+            this.cboRentalsInYear.Location = new System.Drawing.Point(178, 12);
             this.cboRentalsInYear.Name = "cboRentalsInYear";
             this.cboRentalsInYear.Size = new System.Drawing.Size(298, 24);
             this.cboRentalsInYear.TabIndex = 3;
@@ -88,6 +89,15 @@ namespace PropertyRentalSystem
             title1.Text = "Test";
             this.chtRentalsInYear.Titles.Add(title1);
             // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(491, 5);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(159, 36);
+            this.btnHome.TabIndex = 57;
+            this.btnHome.Text = "Back To Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            // 
             // frmRentalsYear
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -95,6 +105,7 @@ namespace PropertyRentalSystem
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1332, 693);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.chtRentalsInYear);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboRentalsInYear);
@@ -112,5 +123,6 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboRentalsInYear;
         private System.Windows.Forms.DataVisualization.Charting.Chart chtRentalsInYear;
+        private System.Windows.Forms.Button btnHome;
     }
 }

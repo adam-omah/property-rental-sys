@@ -44,6 +44,7 @@ namespace PropertyRentalSystem
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddOwner = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -172,24 +173,36 @@ namespace PropertyRentalSystem
             // 
             // btnAddOwner
             // 
-            this.btnAddOwner.Location = new System.Drawing.Point(122, 301);
+            this.btnAddOwner.Location = new System.Drawing.Point(12, 301);
             this.btnAddOwner.Name = "btnAddOwner";
-            this.btnAddOwner.Size = new System.Drawing.Size(156, 36);
+            this.btnAddOwner.Size = new System.Drawing.Size(220, 36);
             this.btnAddOwner.TabIndex = 1;
             this.btnAddOwner.Text = "Add Owner";
             this.btnAddOwner.UseVisualStyleBackColor = true;
             this.btnAddOwner.Click += new System.EventHandler(this.btnAddOwner_Click);
+            // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(238, 301);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(159, 36);
+            this.btnHome.TabIndex = 6;
+            this.btnHome.Text = "Back To Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // frmOwnerAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(409, 349);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnAddOwner);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmOwnerAdd";
             this.Text = "PFR - [Add Owner]";
+            this.Load += new System.EventHandler(this.frmOwnerAdd_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -212,5 +225,6 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.Button btnAddOwner;
         private System.Windows.Forms.TextBox txtOwnerIban;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnHome;
     }
 }

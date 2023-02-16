@@ -51,12 +51,13 @@ namespace PropertyRentalSystem
             status = 'I';
         }
 
-        public Property(String eircode, int ownerID, String typeCode, String houseName, double rentalPrice, String propertyDescription, int totalRooms, int standardBedrooms, int ensuiteBedrooms, int bathrooms, int parkingSpaces, int heatingSource, char gardenSpace, char petsAllowed, char wifi, char ownerOccupied, char status)
+        public Property(String eircode, int ownerID, String typeCode, String town,String address, double rentalPrice, String propertyDescription, int totalRooms, int standardBedrooms, int ensuiteBedrooms, int bathrooms, int parkingSpaces, int heatingSource, char gardenSpace, char petsAllowed, char wifi, char ownerOccupied, char status)
         {
-            this.eircode = eircode;
+            this.eircode = eircode.ToUpper();
             this.ownerID = ownerID;
             this.typeCode = typeCode;
-            this.town = houseName;
+            this.town = town.ToUpper();
+            this.address = address;
             this.rentalPrice = rentalPrice;
             this.propertyDescription = propertyDescription;
             this.totalRooms = totalRooms;
@@ -266,7 +267,7 @@ namespace PropertyRentalSystem
 
         public void setTown(String town)
         {
-            this.town = town;
+            this.town = town.ToUpper();
         }
 
         public String getAddress()
@@ -286,7 +287,7 @@ namespace PropertyRentalSystem
 
         public void setEircode(String eircode)
         {
-            this.eircode = eircode;
+            this.eircode = eircode.ToUpper();
         }
 
         public int getOwnerID()

@@ -38,6 +38,7 @@ namespace PropertyRentalSystem
             this.cboYearlyCommision = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.chtCommision = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnHome = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chtCommision)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,7 +46,7 @@ namespace PropertyRentalSystem
             // 
             this.cboYearlyCommision.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboYearlyCommision.FormattingEnabled = true;
-            this.cboYearlyCommision.Location = new System.Drawing.Point(321, 18);
+            this.cboYearlyCommision.Location = new System.Drawing.Point(169, 14);
             this.cboYearlyCommision.Margin = new System.Windows.Forms.Padding(25);
             this.cboYearlyCommision.Name = "cboYearlyCommision";
             this.cboYearlyCommision.Size = new System.Drawing.Size(298, 24);
@@ -55,7 +56,7 @@ namespace PropertyRentalSystem
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(169, 21);
+            this.label1.Location = new System.Drawing.Point(17, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(146, 17);
             this.label1.TabIndex = 1;
@@ -88,6 +89,15 @@ namespace PropertyRentalSystem
             title1.Text = "Test";
             this.chtCommision.Titles.Add(title1);
             // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(482, 7);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(159, 36);
+            this.btnHome.TabIndex = 57;
+            this.btnHome.Text = "Back To Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            // 
             // frmYearlyCommission
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -95,6 +105,7 @@ namespace PropertyRentalSystem
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1474, 720);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.chtCommision);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboYearlyCommision);
@@ -113,5 +124,6 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.ComboBox cboYearlyCommision;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chtCommision;
+        private System.Windows.Forms.Button btnHome;
     }
 }

@@ -19,15 +19,16 @@ namespace PropertyRentalSystem
             InitializeComponent();
         }
 
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             // Hiding Owner details if new search.
             grpOwner.Visible = false;
 
             //find matching Owners
-            grdOwners.DataSource = PropOwner.findOwners(txtSurnameSRH.Text).Tables["Owner"];
+            grdOwners.DataSource = PropOwner.findOwners(txtSurnameSRH.Text.ToUpper()).Tables["Owner"];
 
-            if (grdOwners.Rows.Count == 1)
+            if (grdOwners.Rows.Count == 0)
             {
                 MessageBox.Show("The surname " + txtSurnameSRH.Text + " Was not found,\nPlease try another surname such as  'Smith' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSurnameSRH.Clear();
@@ -44,6 +45,7 @@ namespace PropertyRentalSystem
 
         private void grdOwners_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             // Retrieve Full owner Details from File.
             //extract the OwnerID from column zero on the selected row in grid and use to find owner
             int Id = Convert.ToInt32(grdOwners.Rows[grdOwners.CurrentCell.RowIndex].Cells[0].Value.ToString());
@@ -83,6 +85,9 @@ namespace PropertyRentalSystem
 
         private void frmOwnerUpdate_Load(object sender, EventArgs e)
         {
+
+            this.CenterToScreen();
+
             // loading the possible Owner Status's :
             cboOwnerStatus.Items.Add("Active - 'A' ");
             cboOwnerStatus.Items.Add("Inactive - 'I' ");
@@ -218,5 +223,9 @@ namespace PropertyRentalSystem
 
         }
 
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

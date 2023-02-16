@@ -50,12 +50,14 @@ namespace PropertyRentalSystem
             this.txtSurnameSRH = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grdTenants = new System.Windows.Forms.DataGridView();
+            this.btnHome = new System.Windows.Forms.Button();
             this.grpTenant.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTenants)).BeginInit();
             this.SuspendLayout();
             // 
             // grpTenant
             // 
+            this.grpTenant.Controls.Add(this.btnHome);
             this.grpTenant.Controls.Add(this.txtTenantID);
             this.grpTenant.Controls.Add(this.label9);
             this.grpTenant.Controls.Add(this.cboTenantStatus);
@@ -71,7 +73,7 @@ namespace PropertyRentalSystem
             this.grpTenant.Controls.Add(this.label3);
             this.grpTenant.Controls.Add(this.label2);
             this.grpTenant.Controls.Add(this.label7);
-            this.grpTenant.Location = new System.Drawing.Point(192, 95);
+            this.grpTenant.Location = new System.Drawing.Point(15, 85);
             this.grpTenant.Name = "grpTenant";
             this.grpTenant.Size = new System.Drawing.Size(387, 383);
             this.grpTenant.TabIndex = 9;
@@ -117,9 +119,9 @@ namespace PropertyRentalSystem
             // 
             // btnUpdateTenantDetails
             // 
-            this.btnUpdateTenantDetails.Location = new System.Drawing.Point(107, 328);
+            this.btnUpdateTenantDetails.Location = new System.Drawing.Point(6, 339);
             this.btnUpdateTenantDetails.Name = "btnUpdateTenantDetails";
-            this.btnUpdateTenantDetails.Size = new System.Drawing.Size(199, 38);
+            this.btnUpdateTenantDetails.Size = new System.Drawing.Size(226, 38);
             this.btnUpdateTenantDetails.TabIndex = 13;
             this.btnUpdateTenantDetails.Text = "Update Tenant Details";
             this.btnUpdateTenantDetails.UseVisualStyleBackColor = true;
@@ -212,7 +214,7 @@ namespace PropertyRentalSystem
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(528, 52);
+            this.btnSearch.Location = new System.Drawing.Point(360, 29);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 7;
@@ -222,7 +224,7 @@ namespace PropertyRentalSystem
             // 
             // txtSurnameSRH
             // 
-            this.txtSurnameSRH.Location = new System.Drawing.Point(318, 54);
+            this.txtSurnameSRH.Location = new System.Drawing.Point(150, 31);
             this.txtSurnameSRH.Name = "txtSurnameSRH";
             this.txtSurnameSRH.Size = new System.Drawing.Size(180, 22);
             this.txtSurnameSRH.TabIndex = 6;
@@ -230,7 +232,7 @@ namespace PropertyRentalSystem
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(180, 58);
+            this.label1.Location = new System.Drawing.Point(12, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 17);
             this.label1.TabIndex = 5;
@@ -238,6 +240,8 @@ namespace PropertyRentalSystem
             // 
             // grdTenants
             // 
+            this.grdTenants.AllowUserToAddRows = false;
+            this.grdTenants.AllowUserToDeleteRows = false;
             this.grdTenants.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdTenants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdTenants.Location = new System.Drawing.Point(-2, 123);
@@ -248,6 +252,15 @@ namespace PropertyRentalSystem
             this.grdTenants.TabIndex = 8;
             this.grdTenants.Visible = false;
             this.grdTenants.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTenants_CellClick);
+            // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(238, 340);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(143, 37);
+            this.btnHome.TabIndex = 57;
+            this.btnHome.Text = "Back To Home";
+            this.btnHome.UseVisualStyleBackColor = true;
             // 
             // frmTenantUpdate
             // 
@@ -295,5 +308,6 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.DataGridView grdTenants;
         private System.Windows.Forms.TextBox txtTenantID;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnHome;
     }
 }

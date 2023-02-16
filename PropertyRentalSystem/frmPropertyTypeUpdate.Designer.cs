@@ -36,11 +36,13 @@ namespace PropertyRentalSystem
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cboPropType = new System.Windows.Forms.ComboBox();
+            this.btnHome = new System.Windows.Forms.Button();
             this.grpUpdateType.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpUpdateType
             // 
+            this.grpUpdateType.Controls.Add(this.btnHome);
             this.grpUpdateType.Controls.Add(this.btnUpdatePropType);
             this.grpUpdateType.Controls.Add(this.txtPropertyTypeDescription);
             this.grpUpdateType.Controls.Add(this.label2);
@@ -56,7 +58,7 @@ namespace PropertyRentalSystem
             // 
             this.btnUpdatePropType.Location = new System.Drawing.Point(19, 120);
             this.btnUpdatePropType.Name = "btnUpdatePropType";
-            this.btnUpdatePropType.Size = new System.Drawing.Size(139, 40);
+            this.btnUpdatePropType.Size = new System.Drawing.Size(249, 40);
             this.btnUpdatePropType.TabIndex = 4;
             this.btnUpdatePropType.Text = "Update Type";
             this.btnUpdatePropType.UseVisualStyleBackColor = true;
@@ -97,6 +99,16 @@ namespace PropertyRentalSystem
             this.cboPropType.TabIndex = 2;
             this.cboPropType.SelectedIndexChanged += new System.EventHandler(this.cboPropType_SelectedIndexChanged);
             // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(274, 120);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(170, 40);
+            this.btnHome.TabIndex = 7;
+            this.btnHome.Text = "Back To Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // frmPropertyTypeUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -126,5 +138,6 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboPropType;
+        private System.Windows.Forms.Button btnHome;
     }
 }

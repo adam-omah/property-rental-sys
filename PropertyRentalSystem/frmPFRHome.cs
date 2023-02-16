@@ -104,5 +104,10 @@ namespace PropertyRentalSystem
         {
 
         }
+
+        private void frmPFRHome_Load(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+        }
     }
 }

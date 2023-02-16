@@ -49,6 +49,7 @@ namespace PropertyRentalSystem
             this.dtpPaymentDate = new System.Windows.Forms.DateTimePicker();
             this.btnRecordPayment = new System.Windows.Forms.Button();
             this.grdProperty = new System.Windows.Forms.DataGridView();
+            this.btnHome = new System.Windows.Forms.Button();
             this.grpPayerDetails.SuspendLayout();
             this.grpPaymentDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdProperty)).BeginInit();
@@ -216,9 +217,9 @@ namespace PropertyRentalSystem
             // 
             // btnRecordPayment
             // 
-            this.btnRecordPayment.Location = new System.Drawing.Point(171, 334);
+            this.btnRecordPayment.Location = new System.Drawing.Point(31, 334);
             this.btnRecordPayment.Name = "btnRecordPayment";
-            this.btnRecordPayment.Size = new System.Drawing.Size(208, 34);
+            this.btnRecordPayment.Size = new System.Drawing.Size(323, 36);
             this.btnRecordPayment.TabIndex = 54;
             this.btnRecordPayment.Text = "Record Payment";
             this.btnRecordPayment.UseVisualStyleBackColor = true;
@@ -238,6 +239,16 @@ namespace PropertyRentalSystem
             this.grdProperty.Visible = false;
             this.grdProperty.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProperty_CellClick);
             // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(360, 334);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(159, 36);
+            this.btnHome.TabIndex = 56;
+            this.btnHome.Text = "Back To Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // frmRecordPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -245,6 +256,7 @@ namespace PropertyRentalSystem
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(536, 396);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnRecordPayment);
             this.Controls.Add(this.grpPaymentDetails);
             this.Controls.Add(this.grpPayerDetails);
@@ -255,6 +267,7 @@ namespace PropertyRentalSystem
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRecordPayment";
             this.Text = "Perfect Fit Rentals - [Record Payments]";
+            this.Load += new System.EventHandler(this.frmRecordPayment_Load);
             this.grpPayerDetails.ResumeLayout(false);
             this.grpPayerDetails.PerformLayout();
             this.grpPaymentDetails.ResumeLayout(false);
@@ -286,5 +299,6 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.TextBox txtPropertyName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView grdProperty;
+        private System.Windows.Forms.Button btnHome;
     }
 }

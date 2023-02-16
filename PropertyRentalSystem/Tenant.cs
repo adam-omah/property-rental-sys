@@ -36,8 +36,8 @@ namespace PropertyRentalSystem
             {
                 int count = 0;
 
-                this.firstName = firstName;
-                this.lastName = lastName;
+                this.firstName = firstName.ToUpper();
+                this.lastName = lastName.ToUpper();
                 this.phoneNumber = phoneNumber;
                 this.email = email;
                 this.iban = iban;
@@ -193,7 +193,7 @@ namespace PropertyRentalSystem
 
             public void setFirstName(String firstName)
             {
-                this.firstName = firstName;
+                this.firstName = firstName.ToUpper();
             }
 
             public String getLastName()
@@ -203,7 +203,7 @@ namespace PropertyRentalSystem
 
             public void setLastName(String lastName)
             {
-                this.lastName = lastName;
+                this.lastName = lastName.ToUpper();
             }
 
             public long getPhoneNumber()

@@ -81,14 +81,14 @@ namespace PropertyRentalSystem
             // mnuAddOwner
             // 
             this.mnuAddOwner.Name = "mnuAddOwner";
-            this.mnuAddOwner.Size = new System.Drawing.Size(224, 26);
+            this.mnuAddOwner.Size = new System.Drawing.Size(188, 26);
             this.mnuAddOwner.Text = "Add Owner";
             this.mnuAddOwner.Click += new System.EventHandler(this.mnuAddOwner_Click);
             // 
             // mnuUpdateOwner
             // 
             this.mnuUpdateOwner.Name = "mnuUpdateOwner";
-            this.mnuUpdateOwner.Size = new System.Drawing.Size(224, 26);
+            this.mnuUpdateOwner.Size = new System.Drawing.Size(188, 26);
             this.mnuUpdateOwner.Text = "Update Owner";
             this.mnuUpdateOwner.Click += new System.EventHandler(this.mnuUpdateOwner_Click);
             // 
@@ -210,10 +210,11 @@ namespace PropertyRentalSystem
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::PropertyRentalSystem.Properties.Resources.IKEA_TINY_HOME;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 33);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 28);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(610, 398);
+            this.pictureBox1.Size = new System.Drawing.Size(610, 403);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -230,6 +231,7 @@ namespace PropertyRentalSystem
             this.MainMenuStrip = this.mnuPFRMainMenu;
             this.Name = "frmPFRHome";
             this.Text = "Perfect Fit Rentals - [ Home ]";
+            this.Load += new System.EventHandler(this.frmPFRHome_Load);
             this.mnuPFRMainMenu.ResumeLayout(false);
             this.mnuPFRMainMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

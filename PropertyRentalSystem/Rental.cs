@@ -29,7 +29,7 @@ namespace PropertyRentalSystem
         public Rental(String startDate, int ownerID, String endDate, String status, String eircode)
         {
 
-            this.eircode = eircode;
+            this.eircode = eircode.ToUpper();
             this.startDate = startDate;
             this.endDate = endDate;
             this.status = status;
@@ -211,12 +211,12 @@ namespace PropertyRentalSystem
 
         public String getEircode()
         {
-            return eircode;
+            return eircode.ToUpper();
         }
 
         public void setEircode(String eircode)
         {
-            this.eircode = eircode;
+            this.eircode = eircode.ToUpper();
         }
 
         public String getStartDate()

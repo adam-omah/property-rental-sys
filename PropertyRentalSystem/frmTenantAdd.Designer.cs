@@ -42,6 +42,7 @@ namespace PropertyRentalSystem
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddTenant = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -151,19 +152,29 @@ namespace PropertyRentalSystem
             // 
             // btnAddTenant
             // 
-            this.btnAddTenant.Location = new System.Drawing.Point(133, 270);
+            this.btnAddTenant.Location = new System.Drawing.Point(12, 270);
             this.btnAddTenant.Name = "btnAddTenant";
-            this.btnAddTenant.Size = new System.Drawing.Size(129, 40);
+            this.btnAddTenant.Size = new System.Drawing.Size(208, 40);
             this.btnAddTenant.TabIndex = 2;
             this.btnAddTenant.Text = "Add Tenant";
             this.btnAddTenant.UseVisualStyleBackColor = true;
             this.btnAddTenant.Click += new System.EventHandler(this.btnAddTenant_Click);
+            // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(226, 270);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(159, 40);
+            this.btnHome.TabIndex = 57;
+            this.btnHome.Text = "Back To Home";
+            this.btnHome.UseVisualStyleBackColor = true;
             // 
             // frmTenantAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(397, 322);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnAddTenant);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -189,5 +200,6 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAddTenant;
+        private System.Windows.Forms.Button btnHome;
     }
 }

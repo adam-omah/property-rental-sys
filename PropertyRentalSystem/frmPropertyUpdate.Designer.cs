@@ -55,6 +55,10 @@ namespace PropertyRentalSystem
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grpPropertyDetails = new System.Windows.Forms.GroupBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtTown = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.txtOwnerId = new System.Windows.Forms.TextBox();
             this.txtPropertyOwner = new System.Windows.Forms.TextBox();
@@ -68,10 +72,7 @@ namespace PropertyRentalSystem
             this.label4 = new System.Windows.Forms.Label();
             this.txtEircode = new System.Windows.Forms.TextBox();
             this.btnSearchEircode = new System.Windows.Forms.Button();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtTown = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
+            this.btnHome = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdOwners)).BeginInit();
             this.grpPropertyExtras.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numParkingSpaces)).BeginInit();
@@ -84,6 +85,8 @@ namespace PropertyRentalSystem
             // 
             // grdOwners
             // 
+            this.grdOwners.AllowUserToAddRows = false;
+            this.grdOwners.AllowUserToDeleteRows = false;
             this.grdOwners.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdOwners.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdOwners.Location = new System.Drawing.Point(26, 57);
@@ -114,9 +117,9 @@ namespace PropertyRentalSystem
             // 
             // btnUpdateProperty
             // 
-            this.btnUpdateProperty.Location = new System.Drawing.Point(195, 732);
+            this.btnUpdateProperty.Location = new System.Drawing.Point(48, 732);
             this.btnUpdateProperty.Name = "btnUpdateProperty";
-            this.btnUpdateProperty.Size = new System.Drawing.Size(232, 28);
+            this.btnUpdateProperty.Size = new System.Drawing.Size(357, 36);
             this.btnUpdateProperty.TabIndex = 29;
             this.btnUpdateProperty.Text = "Update Property";
             this.btnUpdateProperty.UseVisualStyleBackColor = true;
@@ -376,6 +379,40 @@ namespace PropertyRentalSystem
             this.grpPropertyDetails.Text = "Property Details";
             this.grpPropertyDetails.Visible = false;
             // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(119, 190);
+            this.txtAddress.MaxLength = 100;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(290, 22);
+            this.txtAddress.TabIndex = 31;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 190);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 17);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Street Address :";
+            // 
+            // txtTown
+            // 
+            this.txtTown.Location = new System.Drawing.Point(119, 162);
+            this.txtTown.MaxLength = 50;
+            this.txtTown.Name = "txtTown";
+            this.txtTown.Size = new System.Drawing.Size(290, 22);
+            this.txtTown.TabIndex = 29;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(61, 162);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(46, 17);
+            this.label16.TabIndex = 28;
+            this.label16.Text = "Town:";
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -490,39 +527,15 @@ namespace PropertyRentalSystem
             this.btnSearchEircode.UseVisualStyleBackColor = true;
             this.btnSearchEircode.Click += new System.EventHandler(this.btnSearchEircode_Click);
             // 
-            // txtAddress
+            // btnHome
             // 
-            this.txtAddress.Location = new System.Drawing.Point(119, 190);
-            this.txtAddress.MaxLength = 100;
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(290, 22);
-            this.txtAddress.TabIndex = 31;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 190);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 17);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "Street Address :";
-            // 
-            // txtTown
-            // 
-            this.txtTown.Location = new System.Drawing.Point(119, 162);
-            this.txtTown.MaxLength = 50;
-            this.txtTown.Name = "txtTown";
-            this.txtTown.Size = new System.Drawing.Size(290, 22);
-            this.txtTown.TabIndex = 29;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(61, 162);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(46, 17);
-            this.label16.TabIndex = 28;
-            this.label16.Text = "Town:";
+            this.btnHome.Location = new System.Drawing.Point(411, 732);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(159, 36);
+            this.btnHome.TabIndex = 34;
+            this.btnHome.Text = "Back To Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // frmPropertyUpdate
             // 
@@ -531,6 +544,7 @@ namespace PropertyRentalSystem
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(596, 797);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnSearchEircode);
             this.Controls.Add(this.txtEircode);
             this.Controls.Add(this.label4);
@@ -601,5 +615,6 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTown;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btnHome;
     }
 }
