@@ -126,7 +126,7 @@ namespace PropertyRentalSystem
 
             //Create an instance of Owner and instantiate with values from form controls
             // Set Owner Status to 'A' for active, Owner ID is assigned in Owners.cs
-            PropOwner aOwner = new PropOwner(validationFunctions.SQLApostrophe(txtFirstName.Text), validationFunctions.SQLApostrophe(txtLastName.Text.ToUpper()), Convert.ToInt32(txtPhoneNumber.Text),
+            PropOwner aOwner = new PropOwner(validationFunctions.SQLApostrophe(txtFirstName.Text), validationFunctions.SQLApostrophe(txtLastName.Text.ToUpper()), Convert.ToInt64(txtPhoneNumber.Text),
                 txtEmailAddress.Text, txtHomeEircode.Text,txtOwnerIban.Text, 'A');
 
             //invoke the method to add the data to the Products table
@@ -158,8 +158,16 @@ namespace PropertyRentalSystem
             this.Close();
         }
 
-        // moved Valid Iban, Valid Email and Valid Eircode to Validation helper class.
+        private void btnAddOwner_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                this.btnAddOwner_Click(sender, e);
+        }
 
-
+        private void btnHome_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                this.btnHome_Click(sender, e);
+        }
     }
 }

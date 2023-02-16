@@ -349,6 +349,7 @@ namespace PropertyRentalSystem
             grpPropertyDetails.Visible = false;
             grpPropertyExtras.Visible = false;
             btnAddProperty.Visible = false;
+            btnHome.Visible = false;
 
             txtSurnameSRH.Focus();
 
@@ -357,7 +358,10 @@ namespace PropertyRentalSystem
 
         private void btnSurnameSRH_Click(object sender, EventArgs e)
         {
-
+                //Hide the grid and lbl if new search.
+                grdOwners.Visible = false;
+                lblOwner.Visible = false;
+            
                 //find matching Owners
                 grdOwners.DataSource = PropOwner.findOwners(txtSurnameSRH.Text).Tables["Owner"];
 
@@ -372,12 +376,14 @@ namespace PropertyRentalSystem
 
                 //display owners surname search grid 
                 grdOwners.Visible = true;
+                lblOwner.Visible = true;
 
                 // Hide other grps if second time searching
                 grpPropertyDetails.Visible = false;
                 grpPropertyExtras.Visible = false;
                 btnAddProperty.Visible = false;
-            
+                btnHome.Visible = false;
+
         }
 
         private void grdOwners_CellClick_1(object sender, DataGridViewCellEventArgs e)
@@ -396,7 +402,9 @@ namespace PropertyRentalSystem
             grpPropertyDetails.Visible = true;
             grpPropertyExtras.Visible = true;
             btnAddProperty.Visible = true;
+            btnHome.Visible = true;
             grdOwners.Visible = false;
+            lblOwner.Visible = false;
             txtTown.Focus();
         }
 
@@ -404,5 +412,6 @@ namespace PropertyRentalSystem
         {
             this.Close();
         }
+
     }
 }

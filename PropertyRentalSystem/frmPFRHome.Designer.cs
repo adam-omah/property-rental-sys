@@ -56,6 +56,9 @@ namespace PropertyRentalSystem
             // 
             // mnuPFRMainMenu
             // 
+            this.mnuPFRMainMenu.BackColor = System.Drawing.Color.White;
+            this.mnuPFRMainMenu.Font = new System.Drawing.Font("Leelawadee", 12F);
+            this.mnuPFRMainMenu.GripMargin = new System.Windows.Forms.Padding(5, 5, 0, 5);
             this.mnuPFRMainMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuPFRMainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ownersToolStripMenuItem,
@@ -65,7 +68,8 @@ namespace PropertyRentalSystem
             this.adminToolStripMenuItem});
             this.mnuPFRMainMenu.Location = new System.Drawing.Point(0, 0);
             this.mnuPFRMainMenu.Name = "mnuPFRMainMenu";
-            this.mnuPFRMainMenu.Size = new System.Drawing.Size(610, 28);
+            this.mnuPFRMainMenu.Padding = new System.Windows.Forms.Padding(20, 2, 0, 2);
+            this.mnuPFRMainMenu.Size = new System.Drawing.Size(782, 32);
             this.mnuPFRMainMenu.TabIndex = 0;
             this.mnuPFRMainMenu.Text = "menuStrip1";
             // 
@@ -75,20 +79,20 @@ namespace PropertyRentalSystem
             this.mnuAddOwner,
             this.mnuUpdateOwner});
             this.ownersToolStripMenuItem.Name = "ownersToolStripMenuItem";
-            this.ownersToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
+            this.ownersToolStripMenuItem.Size = new System.Drawing.Size(89, 28);
             this.ownersToolStripMenuItem.Text = "Owners";
             // 
             // mnuAddOwner
             // 
             this.mnuAddOwner.Name = "mnuAddOwner";
-            this.mnuAddOwner.Size = new System.Drawing.Size(188, 26);
+            this.mnuAddOwner.Size = new System.Drawing.Size(224, 28);
             this.mnuAddOwner.Text = "Add Owner";
             this.mnuAddOwner.Click += new System.EventHandler(this.mnuAddOwner_Click);
             // 
             // mnuUpdateOwner
             // 
             this.mnuUpdateOwner.Name = "mnuUpdateOwner";
-            this.mnuUpdateOwner.Size = new System.Drawing.Size(188, 26);
+            this.mnuUpdateOwner.Size = new System.Drawing.Size(224, 28);
             this.mnuUpdateOwner.Text = "Update Owner";
             this.mnuUpdateOwner.Click += new System.EventHandler(this.mnuUpdateOwner_Click);
             // 
@@ -100,34 +104,34 @@ namespace PropertyRentalSystem
             this.mnuPFRAddPropertyType,
             this.mnuPFRUpdatePropertyType});
             this.propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
-            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
+            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(113, 28);
             this.propertiesToolStripMenuItem.Text = "Properties";
             // 
             // mnuPFRAddProperty
             // 
             this.mnuPFRAddProperty.Name = "mnuPFRAddProperty";
-            this.mnuPFRAddProperty.Size = new System.Drawing.Size(236, 26);
+            this.mnuPFRAddProperty.Size = new System.Drawing.Size(287, 28);
             this.mnuPFRAddProperty.Text = "Add Property";
             this.mnuPFRAddProperty.Click += new System.EventHandler(this.mnuPFRAddProperty_Click);
             // 
             // mnuPFRUpdateProperty
             // 
             this.mnuPFRUpdateProperty.Name = "mnuPFRUpdateProperty";
-            this.mnuPFRUpdateProperty.Size = new System.Drawing.Size(236, 26);
+            this.mnuPFRUpdateProperty.Size = new System.Drawing.Size(287, 28);
             this.mnuPFRUpdateProperty.Text = "Update Property";
             this.mnuPFRUpdateProperty.Click += new System.EventHandler(this.mnuPFRUpdateProperty_Click);
             // 
             // mnuPFRAddPropertyType
             // 
             this.mnuPFRAddPropertyType.Name = "mnuPFRAddPropertyType";
-            this.mnuPFRAddPropertyType.Size = new System.Drawing.Size(236, 26);
+            this.mnuPFRAddPropertyType.Size = new System.Drawing.Size(287, 28);
             this.mnuPFRAddPropertyType.Text = "Add Property Type";
             this.mnuPFRAddPropertyType.Click += new System.EventHandler(this.mnuPFRAddPropertyType_Click);
             // 
             // mnuPFRUpdatePropertyType
             // 
             this.mnuPFRUpdatePropertyType.Name = "mnuPFRUpdatePropertyType";
-            this.mnuPFRUpdatePropertyType.Size = new System.Drawing.Size(236, 26);
+            this.mnuPFRUpdatePropertyType.Size = new System.Drawing.Size(287, 28);
             this.mnuPFRUpdatePropertyType.Text = "Update Property Type";
             this.mnuPFRUpdatePropertyType.Click += new System.EventHandler(this.mnuPFRUpdatePropertyType_Click);
             // 
@@ -137,20 +141,20 @@ namespace PropertyRentalSystem
             this.mnuAddTenant,
             this.mnuUpdateTenant});
             this.tenantsToolStripMenuItem.Name = "tenantsToolStripMenuItem";
-            this.tenantsToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.tenantsToolStripMenuItem.Size = new System.Drawing.Size(91, 28);
             this.tenantsToolStripMenuItem.Text = "Tenants";
             // 
             // mnuAddTenant
             // 
             this.mnuAddTenant.Name = "mnuAddTenant";
-            this.mnuAddTenant.Size = new System.Drawing.Size(189, 26);
+            this.mnuAddTenant.Size = new System.Drawing.Size(224, 28);
             this.mnuAddTenant.Text = "Add Tenant";
             this.mnuAddTenant.Click += new System.EventHandler(this.mnuAddTenant_Click);
             // 
             // mnuUpdateTenant
             // 
             this.mnuUpdateTenant.Name = "mnuUpdateTenant";
-            this.mnuUpdateTenant.Size = new System.Drawing.Size(189, 26);
+            this.mnuUpdateTenant.Size = new System.Drawing.Size(224, 28);
             this.mnuUpdateTenant.Text = "Update Tenant";
             this.mnuUpdateTenant.Click += new System.EventHandler(this.mnuUpdateTenant_Click);
             // 
@@ -161,27 +165,27 @@ namespace PropertyRentalSystem
             this.mnuUpdateRental,
             this.mnuRecordPayment});
             this.rentalsToolStripMenuItem.Name = "rentalsToolStripMenuItem";
-            this.rentalsToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
+            this.rentalsToolStripMenuItem.Size = new System.Drawing.Size(87, 28);
             this.rentalsToolStripMenuItem.Text = "Rentals";
             // 
             // mnuCreateRental
             // 
             this.mnuCreateRental.Name = "mnuCreateRental";
-            this.mnuCreateRental.Size = new System.Drawing.Size(247, 26);
+            this.mnuCreateRental.Size = new System.Drawing.Size(299, 28);
             this.mnuCreateRental.Text = "Create Rental Contract";
             this.mnuCreateRental.Click += new System.EventHandler(this.mnuCreateRental_Click);
             // 
             // mnuUpdateRental
             // 
             this.mnuUpdateRental.Name = "mnuUpdateRental";
-            this.mnuUpdateRental.Size = new System.Drawing.Size(247, 26);
+            this.mnuUpdateRental.Size = new System.Drawing.Size(299, 28);
             this.mnuUpdateRental.Text = "Update Rental Contract";
             this.mnuUpdateRental.Click += new System.EventHandler(this.mnuUpdateRental_Click);
             // 
             // mnuRecordPayment
             // 
             this.mnuRecordPayment.Name = "mnuRecordPayment";
-            this.mnuRecordPayment.Size = new System.Drawing.Size(247, 26);
+            this.mnuRecordPayment.Size = new System.Drawing.Size(299, 28);
             this.mnuRecordPayment.Text = "Record Payment";
             this.mnuRecordPayment.Click += new System.EventHandler(this.mnuRecordPayment_Click);
             // 
@@ -191,20 +195,20 @@ namespace PropertyRentalSystem
             this.mnuYearlyCommission,
             this.mnuRentalsInYear});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(82, 28);
             this.adminToolStripMenuItem.Text = "Admin";
             // 
             // mnuYearlyCommission
             // 
             this.mnuYearlyCommission.Name = "mnuYearlyCommission";
-            this.mnuYearlyCommission.Size = new System.Drawing.Size(323, 26);
+            this.mnuYearlyCommission.Size = new System.Drawing.Size(401, 28);
             this.mnuYearlyCommission.Text = "Produce Yearly Commission Report";
             this.mnuYearlyCommission.Click += new System.EventHandler(this.mnuYearlyCommission_Click);
             // 
             // mnuRentalsInYear
             // 
             this.mnuRentalsInYear.Name = "mnuRentalsInYear";
-            this.mnuRentalsInYear.Size = new System.Drawing.Size(323, 26);
+            this.mnuRentalsInYear.Size = new System.Drawing.Size(401, 28);
             this.mnuRentalsInYear.Text = "Produce Rentals In Year Report";
             this.mnuRentalsInYear.Click += new System.EventHandler(this.mnuRentalsInYear_Click);
             // 
@@ -212,9 +216,9 @@ namespace PropertyRentalSystem
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::PropertyRentalSystem.Properties.Resources.IKEA_TINY_HOME;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 28);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 32);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(610, 403);
+            this.pictureBox1.Size = new System.Drawing.Size(782, 521);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -224,7 +228,7 @@ namespace PropertyRentalSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(610, 431);
+            this.ClientSize = new System.Drawing.Size(782, 553);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.mnuPFRMainMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

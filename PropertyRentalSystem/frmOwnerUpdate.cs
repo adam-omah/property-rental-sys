@@ -33,12 +33,14 @@ namespace PropertyRentalSystem
                 MessageBox.Show("The surname " + txtSurnameSRH.Text + " Was not found,\nPlease try another surname such as  'Smith' ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSurnameSRH.Clear();
                 txtSurnameSRH.Focus();
+                grdOwners.Visible = false;
                 return;
             }
 
 
             //display owners surname search grid 
             grdOwners.Visible = true;
+            lblOwners.Visible = true;
 
 
         }
@@ -77,9 +79,11 @@ namespace PropertyRentalSystem
 
             // display owner details.
             grpOwner.Visible = true;
+            txtFirstName.Focus();
 
             // hiding surname search grid after selection:
             grdOwners.Visible = false;
+            lblOwners.Visible = false;
 
         }
 
@@ -192,7 +196,7 @@ namespace PropertyRentalSystem
             theOwner.setOwnerID(Convert.ToInt32(txtOwnerID.Text));
             theOwner.setFirstName(validationFunctions.SQLApostrophe(txtFirstName.Text));
             theOwner.setSurname(validationFunctions.SQLApostrophe(txtLastName.Text));
-            theOwner.setPhone(Convert.ToInt32(txtPhoneNumber.Text));
+            theOwner.setPhone(Convert.ToInt64(txtPhoneNumber.Text));
             theOwner.setEmail(txtEmailAddress.Text);
             // setting eircode to uper case chars, removes inconsistency.
             theOwner.setEircode(txtHomeEircode.Text.ToUpper());
@@ -226,6 +230,13 @@ namespace PropertyRentalSystem
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        // txt searches if key down is enter.
+        private void txtSurnameSRH_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                this.btnSearch_Click(sender, e);
         }
     }
 }
