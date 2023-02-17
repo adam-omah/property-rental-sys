@@ -35,6 +35,8 @@ namespace PropertyRentalSystem
         private void frmAddProperty_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
+            // moves up 200 units so that its expansion is allowed for.
+            this.Top -= 200;
 
             // Load Property Types and Type Codes.
 
@@ -105,7 +107,7 @@ namespace PropertyRentalSystem
             bool isValidName = validationFunctions.validTextString(txtTown.Text);
             if (!isValidName)
             {
-                MessageBox.Show("Property Town Invalid!\nProperty Town must be English letters, spaces and 's are allowed.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Property Town Invalid!\nProperty Town must contain English letters, also spaces and 's are allowed.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTown.Focus();
                 return;
             }
@@ -128,7 +130,7 @@ namespace PropertyRentalSystem
             bool isValidAddress = validationFunctions.validTextString(txtAddress.Text);
             if (!isValidAddress)
             {
-                MessageBox.Show("Property Address Invalid!\nProperty Address must be English letters, spaces and 's are allowed.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Property Address Invalid!\nProperty Town must contain English letters, also spaces and 's are allowed.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtAddress.Focus();
                 return;
             }
@@ -363,7 +365,7 @@ namespace PropertyRentalSystem
                 lblOwner.Visible = false;
             
                 //find matching Owners
-                grdOwners.DataSource = PropOwner.findOwners(txtSurnameSRH.Text).Tables["Owner"];
+                grdOwners.DataSource = PropOwner.findOwners(txtSurnameSRH.Text.ToUpper()).Tables["Owner"];
 
                 if (grdOwners.Rows.Count == 0)
                 {
@@ -413,5 +415,10 @@ namespace PropertyRentalSystem
             this.Close();
         }
 
+        private void txtSurnameSRH_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                this.btnSurnameSRH_Click(sender, e);
+        }
     }
 }

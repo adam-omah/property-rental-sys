@@ -13,6 +13,7 @@ namespace PropertyRentalSystem
         public static bool validTextString(string text)
         {
             bool result = true;
+            bool containsLetters = false;
             Char[] nameChars = text.ToCharArray();
 
 
@@ -24,12 +25,24 @@ namespace PropertyRentalSystem
                     || (nameChars[i] >= 'a' && nameChars[i] <= 'z') || (nameChars[i] >= 'A' && nameChars[i] <= 'Z')
                     || (nameChars[i] >= '0' && nameChars[i] <= '9'))
                 {
-
+                    if ((nameChars[i] >= 'a' && nameChars[i] <= 'z') || (nameChars[i] >= 'A' && nameChars[i] <= 'Z'))
+                    {
+                        containsLetters = true;
+                    }
                 }
                 else
                     result = false;
             }
-            return result;
+            if (containsLetters)
+            {
+                return result;
+            }
+            else
+            {
+                // if no letters (only numbers and symbols that are allowed) return false.
+                return false;
+            }
+            
         }
 
         public static bool validPositiveNumber(string number)

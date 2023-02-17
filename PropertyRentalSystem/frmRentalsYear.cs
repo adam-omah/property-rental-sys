@@ -26,6 +26,12 @@ namespace PropertyRentalSystem
 
         private void frmRentalsYear_Load(object sender, EventArgs e)
         {
+
+            // Centre on screen
+            this.CenterToScreen();
+            // moves up 300 units so that its expansion is allowed for.
+            this.Top -= 300;
+
             chtRentalsInYear.Visible = false;
             // On load retrieve data from completed years of opperation:
 

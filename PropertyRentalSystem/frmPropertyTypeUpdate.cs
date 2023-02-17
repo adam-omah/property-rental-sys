@@ -24,6 +24,8 @@ namespace PropertyRentalSystem
         {
             LoadPropertyTypes();
             this.CenterToScreen();
+            // moves up 150 units so that its expansion is allowed for.
+            this.Top -= 150;
         }
 
         private void LoadPropertyTypes()
@@ -52,12 +54,14 @@ namespace PropertyRentalSystem
             {
                 txtPropertyTypeDescription.Clear();
                 grpUpdateType.Visible = false;
+                btnHome1.Visible = true;
             }
             else
             {
                 // Access the data set and get the description.
                 txtPropertyTypeDescription.Text = ds.Tables[0].Rows[cboPropType.SelectedIndex][1].ToString();
                 grpUpdateType.Visible = true;
+                btnHome1.Visible = false;
 
             }
 
@@ -99,15 +103,23 @@ namespace PropertyRentalSystem
 
             txtPropertyTypeDescription.Clear();
             grpUpdateType.Visible = false;
+            
 
             LoadPropertyTypes();
 
             cboPropType.SelectedIndex = -1;
 
+            btnHome1.Visible = true;
+
 
         }
 
         private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnHome1_Click(object sender, EventArgs e)
         {
             this.Close();
         }

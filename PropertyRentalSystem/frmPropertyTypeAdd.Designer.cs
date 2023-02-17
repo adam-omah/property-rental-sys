@@ -31,12 +31,12 @@ namespace PropertyRentalSystem
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPropertyTypeAdd));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnHome = new System.Windows.Forms.Button();
             this.btnAddPropertyType = new System.Windows.Forms.Button();
             this.txtPropertyTypeDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPropertyTypeCode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnHome = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,11 +55,23 @@ namespace PropertyRentalSystem
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Property Type";
             // 
+            // btnHome
+            // 
+            this.btnHome.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.Location = new System.Drawing.Point(281, 154);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(159, 40);
+            this.btnHome.TabIndex = 7;
+            this.btnHome.Text = "Back To Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // btnAddPropertyType
             // 
-            this.btnAddPropertyType.Location = new System.Drawing.Point(27, 161);
+            this.btnAddPropertyType.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPropertyType.Location = new System.Drawing.Point(22, 154);
             this.btnAddPropertyType.Name = "btnAddPropertyType";
-            this.btnAddPropertyType.Size = new System.Drawing.Size(249, 40);
+            this.btnAddPropertyType.Size = new System.Drawing.Size(253, 40);
             this.btnAddPropertyType.TabIndex = 4;
             this.btnAddPropertyType.Text = "Add Property Type";
             this.btnAddPropertyType.UseVisualStyleBackColor = true;
@@ -67,46 +79,40 @@ namespace PropertyRentalSystem
             // 
             // txtPropertyTypeDescription
             // 
-            this.txtPropertyTypeDescription.Location = new System.Drawing.Point(23, 116);
+            this.txtPropertyTypeDescription.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPropertyTypeDescription.Location = new System.Drawing.Point(22, 109);
             this.txtPropertyTypeDescription.Name = "txtPropertyTypeDescription";
-            this.txtPropertyTypeDescription.Size = new System.Drawing.Size(418, 22);
+            this.txtPropertyTypeDescription.Size = new System.Drawing.Size(418, 27);
             this.txtPropertyTypeDescription.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 81);
+            this.label2.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(23, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(177, 17);
+            this.label2.Size = new System.Drawing.Size(210, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Property Type Description:";
             // 
             // txtPropertyTypeCode
             // 
-            this.txtPropertyTypeCode.Location = new System.Drawing.Point(164, 41);
+            this.txtPropertyTypeCode.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPropertyTypeCode.Location = new System.Drawing.Point(189, 34);
             this.txtPropertyTypeCode.MaxLength = 2;
             this.txtPropertyTypeCode.Name = "txtPropertyTypeCode";
-            this.txtPropertyTypeCode.Size = new System.Drawing.Size(44, 22);
+            this.txtPropertyTypeCode.Size = new System.Drawing.Size(86, 27);
             this.txtPropertyTypeCode.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 44);
+            this.label1.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(23, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 17);
+            this.label1.Size = new System.Drawing.Size(158, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Poperty Type Code:";
-            // 
-            // btnHome
-            // 
-            this.btnHome.Location = new System.Drawing.Point(282, 161);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(175, 40);
-            this.btnHome.TabIndex = 7;
-            this.btnHome.Text = "Back To Home";
-            this.btnHome.UseVisualStyleBackColor = true;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // frmPropertyTypeAdd
             // 

@@ -34,6 +34,7 @@ namespace PropertyRentalSystem
                 txtSurnameSRH.Clear();
                 txtSurnameSRH.Focus();
                 grdOwners.Visible = false;
+                btnHome1.Visible = true;
                 return;
             }
 
@@ -41,6 +42,7 @@ namespace PropertyRentalSystem
             //display owners surname search grid 
             grdOwners.Visible = true;
             lblOwners.Visible = true;
+            btnHome1.Visible = false;
 
 
         }
@@ -89,8 +91,10 @@ namespace PropertyRentalSystem
 
         private void frmOwnerUpdate_Load(object sender, EventArgs e)
         {
-
+            // Centre on screen
             this.CenterToScreen();
+            // moves up 200 units so that its expansion is allowed for.
+            this.Top -= 200;
 
             // loading the possible Owner Status's :
             cboOwnerStatus.Items.Add("Active - 'A' ");
@@ -221,6 +225,7 @@ namespace PropertyRentalSystem
             // Hide Update Details again.
             grpOwner.Visible = false;
             grdOwners.Visible = false;
+            btnHome1.Visible = true;
 
             //Reset focus to Search field.
             txtSurnameSRH.Focus();
@@ -237,6 +242,11 @@ namespace PropertyRentalSystem
         {
             if (e.KeyCode == Keys.Enter)
                 this.btnSearch_Click(sender, e);
+        }
+
+        private void btnHome1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -328,10 +328,15 @@ namespace PropertyRentalSystem
 
         private void frmRentalUpdate_Load(object sender, EventArgs e)
         {
+            
+            
             cboRentalStatus.Items.Add("Active - 'A' ");
             cboRentalStatus.Items.Add("Inactive - 'I' ");
 
+            // Centre on screen
             this.CenterToScreen();
+            // moves up 300 units so that its expansion is allowed for.
+            this.Top -= 300;
 
             btnHome.Visible = false;
             txtEircodeSRH.Focus();

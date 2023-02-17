@@ -54,6 +54,7 @@ namespace PropertyRentalSystem
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblOwners = new System.Windows.Forms.Label();
+            this.btnHome1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdOwners)).BeginInit();
             this.grpOwner.SuspendLayout();
             this.SuspendLayout();
@@ -334,6 +335,17 @@ namespace PropertyRentalSystem
             this.lblOwners.Text = "Please Click on an owner to select : ";
             this.lblOwners.Visible = false;
             // 
+            // btnHome1
+            // 
+            this.btnHome1.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome1.Location = new System.Drawing.Point(161, 69);
+            this.btnHome1.Name = "btnHome1";
+            this.btnHome1.Size = new System.Drawing.Size(180, 40);
+            this.btnHome1.TabIndex = 22;
+            this.btnHome1.Text = "Back To Home";
+            this.btnHome1.UseVisualStyleBackColor = true;
+            this.btnHome1.Click += new System.EventHandler(this.btnHome1_Click);
+            // 
             // frmOwnerUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -341,6 +353,7 @@ namespace PropertyRentalSystem
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(821, 521);
+            this.Controls.Add(this.btnHome1);
             this.Controls.Add(this.lblOwners);
             this.Controls.Add(this.grpOwner);
             this.Controls.Add(this.btnSearch);
@@ -385,5 +398,6 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Label lblOwners;
+        private System.Windows.Forms.Button btnHome1;
     }
 }

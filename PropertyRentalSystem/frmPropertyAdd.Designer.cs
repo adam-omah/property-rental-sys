@@ -281,9 +281,9 @@ namespace PropertyRentalSystem
             this.cboHeatingSource.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboHeatingSource.FormattingEnabled = true;
             this.cboHeatingSource.ItemHeight = 20;
-            this.cboHeatingSource.Location = new System.Drawing.Point(379, 52);
+            this.cboHeatingSource.Location = new System.Drawing.Point(353, 52);
             this.cboHeatingSource.Name = "cboHeatingSource";
-            this.cboHeatingSource.Size = new System.Drawing.Size(136, 28);
+            this.cboHeatingSource.Size = new System.Drawing.Size(195, 28);
             this.cboHeatingSource.Sorted = true;
             this.cboHeatingSource.TabIndex = 17;
             // 
@@ -327,7 +327,7 @@ namespace PropertyRentalSystem
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(238, 57);
+            this.label11.Location = new System.Drawing.Point(224, 58);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(135, 20);
             this.label11.TabIndex = 12;
@@ -384,7 +384,7 @@ namespace PropertyRentalSystem
             // numEnsuiteBedrooms
             // 
             this.numEnsuiteBedrooms.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numEnsuiteBedrooms.Location = new System.Drawing.Point(161, 119);
+            this.numEnsuiteBedrooms.Location = new System.Drawing.Point(161, 123);
             this.numEnsuiteBedrooms.Maximum = new decimal(new int[] {
             20,
             0,
@@ -434,7 +434,7 @@ namespace PropertyRentalSystem
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(0, 121);
+            this.label9.Location = new System.Drawing.Point(6, 125);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(155, 20);
             this.label9.TabIndex = 2;
@@ -490,6 +490,7 @@ namespace PropertyRentalSystem
             this.txtSurnameSRH.Name = "txtSurnameSRH";
             this.txtSurnameSRH.Size = new System.Drawing.Size(180, 27);
             this.txtSurnameSRH.TabIndex = 1;
+            this.txtSurnameSRH.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSurnameSRH_KeyDown);
             // 
             // grdOwners
             // 

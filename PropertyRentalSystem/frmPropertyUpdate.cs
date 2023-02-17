@@ -32,9 +32,12 @@ namespace PropertyRentalSystem
 
         private void frmPropertyUpdate_Load(object sender, EventArgs e)
         {
+            // Centre on screen
             this.CenterToScreen();
-            // Load Property Types and Type Codes.
+            // moves up 200 units so that its expansion is allowed for.
+            this.Top -= 200;
 
+            // Load Property Types and Type Codes.
             //Load TypeCodes into ComboBox
             dsTypes = PropertyType.getTypes();
             cboPropertyType.Items.Clear();
@@ -110,7 +113,7 @@ namespace PropertyRentalSystem
             bool isValidName = validationFunctions.validTextString(txtTown.Text);
             if (!isValidName)
             {
-                MessageBox.Show("Property Town Invalid!\nProperty Town must be English letters, spaces and 's are allowed.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Property Town Invalid!\nProperty Town must contain English letters, also spaces and 's are allowed.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTown.Focus();
                 return;
             }
@@ -126,7 +129,7 @@ namespace PropertyRentalSystem
             bool isValidAddress = validationFunctions.validTextString(txtAddress.Text);
             if (!isValidAddress)
             {
-                MessageBox.Show("Property Address Invalid!\nProperty Address must be English letters, spaces and 's are allowed.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Property Address Invalid!\nProperty Town must contain English letters, also spaces and 's are allowed.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtAddress.Focus();
                 return;
             }
@@ -225,7 +228,7 @@ namespace PropertyRentalSystem
             // normal text fields.
             // Eircode Is not to be changed as this is the property Primary key,
             // Eircode is set when property is found on search.
-            
+
             theProperty.setTypeCode(dsTypes.Tables[0].Rows[cboPropertyType.SelectedIndex][0].ToString());
             theProperty.setOwnerID(theOwner.getOwnerID());
             theProperty.setTown(validationFunctions.SQLApostrophe(txtTown.Text));
@@ -242,7 +245,7 @@ namespace PropertyRentalSystem
             theProperty.setParkingSpaces(Convert.ToInt32(numParkingSpaces.Value));
 
             // cbo
-            theProperty.setHeatingSource(Convert.ToInt32(cboHeatingSource.Text.Substring(0,1)));
+            theProperty.setHeatingSource(Convert.ToInt32(cboHeatingSource.Text.Substring(0, 1)));
 
             // yes no options
             if (chkHasWifi.Checked)
@@ -272,7 +275,7 @@ namespace PropertyRentalSystem
             theProperty.setGardenSpace(gardenSpace.ToString());
 
             // settting status
-            theProperty.setStatus(cboPropStatus.Text.Substring(0,1));
+            theProperty.setStatus(cboPropStatus.Text.Substring(0, 1));
 
             // Update the property.
 
@@ -303,19 +306,28 @@ namespace PropertyRentalSystem
             chkHasWifi.Checked = false;
             chkOwnerOccupied.Checked = false;
             chkPetsAllowed.Checked = false;
-
-            grpPropertyDetails.Visible = false;
-            grpPropertyExtras.Visible = false;
-            btnUpdateProperty.Visible = false;
-
+            hidePropertyDetails();
 
             txtEircode.Focus();
         }
 
+        private void hidePropertyDetails()
+        {
+            grpPropertyDetails.Visible = false;
+            grpPropertyExtras.Visible = false;
+            btnUpdateProperty.Visible = false;
+            btnHome.Visible = false;
+
+            btnHome1.Visible = true;
+        }
+
         private void btnSearchEircode_Click(object sender, EventArgs e)
         {
+            hidePropertyDetails();
+
             // moved validation of numbers to a public helper class to make it more gloabl.
             bool isValidEircode = validationFunctions.validEircode(txtEircode.Text.ToUpper());
+            
 
             if (!isValidEircode)
             {
@@ -422,6 +434,8 @@ namespace PropertyRentalSystem
                     grpPropertyDetails.Visible = true;
                     grpPropertyExtras.Visible = true;
                     btnUpdateProperty.Visible = true;
+                    btnHome.Visible = true;
+                    btnHome1.Visible = false;
                 }
             }
         }
@@ -429,9 +443,7 @@ namespace PropertyRentalSystem
         private void btnSurnameSRH_Click(object sender, EventArgs e)
         {
             // Hiding Property details if new search.
-            grpPropertyDetails.Visible = false;
-            grpPropertyExtras.Visible = false;
-            btnUpdateProperty.Visible = false;
+            hidePropertyDetails();
 
             //find matching Owners
             grdOwners.DataSource = PropOwner.findOwners(txtSurnameSRH.Text).Tables["Owner"];
@@ -446,6 +458,7 @@ namespace PropertyRentalSystem
 
             //display owners surname search grid 
             grdOwners.Visible = true;
+            lblOwnerSRH.Visible = true;
         }
 
         private void grdOwners_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -468,11 +481,24 @@ namespace PropertyRentalSystem
             grpPropertyDetails.Visible = true;
             grpPropertyExtras.Visible = true;
             btnUpdateProperty.Visible = true;
+            btnHome.Visible = true;
             grdOwners.Visible = false;
+            lblOwnerSRH.Visible = false;
             txtTown.Focus();
         }
 
         private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtEircode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                this.btnSearchEircode_Click(sender, e);
+        }
+
+        private void btnHome1_Click(object sender, EventArgs e)
         {
             this.Close();
         }

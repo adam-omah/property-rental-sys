@@ -43,7 +43,7 @@ namespace PropertyRentalSystem
 
             //Check to see if Code already Exists.
 
-            if (!PropertyType.TypeCodeExists(txtPropertyTypeCode.Text))
+            if (!PropertyType.TypeCodeExists(txtPropertyTypeCode.Text.ToUpper()))
             {
                 MessageBox.Show("Property Type Code 'SD' Already Exists", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPropertyTypeCode.Focus();
@@ -62,8 +62,8 @@ namespace PropertyRentalSystem
 
 
             // Save to Data Store once validated.
-
-            PropertyType newType = new PropertyType(txtPropertyTypeCode.Text,txtPropertyTypeDescription.Text);
+            // set type code to upper case, validate description with ' allowance.
+            PropertyType newType = new PropertyType(txtPropertyTypeCode.Text.ToUpper(), validationFunctions.SQLApostrophe(txtPropertyTypeDescription.Text));
 
             newType.addPropertyType();
             
@@ -80,6 +80,8 @@ namespace PropertyRentalSystem
         private void frmPropertyTypeAdd_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
+            // moves up 100 units so that its expansion is allowed for.
+            this.Top -= 100;
         }
 
         private void btnHome_Click(object sender, EventArgs e)

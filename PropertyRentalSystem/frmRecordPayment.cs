@@ -198,7 +198,10 @@ namespace PropertyRentalSystem
 
         private void frmRecordPayment_Load(object sender, EventArgs e)
         {
+            // Centre on screen
             this.CenterToScreen();
+            // moves up 200 units so that its expansion is allowed for.
+            this.Top -= 200;
         }
 
         private void btnHome_Click(object sender, EventArgs e)

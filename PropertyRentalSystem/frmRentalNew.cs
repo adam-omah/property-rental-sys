@@ -48,7 +48,7 @@ namespace PropertyRentalSystem
 
             if (!isValidTown)
             {
-                MessageBox.Show("Town is Invalid, Please enter a valid Eircode", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Town is Invalid!\nA Town must contain English letters, also spaces and 's are allowed.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTownSRH.Clear();
                 txtTownSRH.Focus();
                 return;
@@ -317,8 +317,11 @@ namespace PropertyRentalSystem
 
         private void frmRentalNew_Load(object sender, EventArgs e)
         {
-            this.CenterToParent();
-            
+            // Centre on screen
+            this.CenterToScreen();
+            // moves up 300 units so that its expansion is allowed for.
+            this.Top -= 300;
+
             // At start set time date time to now and future time to 12 months ahead.
             dtpStartDate.Value = DateTime.Now;
             // end date 12 months ahead default.

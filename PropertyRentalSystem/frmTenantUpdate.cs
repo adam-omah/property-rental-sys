@@ -81,6 +81,11 @@ namespace PropertyRentalSystem
 
         private void frmTenantUpdate_Load(object sender, EventArgs e)
         {
+            // Centre on screen
+            this.CenterToScreen();
+            // moves up 200 units so that its expansion is allowed for.
+            this.Top -= 200;
+
             // loading the possible Tenant Status's :
             cboTenantStatus.Items.Add("Active - 'A' ");
             cboTenantStatus.Items.Add("Inactive - 'I' ");
