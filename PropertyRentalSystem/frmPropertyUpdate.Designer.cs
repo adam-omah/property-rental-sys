@@ -168,7 +168,6 @@ namespace PropertyRentalSystem
             this.cboPropStatus.Location = new System.Drawing.Point(219, 171);
             this.cboPropStatus.Name = "cboPropStatus";
             this.cboPropStatus.Size = new System.Drawing.Size(136, 28);
-            this.cboPropStatus.Sorted = true;
             this.cboPropStatus.TabIndex = 23;
             // 
             // label15

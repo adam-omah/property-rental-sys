@@ -17,6 +17,7 @@ namespace PropertyRentalSystem
         DataSet dsHeat;
         PropOwner theOwner = new PropOwner();
         Property theProperty = new Property();
+        Rental theRental = new Rental();
 
         // Default values for check boxes.
         char wifi = 'N';
@@ -73,6 +74,8 @@ namespace PropertyRentalSystem
 
 
             // Status Values are hard coded as these do not change and are part of the requirements.
+
+            
 
             cboPropStatus.Items.Add("A - Available");
             cboPropStatus.Items.Add("R - Rented");
@@ -274,8 +277,47 @@ namespace PropertyRentalSystem
             theProperty.setOwnerOccupied(ownerO.ToString());
             theProperty.setGardenSpace(gardenSpace.ToString());
 
-            // settting status
-            theProperty.setStatus(cboPropStatus.Text.Substring(0, 1));
+            // before setting the new status, check that old status is not rented.
+            // and that new start is not rented as well 
+            if(theProperty.getStatus() == 'R' && !cboPropStatus.Text.Substring(0, 1).Equals("R"))
+            {
+                // find the rental that is accoicated to the property
+                theRental.getRental(theProperty.getEircode().ToUpper());
+                theRental.setStatus("I");
+                theRental.updateRental();
+
+                // reset owners grd.
+                grdOwners.DataSource = null;
+                grdOwners.Rows.Clear();
+                // find all the tenants in the rental id that are active:
+                grdOwners.DataSource = TenantRental.findActiveTenantRentals(theRental.getRentalID()).Tables["tenant_rentals"];
+
+                // check to make sure there is tenant rentals.
+
+                if(grdOwners.Rows.Count != 0)
+                {
+                    for (int i = 0; i < grdOwners.Rows.Count; i++)
+                    {
+                        //Add each unit to the starting tentants arrays (keeps track of tenants id's already active.)
+                        Tenant aTenant = new Tenant();
+                        aTenant.getTenant(Convert.ToInt32(grdOwners.Rows[i].Cells["TenantID"].Value.ToString()));
+
+                        TenantRental.updateTenantRental(Convert.ToInt32(theRental.getRentalID()), Convert.ToInt32(aTenant.getTenantID()), "I");
+                    }
+                }
+            }
+
+            // Check if Rented was selected.
+            if(cboPropStatus.Text.Substring(0, 1).Equals("R") && theProperty.getStatus() != 'R')
+            {
+                MessageBox.Show("You Cannot set a property to rented from this form! Status will remain as previous\nPlease go to create Rental to rent a property","Cannot rent from update property! Status will Remain unchanged.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                theProperty.setStatus(cboPropStatus.Text.Substring(0, 1));
+            }
+
+            
 
             // Update the property.
 
@@ -307,6 +349,10 @@ namespace PropertyRentalSystem
             chkOwnerOccupied.Checked = false;
             chkPetsAllowed.Checked = false;
             hidePropertyDetails();
+
+            // reset owners grd.
+            grdOwners.DataSource = null;
+            grdOwners.Rows.Clear();
 
             txtEircode.Focus();
         }
@@ -442,11 +488,10 @@ namespace PropertyRentalSystem
 
         private void btnSurnameSRH_Click(object sender, EventArgs e)
         {
-            // Hiding Property details if new search.
-            hidePropertyDetails();
+            
 
             //find matching Owners
-            grdOwners.DataSource = PropOwner.findOwners(txtSurnameSRH.Text).Tables["Owner"];
+            grdOwners.DataSource = PropOwner.findOwners(txtSurnameSRH.Text.ToUpper()).Tables["Owner"];
 
             if (grdOwners.Rows.Count == 0)
             {
@@ -455,6 +500,11 @@ namespace PropertyRentalSystem
                 txtSurnameSRH.Focus();
                 return;
             }
+
+            // Hiding Property details if new search.
+            hidePropertyDetails();
+
+            btnHome1.Visible = false;
 
             //display owners surname search grid 
             grdOwners.Visible = true;
