@@ -95,11 +95,14 @@ namespace PropertyRentalSystem
             grpPayerDetails.Visible = false;
             grpPaymentDetails.Visible = false;
             btnRecordPayment.Visible = false;
+            btnHome.Visible = false;
 
             // reset grd.
             grdProperty.DataSource = null;
             grdProperty.Rows.Clear();
             grdProperty.Visible = false;
+            lblProperties.Visible = false;
+            btnHome1.Visible = true;
 
             txtEircodeSRH.Focus();
 
@@ -111,6 +114,7 @@ namespace PropertyRentalSystem
             grdProperty.DataSource = null;
             grdProperty.Rows.Clear();
             grdProperty.Visible = false;
+            btnHome1.Visible = true;
 
             //find matching Property
             grdProperty.DataSource = Property.findProperties(txtEircode.Text.ToUpper()).Tables["Properties"];
@@ -133,41 +137,27 @@ namespace PropertyRentalSystem
                 txtMonthlyRent.Text = theProperty.getRentalPrice().ToString();
                 txtPropertyName.Text = theProperty.getAddress();
 
-                // if property is rented, instantiate the rental,
+                // find all rentals of this 
+                //find matching Tenants
+                grdProperty.DataSource = null;
+                grdProperty.Rows.Clear();
 
-                if (theProperty.getStatus() == 'R')
+                grdProperty.DataSource = Rental.findRentals(theProperty.getEircode()).Tables["Rentals"];
+
+                if (grdProperty.Rows.Count == 0)
                 {
-                    //instantiate the rental
-                    theRental.getRental(txtEircodeSRH.Text.ToUpper());
-                    // set the rental id to active rental.
-                    txtActiveRental.Text = theRental.getRentalID().ToString();
-                    
-                    grdProperty.Visible = false;
-                    grpPayerDetails.Visible = true;
-                    grpPaymentDetails.Visible = true;
-                    btnRecordPayment.Visible = true;
+                    MessageBox.Show("No rentals for this eircode were found,\nPlease try another Eirocde Or create the rental first. ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-                // if not find historic rental
-                else
-                {
-                    // find all rentals of this 
-                    //find matching Tenants
-                    grdProperty.DataSource = null;
-                    grdProperty.Rows.Clear();
 
-                    grdProperty.DataSource = Rental.findRentals(theProperty.getEircode()).Tables["Rentals"];
+                grdProperty.Visible = true;
+                lblProperties.Visible = true;
+                btnHome1.Visible = false;
 
-                    if (grdProperty.Rows.Count == 0)
-                    {
-                        MessageBox.Show("No rentals for this eircode were found,\nPlease try another Eirocde Or create the rental first. ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    grdProperty.Visible = true;
-                    grpPayerDetails.Visible = false;
-                    grpPaymentDetails.Visible = false;
-                    btnRecordPayment.Visible = false;
-                }
+                grpPayerDetails.Visible = false;
+                grpPaymentDetails.Visible = false;
+                btnRecordPayment.Visible = false;
+                btnHome.Visible = false;
             }
         }
 
@@ -190,10 +180,12 @@ namespace PropertyRentalSystem
             grdProperty.DataSource = null;
             grdProperty.Rows.Clear();
             grdProperty.Visible = false;
+            lblProperties.Visible = false;
 
             grpPayerDetails.Visible = true;
             grpPaymentDetails.Visible = true;
             btnRecordPayment.Visible = true;
+            btnHome.Visible = true;
         }
 
         private void frmRecordPayment_Load(object sender, EventArgs e)
@@ -207,6 +199,17 @@ namespace PropertyRentalSystem
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnHome1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtEircodeSRH_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                this.btnEircodeSRH_Click(sender, e);
         }
     }
 }

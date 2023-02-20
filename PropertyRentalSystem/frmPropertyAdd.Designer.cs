@@ -70,6 +70,7 @@ namespace PropertyRentalSystem
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnHome = new System.Windows.Forms.Button();
             this.lblOwner = new System.Windows.Forms.Label();
+            this.btnHome1 = new System.Windows.Forms.Button();
             this.grpPropertyDetails.SuspendLayout();
             this.grpPropertyExtras.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numParkingSpaces)).BeginInit();
@@ -269,7 +270,7 @@ namespace PropertyRentalSystem
             this.grpPropertyExtras.Controls.Add(this.label7);
             this.grpPropertyExtras.Location = new System.Drawing.Point(12, 464);
             this.grpPropertyExtras.Name = "grpPropertyExtras";
-            this.grpPropertyExtras.Size = new System.Drawing.Size(554, 153);
+            this.grpPropertyExtras.Size = new System.Drawing.Size(563, 153);
             this.grpPropertyExtras.TabIndex = 11;
             this.grpPropertyExtras.TabStop = false;
             this.grpPropertyExtras.Text = "Property Extras";
@@ -281,7 +282,7 @@ namespace PropertyRentalSystem
             this.cboHeatingSource.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboHeatingSource.FormattingEnabled = true;
             this.cboHeatingSource.ItemHeight = 20;
-            this.cboHeatingSource.Location = new System.Drawing.Point(353, 52);
+            this.cboHeatingSource.Location = new System.Drawing.Point(359, 54);
             this.cboHeatingSource.Name = "cboHeatingSource";
             this.cboHeatingSource.Size = new System.Drawing.Size(195, 28);
             this.cboHeatingSource.Sorted = true;
@@ -499,6 +500,7 @@ namespace PropertyRentalSystem
             this.grdOwners.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdOwners.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdOwners.Location = new System.Drawing.Point(12, 67);
+            this.grdOwners.Margin = new System.Windows.Forms.Padding(15);
             this.grdOwners.Name = "grdOwners";
             this.grdOwners.RowHeadersWidth = 51;
             this.grdOwners.RowTemplate.Height = 24;
@@ -511,8 +513,9 @@ namespace PropertyRentalSystem
             // 
             this.btnHome.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.Location = new System.Drawing.Point(379, 634);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(15);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(187, 28);
+            this.btnHome.Size = new System.Drawing.Size(196, 28);
             this.btnHome.TabIndex = 23;
             this.btnHome.Text = "Back To Home";
             this.btnHome.UseVisualStyleBackColor = true;
@@ -530,6 +533,17 @@ namespace PropertyRentalSystem
             this.lblOwner.Text = "Please Click an owner below to Select: ";
             this.lblOwner.Visible = false;
             // 
+            // btnHome1
+            // 
+            this.btnHome1.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome1.Location = new System.Drawing.Point(202, 45);
+            this.btnHome1.Name = "btnHome1";
+            this.btnHome1.Size = new System.Drawing.Size(183, 36);
+            this.btnHome1.TabIndex = 37;
+            this.btnHome1.Text = "Back To Home";
+            this.btnHome1.UseVisualStyleBackColor = true;
+            this.btnHome1.Click += new System.EventHandler(this.btnHome1_Click);
+            // 
             // frmPropertyAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -537,6 +551,7 @@ namespace PropertyRentalSystem
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(578, 668);
+            this.Controls.Add(this.btnHome1);
             this.Controls.Add(this.lblOwner);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.txtSurnameSRH);
@@ -607,5 +622,6 @@ namespace PropertyRentalSystem
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Label lblOwner;
+        private System.Windows.Forms.Button btnHome1;
     }
 }

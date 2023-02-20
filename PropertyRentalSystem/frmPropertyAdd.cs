@@ -352,6 +352,7 @@ namespace PropertyRentalSystem
             grpPropertyExtras.Visible = false;
             btnAddProperty.Visible = false;
             btnHome.Visible = false;
+            btnHome1.Visible = true;
 
             txtSurnameSRH.Focus();
 
@@ -363,7 +364,15 @@ namespace PropertyRentalSystem
                 //Hide the grid and lbl if new search.
                 grdOwners.Visible = false;
                 lblOwner.Visible = false;
-            
+                
+
+                // Hide other grps if second time searching
+                grpPropertyDetails.Visible = false;
+                grpPropertyExtras.Visible = false;
+                btnAddProperty.Visible = false;
+                btnHome.Visible = false;
+                btnHome1.Visible = true;
+
                 //find matching Owners
                 grdOwners.DataSource = PropOwner.findOwners(txtSurnameSRH.Text.ToUpper()).Tables["Owner"];
 
@@ -379,12 +388,8 @@ namespace PropertyRentalSystem
                 //display owners surname search grid 
                 grdOwners.Visible = true;
                 lblOwner.Visible = true;
-
-                // Hide other grps if second time searching
-                grpPropertyDetails.Visible = false;
-                grpPropertyExtras.Visible = false;
-                btnAddProperty.Visible = false;
-                btnHome.Visible = false;
+                btnHome1.Visible = false;
+                
 
         }
 
@@ -405,6 +410,7 @@ namespace PropertyRentalSystem
             grpPropertyExtras.Visible = true;
             btnAddProperty.Visible = true;
             btnHome.Visible = true;
+            btnHome1.Visible = false;
             grdOwners.Visible = false;
             lblOwner.Visible = false;
             txtTown.Focus();
@@ -419,6 +425,11 @@ namespace PropertyRentalSystem
         {
             if (e.KeyCode == Keys.Enter)
                 this.btnSurnameSRH_Click(sender, e);
+        }
+
+        private void btnHome1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

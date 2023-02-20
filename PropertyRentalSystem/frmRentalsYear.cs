@@ -29,10 +29,14 @@ namespace PropertyRentalSystem
 
             // Centre on screen
             this.CenterToScreen();
-            // moves up 300 units so that its expansion is allowed for.
-            this.Top -= 300;
+            this.Top += 100;
 
             chtRentalsInYear.Visible = false;
+
+            
+
+            
+
             // On load retrieve data from completed years of opperation:
 
             dsYears = Admin.getYears();

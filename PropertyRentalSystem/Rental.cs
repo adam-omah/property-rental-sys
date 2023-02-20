@@ -172,7 +172,7 @@ namespace PropertyRentalSystem
 
             //Define the SQL query to be executed
             String sqlQuery = "SELECT * FROM Rentals " +
-                "WHERE eircode = '" + Eircode + "'";
+                "WHERE eircode = '" + Eircode + "' ORDER BY status, StartDate Desc";
 
             //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);

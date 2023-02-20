@@ -54,7 +54,7 @@ Values ('AP', 'Apartment/Flat');
 PROMPT Adding HEating Sources...
 
 INSERT INTO heating_sources VALUES (1,'Oil Central Heating');
-INSERT INTO heating_sources VALUES (2,'Heat Pump Central Heating');
+INSERT INTO heating_sources VALUES (2,'Heat Pump');
 INSERT INTO heating_sources VALUES (3,'Electric Radiators');
 INSERT INTO heating_sources VALUES (4,'Storage Heaters');
 INSERT INTO heating_sources VALUES (5,'Solid Fuel Stove');
@@ -275,9 +275,12 @@ INSERT INTO Payments Values(72,2,400,'10-APR-2022');
 
 
 PROMPT Adding Years Opened....
-INSERT INTO Years_Opened Values(2022);
-INSERT INTO Years_Opened Values(2021);
 INSERT INTO Years_Opened Values(2020);
+INSERT INTO Years_Opened Values(2021);
+INSERT INTO Years_Opened Values(2022);
+INSERT INTO Years_Opened Values(2023);
+
+
 
 
 COMMIT;
