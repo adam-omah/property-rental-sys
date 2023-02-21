@@ -20,7 +20,6 @@ namespace PropertyRentalSystem
 
         Property theProperty = new Property();
         Rental theRental = new Rental();
-
         String payDateFormat;
 
 
@@ -30,7 +29,7 @@ namespace PropertyRentalSystem
             // Validate Data.
 
             // Date must be sometime in past or today. And in the last 10 years.
-            // I found that adding one hour makes this more accurate as it tries to equate
+            // I found that adding one hour makes this more accurate as it tries to equate.
             // now as the literal now by the milisecond.
             if (DateTime.Now.Date.AddHours(1).CompareTo(dtpPaymentDate.Value.Date) <= 0)
             {
@@ -39,6 +38,7 @@ namespace PropertyRentalSystem
                 return;
             }
 
+            // sensitive only by year, does not count months.
             if(DateTime.Now.Date.AddYears(-11) >= dtpPaymentDate.Value.Date)
             {
                 MessageBox.Show("Payment Date must be within the last 10 years!\nCannot be further in the past!");
@@ -194,6 +194,8 @@ namespace PropertyRentalSystem
             this.CenterToScreen();
             // moves up 200 units so that its expansion is allowed for.
             this.Top -= 200;
+            
+
         }
 
         private void btnHome_Click(object sender, EventArgs e)

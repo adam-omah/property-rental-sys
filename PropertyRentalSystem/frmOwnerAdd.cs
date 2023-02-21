@@ -35,6 +35,15 @@ namespace PropertyRentalSystem
                 txtFirstName.Focus();
                 return;
             }
+
+            bool isFirstName = validationFunctions.validTextString(txtFirstName.Text);
+            if (!isFirstName)
+            {
+                MessageBox.Show("First Name can only be normal english characthers and not jsut numbers", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Focus();
+                return;
+            }
+
             // checks last name.
             if (txtLastName.Text.Equals(""))
             {
@@ -48,6 +57,14 @@ namespace PropertyRentalSystem
                 txtFirstName.Focus();
                 return;
             }
+            bool isLastName = validationFunctions.validTextString(txtLastName.Text);
+            if (!isLastName)
+            {
+                MessageBox.Show("Last Name can only be normal english characthers and not jsut numbers", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Focus();
+                return;
+            }
+
             //checks valid phone number:
 
             if (txtPhoneNumber.Text.Equals(""))
@@ -126,7 +143,7 @@ namespace PropertyRentalSystem
 
             //Create an instance of Owner and instantiate with values from form controls
             // Set Owner Status to 'A' for active, Owner ID is assigned in Owners.cs
-            PropOwner aOwner = new PropOwner(validationFunctions.SQLApostrophe(txtFirstName.Text), validationFunctions.SQLApostrophe(txtLastName.Text.ToUpper()), Convert.ToInt64(txtPhoneNumber.Text),
+            PropOwner aOwner = new PropOwner(validationFunctions.SQLApostrophe(txtFirstName.Text.ToUpper()), validationFunctions.SQLApostrophe(txtLastName.Text.ToUpper()), Convert.ToInt64(txtPhoneNumber.Text),
                 txtEmailAddress.Text, txtHomeEircode.Text,txtOwnerIban.Text, 'A');
 
             //invoke the method to add the data to the Products table

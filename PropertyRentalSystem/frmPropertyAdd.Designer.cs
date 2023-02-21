@@ -97,6 +97,7 @@ namespace PropertyRentalSystem
             this.grpPropertyDetails.Controls.Add(this.label3);
             this.grpPropertyDetails.Controls.Add(this.cboPropertyType);
             this.grpPropertyDetails.Controls.Add(this.label2);
+            this.grpPropertyDetails.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpPropertyDetails.Location = new System.Drawing.Point(39, 67);
             this.grpPropertyDetails.Name = "grpPropertyDetails";
             this.grpPropertyDetails.Size = new System.Drawing.Size(503, 391);
@@ -112,7 +113,7 @@ namespace PropertyRentalSystem
             this.txtAddress.MaxLength = 100;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(290, 27);
-            this.txtAddress.TabIndex = 17;
+            this.txtAddress.TabIndex = 8;
             // 
             // label14
             // 
@@ -132,6 +133,7 @@ namespace PropertyRentalSystem
             this.txtPropertyOwner.ReadOnly = true;
             this.txtPropertyOwner.Size = new System.Drawing.Size(290, 27);
             this.txtPropertyOwner.TabIndex = 5;
+            this.txtPropertyOwner.TabStop = false;
             // 
             // label13
             // 
@@ -149,7 +151,7 @@ namespace PropertyRentalSystem
             this.rtxPropertyDescription.Location = new System.Drawing.Point(8, 266);
             this.rtxPropertyDescription.Name = "rtxPropertyDescription";
             this.rtxPropertyDescription.Size = new System.Drawing.Size(480, 111);
-            this.rtxPropertyDescription.TabIndex = 10;
+            this.rtxPropertyDescription.TabIndex = 11;
             this.rtxPropertyDescription.Text = "";
             // 
             // label6
@@ -169,7 +171,7 @@ namespace PropertyRentalSystem
             this.txtMonthlyRent.MaxLength = 9;
             this.txtMonthlyRent.Name = "txtMonthlyRent";
             this.txtMonthlyRent.Size = new System.Drawing.Size(150, 27);
-            this.txtMonthlyRent.TabIndex = 9;
+            this.txtMonthlyRent.TabIndex = 10;
             // 
             // label5
             // 
@@ -188,7 +190,7 @@ namespace PropertyRentalSystem
             this.txtEircode.MaxLength = 7;
             this.txtEircode.Name = "txtEircode";
             this.txtEircode.Size = new System.Drawing.Size(188, 27);
-            this.txtEircode.TabIndex = 8;
+            this.txtEircode.TabIndex = 9;
             // 
             // label4
             // 
@@ -227,7 +229,6 @@ namespace PropertyRentalSystem
             this.cboPropertyType.Location = new System.Drawing.Point(194, 73);
             this.cboPropertyType.Name = "cboPropertyType";
             this.cboPropertyType.Size = new System.Drawing.Size(188, 28);
-            this.cboPropertyType.Sorted = true;
             this.cboPropertyType.TabIndex = 6;
             // 
             // label2
@@ -268,6 +269,7 @@ namespace PropertyRentalSystem
             this.grpPropertyExtras.Controls.Add(this.label9);
             this.grpPropertyExtras.Controls.Add(this.label8);
             this.grpPropertyExtras.Controls.Add(this.label7);
+            this.grpPropertyExtras.Font = new System.Drawing.Font("Leelawadee", 10F);
             this.grpPropertyExtras.Location = new System.Drawing.Point(12, 464);
             this.grpPropertyExtras.Name = "grpPropertyExtras";
             this.grpPropertyExtras.Size = new System.Drawing.Size(563, 153);
@@ -477,6 +479,7 @@ namespace PropertyRentalSystem
             // 
             this.btnSurnameSRH.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSurnameSRH.Location = new System.Drawing.Point(390, 11);
+            this.btnSurnameSRH.Margin = new System.Windows.Forms.Padding(15);
             this.btnSurnameSRH.Name = "btnSurnameSRH";
             this.btnSurnameSRH.Size = new System.Drawing.Size(92, 28);
             this.btnSurnameSRH.TabIndex = 2;
@@ -537,6 +540,7 @@ namespace PropertyRentalSystem
             // 
             this.btnHome1.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome1.Location = new System.Drawing.Point(202, 45);
+            this.btnHome1.Margin = new System.Windows.Forms.Padding(15);
             this.btnHome1.Name = "btnHome1";
             this.btnHome1.Size = new System.Drawing.Size(183, 36);
             this.btnHome1.TabIndex = 37;

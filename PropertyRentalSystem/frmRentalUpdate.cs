@@ -35,8 +35,10 @@ namespace PropertyRentalSystem
             grpRentalDetails.Visible = false;
             grpTenants.Visible = false;
             grdTenants.Visible = false;
+            lblTenants.Visible = false;
             btnUpdateRental.Visible = false;
             btnHome.Visible = false;
+            btnHome1.Visible = true;
 
             //Reset Start & End Tenants on eircode search.
             StartTenants.Clear();
@@ -158,8 +160,12 @@ namespace PropertyRentalSystem
                         btnUpdateRental.Visible = true;
                         btnHome.Visible = true;
                         grdTenants.Visible = false;
-                        
-                        
+                        lblTenants.Visible = false;
+
+                        btnHome1.Visible = false;
+
+                        //focus set to surname as not always start date editable.
+                        txtSurnameSRH.Focus();
 
                     }
                     else
@@ -292,6 +298,7 @@ namespace PropertyRentalSystem
             }
 
             grdTenants.Visible = false;
+            lblTenants.Visible = false;
 
             //show confirmation message
             MessageBox.Show("Rental Details Have Been Updated in the Rental Data Store", "Confirmation message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -320,26 +327,30 @@ namespace PropertyRentalSystem
             grpRentalDetails.Visible = false;
             grpTenants.Visible = false;
             grdTenants.Visible = false;
+            lblTenants.Visible = false;
             btnUpdateRental.Visible = false;
             btnHome.Visible = false;
+            btnHome1.Visible = true;
 
             txtEircodeSRH.Focus();
         }
 
         private void frmRentalUpdate_Load(object sender, EventArgs e)
         {
-            
-            
+            btnHome.Visible = false;
+
             cboRentalStatus.Items.Add("Active - 'A' ");
             cboRentalStatus.Items.Add("Inactive - 'I' ");
 
             // Centre on screen
             this.CenterToScreen();
-            // moves up 300 units so that its expansion is allowed for.
-            this.Top -= 300;
+            // moves units so that its expansion is allowed for.
+            this.Top -= 200;
+            this.Left -= 100;
 
-            btnHome.Visible = false;
+            
             txtEircodeSRH.Focus();
+            
         }
 
 
@@ -464,9 +475,27 @@ namespace PropertyRentalSystem
             }
 
             grdTenants.Visible = true;
+            lblTenants.Visible = true;
         }
 
         private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtEircodeSRH_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                this.btnSRHEircode_Click(sender, e);
+        }
+
+        private void txtSurnameSRH_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                this.btnSRHTenants_Click_1(sender, e);
+        }
+
+        private void btnHome1_Click(object sender, EventArgs e)
         {
             this.Close();
         }

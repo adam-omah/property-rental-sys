@@ -45,20 +45,22 @@ namespace PropertyRentalSystem
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(26, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 17);
+            this.label1.Size = new System.Drawing.Size(167, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "Please Select a year :";
             // 
             // cboRentalsInYear
             // 
             this.cboRentalsInYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboRentalsInYear.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboRentalsInYear.FormattingEnabled = true;
-            this.cboRentalsInYear.Location = new System.Drawing.Point(178, 12);
+            this.cboRentalsInYear.Location = new System.Drawing.Point(208, 14);
             this.cboRentalsInYear.Name = "cboRentalsInYear";
-            this.cboRentalsInYear.Size = new System.Drawing.Size(298, 24);
-            this.cboRentalsInYear.TabIndex = 3;
+            this.cboRentalsInYear.Size = new System.Drawing.Size(298, 28);
+            this.cboRentalsInYear.TabIndex = 1;
             this.cboRentalsInYear.SelectedIndexChanged += new System.EventHandler(this.cboRentalsInYear_SelectedIndexChanged);
             // 
             // chtRentalsInYear
@@ -68,7 +70,7 @@ namespace PropertyRentalSystem
             this.chtRentalsInYear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             legend1.Name = "Legend1";
             this.chtRentalsInYear.Legends.Add(legend1);
-            this.chtRentalsInYear.Location = new System.Drawing.Point(21, 46);
+            this.chtRentalsInYear.Location = new System.Drawing.Point(30, 60);
             this.chtRentalsInYear.Margin = new System.Windows.Forms.Padding(25);
             this.chtRentalsInYear.Name = "chtRentalsInYear";
             this.chtRentalsInYear.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -82,7 +84,7 @@ namespace PropertyRentalSystem
             series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
             this.chtRentalsInYear.Series.Add(series1);
             this.chtRentalsInYear.Series.Add(series2);
-            this.chtRentalsInYear.Size = new System.Drawing.Size(1296, 633);
+            this.chtRentalsInYear.Size = new System.Drawing.Size(1200, 600);
             this.chtRentalsInYear.TabIndex = 6;
             this.chtRentalsInYear.Text = "Year 2020";
             title1.Name = "GraphTitle";
@@ -91,12 +93,15 @@ namespace PropertyRentalSystem
             // 
             // btnHome
             // 
-            this.btnHome.Location = new System.Drawing.Point(491, 5);
+            this.btnHome.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.Location = new System.Drawing.Point(521, 9);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(15);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(159, 36);
-            this.btnHome.TabIndex = 57;
+            this.btnHome.TabIndex = 2;
             this.btnHome.Text = "Back To Home";
             this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // frmRentalsYear
             // 

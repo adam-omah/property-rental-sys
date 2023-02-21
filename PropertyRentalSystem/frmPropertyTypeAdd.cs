@@ -45,7 +45,13 @@ namespace PropertyRentalSystem
 
             if (!PropertyType.TypeCodeExists(txtPropertyTypeCode.Text.ToUpper()))
             {
-                MessageBox.Show("Property Type Code 'SD' Already Exists", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Property Type Code " + txtPropertyTypeCode.Text.ToUpper() + " Already Exists,\nPlease try another type Code", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPropertyTypeCode.Focus();
+                return;
+            }
+            if (txtPropertyTypeCode.Text.ToUpper().Equals("XX"))
+            {
+                MessageBox.Show("Property Type Code 'XX' is Reserved to represent No Type Selected,\nPlease try another type Code", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPropertyTypeCode.Focus();
                 return;
             }
@@ -55,6 +61,28 @@ namespace PropertyRentalSystem
             if (txtPropertyTypeDescription.Text.Equals(""))
             {
                 MessageBox.Show("Property Type Description Must Be Entered", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPropertyTypeDescription.Focus();
+                return;
+            }
+
+            if (txtPropertyTypeDescription.Text.Length < 5)
+            {
+                MessageBox.Show("Property Type Description Must longer than 5 characthers.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPropertyTypeDescription.Focus();
+                return;
+            }
+
+            if (txtPropertyTypeDescription.Text.Length > 200)
+            {
+                MessageBox.Show("Property Type Description Must less than 200 characthers", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPropertyTypeDescription.Focus();
+                return;
+            }
+
+            bool isValidDescript = validationFunctions.validTextString(txtPropertyTypeDescription.Text);
+            if (!isValidDescript)
+            {
+                MessageBox.Show("Type Description can only be normal english characthers and not jsut numbers", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPropertyTypeDescription.Focus();
                 return;
             }

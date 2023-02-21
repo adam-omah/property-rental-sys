@@ -242,7 +242,7 @@ namespace PropertyRentalSystem
 
             //Define the SQL query to be executed
             String sqlQuery = "SELECT eircode, Town, Address, bedrooms, bathrooms, monthlyrent FROM Properties " +
-                "WHERE Town LIKE '" + Town + "%' And Status = 'A' ORDER BY bedrooms";
+                "WHERE Town LIKE '%" + Town + "%' And Status = 'A' ORDER BY bedrooms";
 
             //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);

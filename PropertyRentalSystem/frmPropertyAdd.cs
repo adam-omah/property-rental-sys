@@ -179,8 +179,11 @@ namespace PropertyRentalSystem
                 return;
             }
 
-
+            // checking property description.
             // check if property Description is empty
+
+            //MessageBox.Show("" + rtxPropertyDescription.Text.Length);
+
             if (rtxPropertyDescription.Text.Equals(""))
             {
                 MessageBox.Show("Property Description must be entered", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -192,7 +195,8 @@ namespace PropertyRentalSystem
                 MessageBox.Show("Property Descriptionis too long, Please keep below 200 chars.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 rtxPropertyDescription.Focus();
                 return;
-            }else if(rtxPropertyDescription.Text.Length <= 10)
+            }
+            if(rtxPropertyDescription.Text.Length <= 10)
             {
                 MessageBox.Show("Property Descriptionis too short, Please enter at least 10 chars.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 rtxPropertyDescription.Focus();
@@ -413,7 +417,9 @@ namespace PropertyRentalSystem
             btnHome1.Visible = false;
             grdOwners.Visible = false;
             lblOwner.Visible = false;
+
             txtTown.Focus();
+            cboPropertyType.Focus();
         }
 
         private void btnHome_Click(object sender, EventArgs e)

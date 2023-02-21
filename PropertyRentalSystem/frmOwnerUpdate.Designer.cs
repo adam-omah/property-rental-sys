@@ -127,8 +127,9 @@ namespace PropertyRentalSystem
             this.grpOwner.Controls.Add(this.label3);
             this.grpOwner.Controls.Add(this.label2);
             this.grpOwner.Controls.Add(this.label7);
-            this.grpOwner.Font = new System.Drawing.Font("Leelawadee", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpOwner.Font = new System.Drawing.Font("Leelawadee", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpOwner.Location = new System.Drawing.Point(2, 86);
+            this.grpOwner.Margin = new System.Windows.Forms.Padding(15);
             this.grpOwner.Name = "grpOwner";
             this.grpOwner.Size = new System.Drawing.Size(457, 408);
             this.grpOwner.TabIndex = 4;
@@ -339,6 +340,7 @@ namespace PropertyRentalSystem
             // 
             this.btnHome1.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome1.Location = new System.Drawing.Point(161, 69);
+            this.btnHome1.Margin = new System.Windows.Forms.Padding(15);
             this.btnHome1.Name = "btnHome1";
             this.btnHome1.Size = new System.Drawing.Size(180, 40);
             this.btnHome1.TabIndex = 22;

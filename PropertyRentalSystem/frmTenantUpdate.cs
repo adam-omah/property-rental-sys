@@ -21,9 +21,12 @@ namespace PropertyRentalSystem
 
         private void btnSearch_Click_1(object sender, EventArgs e)
         {
+            grdTenants.Visible = false;
+            lblTenants.Visible = false;
+            btnHome1.Visible = true;
 
             //find matching Tenants
-            grdTenants.DataSource = Tenant.findTenants(txtSurnameSRH.Text).Tables["Tenants"];
+            grdTenants.DataSource = Tenant.findTenants(txtSurnameSRH.Text.ToUpper()).Tables["Tenants"];
 
             if (grdTenants.Rows.Count == 0)
             {
@@ -35,10 +38,11 @@ namespace PropertyRentalSystem
 
             //display Tenants surname search grid 
             grdTenants.Visible = true;
+            lblTenants.Visible = true;
+            btnHome1.Visible = false;
 
             // Hiding Tenant details if new search.
             grpTenant.Visible = false;
-            
         }
 
         private void grdTenants_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -73,8 +77,13 @@ namespace PropertyRentalSystem
             // display Tenant details.
             grpTenant.Visible = true;
 
+            
+
             // hiding surname search grid after selection:
             grdTenants.Visible = false;
+            lblTenants.Visible = false;
+
+            txtFirstName.Focus();
         }
 
 
@@ -83,8 +92,8 @@ namespace PropertyRentalSystem
         {
             // Centre on screen
             this.CenterToScreen();
-            // moves up 200 units so that its expansion is allowed for.
-            this.Top -= 200;
+            // moves up 150 units so that its expansion is allowed for.
+            this.Top -= 150;
 
             // loading the possible Tenant Status's :
             cboTenantStatus.Items.Add("Active - 'A' ");
@@ -96,6 +105,7 @@ namespace PropertyRentalSystem
             // On CLick Validate Add Tenant Details.
             // Very similar to add Tenant however there is no Eircode.
 
+            // checks name fields
             // checks name fields
             //check first name.
             if (txtFirstName.Text.Equals(""))
@@ -110,6 +120,14 @@ namespace PropertyRentalSystem
                 txtFirstName.Focus();
                 return;
             }
+            bool isFirstName = validationFunctions.validTextString(txtFirstName.Text);
+            if (!isFirstName)
+            {
+                MessageBox.Show("First Name can only be normal english characthers and not jsut numbers", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Focus();
+                return;
+            }
+
             // checks last name.
             if (txtLastName.Text.Equals(""))
             {
@@ -120,6 +138,13 @@ namespace PropertyRentalSystem
             if (txtLastName.Text.Length > 30)
             {
                 MessageBox.Show("Last Name Can only have 30 characthers max", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Focus();
+                return;
+            }
+            bool isLastName = validationFunctions.validTextString(txtLastName.Text);
+            if (!isLastName)
+            {
+                MessageBox.Show("Last Name can only be normal english characthers and not jsut numbers", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtFirstName.Focus();
                 return;
             }
@@ -184,9 +209,9 @@ namespace PropertyRentalSystem
 
             //instantiate the object variables
             theTenant.setTenantID(Convert.ToInt32(txtTenantID.Text));
-            theTenant.setFirstName(validationFunctions.SQLApostrophe(txtFirstName.Text));
-            theTenant.setLastName(validationFunctions.SQLApostrophe(txtLastName.Text));
-            theTenant.setPhoneNumber(Convert.ToInt32(txtPhoneNumber.Text));
+            theTenant.setFirstName(validationFunctions.SQLApostrophe(txtFirstName.Text.ToUpper()));
+            theTenant.setLastName(validationFunctions.SQLApostrophe(txtLastName.Text.ToUpper()));
+            theTenant.setPhoneNumber(Convert.ToInt64(txtPhoneNumber.Text));
             theTenant.setEmail(txtEmailAddress.Text);
             // setting eircode to uper case chars, removes inconsistency.
             theTenant.setIban(txtTenantIban.Text);
@@ -210,11 +235,29 @@ namespace PropertyRentalSystem
             // Hide Update Details again.
             grpTenant.Visible = false;
             grdTenants.Visible = false;
+            lblTenants.Visible = false;
+
+
+            btnHome1.Visible = true;
 
             //Reset focus to Search field.
             txtSurnameSRH.Focus();
         }
 
-        
+        private void btnHome1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtSurnameSRH_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                this.btnSearch_Click_1(sender, e);
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

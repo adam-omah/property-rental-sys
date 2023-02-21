@@ -88,6 +88,21 @@ namespace PropertyRentalSystem
                 return;
             }
 
+            if (txtPropertyTypeDescription.Text.Length > 200)
+            {
+                MessageBox.Show("Property Type Description Must less than 200 characthers", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPropertyTypeDescription.Focus();
+                return;
+            }
+
+            bool isValidDescript = validationFunctions.validTextString(txtPropertyTypeDescription.Text);
+            if (!isValidDescript)
+            {
+                MessageBox.Show("Type Description can only be normal english characthers and not jsut numbers", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPropertyTypeDescription.Focus();
+                return;
+            }
+
 
 
             // Update Data in Data Store once validated.

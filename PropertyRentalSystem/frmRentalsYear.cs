@@ -29,7 +29,7 @@ namespace PropertyRentalSystem
 
             // Centre on screen
             this.CenterToScreen();
-            this.Top += 100;
+            this.Top += 60;
 
             chtRentalsInYear.Visible = false;
 
@@ -142,5 +142,9 @@ namespace PropertyRentalSystem
 
         }
 
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

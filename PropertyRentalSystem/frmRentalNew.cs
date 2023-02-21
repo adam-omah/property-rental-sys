@@ -38,10 +38,15 @@ namespace PropertyRentalSystem
             btnCreateRental.Visible = false;
             btnHome.Visible = false;
             grdTenants.Visible = false;
+            lblTenants.Visible = false;
             lblRentals.Visible = false;
+
+            btnHome1.Visible = true;
 
             grdProperties.DataSource = null;
             grdProperties.Rows.Clear();
+
+
 
             // moved validation of numbers to a public helper class to make it more gloabl.
             bool isValidTown = validationFunctions.validTextString(txtTownSRH.Text);
@@ -82,6 +87,7 @@ namespace PropertyRentalSystem
                 {
                     grdProperties.Visible = true;
                     lblRentals.Visible = true;
+                    btnHome1.Visible = false;
                 }
             }
         }
@@ -94,7 +100,7 @@ namespace PropertyRentalSystem
             //Date Validation. moved to validation functions for re-use in update rental.
 
             // Start Date
-            bool isValidStart= validationFunctions.validStartDate(dtpStartDate.Value.Date);
+            bool isValidStart = validationFunctions.validStartDate(dtpStartDate.Value.Date);
 
             if (!isValidStart)
             {
@@ -130,7 +136,7 @@ namespace PropertyRentalSystem
             endDateFormat = String.Format("{0:dd-MMM-yy}", dtpEndDate.Value);
 
             // Instantiate the Rental.
-            Rental theRental = new Rental(startDateFormat, Convert.ToInt32(theOwner.getOwnerID()),endDateFormat,"A",theProperty.getEircode());
+            Rental theRental = new Rental(startDateFormat, Convert.ToInt32(theOwner.getOwnerID()), endDateFormat, "A", theProperty.getEircode());
 
             theRental.addRental();
 
@@ -177,22 +183,31 @@ namespace PropertyRentalSystem
 
             txtSurnameSRH.Clear();
             grdTenants.Visible = false;
-
-            grdTenants.DataSource = null;
-            grdTenants.Rows.Clear();
-
-            grdTenantsAdded.DataSource = null;
-            grdTenantsAdded.Rows.Clear();
+            lblTenants.Visible = true;
+            ResetGrids();
 
             grpPropertyDetails.Visible = false;
             grpRentalDetails.Visible = false;
             grpTenants.Visible = false;
             btnCreateRental.Visible = false;
             btnHome.Visible = false;
+            btnHome1.Visible = true;
 
             cboPropertyType.SelectedIndex = 0;
 
             txtTownSRH.Focus();
+        }
+
+        private void ResetGrids()
+        {
+            grdTenants.DataSource = null;
+            grdTenants.Rows.Clear();
+
+            grdTenantsAdded.DataSource = null;
+            grdTenantsAdded.Rows.Clear();
+
+            grdProperties.DataSource = null;
+            grdProperties.Rows.Clear();
         }
 
         private void btnSRHTenants_Click(object sender, EventArgs e)
@@ -218,7 +233,7 @@ namespace PropertyRentalSystem
             }
 
             grdTenants.Visible = true;
-           
+            lblTenants.Visible = true;
 
         }
 
@@ -319,8 +334,9 @@ namespace PropertyRentalSystem
         {
             // Centre on screen
             this.CenterToScreen();
-            // moves up 300 units so that its expansion is allowed for.
-            this.Top -= 300;
+            // moves up 150 units so that its expansion is allowed for.
+            this.Top -= 150;
+            this.Left -= 100;
 
             // At start set time date time to now and future time to 12 months ahead.
             dtpStartDate.Value = DateTime.Now;
@@ -353,8 +369,9 @@ namespace PropertyRentalSystem
 
             // set search by type to none.
             cboPropertyType.SelectedIndex = 0;
-            txtTownSRH.Focus();
 
+
+            txtTownSRH.Focus();
         }
 
         private void grdProperties_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -373,6 +390,7 @@ namespace PropertyRentalSystem
                 grpTenants.Visible = true;
                 btnCreateRental.Visible = true;
                 btnHome.Visible = true;
+                btnHome1.Visible = false;
 
                 //hide properties grd
                 grdProperties.Visible = false;
@@ -385,6 +403,9 @@ namespace PropertyRentalSystem
                 theOwner.getOwner(theProperty.getOwnerID());
                 // Set the Owners Name into text box.
                 txtPropertyOwner.Text = theOwner.getFirstName() + " " + theOwner.getSurname();
+
+                dtpStartDate.Focus();
+
             }
             else {
                 MessageBox.Show("The Property Selected is not available to rent, Please select another property", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -396,6 +417,23 @@ namespace PropertyRentalSystem
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnHome1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtTownSRH_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                this.btnSRHEircode_Click(sender, e);
+        }
+
+        private void txtSurnameSRH_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                this.btnSRHTenants_Click(sender, e);
         }
     }
 }

@@ -36,6 +36,14 @@ namespace PropertyRentalSystem
                 txtFirstName.Focus();
                 return;
             }
+            bool isFirstName = validationFunctions.validTextString(txtFirstName.Text);
+            if (!isFirstName)
+            {
+                MessageBox.Show("First Name can only be normal english characthers and not jsut numbers", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Focus();
+                return;
+            }
+
             // checks last name.
             if (txtLastName.Text.Equals(""))
             {
@@ -49,6 +57,14 @@ namespace PropertyRentalSystem
                 txtFirstName.Focus();
                 return;
             }
+            bool isLastName = validationFunctions.validTextString(txtLastName.Text);
+            if (!isLastName)
+            {
+                MessageBox.Show("Last Name can only be normal english characthers and not jsut numbers", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Focus();
+                return;
+            }
+
             //checks valid phone number:
 
             if (txtPhoneNumber.Text.Equals(""))
@@ -108,7 +124,7 @@ namespace PropertyRentalSystem
 
             // Save to Data Store once validated.
             // Set Tenant Status to 'A' for active, Tenant ID is assigned in Tenants.cs
-            Tenant aTenant = new Tenant(validationFunctions.SQLApostrophe(txtFirstName.Text), validationFunctions.SQLApostrophe(txtLastName.Text), Convert.ToInt32(txtPhoneNumber.Text),
+            Tenant aTenant = new Tenant(validationFunctions.SQLApostrophe(txtFirstName.Text), validationFunctions.SQLApostrophe(txtLastName.Text), Convert.ToInt64(txtPhoneNumber.Text),
                 txtEmailAddress.Text, txtTenantIban.Text, "A");
 
             //invoke the method to add the data to the Products table
@@ -127,6 +143,16 @@ namespace PropertyRentalSystem
             //Reset focus to first name.
             txtFirstName.Focus();
 
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmTenantAdd_Load(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
         }
     }
 }

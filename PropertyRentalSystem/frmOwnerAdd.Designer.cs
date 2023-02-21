@@ -62,9 +62,10 @@ namespace PropertyRentalSystem
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(387, 290);
+            this.groupBox1.Size = new System.Drawing.Size(387, 259);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Owner Details";
@@ -72,7 +73,7 @@ namespace PropertyRentalSystem
             // txtOwnerIban
             // 
             this.txtOwnerIban.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOwnerIban.Location = new System.Drawing.Point(109, 238);
+            this.txtOwnerIban.Location = new System.Drawing.Point(109, 214);
             this.txtOwnerIban.MaxLength = 34;
             this.txtOwnerIban.Name = "txtOwnerIban";
             this.txtOwnerIban.Size = new System.Drawing.Size(272, 27);
@@ -82,7 +83,7 @@ namespace PropertyRentalSystem
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 238);
+            this.label6.Location = new System.Drawing.Point(6, 214);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 20);
             this.label6.TabIndex = 11;
@@ -91,7 +92,7 @@ namespace PropertyRentalSystem
             // txtHomeEircode
             // 
             this.txtHomeEircode.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHomeEircode.Location = new System.Drawing.Point(165, 195);
+            this.txtHomeEircode.Location = new System.Drawing.Point(166, 181);
             this.txtHomeEircode.MaxLength = 7;
             this.txtHomeEircode.Name = "txtHomeEircode";
             this.txtHomeEircode.Size = new System.Drawing.Size(122, 27);
@@ -100,7 +101,7 @@ namespace PropertyRentalSystem
             // txtEmailAddress
             // 
             this.txtEmailAddress.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmailAddress.Location = new System.Drawing.Point(165, 164);
+            this.txtEmailAddress.Location = new System.Drawing.Point(166, 148);
             this.txtEmailAddress.MaxLength = 100;
             this.txtEmailAddress.Name = "txtEmailAddress";
             this.txtEmailAddress.Size = new System.Drawing.Size(215, 27);
@@ -109,7 +110,7 @@ namespace PropertyRentalSystem
             // txtPhoneNumber
             // 
             this.txtPhoneNumber.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhoneNumber.Location = new System.Drawing.Point(192, 120);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(192, 115);
             this.txtPhoneNumber.MaxLength = 10;
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(189, 27);
@@ -118,7 +119,7 @@ namespace PropertyRentalSystem
             // txtLastName
             // 
             this.txtLastName.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLastName.Location = new System.Drawing.Point(146, 80);
+            this.txtLastName.Location = new System.Drawing.Point(146, 82);
             this.txtLastName.MaxLength = 80;
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(235, 27);
@@ -127,7 +128,7 @@ namespace PropertyRentalSystem
             // txtFirstName
             // 
             this.txtFirstName.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstName.Location = new System.Drawing.Point(146, 39);
+            this.txtFirstName.Location = new System.Drawing.Point(146, 49);
             this.txtFirstName.MaxLength = 60;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(235, 27);
@@ -137,7 +138,7 @@ namespace PropertyRentalSystem
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 198);
+            this.label5.Location = new System.Drawing.Point(7, 184);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(125, 20);
             this.label5.TabIndex = 5;
@@ -147,7 +148,7 @@ namespace PropertyRentalSystem
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 163);
+            this.label4.Location = new System.Drawing.Point(7, 147);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(124, 20);
             this.label4.TabIndex = 4;
@@ -157,7 +158,7 @@ namespace PropertyRentalSystem
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 123);
+            this.label3.Location = new System.Drawing.Point(6, 118);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(166, 20);
             this.label3.TabIndex = 3;
@@ -167,7 +168,7 @@ namespace PropertyRentalSystem
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 83);
+            this.label2.Location = new System.Drawing.Point(6, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 20);
             this.label2.TabIndex = 2;
@@ -177,7 +178,7 @@ namespace PropertyRentalSystem
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 42);
+            this.label1.Location = new System.Drawing.Point(6, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 20);
             this.label1.TabIndex = 1;
@@ -186,7 +187,7 @@ namespace PropertyRentalSystem
             // btnAddOwner
             // 
             this.btnAddOwner.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddOwner.Location = new System.Drawing.Point(12, 301);
+            this.btnAddOwner.Location = new System.Drawing.Point(12, 280);
             this.btnAddOwner.Name = "btnAddOwner";
             this.btnAddOwner.Size = new System.Drawing.Size(220, 36);
             this.btnAddOwner.TabIndex = 1;
@@ -198,9 +199,10 @@ namespace PropertyRentalSystem
             // btnHome
             // 
             this.btnHome.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHome.Location = new System.Drawing.Point(238, 301);
+            this.btnHome.Location = new System.Drawing.Point(238, 280);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(15);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(159, 36);
+            this.btnHome.Size = new System.Drawing.Size(161, 36);
             this.btnHome.TabIndex = 6;
             this.btnHome.Text = "Back To Home";
             this.btnHome.UseVisualStyleBackColor = true;
@@ -211,7 +213,7 @@ namespace PropertyRentalSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 349);
+            this.ClientSize = new System.Drawing.Size(409, 327);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnAddOwner);
             this.Controls.Add(this.groupBox1);

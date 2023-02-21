@@ -61,6 +61,7 @@ namespace PropertyRentalSystem
             // 
             this.btnEircodeSRH.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEircodeSRH.Location = new System.Drawing.Point(379, 24);
+            this.btnEircodeSRH.Margin = new System.Windows.Forms.Padding(15);
             this.btnEircodeSRH.Name = "btnEircodeSRH";
             this.btnEircodeSRH.Size = new System.Drawing.Size(75, 27);
             this.btnEircodeSRH.TabIndex = 49;
@@ -98,6 +99,7 @@ namespace PropertyRentalSystem
             this.grpPayerDetails.Controls.Add(this.label1);
             this.grpPayerDetails.Controls.Add(this.txtEircode);
             this.grpPayerDetails.Controls.Add(this.label13);
+            this.grpPayerDetails.Font = new System.Drawing.Font("Leelawadee", 10F);
             this.grpPayerDetails.Location = new System.Drawing.Point(30, 74);
             this.grpPayerDetails.Name = "grpPayerDetails";
             this.grpPayerDetails.Size = new System.Drawing.Size(488, 140);
@@ -188,6 +190,7 @@ namespace PropertyRentalSystem
             this.grpPaymentDetails.Controls.Add(this.label2);
             this.grpPaymentDetails.Controls.Add(this.label5);
             this.grpPaymentDetails.Controls.Add(this.dtpPaymentDate);
+            this.grpPaymentDetails.Font = new System.Drawing.Font("Leelawadee", 10F);
             this.grpPaymentDetails.Location = new System.Drawing.Point(30, 220);
             this.grpPaymentDetails.Name = "grpPaymentDetails";
             this.grpPaymentDetails.Size = new System.Drawing.Size(487, 117);

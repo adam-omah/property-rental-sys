@@ -48,7 +48,9 @@ namespace PropertyRentalSystem
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtPropertyTypeCode);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Leelawadee", 10F);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(15);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(463, 223);
             this.groupBox1.TabIndex = 0;

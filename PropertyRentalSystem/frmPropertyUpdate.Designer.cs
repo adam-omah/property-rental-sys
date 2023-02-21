@@ -92,11 +92,12 @@ namespace PropertyRentalSystem
             this.grdOwners.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdOwners.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdOwners.Location = new System.Drawing.Point(30, 80);
+            this.grdOwners.Margin = new System.Windows.Forms.Padding(15);
             this.grdOwners.Name = "grdOwners";
             this.grdOwners.RowHeadersWidth = 51;
             this.grdOwners.RowTemplate.Height = 24;
             this.grdOwners.Size = new System.Drawing.Size(554, 210);
-            this.grdOwners.TabIndex = 26;
+            this.grdOwners.TabIndex = 24;
             this.grdOwners.Visible = false;
             this.grdOwners.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdOwners_CellClick);
             // 
@@ -106,7 +107,8 @@ namespace PropertyRentalSystem
             this.txtSurnameSRH.Location = new System.Drawing.Point(222, 87);
             this.txtSurnameSRH.Name = "txtSurnameSRH";
             this.txtSurnameSRH.Size = new System.Drawing.Size(201, 27);
-            this.txtSurnameSRH.TabIndex = 24;
+            this.txtSurnameSRH.TabIndex = 4;
+            this.txtSurnameSRH.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSurnameSRH_KeyDown);
             // 
             // btnSurnameSRH
             // 
@@ -114,7 +116,7 @@ namespace PropertyRentalSystem
             this.btnSurnameSRH.Location = new System.Drawing.Point(429, 87);
             this.btnSurnameSRH.Name = "btnSurnameSRH";
             this.btnSurnameSRH.Size = new System.Drawing.Size(75, 27);
-            this.btnSurnameSRH.TabIndex = 25;
+            this.btnSurnameSRH.TabIndex = 5;
             this.btnSurnameSRH.Text = "Search Surname";
             this.btnSurnameSRH.UseVisualStyleBackColor = true;
             this.btnSurnameSRH.Click += new System.EventHandler(this.btnSurnameSRH_Click);
@@ -125,7 +127,7 @@ namespace PropertyRentalSystem
             this.btnUpdateProperty.Location = new System.Drawing.Point(24, 732);
             this.btnUpdateProperty.Name = "btnUpdateProperty";
             this.btnUpdateProperty.Size = new System.Drawing.Size(381, 36);
-            this.btnUpdateProperty.TabIndex = 29;
+            this.btnUpdateProperty.TabIndex = 22;
             this.btnUpdateProperty.Text = "Update Property";
             this.btnUpdateProperty.UseVisualStyleBackColor = true;
             this.btnUpdateProperty.Visible = false;
@@ -151,6 +153,7 @@ namespace PropertyRentalSystem
             this.grpPropertyExtras.Controls.Add(this.label9);
             this.grpPropertyExtras.Controls.Add(this.label8);
             this.grpPropertyExtras.Controls.Add(this.label7);
+            this.grpPropertyExtras.Font = new System.Drawing.Font("Leelawadee", 10F);
             this.grpPropertyExtras.Location = new System.Drawing.Point(24, 513);
             this.grpPropertyExtras.Name = "grpPropertyExtras";
             this.grpPropertyExtras.Size = new System.Drawing.Size(560, 213);
@@ -168,7 +171,7 @@ namespace PropertyRentalSystem
             this.cboPropStatus.Location = new System.Drawing.Point(219, 171);
             this.cboPropStatus.Name = "cboPropStatus";
             this.cboPropStatus.Size = new System.Drawing.Size(136, 28);
-            this.cboPropStatus.TabIndex = 23;
+            this.cboPropStatus.TabIndex = 21;
             // 
             // label15
             // 
@@ -190,7 +193,7 @@ namespace PropertyRentalSystem
             this.cboHeatingSource.Name = "cboHeatingSource";
             this.cboHeatingSource.Size = new System.Drawing.Size(182, 28);
             this.cboHeatingSource.Sorted = true;
-            this.cboHeatingSource.TabIndex = 17;
+            this.cboHeatingSource.TabIndex = 16;
             // 
             // chkOwnerOccupied
             // 
@@ -200,7 +203,7 @@ namespace PropertyRentalSystem
             this.chkOwnerOccupied.Location = new System.Drawing.Point(383, 126);
             this.chkOwnerOccupied.Name = "chkOwnerOccupied";
             this.chkOwnerOccupied.Size = new System.Drawing.Size(162, 24);
-            this.chkOwnerOccupied.TabIndex = 21;
+            this.chkOwnerOccupied.TabIndex = 20;
             this.chkOwnerOccupied.Text = "Owner Occupied:";
             this.chkOwnerOccupied.UseVisualStyleBackColor = true;
             // 
@@ -212,7 +215,7 @@ namespace PropertyRentalSystem
             this.chkPetsAllowed.Location = new System.Drawing.Point(232, 126);
             this.chkPetsAllowed.Name = "chkPetsAllowed";
             this.chkPetsAllowed.Size = new System.Drawing.Size(132, 24);
-            this.chkPetsAllowed.TabIndex = 20;
+            this.chkPetsAllowed.TabIndex = 19;
             this.chkPetsAllowed.Text = "Pets Allowed:";
             this.chkPetsAllowed.UseVisualStyleBackColor = true;
             // 
@@ -224,7 +227,7 @@ namespace PropertyRentalSystem
             this.chkHasWifi.Location = new System.Drawing.Point(410, 96);
             this.chkHasWifi.Name = "chkHasWifi";
             this.chkHasWifi.Size = new System.Drawing.Size(135, 24);
-            this.chkHasWifi.TabIndex = 19;
+            this.chkHasWifi.TabIndex = 18;
             this.chkHasWifi.Text = "Wifi Included:";
             this.chkHasWifi.UseVisualStyleBackColor = true;
             // 
@@ -246,7 +249,7 @@ namespace PropertyRentalSystem
             this.chkGardenSpace.Location = new System.Drawing.Point(223, 96);
             this.chkGardenSpace.Name = "chkGardenSpace";
             this.chkGardenSpace.Size = new System.Drawing.Size(141, 24);
-            this.chkGardenSpace.TabIndex = 18;
+            this.chkGardenSpace.TabIndex = 17;
             this.chkGardenSpace.Text = "Garden Space:";
             this.chkGardenSpace.UseVisualStyleBackColor = true;
             // 
@@ -261,7 +264,7 @@ namespace PropertyRentalSystem
             0});
             this.numParkingSpaces.Name = "numParkingSpaces";
             this.numParkingSpaces.Size = new System.Drawing.Size(57, 27);
-            this.numParkingSpaces.TabIndex = 16;
+            this.numParkingSpaces.TabIndex = 15;
             // 
             // label12
             // 
@@ -284,7 +287,7 @@ namespace PropertyRentalSystem
             0});
             this.numTotalBathrooms.Name = "numTotalBathrooms";
             this.numTotalBathrooms.Size = new System.Drawing.Size(57, 27);
-            this.numTotalBathrooms.TabIndex = 14;
+            this.numTotalBathrooms.TabIndex = 13;
             // 
             // numEnsuiteBedrooms
             // 
@@ -297,7 +300,7 @@ namespace PropertyRentalSystem
             0});
             this.numEnsuiteBedrooms.Name = "numEnsuiteBedrooms";
             this.numEnsuiteBedrooms.Size = new System.Drawing.Size(57, 27);
-            this.numEnsuiteBedrooms.TabIndex = 15;
+            this.numEnsuiteBedrooms.TabIndex = 14;
             // 
             // numTotalBedrooms
             // 
@@ -310,7 +313,7 @@ namespace PropertyRentalSystem
             0});
             this.numTotalBedrooms.Name = "numTotalBedrooms";
             this.numTotalBedrooms.Size = new System.Drawing.Size(57, 27);
-            this.numTotalBedrooms.TabIndex = 13;
+            this.numTotalBedrooms.TabIndex = 12;
             // 
             // numTotalRooms
             // 
@@ -323,7 +326,7 @@ namespace PropertyRentalSystem
             0});
             this.numTotalRooms.Name = "numTotalRooms";
             this.numTotalRooms.Size = new System.Drawing.Size(57, 27);
-            this.numTotalRooms.TabIndex = 12;
+            this.numTotalRooms.TabIndex = 11;
             // 
             // label10
             // 
@@ -394,6 +397,7 @@ namespace PropertyRentalSystem
             this.grpPropertyDetails.Controls.Add(this.label5);
             this.grpPropertyDetails.Controls.Add(this.cboPropertyType);
             this.grpPropertyDetails.Controls.Add(this.label2);
+            this.grpPropertyDetails.Font = new System.Drawing.Font("Leelawadee", 10F);
             this.grpPropertyDetails.Location = new System.Drawing.Point(48, 80);
             this.grpPropertyDetails.Name = "grpPropertyDetails";
             this.grpPropertyDetails.Size = new System.Drawing.Size(521, 427);
@@ -409,7 +413,7 @@ namespace PropertyRentalSystem
             this.txtAddress.MaxLength = 100;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(290, 27);
-            this.txtAddress.TabIndex = 31;
+            this.txtAddress.TabIndex = 8;
             // 
             // label3
             // 
@@ -428,7 +432,7 @@ namespace PropertyRentalSystem
             this.txtTown.MaxLength = 50;
             this.txtTown.Name = "txtTown";
             this.txtTown.Size = new System.Drawing.Size(290, 27);
-            this.txtTown.TabIndex = 29;
+            this.txtTown.TabIndex = 7;
             // 
             // label16
             // 
@@ -458,6 +462,7 @@ namespace PropertyRentalSystem
             this.txtOwnerId.ReadOnly = true;
             this.txtOwnerId.Size = new System.Drawing.Size(201, 27);
             this.txtOwnerId.TabIndex = 26;
+            this.txtOwnerId.TabStop = false;
             // 
             // txtPropertyOwner
             // 
@@ -467,6 +472,7 @@ namespace PropertyRentalSystem
             this.txtPropertyOwner.ReadOnly = true;
             this.txtPropertyOwner.Size = new System.Drawing.Size(309, 27);
             this.txtPropertyOwner.TabIndex = 5;
+            this.txtPropertyOwner.TabStop = false;
             // 
             // label13
             // 
@@ -554,16 +560,17 @@ namespace PropertyRentalSystem
             this.txtEircode.MaxLength = 7;
             this.txtEircode.Name = "txtEircode";
             this.txtEircode.Size = new System.Drawing.Size(188, 27);
-            this.txtEircode.TabIndex = 33;
+            this.txtEircode.TabIndex = 1;
             this.txtEircode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEircode_KeyDown);
             // 
             // btnSearchEircode
             // 
             this.btnSearchEircode.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchEircode.Location = new System.Drawing.Point(450, 20);
+            this.btnSearchEircode.Margin = new System.Windows.Forms.Padding(15);
             this.btnSearchEircode.Name = "btnSearchEircode";
             this.btnSearchEircode.Size = new System.Drawing.Size(75, 27);
-            this.btnSearchEircode.TabIndex = 26;
+            this.btnSearchEircode.TabIndex = 2;
             this.btnSearchEircode.Text = "Search Surname";
             this.btnSearchEircode.UseVisualStyleBackColor = true;
             this.btnSearchEircode.Click += new System.EventHandler(this.btnSearchEircode_Click);
@@ -572,9 +579,10 @@ namespace PropertyRentalSystem
             // 
             this.btnHome.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.Location = new System.Drawing.Point(411, 732);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(15);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(173, 36);
-            this.btnHome.TabIndex = 34;
+            this.btnHome.TabIndex = 23;
             this.btnHome.Text = "Back To Home";
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Visible = false;
@@ -595,9 +603,10 @@ namespace PropertyRentalSystem
             // 
             this.btnHome1.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome1.Location = new System.Drawing.Point(253, 49);
+            this.btnHome1.Margin = new System.Windows.Forms.Padding(15);
             this.btnHome1.Name = "btnHome1";
             this.btnHome1.Size = new System.Drawing.Size(189, 36);
-            this.btnHome1.TabIndex = 36;
+            this.btnHome1.TabIndex = 3;
             this.btnHome1.Text = "Back To Home";
             this.btnHome1.UseVisualStyleBackColor = true;
             this.btnHome1.Click += new System.EventHandler(this.btnHome1_Click);

@@ -47,7 +47,9 @@ namespace PropertyRentalSystem
             this.grpUpdateType.Controls.Add(this.btnUpdatePropType);
             this.grpUpdateType.Controls.Add(this.txtPropertyTypeDescription);
             this.grpUpdateType.Controls.Add(this.label2);
+            this.grpUpdateType.Font = new System.Drawing.Font("Leelawadee", 10F);
             this.grpUpdateType.Location = new System.Drawing.Point(16, 109);
+            this.grpUpdateType.Margin = new System.Windows.Forms.Padding(15);
             this.grpUpdateType.Name = "grpUpdateType";
             this.grpUpdateType.Size = new System.Drawing.Size(463, 180);
             this.grpUpdateType.TabIndex = 1;
@@ -121,6 +123,7 @@ namespace PropertyRentalSystem
             // 
             this.btnHome1.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome1.Location = new System.Drawing.Point(156, 100);
+            this.btnHome1.Margin = new System.Windows.Forms.Padding(15);
             this.btnHome1.Name = "btnHome1";
             this.btnHome1.Size = new System.Drawing.Size(180, 40);
             this.btnHome1.TabIndex = 8;

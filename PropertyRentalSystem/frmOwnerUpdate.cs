@@ -93,8 +93,8 @@ namespace PropertyRentalSystem
         {
             // Centre on screen
             this.CenterToScreen();
-            // moves up 200 units so that its expansion is allowed for.
-            this.Top -= 200;
+            // moves up 150 units so that its expansion is allowed for.
+            this.Top -= 150;
 
             // loading the possible Owner Status's :
             cboOwnerStatus.Items.Add("Active - 'A' ");
@@ -113,10 +113,33 @@ namespace PropertyRentalSystem
                 txtFirstName.Focus();
                 return;
             }
-            if (txtLastName.Text.Equals(""))
+            if (txtFirstName.Text.Length > 25)
             {
-                MessageBox.Show("Last Name Must Be Entered", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtLastName.Focus();
+                MessageBox.Show("First Name Can only have 25 characthers max", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Focus();
+                return;
+            }
+
+            bool isFirstName = validationFunctions.validTextString(txtFirstName.Text);
+            if (!isFirstName)
+            {
+                MessageBox.Show("First Name Must not be only numbers", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Focus();
+                return;
+            }
+
+            // checks last name.
+            if (txtLastName.Text.Length > 30)
+            {
+                MessageBox.Show("Last Name Can only have 30 characthers max", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Focus();
+                return;
+            }
+            bool isLastName = validationFunctions.validTextString(txtLastName.Text);
+            if (!isLastName)
+            {
+                MessageBox.Show("Last Name Must not be only numbers", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Focus();
                 return;
             }
             //checks valid phone number:
@@ -198,8 +221,8 @@ namespace PropertyRentalSystem
             // Save to Data Store once validated.
             //Set the object variables
             theOwner.setOwnerID(Convert.ToInt32(txtOwnerID.Text));
-            theOwner.setFirstName(validationFunctions.SQLApostrophe(txtFirstName.Text));
-            theOwner.setSurname(validationFunctions.SQLApostrophe(txtLastName.Text));
+            theOwner.setFirstName(validationFunctions.SQLApostrophe(txtFirstName.Text.ToUpper()));
+            theOwner.setSurname(validationFunctions.SQLApostrophe(txtLastName.Text.ToUpper()));
             theOwner.setPhone(Convert.ToInt64(txtPhoneNumber.Text));
             theOwner.setEmail(txtEmailAddress.Text);
             // setting eircode to uper case chars, removes inconsistency.

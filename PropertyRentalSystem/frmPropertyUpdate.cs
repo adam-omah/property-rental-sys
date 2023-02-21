@@ -165,10 +165,24 @@ namespace PropertyRentalSystem
             }
 
 
+            // checking property description.
             // check if property Description is empty
+
             if (rtxPropertyDescription.Text.Equals(""))
             {
                 MessageBox.Show("Property Description must be entered", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                rtxPropertyDescription.Focus();
+                return;
+            }
+            if (rtxPropertyDescription.Text.Length >= 200)
+            {
+                MessageBox.Show("Property Descriptionis too long, Please keep below 200 chars.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                rtxPropertyDescription.Focus();
+                return;
+            }
+            if (rtxPropertyDescription.Text.Length <= 10)
+            {
+                MessageBox.Show("Property Descriptionis too short, Please enter at least 10 chars.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 rtxPropertyDescription.Focus();
                 return;
             }
@@ -482,6 +496,8 @@ namespace PropertyRentalSystem
                     btnUpdateProperty.Visible = true;
                     btnHome.Visible = true;
                     btnHome1.Visible = false;
+
+                    txtSurnameSRH.Focus();
                 }
             }
         }
@@ -551,6 +567,12 @@ namespace PropertyRentalSystem
         private void btnHome1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtSurnameSRH_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                this.btnSurnameSRH_Click(sender, e);
         }
     }
 }
