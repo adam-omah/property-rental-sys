@@ -14,6 +14,6 @@ namespace PropertyRentalSystem
         // public const String oradb = "Data Source = oracle/orcl; User Id = C##User1; Password = 123456;";
 
         // For use on home computer:
-        public const String oradb = "Data Source=localhost/orcl; User Id= aom2; Password= pass2;";
+        // public const String oradb = "Data Source=localhost/orcl; User Id= aom2; Password= pass2;";
     }
 }
