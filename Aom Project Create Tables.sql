@@ -51,7 +51,7 @@ CONSTRAINT pk_propertyType primary key (typeCode)
 
 CREATE TABLE heating_Sources(
 heatingID NUMBER (2),
-heatingName varchar2(40),
+heatingName varchar2(30),
 CONSTRAINT pk_heating PRIMARY KEY (heatingID)
 );
 

@@ -203,7 +203,7 @@ namespace PropertyRentalSystem
             // 
             this.txtPayAmount.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPayAmount.Location = new System.Drawing.Point(165, 35);
-            this.txtPayAmount.MaxLength = 9;
+            this.txtPayAmount.MaxLength = 11;
             this.txtPayAmount.Name = "txtPayAmount";
             this.txtPayAmount.Size = new System.Drawing.Size(150, 27);
             this.txtPayAmount.TabIndex = 26;

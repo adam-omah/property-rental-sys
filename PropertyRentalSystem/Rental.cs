@@ -86,7 +86,7 @@ namespace PropertyRentalSystem
             conn.Close();
         }
 
-        public void getRental(String eircode)
+        public void getActiveRental(String eircode)
         {
             //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oradb);

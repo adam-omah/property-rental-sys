@@ -62,6 +62,13 @@ namespace PropertyRentalSystem
                 txtPayAmount.Focus();
                 return;
             }
+            // check max of pay ammount allowed in data base.
+            if(Convert.ToDouble(txtPayAmount.Text) > 99999999.99)
+            {
+                MessageBox.Show("Invalid Payment Amount \nPayments cannot be greater than 99999999.99 . ", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPayAmount.Focus();
+                return;
+            }
 
 
             // check if the rental was instantiated

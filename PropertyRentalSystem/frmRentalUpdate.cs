@@ -83,7 +83,7 @@ namespace PropertyRentalSystem
                     if (theProperty.getStatus() == 'R')
                     {
                         // Find the Rental ID asscoiated with this rental.
-                        theRental.getRental(theProperty.getEircode());
+                        theRental.getActiveRental(theProperty.getEircode());
 
 
                         // If property is Rented and Rental ID is Active. Set Grps to visible.

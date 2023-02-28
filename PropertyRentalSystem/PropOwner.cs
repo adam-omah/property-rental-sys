@@ -180,29 +180,6 @@ namespace PropertyRentalSystem
             conn.Close();
         }
 
-        public static DataSet getAllOwners()
-        {
-            //Open a db connection
-            OracleConnection conn = new OracleConnection(DBConnect.oradb);
-
-            //Define the SQL query to be executed
-            String sqlQuery = "SELECT ownerID, firstName, surname, phoneNumber " +
-                "FROM owners ORDER BY surname";
-
-            //Execute the SQL query (OracleCommand)
-            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-
-            OracleDataAdapter da = new OracleDataAdapter(cmd);
-
-            DataSet ds = new DataSet();
-            da.Fill(ds, "owner");
-
-            //Close db connection
-            conn.Close();
-
-            return ds;
-        }
-
         //getters
         public int getOwnerID() { return this.ownerID; }
         public String getFirstName() { return this.firstName; }
@@ -236,14 +213,5 @@ namespace PropertyRentalSystem
 
         public void setStatus(String Status) { status = Status[0]; }
 
-
-        public override bool Equals(object obj)
-        {
-            return obj is PropOwner owner &&
-                   ownerID == owner.ownerID &&
-                   firstName == owner.firstName &&
-                   lastName == owner.lastName &&
-                   phoneNumber == owner.phoneNumber;
-        }
     }
 }

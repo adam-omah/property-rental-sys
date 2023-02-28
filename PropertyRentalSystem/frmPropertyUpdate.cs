@@ -296,7 +296,7 @@ namespace PropertyRentalSystem
             if(theProperty.getStatus() == 'R' && !cboPropStatus.Text.Substring(0, 1).Equals("R"))
             {
                 // find the rental that is accoicated to the property
-                theRental.getRental(theProperty.getEircode().ToUpper());
+                theRental.getActiveRental(theProperty.getEircode().ToUpper());
                 theRental.setStatus("I");
                 theRental.updateRental();
 
